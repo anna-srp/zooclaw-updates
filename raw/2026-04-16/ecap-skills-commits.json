@@ -1,0 +1,330 @@
+[
+  {
+    "sha": "583924205bb20f7464bed43c2fb5ae9a3aa1a41a",
+    "node_id": "C_kwDORcceptoAKDU4MzkyNDIwNWJiMjBmNzQ2NGJlZDQzYzJmYjVhZTlhM2FhMWE0MWE",
+    "commit": {
+      "author": {
+        "name": "allenz-srp",
+        "email": "allenz@srp.one",
+        "date": "2026-04-16T06:34:48Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-16T06:34:48Z"
+      },
+      "message": "feat: add VS Code devcontainer with openclaw-docker image (#148)\n\n* feat: add VS Code devcontainer with openclaw-docker image\n\nUse openclaw-docker as the dev environment so skill development\nmatches the production runtime. Mounts host ~/.claude, ~/.claude.json\nand ~/.config into the container for Claude Code and GCP auth.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* use 2026.3.13.38 image version\n\n---------\n\nCo-authored-by: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+      "tree": {
+        "sha": "8e91f9a552703f7313d9dfa6ce39405b22f19451",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/trees/8e91f9a552703f7313d9dfa6ce39405b22f19451"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/commits/583924205bb20f7464bed43c2fb5ae9a3aa1a41a",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4IMICRC1aQ7uu5UhlAAARhsQAFQTZlzVSLWNX6y8qLiaIXd1\nKTY6uF/9NqLGjPJdIFMLel+ZIBFVSU4pI2RIxTTNoF6FYvjn5WNPTRcIt6F2DI+a\n6MyaOpd58wf7494eK/ihVADVjsJMfhGHYD1wrp3dUHKxXlMvu1o/M4r98YBttfgV\nL8StRUxzF8Q21xyMzuE6gJdu40qTBwGX26vz4w0Pl42zz8bVWTmxBHpbGdGlAtJh\nB6QDMXD2MB6/9GYIirZj/JFRS1j9wOu10IgwEuMxtHdJY+3zGSpedL3foGDqaV1s\nM+ij63Lr6DHHvIlVMRpYfg5EE8oAjm/PBFT67XYBKIrBATgf1/DPDt7Z1SLwns0n\nJmEDB/G5jdAAyiLRbSNxwziyJOxKblmLyBjgbyee8FqBICUmACEEU2kRLAITDZAe\nQNGTbTQibI6j23HpkU61P5Ny3TPGr7yz8NiU43bm5K1H4fDlQ5UibJcUpKAmfq/L\nJJj0llTx5I9kF5ZVDjH/ZLfoLDvKRjzrNQEV8UMBg/+pEmyyqkZjPS0014uc+GPZ\n+Hq0PAfh5dEaE0zjj69z9+z/M3ND0cFYyHfoVPo140M1/6Y748gauqSqLJ0gw/zW\naPkDAi73Ug/wVafYdXemWwzqh3U84S944wmNWh4UDwHgWd44RnLxDVvxBEh0zQ50\nB8sexJ3JWVJiahjXZHzs\n=OVQt\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 8e91f9a552703f7313d9dfa6ce39405b22f19451\nparent fce74446bf0f48e2a7cb148916c1ffb35b3457f5\nauthor allenz-srp <allenz@srp.one> 1776321288 +0800\ncommitter GitHub <noreply@github.com> 1776321288 +0800\n\nfeat: add VS Code devcontainer with openclaw-docker image (#148)\n\n* feat: add VS Code devcontainer with openclaw-docker image\n\nUse openclaw-docker as the dev environment so skill development\nmatches the production runtime. Mounts host ~/.claude, ~/.claude.json\nand ~/.config into the container for Claude Code and GCP auth.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* use 2026.3.13.38 image version\n\n---------\n\nCo-authored-by: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+        "verified_at": "2026-04-16T06:34:49Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/583924205bb20f7464bed43c2fb5ae9a3aa1a41a",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/583924205bb20f7464bed43c2fb5ae9a3aa1a41a",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/583924205bb20f7464bed43c2fb5ae9a3aa1a41a/comments",
+    "author": {
+      "login": "allenz-srp",
+      "id": 176031227,
+      "node_id": "U_kgDOCn4F-w",
+      "avatar_url": "https://avatars.githubusercontent.com/u/176031227?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/allenz-srp",
+      "html_url": "https://github.com/allenz-srp",
+      "followers_url": "https://api.github.com/users/allenz-srp/followers",
+      "following_url": "https://api.github.com/users/allenz-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/allenz-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/allenz-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/allenz-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/allenz-srp/orgs",
+      "repos_url": "https://api.github.com/users/allenz-srp/repos",
+      "events_url": "https://api.github.com/users/allenz-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/allenz-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "fce74446bf0f48e2a7cb148916c1ffb35b3457f5",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/fce74446bf0f48e2a7cb148916c1ffb35b3457f5",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/fce74446bf0f48e2a7cb148916c1ffb35b3457f5"
+      }
+    ]
+  },
+  {
+    "sha": "fce74446bf0f48e2a7cb148916c1ffb35b3457f5",
+    "node_id": "C_kwDORcceptoAKGZjZTc0NDQ2YmYwZjQ4ZTJhN2NiMTQ4OTE2YzFmZmIzNWIzNDU3ZjU",
+    "commit": {
+      "author": {
+        "name": "felix-srp",
+        "email": "145632298+felix-srp@users.noreply.github.com",
+        "date": "2026-04-15T11:27:21Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-15T11:27:21Z"
+      },
+      "message": "fix(web-designer): move build/artifacts out of read-only skill directory (#152)\n\n* fix(web-designer): move build/artifacts out of read-only skill directory\n\nOn zooclaw the skill directory is mounted read-only. Redirect .build/\nto /tmp/openclaw/web-designer/.build/ (transient, matches other skills)\nand artifacts/ to $HOME/artifacts/ (workspace root, HTTP-accessible).\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix(web-designer): use pwd instead of $HOME for artifacts path\n\n$HOME may not equal the workspace directory. Use $(pwd) in bundle.sh\nso the agent controls the output location by cd-ing to the workspace\nbefore invoking the script. Update SKILL.md to use {workspace} notation.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix(web-designer): remove invalid {workspace} from bash code block\n\n{workspace} is an agent-level concept, not a shell variable. Rewrite\nthe build pipeline example as plain bash with a comment explaining\nthe cwd requirement.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix(web-designer): fix Phase 4 bundle invocation instruction\n\nRemove invalid cd+relative-path combo. The agent's default cwd is\nalready the workspace; just state the cwd requirement.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix(web-designer): bundle.sh takes explicit output-dir argument\n\nAvoids pwd/cwd ambiguity — the agent passes {workspace}/artifacts/<name>\ndirectly. Trim SKILL.md for token efficiency.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix(web-designer): fix stale bundle hint + remove dead SKILL_DIR\n\nUpdate init.sh \"Next steps\" to include required <output-dir> arg.\nRemove unused SKILL_DIR variable from bundle.sh.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: felix-srp <felix@serendipityone.com>\nCo-authored-by: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+      "tree": {
+        "sha": "f87a752750e07275a4599f24558b7578b24bb45d",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/trees/f87a752750e07275a4599f24558b7578b24bb45d"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/commits/fce74446bf0f48e2a7cb148916c1ffb35b3457f5",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp33YZCRC1aQ7uu5UhlAAAch4QACuA3g3U3ljdqmS35omh6zRm\nuiG1vB9uJGK37urFuTuwH/d3AsBqLJ3BxTrFQS/Cj3j3c9em0J+cLFmnTmkR7SqD\nw7qs+wSLwz0fmLFMfEq4v1kmp6Wr21rpexRICQ1UVm3A7WuqeMFRl/2MOcZxofCb\nvGryd6oUtgy0Yzsrb1K5CMfqTL7SeLPFsGqM6AiTyzFSpqe9RWYQKF2MOrpDzDwG\nONnaZf+cB54K3RoG5Lm1faeYx33qAAMgxCjBNk2rCGl+VSn/jiD/XOsQW2RQMfv9\nl2DpWNz3ZFouQI/KknMsZ97Aa8z1w8QBNdK+MsIUCp7UEW1RSAthzpXGYCFoE39+\n8/4XamBZXpMTgtX/V7gqsWcLIOqGg7KsKQgqMv4AFf8dJNBuXsc18DgAjRa3Zrci\n2sOKLyw2G9s2bHnWGDLK0jGwuXgksphJxNmUwLRGa5E3lwY/xewlCMR9TeuW6AnJ\n4iDrQKcpQe4BWC6H/4T0h3vpIFqxo4g1ajLeQyM1mPjmqCcUeUbOzKIQmc72h5+d\n+MXhzxKefajAiP0cKO3LmVAlL4vz5aGTQTbV2q6sW0xU0m8e9ivKBC7WaMubRJSm\nAMsoYaD3YfOxLSXXLUqwyH6Swj18M4D17ROOyV5zUEiANUuIf97v2b2gnCMBOlrX\nLKw7yLM7/7eBC4rGEabq\n=ICuG\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree f87a752750e07275a4599f24558b7578b24bb45d\nparent 68449c40771f8a5585b43d2e919ef1c8dfba792a\nauthor felix-srp <145632298+felix-srp@users.noreply.github.com> 1776252441 +0800\ncommitter GitHub <noreply@github.com> 1776252441 +0800\n\nfix(web-designer): move build/artifacts out of read-only skill directory (#152)\n\n* fix(web-designer): move build/artifacts out of read-only skill directory\n\nOn zooclaw the skill directory is mounted read-only. Redirect .build/\nto /tmp/openclaw/web-designer/.build/ (transient, matches other skills)\nand artifacts/ to $HOME/artifacts/ (workspace root, HTTP-accessible).\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix(web-designer): use pwd instead of $HOME for artifacts path\n\n$HOME may not equal the workspace directory. Use $(pwd) in bundle.sh\nso the agent controls the output location by cd-ing to the workspace\nbefore invoking the script. Update SKILL.md to use {workspace} notation.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix(web-designer): remove invalid {workspace} from bash code block\n\n{workspace} is an agent-level concept, not a shell variable. Rewrite\nthe build pipeline example as plain bash with a comment explaining\nthe cwd requirement.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix(web-designer): fix Phase 4 bundle invocation instruction\n\nRemove invalid cd+relative-path combo. The agent's default cwd is\nalready the workspace; just state the cwd requirement.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix(web-designer): bundle.sh takes explicit output-dir argument\n\nAvoids pwd/cwd ambiguity — the agent passes {workspace}/artifacts/<name>\ndirectly. Trim SKILL.md for token efficiency.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix(web-designer): fix stale bundle hint + remove dead SKILL_DIR\n\nUpdate init.sh \"Next steps\" to include required <output-dir> arg.\nRemove unused SKILL_DIR variable from bundle.sh.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: felix-srp <felix@serendipityone.com>\nCo-authored-by: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+        "verified_at": "2026-04-15T11:27:22Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/fce74446bf0f48e2a7cb148916c1ffb35b3457f5",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/fce74446bf0f48e2a7cb148916c1ffb35b3457f5",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/fce74446bf0f48e2a7cb148916c1ffb35b3457f5/comments",
+    "author": {
+      "login": "felix-srp",
+      "id": 145632298,
+      "node_id": "U_kgDOCK4sKg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/145632298?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/felix-srp",
+      "html_url": "https://github.com/felix-srp",
+      "followers_url": "https://api.github.com/users/felix-srp/followers",
+      "following_url": "https://api.github.com/users/felix-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/felix-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/felix-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/felix-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/felix-srp/orgs",
+      "repos_url": "https://api.github.com/users/felix-srp/repos",
+      "events_url": "https://api.github.com/users/felix-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/felix-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "68449c40771f8a5585b43d2e919ef1c8dfba792a",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/68449c40771f8a5585b43d2e919ef1c8dfba792a",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/68449c40771f8a5585b43d2e919ef1c8dfba792a"
+      }
+    ]
+  },
+  {
+    "sha": "68449c40771f8a5585b43d2e919ef1c8dfba792a",
+    "node_id": "C_kwDORcceptoAKDY4NDQ5YzQwNzcxZjhhNTU4NWI0M2QyZTkxOWVmMWM4ZGZiYTc5MmE",
+    "commit": {
+      "author": {
+        "name": "tim-srp",
+        "email": "tim@srp.one",
+        "date": "2026-04-15T09:08:18Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-15T09:08:18Z"
+      },
+      "message": "Remove skill-crafting from published skills whitelist (#151)\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+      "tree": {
+        "sha": "498a1772806e8b778d34026cccde54c2c3f58048",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/trees/498a1772806e8b778d34026cccde54c2c3f58048"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/commits/68449c40771f8a5585b43d2e919ef1c8dfba792a",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp31WCCRC1aQ7uu5UhlAAAGuoQALIHGZlHJcvenZsTnMkLjdJM\nlL7TFqaIn8oXGuVEyPSiM1GIG60onKF0WK2duiFy2zgayzZ9LdkCY+wdBJT3MRj7\nalTuRBqcpV5Op3qjngZp8b8voqxo0UU0eCbcPLjNoVaoszqZmB1Uxj6WVndjRsmW\nQOCWKs/wGTYQqLbNcwf9H/dl5BUnGT5RR1AxTjJgUXOyOlGOjQIsnnKuhkSXdfBY\nv2EZYyvGcdNmMXFTaO4EUyGaBW20fAZ6EQobDKjWO0lQyqN+jLQp/NjKhpIllHK+\nE8ANxI5MTKci7ogK7lWD8Jos/JwmI7ymmtYaPDceM4eEQmINKAjfq+DBYZrckSmM\nIVPeOcKeYjjY6nqPouYpiPZzSLuu13ykUjdjsYYKLMBltnT240m29uZLsvDXLks5\nJ27ebC9FGRz3m8KEvWE8g437gnkALSJpSg86XBtVqDdhh7PF6MwVZ/bZlebzhrRu\nkwR9UEEKqtr6wPXYNwUaI9PWleubDlJbKzcpFcV6DQqTziXM92P3njY+kElSXiC1\nfKLSP5rnIag1qKV1NUcJUlkqiSP03gKDSnC7TV78PH6NW4HiQhSCE5GVeSoYd/eZ\nclQnEOpW6T50lrn43tm5XsQG8hMyyZ+vv+ioaB1TCOxuxFIeQu8aUjd57y62PiVj\n5mkZOgLmuh+0koOVp6Uz\n=0FuX\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 498a1772806e8b778d34026cccde54c2c3f58048\nparent 88c50d4ca601ae1599f7e68370875e119dc42fc3\nauthor tim-srp <tim@srp.one> 1776244098 +0800\ncommitter GitHub <noreply@github.com> 1776244098 +0800\n\nRemove skill-crafting from published skills whitelist (#151)\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+        "verified_at": "2026-04-15T09:08:19Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/68449c40771f8a5585b43d2e919ef1c8dfba792a",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/68449c40771f8a5585b43d2e919ef1c8dfba792a",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/68449c40771f8a5585b43d2e919ef1c8dfba792a/comments",
+    "author": {
+      "login": "tim-srp",
+      "id": 178765090,
+      "node_id": "U_kgDOCqe9Ig",
+      "avatar_url": "https://avatars.githubusercontent.com/u/178765090?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/tim-srp",
+      "html_url": "https://github.com/tim-srp",
+      "followers_url": "https://api.github.com/users/tim-srp/followers",
+      "following_url": "https://api.github.com/users/tim-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/tim-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/tim-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/tim-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/tim-srp/orgs",
+      "repos_url": "https://api.github.com/users/tim-srp/repos",
+      "events_url": "https://api.github.com/users/tim-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/tim-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "88c50d4ca601ae1599f7e68370875e119dc42fc3",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/88c50d4ca601ae1599f7e68370875e119dc42fc3",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/88c50d4ca601ae1599f7e68370875e119dc42fc3"
+      }
+    ]
+  },
+  {
+    "sha": "88c50d4ca601ae1599f7e68370875e119dc42fc3",
+    "node_id": "C_kwDORcceptoAKDg4YzUwZDRjYTYwMWFlMTU5OWY3ZTY4MzcwODc1ZTExOWRjNDJmYzM",
+    "commit": {
+      "author": {
+        "name": "tim-srp",
+        "email": "tim@srp.one",
+        "date": "2026-04-15T06:54:43Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-15T06:54:43Z"
+      },
+      "message": "Add web-designer and skill-crafting to published skills whitelist (#150)\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+      "tree": {
+        "sha": "3b6ef56590e5e1b4691956919ba6f81bbcbeec37",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/trees/3b6ef56590e5e1b4691956919ba6f81bbcbeec37"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/commits/88c50d4ca601ae1599f7e68370875e119dc42fc3",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp3zYzCRC1aQ7uu5UhlAAA6VUQAGT1PAFOYfIsCrW3KKa4CZHV\n+vRle3EAOfZSaVno00jPBstuECbPTmf0ZusCy/OUu0maEiBhQ+tIrdI1ntgzosSY\no/lXVqhlCZ0phXAzLAots/tEmSv+fv1eYV5OzsBa7ULkLEWCCiiDWHohhDXSsdAi\ndsaGu9rKuak5RhoAcSvvKE4RvFg6uR/wCWOniR4L8L7L1cXeTKPi6YEBWr6pBY1H\nIE//sy/3P7u1GUlLJOk0MOjCy1aWh4mzrhAr/u4U+fYsJleNvsPZynP2Xe47fHeI\nz1LoBBjzNMfI6LdmysKVXv9zQqSBfninSw0FiaRzwLZH5DMNNgJTtwKvPqs89jcf\nvCZo0p8R0rDaCzLox3I4Ul6VEJhbbcToq/X9IzGqWNOBYyhZWnh6wEVHLLsyRfTM\noK5L0eHy9/jmhaMbobUtkVF43wH0wP9afgPYt6XwDE1naEzUoTs+oCFjir1JbPGK\ntTnlL1VzjT4x1sH9JDxsXfYTTeGt0VGVnu0fx4h82KSUGQjIBhwT7NdBt8yajrk7\nOYdmw5TlER9vsIipvVEFCM7f9sv8FF55vghu6ioL1BLvPn1+cv+MoiGu99OABm2O\nI75SsYRDkYSnuFRXWkKjLdEXdgVuOWMb2wmHJhUSAN+1df+ql7bLe/CFdxHdgLdx\npQbY6IZkfa8+amvqhXJp\n=HWsQ\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 3b6ef56590e5e1b4691956919ba6f81bbcbeec37\nparent ca2440d6fc65d141b807489bdb6cc34074a9c613\nauthor tim-srp <tim@srp.one> 1776236083 +0800\ncommitter GitHub <noreply@github.com> 1776236083 +0800\n\nAdd web-designer and skill-crafting to published skills whitelist (#150)\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+        "verified_at": "2026-04-15T06:54:43Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/88c50d4ca601ae1599f7e68370875e119dc42fc3",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/88c50d4ca601ae1599f7e68370875e119dc42fc3",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/88c50d4ca601ae1599f7e68370875e119dc42fc3/comments",
+    "author": {
+      "login": "tim-srp",
+      "id": 178765090,
+      "node_id": "U_kgDOCqe9Ig",
+      "avatar_url": "https://avatars.githubusercontent.com/u/178765090?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/tim-srp",
+      "html_url": "https://github.com/tim-srp",
+      "followers_url": "https://api.github.com/users/tim-srp/followers",
+      "following_url": "https://api.github.com/users/tim-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/tim-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/tim-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/tim-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/tim-srp/orgs",
+      "repos_url": "https://api.github.com/users/tim-srp/repos",
+      "events_url": "https://api.github.com/users/tim-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/tim-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ca2440d6fc65d141b807489bdb6cc34074a9c613",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/ca2440d6fc65d141b807489bdb6cc34074a9c613",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/ca2440d6fc65d141b807489bdb6cc34074a9c613"
+      }
+    ]
+  }
+]
