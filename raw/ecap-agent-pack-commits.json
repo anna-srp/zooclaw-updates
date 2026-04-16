@@ -1,0 +1,740 @@
+[
+  {
+    "sha": "ac399082c54faecaba307d7fe5299aac9e39ff85",
+    "node_id": "C_kwDORoMXtdoAKGFjMzk5MDgyYzU0ZmFlY2FiYTMwN2Q3ZmU1Mjk5YWFjOWUzOWZmODU",
+    "commit": {
+      "author": {
+        "name": "Nemo Feng",
+        "email": "nemo@srp.one",
+        "date": "2026-04-16T02:40:52Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-16T02:40:52Z"
+      },
+      "message": "fix(oura-ring-connector, podcast-pal): move config to ~/.config for persistence across claw restarts (#83)\n\nRelocate all runtime data paths from ~/.<pack-name>/ to ~/.config/<pack-name>/\nso that config, auth tokens, and cached data survive container restarts.\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+      "tree": {
+        "sha": "9c7f75d0ced3f6c8d88c5ac3193195c351989476",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/9c7f75d0ced3f6c8d88c5ac3193195c351989476"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/ac399082c54faecaba307d7fe5299aac9e39ff85",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4Ew0CRC1aQ7uu5UhlAAAEt8QAB3928tnGf4GAMA/Xofqkvlv\niQ4PFLlYLhvbxd/Ysp3ekb3DZ+sdwOHUlngxgObrdLajubLkzyAa5GVeYBi6hZ7l\ni+KNmQ7sXI9g1Rjm3Nj9JSW+EXe+zNnj0M1GQ9sH0yarnRsQ2fQ2tqI3yT6mPhPr\n9X853LdD5Lcq+XlCfs5LcC+oGDkahd8TAyzMzV0COFh9WVTKgCG1Qf1aoLmBH91+\nO8bo4CKQhUbkjT22FBZBQU3TM/o7Kev66f+OzSIaxuMjQQiHM3SEUnHT3Jd6+7qy\nEWXajBhJbWLV91i7xuZ7WGb+UC8PgSL3wGXPXY2j5csxEdQGatKzE8rz8rTFK7rK\no/LkLrj7d8WEyaVruF9xf/Rx2B5cpa53nWxz/ZbOqJsaLr2YARqK/ko+u8Tv/0uQ\nUxnKR6Z923FEGoBMPBJB6qoSN9LOdrrotmSSWgR7cTVyfLi2Dwzm4WszMXKzHsiF\nisHwrqNMbU08zH1oJBI+mnArgvYIjemnsASIaG557gHGPp7n5gA8S3dVJV79l6ga\nkX9fROh4t+kmvA/zvkxIND5eNtKPOzQhHy1TWjgc4L9ocaHM50Knl4YJ4Vu60cBH\n61ddpT7I0jer9GEgH8trylOgXcXFl1jKUDmIO7QzJMi0WeXTMGbwbkJbbNs+VqK4\nVBfdkUiAC7Jy9bJD8z0p\n=53Yb\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 9c7f75d0ced3f6c8d88c5ac3193195c351989476\nparent 8fec035842d7e8e57117855a739c22b5f7679be2\nauthor Nemo Feng <nemo@srp.one> 1776307252 -0700\ncommitter GitHub <noreply@github.com> 1776307252 +0800\n\nfix(oura-ring-connector, podcast-pal): move config to ~/.config for persistence across claw restarts (#83)\n\nRelocate all runtime data paths from ~/.<pack-name>/ to ~/.config/<pack-name>/\nso that config, auth tokens, and cached data survive container restarts.\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+        "verified_at": "2026-04-16T02:40:52Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/ac399082c54faecaba307d7fe5299aac9e39ff85",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/ac399082c54faecaba307d7fe5299aac9e39ff85",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/ac399082c54faecaba307d7fe5299aac9e39ff85/comments",
+    "author": {
+      "login": "nemo-srp",
+      "id": 259985051,
+      "node_id": "U_kgDOD38Omw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/259985051?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nemo-srp",
+      "html_url": "https://github.com/nemo-srp",
+      "followers_url": "https://api.github.com/users/nemo-srp/followers",
+      "following_url": "https://api.github.com/users/nemo-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nemo-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nemo-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nemo-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/nemo-srp/orgs",
+      "repos_url": "https://api.github.com/users/nemo-srp/repos",
+      "events_url": "https://api.github.com/users/nemo-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nemo-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8fec035842d7e8e57117855a739c22b5f7679be2",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/8fec035842d7e8e57117855a739c22b5f7679be2",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/8fec035842d7e8e57117855a739c22b5f7679be2"
+      }
+    ]
+  },
+  {
+    "sha": "8fec035842d7e8e57117855a739c22b5f7679be2",
+    "node_id": "C_kwDORoMXtdoAKDhmZWMwMzU4NDJkN2U4ZTU3MTE3ODU1YTczOWMyMmI1Zjc2NzliZTI",
+    "commit": {
+      "author": {
+        "name": "Leah-srp",
+        "email": "leah@srp.one",
+        "date": "2026-04-15T12:28:59Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-15T12:28:59Z"
+      },
+      "message": "chore(pptx-master): replace with pptx-master-0.1.0 release (#82)\n\nOverwrites the pptx-master agent pack with the contents of\npptx-master-0.1.0.tar.gz: retires the pptx_image skill bundle\nand introduces the new pack-onboarding skill, agent-pack.yaml,\ndescription.json, avatar.png, and HEARTBEAT.md.\n\nCo-authored-by: liiiixy <lixiaoye@XiaoyeMacBook-Pro.local>\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+      "tree": {
+        "sha": "a7adb366990657d052509883d88fdca23ab6c782",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/a7adb366990657d052509883d88fdca23ab6c782"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/8fec035842d7e8e57117855a739c22b5f7679be2",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp34SLCRC1aQ7uu5UhlAAAIFwQAFjCKMLRXP/TEBZ/zYzZF1+D\nNolog+uK8aBTmRPgEOd8SbYpAu6Gsw7FbTRCMI4rS5sLtXDVgH7WxPeGHbvDH4kA\nWR2GF2K6D+IL9wNRvjHjJx8wRei+Xgd8MoTIJ++VbfAMqC5FK1TzCAgNQy9H+ImR\nfZvrn8dkWdt5AQF5YzDUbTe7iwd7pSG7REyoVbFkj6qaNAH0Y92hpji29zxZUIo+\n5ydJrKxHvO0iGz+ETEFAx7U+HakoYEr+/nRxfiH5L8GiLhMGJEND2ToIeIsDpBjs\nYDQfeqfCnwGi6eQy6WjVSV2Uahw4Ye2k+weep9ySsHRe2gnGCOo1VjSuz43/dHeF\n/rdXYLi20RzY2EkKnVNF2tHit5CNQYzaoa0nf0O68yjj/gjDY9PEsu76FMA8l5wi\naC3xM5YgFj7PohE/7aRV5cCUmLccDXWRdMzKqm0TDZ8pve+j31h6S6KrRkU3K0Cw\nJFIgn5eo6iWd+BF5l9LEqgPHGl//KNVuxwD6tD6CPY+ruTAP0IsGN++0mKjionWn\n8JwsSo4WG+DyRwhq/KuoRo2x5ctba7D7qP9g8YZy0AiTI68hAW3lrTptUvXLjXvZ\neSYnh6QZ6wTcFduTCAj1pVu1SH8cCLXyPHE7/hE5F6Dpdx6S6bTubIA6Cb1pgNHQ\nyzuDs4uLEGf5FG5ekH4J\n=6wil\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree a7adb366990657d052509883d88fdca23ab6c782\nparent d04a81066de89b385b5aafdb708f3667d32b497e\nauthor Leah-srp <leah@srp.one> 1776256139 +0800\ncommitter GitHub <noreply@github.com> 1776256139 +0800\n\nchore(pptx-master): replace with pptx-master-0.1.0 release (#82)\n\nOverwrites the pptx-master agent pack with the contents of\npptx-master-0.1.0.tar.gz: retires the pptx_image skill bundle\nand introduces the new pack-onboarding skill, agent-pack.yaml,\ndescription.json, avatar.png, and HEARTBEAT.md.\n\nCo-authored-by: liiiixy <lixiaoye@XiaoyeMacBook-Pro.local>\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+        "verified_at": "2026-04-15T12:28:59Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/8fec035842d7e8e57117855a739c22b5f7679be2",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/8fec035842d7e8e57117855a739c22b5f7679be2",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/8fec035842d7e8e57117855a739c22b5f7679be2/comments",
+    "author": {
+      "login": "leah-srp",
+      "id": 242543967,
+      "node_id": "U_kgDODnTtXw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/242543967?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/leah-srp",
+      "html_url": "https://github.com/leah-srp",
+      "followers_url": "https://api.github.com/users/leah-srp/followers",
+      "following_url": "https://api.github.com/users/leah-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/leah-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/leah-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/leah-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/leah-srp/orgs",
+      "repos_url": "https://api.github.com/users/leah-srp/repos",
+      "events_url": "https://api.github.com/users/leah-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/leah-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d04a81066de89b385b5aafdb708f3667d32b497e",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/d04a81066de89b385b5aafdb708f3667d32b497e",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/d04a81066de89b385b5aafdb708f3667d32b497e"
+      }
+    ]
+  },
+  {
+    "sha": "d04a81066de89b385b5aafdb708f3667d32b497e",
+    "node_id": "C_kwDORoMXtdoAKGQwNGE4MTA2NmRlODliMzg1YjVhYWZkYjcwOGYzNjY3ZDMyYjQ5N2U",
+    "commit": {
+      "author": {
+        "name": "nolan-srp",
+        "email": "nolan@srp.one",
+        "date": "2026-04-15T03:15:18Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-15T03:15:18Z"
+      },
+      "message": "chore: agent pack uploaded by david@srp.one (#81)\n\n* chore: agent pack uploaded by david@srp.one\n\n* chore: agent pack uploaded by david@srp.one",
+      "tree": {
+        "sha": "d027f5f46f768001fe614594a45ba30154d46aff",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/d027f5f46f768001fe614594a45ba30154d46aff"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/d04a81066de89b385b5aafdb708f3667d32b497e",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp3wLHCRC1aQ7uu5UhlAAAsR0QAJhiTzgWoUTdSHkHmdbNqXCp\nByC+2Vsp1/jE0rDyK8EsFwEXwqYMU7waKa9CvVB42dTqsO3Vn+gOk840+aqLC7/F\nFF5ohBHEaXwY4HpfPmfp1qIPanm1yNXgwdByp1ul6489/jTHlMwM6pX64VrMf/Np\nyGGdXMTv7CQ2vl4gLrJ2QiSGRsfRnAtL5x8go3HKkdi8ixF3VyoGXoQHrOzZE036\nC1G1bs57aModiWL2T3SILr8Dnd40r08ztiPo+IfNkt5Pao3jpIXtrTPfYm/K37sw\n9IQ1H8opUXyfRop9AJ0nl9rq0tXLKtfIpxds5WGgUDMBDpgF4HhbAjRj2yHuQ6D5\ng71Xh8kiV0rQN997HildgSpzOICOeCEVCp5/Unqv2OIvVWDiu7N/9/LQf0Z8qHJt\nWd1a4PZMPA4d/ZrmL4LOg/ghwzH7TEQ/VPtGKBuUsbfLZ2GpY5zVaj6ghUiShpHW\naN+yOJRl7SElKbHknUMs0KaGV8L1OK6/JTw3CUW7dSZ+pYvVKseILXAFLNuM0FBN\ngn+MP+fNN2+UojEup+jnedFqVDKv1Oz0UhnspbewbtvPpdWSu56A8UdkSNwfDb5K\nm62JkEYZ80yJuup6U1eoDfQh2dOtZyYINYDg6TQRylKSovqLc3dGjKPTkVbZfLRO\nR4z65xrQw0vGo3n7nZaA\n=hNz1\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d027f5f46f768001fe614594a45ba30154d46aff\nparent 4639e2bb6efd1d12ff88669e700052da39566273\nauthor nolan-srp <nolan@srp.one> 1776222918 +0800\ncommitter GitHub <noreply@github.com> 1776222918 +0800\n\nchore: agent pack uploaded by david@srp.one (#81)\n\n* chore: agent pack uploaded by david@srp.one\n\n* chore: agent pack uploaded by david@srp.one",
+        "verified_at": "2026-04-15T03:15:19Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/d04a81066de89b385b5aafdb708f3667d32b497e",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/d04a81066de89b385b5aafdb708f3667d32b497e",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/d04a81066de89b385b5aafdb708f3667d32b497e/comments",
+    "author": {
+      "login": "nolan-srp",
+      "id": 188835990,
+      "node_id": "U_kgDOC0Folg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/188835990?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nolan-srp",
+      "html_url": "https://github.com/nolan-srp",
+      "followers_url": "https://api.github.com/users/nolan-srp/followers",
+      "following_url": "https://api.github.com/users/nolan-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nolan-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nolan-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nolan-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/nolan-srp/orgs",
+      "repos_url": "https://api.github.com/users/nolan-srp/repos",
+      "events_url": "https://api.github.com/users/nolan-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nolan-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "4639e2bb6efd1d12ff88669e700052da39566273",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/4639e2bb6efd1d12ff88669e700052da39566273",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/4639e2bb6efd1d12ff88669e700052da39566273"
+      }
+    ]
+  },
+  {
+    "sha": "4639e2bb6efd1d12ff88669e700052da39566273",
+    "node_id": "C_kwDORoMXtdoAKDQ2MzllMmJiNmVmZDFkMTJmZjg4NjY5ZTcwMDA1MmRhMzk1NjYyNzM",
+    "commit": {
+      "author": {
+        "name": "nolan-srp",
+        "email": "nolan@srp.one",
+        "date": "2026-04-14T12:25:18Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-14T12:25:18Z"
+      },
+      "message": "chore: agent pack uploaded by leah@srp.one (#78)",
+      "tree": {
+        "sha": "bf14ee3ddb89553792f7b156720bd7df3e417ea6",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/bf14ee3ddb89553792f7b156720bd7df3e417ea6"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/4639e2bb6efd1d12ff88669e700052da39566273",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp3jIuCRC1aQ7uu5UhlAAA3bEQAJ+75AgefCrCTwwdubBhtqhk\nOIYyxFxSlM3zh3RvWiBfazuh7CjQgXcv3or0olfM7EKeuFImqFKeUsuuYt2ffhMp\nS1hJ3NV2LOpOM/c72fjZPTPpQrnuw1K5sKd9TMXQeauWEGQs7hMvTwhoSkg/jma0\nKS/vS7vFjwBHaZMoCOKs56CYGIyN7QcCaiTmUKWSkGL+s4ZhfcHwIEHqDxltomw6\nyaZm4EnyZIqzpQaMHPOosXsni2YHhqHtgpiaFneJEDvzVFvoaM4l5MA64ukv+S2i\nKFqVq6Lz/t3RlMWef2lF1VWr1FXDxdD5XedqyDWWJclT3uk6pAmOHWAYj76OHRIW\ncgWhErLCSt7pQymoBtTqJG/VkIoSKxoYE0l70dqkk5gMJgEFS34BH1j+RT/N5edw\nHxkQ3x5XCqJEBNDo2C5GEoQWHaNvI8GqRlESoClf+i1iJFmFaV16BYIWSrnsXMKU\nb8b53oRy30sBBtY/w5njo4rqGiZTIP3pYi5gDYtA7USYie4H8VfBA8i6YBHIyXNI\np0Ni/zGFPgGqjKRblCsGv4MGS2pR8WlkebcFlMHpIuLuJnbKRsJmy/euvLtJxSjv\nZ5zS/yTenbK5++7mcTSuzetaf+Y0b1F9B4J/dRTtof3UWlGBY63SAreRCHlrOKVG\nL3AZQkyaUELyR+pPP8V+\n=VRJ1\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree bf14ee3ddb89553792f7b156720bd7df3e417ea6\nparent 49c4fcaf670c5abeb91b6005e72fffea1db88493\nauthor nolan-srp <nolan@srp.one> 1776169518 +0800\ncommitter GitHub <noreply@github.com> 1776169518 +0800\n\nchore: agent pack uploaded by leah@srp.one (#78)",
+        "verified_at": "2026-04-14T12:25:19Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/4639e2bb6efd1d12ff88669e700052da39566273",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/4639e2bb6efd1d12ff88669e700052da39566273",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/4639e2bb6efd1d12ff88669e700052da39566273/comments",
+    "author": {
+      "login": "nolan-srp",
+      "id": 188835990,
+      "node_id": "U_kgDOC0Folg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/188835990?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nolan-srp",
+      "html_url": "https://github.com/nolan-srp",
+      "followers_url": "https://api.github.com/users/nolan-srp/followers",
+      "following_url": "https://api.github.com/users/nolan-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nolan-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nolan-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nolan-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/nolan-srp/orgs",
+      "repos_url": "https://api.github.com/users/nolan-srp/repos",
+      "events_url": "https://api.github.com/users/nolan-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nolan-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "49c4fcaf670c5abeb91b6005e72fffea1db88493",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/49c4fcaf670c5abeb91b6005e72fffea1db88493",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/49c4fcaf670c5abeb91b6005e72fffea1db88493"
+      }
+    ]
+  },
+  {
+    "sha": "49c4fcaf670c5abeb91b6005e72fffea1db88493",
+    "node_id": "C_kwDORoMXtdoAKDQ5YzRmY2FmNjcwYzVhYmViOTFiNjAwNWU3MmZmZmVhMWRiODg0OTM",
+    "commit": {
+      "author": {
+        "name": "nolan-srp",
+        "email": "nolan@srp.one",
+        "date": "2026-04-14T06:37:25Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-14T06:37:25Z"
+      },
+      "message": "chore: agent pack uploaded by leah@srp.one (#77)",
+      "tree": {
+        "sha": "115aa8f74c9f3e61d21e56f4ba9b1397eb8666d0",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/115aa8f74c9f3e61d21e56f4ba9b1397eb8666d0"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/49c4fcaf670c5abeb91b6005e72fffea1db88493",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp3eClCRC1aQ7uu5UhlAAANccQAHxx8DvMFPg4ErVK5q8wjNia\njfYVasCqJBvzIwwh8HF1UDFAX/Z3FL40L/C+BRtm9yYG04NPyauAQ7O30uIb4zDy\n3ftB8shz7vGsfJKjYKsOTV07L3sTOTbYEcE4JSJsU7YqRDSCiW+cQICryDzCSB23\nyhVaXpZZcZE82P46M8gdnO5abdD3SVeL343yOgf6V0MpKeW7LFMGurhRH+Bq1eCj\n9GeOINnJZEK1qADUd0APC2IbYITfqDK1rL+9po0dClkK1TWFtfNJip8ILi9kNSga\nWgqF3wc6r+JAPbV1R6/ASXI3+LcpftaKYHgBch6+ra7pXp7REldJXRr0/zJZEbMq\n1tgymMvvcolusDSOIur5hkyZef1zmn6m4aVkeSU3yPEf2w9ZbNFf+xRu/rpGwZIK\nHoxXRCSYs6PRUSbNpzx4dx16t7bv0mmDXrwqixXOLYHwBMh8vp3nhDQyjaQ9yc+D\n1JlUcIh6dMbAtUQmvc5wzNZXukVbf0uItF+++n7IzS+ifqLQRV4vyaRyWi014TNV\nW6eSDzhgW2oBSIkNIFtnBTJTgj2a6ORuosjnFaqO9SRZMIUgniSIA407xyUg0dYo\nRjirT5TrxV/mZd542s1is4E6FhJXuHeXegFkSUbzAiooRRXiAIiQC82x/K/PXSmM\nSLYJOwn3luYTPKEtTI1v\n=Vb/Q\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 115aa8f74c9f3e61d21e56f4ba9b1397eb8666d0\nparent 804fd7eb5bc870a063838b5739c7a6ca05226c99\nauthor nolan-srp <nolan@srp.one> 1776148645 +0800\ncommitter GitHub <noreply@github.com> 1776148645 +0800\n\nchore: agent pack uploaded by leah@srp.one (#77)",
+        "verified_at": "2026-04-14T06:37:26Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/49c4fcaf670c5abeb91b6005e72fffea1db88493",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/49c4fcaf670c5abeb91b6005e72fffea1db88493",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/49c4fcaf670c5abeb91b6005e72fffea1db88493/comments",
+    "author": {
+      "login": "nolan-srp",
+      "id": 188835990,
+      "node_id": "U_kgDOC0Folg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/188835990?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nolan-srp",
+      "html_url": "https://github.com/nolan-srp",
+      "followers_url": "https://api.github.com/users/nolan-srp/followers",
+      "following_url": "https://api.github.com/users/nolan-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nolan-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nolan-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nolan-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/nolan-srp/orgs",
+      "repos_url": "https://api.github.com/users/nolan-srp/repos",
+      "events_url": "https://api.github.com/users/nolan-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nolan-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "804fd7eb5bc870a063838b5739c7a6ca05226c99",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/804fd7eb5bc870a063838b5739c7a6ca05226c99",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/804fd7eb5bc870a063838b5739c7a6ca05226c99"
+      }
+    ]
+  },
+  {
+    "sha": "804fd7eb5bc870a063838b5739c7a6ca05226c99",
+    "node_id": "C_kwDORoMXtdoAKDgwNGZkN2ViNWJjODcwYTA2MzgzOGI1NzM5YzdhNmNhMDUyMjZjOTk",
+    "commit": {
+      "author": {
+        "name": "nolan-srp",
+        "email": "nolan@srp.one",
+        "date": "2026-04-14T05:35:54Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-14T05:35:54Z"
+      },
+      "message": "chore: agent pack uploaded by david@srp.one (#76)",
+      "tree": {
+        "sha": "948958d5d86fec50fb0f19aea20c1902dd0040f3",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/948958d5d86fec50fb0f19aea20c1902dd0040f3"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/804fd7eb5bc870a063838b5739c7a6ca05226c99",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp3dI7CRC1aQ7uu5UhlAAAeGwQALHUv9S0uTNrKwiWG59DF5qC\nP5TamE7hAksd1IzIHtFCppaYtc8adfEB6aC9CXYs/F9sgmxCFqKpz88ymHI/RiQR\nxs78eqSzsWQxzCe7340OqIhVLc+svWV/cd8pjiWXVcXcstmhJiq3Vtp1CesW6ie0\ndAxbrPWEq7t/myQyHka6iZyY4pZ3POJkOu2Xl33Pnbn0vV88g/8v4+he8wTgsuEn\nOBPh12p09bG5eQXZDAxJXTtODd+sKDJBG6k97UBQl4Z2tADDvNfLrAHSABHDFcpH\nbfwSwv3CRt9smFJP3wPeg/kxNFxv646mJVLw1ROqFXf858cycK6kAG7FXbTiD9+J\nJjkO7FmKkhnM2A3x4g/ausnQ6sVY5mT8zCsxliX21glfxRFvfP4cqZO2QnDwrOxk\nQHz6TC5k+HCPb3xPj8HXcjrLHW+KbKdd8q+1Ev8MDUHDuaCq1oyrbo7tYo/txBe1\n7qJ/azTo3SHTabfWVqXGoTJtv/vXw1fmANf/FEcatLFxo/6iMat/7DI6HC8H9lbF\npDlY4TxBGb4jZ0IQPWF94yqwskzIrx3SH/I62eiPU4jgKJNbDXU67cgjSncQEJMM\nvOWHG1TMZZBkRMp3TPjeeI2mg9rObKnBXjj8ROdQW7QuYuqEGdDeJFwtLDk5Omd/\nIbMO3almQQ8KVhco8gB4\n=hgz4\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 948958d5d86fec50fb0f19aea20c1902dd0040f3\nparent 9bc39f6c9fd849cbbf25033df964046d2f6bf2d5\nauthor nolan-srp <nolan@srp.one> 1776144954 +0800\ncommitter GitHub <noreply@github.com> 1776144954 +0800\n\nchore: agent pack uploaded by david@srp.one (#76)",
+        "verified_at": "2026-04-14T05:35:55Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/804fd7eb5bc870a063838b5739c7a6ca05226c99",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/804fd7eb5bc870a063838b5739c7a6ca05226c99",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/804fd7eb5bc870a063838b5739c7a6ca05226c99/comments",
+    "author": {
+      "login": "nolan-srp",
+      "id": 188835990,
+      "node_id": "U_kgDOC0Folg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/188835990?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nolan-srp",
+      "html_url": "https://github.com/nolan-srp",
+      "followers_url": "https://api.github.com/users/nolan-srp/followers",
+      "following_url": "https://api.github.com/users/nolan-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nolan-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nolan-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nolan-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/nolan-srp/orgs",
+      "repos_url": "https://api.github.com/users/nolan-srp/repos",
+      "events_url": "https://api.github.com/users/nolan-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nolan-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "9bc39f6c9fd849cbbf25033df964046d2f6bf2d5",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/9bc39f6c9fd849cbbf25033df964046d2f6bf2d5",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/9bc39f6c9fd849cbbf25033df964046d2f6bf2d5"
+      }
+    ]
+  },
+  {
+    "sha": "9bc39f6c9fd849cbbf25033df964046d2f6bf2d5",
+    "node_id": "C_kwDORoMXtdoAKDliYzM5ZjZjOWZkODQ5Y2JiZjI1MDMzZGY5NjQwNDZkMmY2YmYyZDU",
+    "commit": {
+      "author": {
+        "name": "nolan-srp",
+        "email": "nolan@srp.one",
+        "date": "2026-04-10T13:03:06Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-10T13:03:06Z"
+      },
+      "message": "chore: agent pack uploaded by ruby@srp.one (#73)\n\n* chore: agent pack uploaded by ruby@srp.one\n\n* chore: agent pack uploaded by ruby@srp.one",
+      "tree": {
+        "sha": "c680c763ab9b0392ea400240772cff8110d30a80",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/c680c763ab9b0392ea400240772cff8110d30a80"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/9bc39f6c9fd849cbbf25033df964046d2f6bf2d5",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp2PUKCRC1aQ7uu5UhlAAAHv4QAAQaK1rZ7ZmNEvBWFWpRnANN\nmaulia59inDD2KYeZK45ySAWaVoVEHFSQmBn37VjN3pi9prE+UOdZd6n+6aRFWb4\nIdtN1MKqOD+BMDsNPmXaoIH2gmoKR4IXdsavsnyijQaRaRRYnfI4WTh+cDqdo+PV\nW7QIhy/LDqlXHwkvmNVyCFXKZjV752IiCAuL21aSUUOmlPoGxBWpN2bIeQR5Gnfe\npFqZSiaq/iDAEVl1n6S3r8lZJIRUrzaRd3WEttXYGccS+8ta7f9uIOxJC7JtHqZh\nL4DQeEvhKOXNVUOFM04EVGEzMWTV6qRS2bHMGDDWGb2nn9nb/HjiCQR81+thgSpe\nAxMdaIs4OayAZitwm4Llh69L6vood9VYVYfUphuS9Ubex6rxYTdtavHU73duy75s\ndRGVbwrK2WTLKJr1P91+jvWdkORtsqEhKT8inOeiPszGhtmUVQWmO5sTmZ8vaEop\nYpuitPNaG8NZcR4xL7x8qyeNLloxmG3LpRzRisajkCPlGrCEXP6C1Wa4yAqPyQJP\n6oIhzHPOIdy8GI6Z4Yl0rwVOzTtlhRsfN88bKwiQgYx7hvKAr0YRJ4HnMr5Rh4tP\nFC+RHjbWaqeDBcm+sz6GqkdMym+eH1XoIbsxzsyBI+LI+A7mZ1efomOphf8MyfOc\nbDbZidRxNbid+eTy+8Ny\n=ADg7\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree c680c763ab9b0392ea400240772cff8110d30a80\nparent 8de639011dabf9ec5a181c148d86457f495c97a1\nauthor nolan-srp <nolan@srp.one> 1775826186 +0800\ncommitter GitHub <noreply@github.com> 1775826186 +0800\n\nchore: agent pack uploaded by ruby@srp.one (#73)\n\n* chore: agent pack uploaded by ruby@srp.one\n\n* chore: agent pack uploaded by ruby@srp.one",
+        "verified_at": "2026-04-10T13:03:06Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/9bc39f6c9fd849cbbf25033df964046d2f6bf2d5",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/9bc39f6c9fd849cbbf25033df964046d2f6bf2d5",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/9bc39f6c9fd849cbbf25033df964046d2f6bf2d5/comments",
+    "author": {
+      "login": "nolan-srp",
+      "id": 188835990,
+      "node_id": "U_kgDOC0Folg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/188835990?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nolan-srp",
+      "html_url": "https://github.com/nolan-srp",
+      "followers_url": "https://api.github.com/users/nolan-srp/followers",
+      "following_url": "https://api.github.com/users/nolan-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nolan-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nolan-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nolan-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/nolan-srp/orgs",
+      "repos_url": "https://api.github.com/users/nolan-srp/repos",
+      "events_url": "https://api.github.com/users/nolan-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nolan-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8de639011dabf9ec5a181c148d86457f495c97a1",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/8de639011dabf9ec5a181c148d86457f495c97a1",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/8de639011dabf9ec5a181c148d86457f495c97a1"
+      }
+    ]
+  },
+  {
+    "sha": "8de639011dabf9ec5a181c148d86457f495c97a1",
+    "node_id": "C_kwDORoMXtdoAKDhkZTYzOTAxMWRhYmY5ZWM1YTE4MWMxNDhkODY0NTdmNDk1Yzk3YTE",
+    "commit": {
+      "author": {
+        "name": "nolan-srp",
+        "email": "nolan@srp.one",
+        "date": "2026-04-10T09:33:18Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-10T09:33:18Z"
+      },
+      "message": "chore: agent pack uploaded by vio@srp.one (#72)\n\n* chore: agent pack uploaded by vio@srp.one\n\n* fix(security): automated remediation for sensitive email logging",
+      "tree": {
+        "sha": "ffa19e4bfca9b26ab2fad08e97c9008fe56bfd44",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/ffa19e4bfca9b26ab2fad08e97c9008fe56bfd44"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/8de639011dabf9ec5a181c148d86457f495c97a1",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp2MPeCRC1aQ7uu5UhlAAAeqwQAA19A3yV0zY6gz2agfgWlEQ3\nuEBuGmx6+HlNck8Azx3iYhu8IqhNgWoqzemkkUltZonRqFueDAjtCmRIJwoWQ5f6\nRWNP5XPuXY8wM5XpaecnHgH3xKqYNLq4WC83SnJuKv6wPriFaG3xRKl5jGnCWtNm\nfa++rdeT5mTE4SIMZK3ehvxDhuLfOl7k3zCZe43bLJPhUb8uRYEylQUpX4XZ8vUI\nBEVSzp0j9rsf5uJ28nkv8isijf9q69kf3+dsJ1y9QKnrdlq5o8o8IzjgXrq29vYo\nXJ266fIP6Md3amebb/1HXbXZdQCswl2rNMVoMHFa3Scxfml6o54DO5Rq3ai0NbpW\ngkwiylo4pO0RU7zN6u+ygwRWXpzheOtz61ghkZfJU15bGvoM1g+J6WvqtPCioJkl\nZcKGjdx6rEuc0j1yEdkH/0JxsVct95IEBBHgwBqSVx7SjJNCg20RrJifPDNMAWfh\na8oyKq9W4grrGsE1kt6Yn88RFkY47uVyLG6D42EgKf5zQyzmDnp7mZkw5qjTdr3n\nhNJdvPd7+aPNQ9nCtr7/PecLr2FqZfJvyRuCUdzVkdja/Iv3aG6E4Jl/mYXHezUA\nczJfII9fnh+F2lw4YXX7akLVbcY5BNyX5xWtwwudUz0FgIMMgmy35WQ48zz9/3zt\n5EApdrsRf+JRI0+lNDgk\n=WMS5\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree ffa19e4bfca9b26ab2fad08e97c9008fe56bfd44\nparent 7bc399047ebd43b5205c41e656f29cb4e533cf4a\nauthor nolan-srp <nolan@srp.one> 1775813598 +0800\ncommitter GitHub <noreply@github.com> 1775813598 +0800\n\nchore: agent pack uploaded by vio@srp.one (#72)\n\n* chore: agent pack uploaded by vio@srp.one\n\n* fix(security): automated remediation for sensitive email logging",
+        "verified_at": "2026-04-10T09:33:19Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/8de639011dabf9ec5a181c148d86457f495c97a1",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/8de639011dabf9ec5a181c148d86457f495c97a1",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/8de639011dabf9ec5a181c148d86457f495c97a1/comments",
+    "author": {
+      "login": "nolan-srp",
+      "id": 188835990,
+      "node_id": "U_kgDOC0Folg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/188835990?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nolan-srp",
+      "html_url": "https://github.com/nolan-srp",
+      "followers_url": "https://api.github.com/users/nolan-srp/followers",
+      "following_url": "https://api.github.com/users/nolan-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nolan-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nolan-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nolan-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/nolan-srp/orgs",
+      "repos_url": "https://api.github.com/users/nolan-srp/repos",
+      "events_url": "https://api.github.com/users/nolan-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nolan-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "7bc399047ebd43b5205c41e656f29cb4e533cf4a",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/7bc399047ebd43b5205c41e656f29cb4e533cf4a",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/7bc399047ebd43b5205c41e656f29cb4e533cf4a"
+      }
+    ]
+  },
+  {
+    "sha": "7bc399047ebd43b5205c41e656f29cb4e533cf4a",
+    "node_id": "C_kwDORoMXtdoAKDdiYzM5OTA0N2ViZDQzYjUyMDVjNDFlNjU2ZjI5Y2I0ZTUzM2NmNGE",
+    "commit": {
+      "author": {
+        "name": "nolan-srp",
+        "email": "nolan@srp.one",
+        "date": "2026-04-09T15:31:06Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-09T15:31:06Z"
+      },
+      "message": "chore: apply changes from static pack extraction overwrite (#71)",
+      "tree": {
+        "sha": "38059c29ca00c7eb3f5efa2a80a4a2397e76823e",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/38059c29ca00c7eb3f5efa2a80a4a2397e76823e"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/7bc399047ebd43b5205c41e656f29cb4e533cf4a",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp18Y6CRC1aQ7uu5UhlAAA6YIQADmr6joEgpON38bCz0hDuPpQ\nVTICsS0PcJdNQs1l1MTlV56Svvve381qhkE5p5ipuQsjjCh331YI+p2hqki7NTb6\n96E7sfEn01MUAcKFk7IbMhbd9URBNUbrZPSN8lPzn6M+Vt2hjCqolGssIoYrwZ6T\nnOIfJglO6CbRJextOfs/ytCrmnm5/8/PfrWVZmH3FLTJnGyf304oWnS6t71rSlUP\ncs2FE2BgXjALYXj/OVmN8RCI3U2mTbfQpy8Ir6T8uS0h9GhJwp6G3iUp6jtvZjnh\nZXm7dDzEo1FuwbfWhcodRrVmNdZd0T73NdEYLL99cyCl/Rd5Yqw9HRjpoQyMcOQt\nb3UxC2D2kmlXb4h/X+2FyKd73nHc/eRvK8IS5cThnQruz5gDZcaeGWGsC9g7skZb\nEHmojqquJwafg5sfLxTqhex6VWbKKQaEuxEr12AK1QzYK2Vci0gtnhEztUkaMgRP\nX1+Vx5hkaGcnHRqSeuEniPiWWDh7L2TYc75MTMuFPLwqMccMSQQcXNQvVLDJRqzp\nfvZBGJq2Nr3H7rGwbwPVy7HkTStAtsTNFhN4kEgsek/qCFw6542ovkdfRU3flh+/\nMu4gwMRjPa3N8mDw7sPLR4EsF9KJ9IQ1SQ8otNcNexdAUyTjx7hfGBx/5IP2atMq\nfLk9EFJR1YlSmLMi3C1Y\n=jaK/\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 38059c29ca00c7eb3f5efa2a80a4a2397e76823e\nparent d21544c130b78247bb4a654fa28ae7e6a5980ecd\nauthor nolan-srp <nolan@srp.one> 1775748666 +0800\ncommitter GitHub <noreply@github.com> 1775748666 +0800\n\nchore: apply changes from static pack extraction overwrite (#71)",
+        "verified_at": "2026-04-09T15:31:07Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/7bc399047ebd43b5205c41e656f29cb4e533cf4a",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/7bc399047ebd43b5205c41e656f29cb4e533cf4a",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/7bc399047ebd43b5205c41e656f29cb4e533cf4a/comments",
+    "author": {
+      "login": "nolan-srp",
+      "id": 188835990,
+      "node_id": "U_kgDOC0Folg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/188835990?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nolan-srp",
+      "html_url": "https://github.com/nolan-srp",
+      "followers_url": "https://api.github.com/users/nolan-srp/followers",
+      "following_url": "https://api.github.com/users/nolan-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nolan-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nolan-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nolan-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/nolan-srp/orgs",
+      "repos_url": "https://api.github.com/users/nolan-srp/repos",
+      "events_url": "https://api.github.com/users/nolan-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nolan-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d21544c130b78247bb4a654fa28ae7e6a5980ecd",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/d21544c130b78247bb4a654fa28ae7e6a5980ecd",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/d21544c130b78247bb4a654fa28ae7e6a5980ecd"
+      }
+    ]
+  }
+]
