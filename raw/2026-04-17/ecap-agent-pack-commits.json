@@ -1,0 +1,412 @@
+[
+  {
+    "sha": "5662c90515940d55071b859446e04dd17982e0ca",
+    "node_id": "C_kwDORoMXtdoAKDU2NjJjOTA1MTU5NDBkNTUwNzFiODU5NDQ2ZTA0ZGQxNzk4MmUwY2E",
+    "commit": {
+      "author": {
+        "name": "Nemo Feng",
+        "email": "nemo@srp.one",
+        "date": "2026-04-16T19:45:08Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-16T19:45:08Z"
+      },
+      "message": "feat(podcast-pal): replace xelatex PDF pipeline with platform pdf skill (#80)\n\nRemove all LaTeX/xelatex machinery from the podcast-pdf skill and replace\nwith instructions to use the pre-loaded platform pdf skill. Content quality\nrules (thematic organization, direct quotes, highlight boxes, figures,\nbilingual support) are preserved, re-expressed in Markdown instead of LaTeX.\n\nCo-authored-by: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "tree": {
+        "sha": "1aba321f01cfc4782698761fa43d2027e2410a0e",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/1aba321f01cfc4782698761fa43d2027e2410a0e"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/5662c90515940d55071b859446e04dd17982e0ca",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4TxECRC1aQ7uu5UhlAAAOrsQAK8q1wAeesr9gIBzfd0zmNF/\nX1YxXCexjrjzFGZIvRQvv/ozwMLNIh+MCfmKBHDm8lExNj9BmqJ3NuFmgq8pT66Y\nJGzmxrOs75wQxwsvOEB2kKT00o8OnQIx7Gjyiq4GsJf4tYloli0Wpg98v9Y39pgL\nHopU0lyw8ekd2Z3DwSg9ptRoCCkeR+DensyG1HbNjRm2fL9QIZ54GwFrRd8I0/SN\n1r5OOoqqowiCsRrTmMVRCiNAYpIPu/VSxz0aSJ5prYDtdPv30T+Sy5qspamcx914\nHYHRpbgNPVVWngR5fdmisAYMBksPZIGVT1ogA+SpGvAckfXf0opiCZksJX4u8zaE\nwY98FOijp9Fq6wFrJHi19GoCT9Ikz7CipG97ARXMMzexqPvliKf3GlehF0HtMeio\nU3W4QLsNFoZygFRbvzPA6JWBvYTbtcoeGd+335QTyQfywDf56LjMQN+dS0ntvNaE\nZPaBQRa8RGpqp7wnObxAsFrkVz0UMSuNqmERM7bgpgoqzmiEXVFaL29+z6kG5pdc\nGMCwgOdvSdRlKKvjLEplEnLMIF9dy37ujoIG11wGGw9BGECAbftYKFG1Jaj+GgpF\nKJ4zIB4ZobJYsi65bhRhpXhLLIh83kMqRkoU0EdE/T4C/JGtWOdJ4yF0K4HUai7f\nOmTDulMxRyhL54yLULkY\n=GsQ6\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 1aba321f01cfc4782698761fa43d2027e2410a0e\nparent e9b98246a52855692215c1db10308c40691a7213\nauthor Nemo Feng <nemo@srp.one> 1776368708 -0700\ncommitter GitHub <noreply@github.com> 1776368708 -0700\n\nfeat(podcast-pal): replace xelatex PDF pipeline with platform pdf skill (#80)\n\nRemove all LaTeX/xelatex machinery from the podcast-pdf skill and replace\nwith instructions to use the pre-loaded platform pdf skill. Content quality\nrules (thematic organization, direct quotes, highlight boxes, figures,\nbilingual support) are preserved, re-expressed in Markdown instead of LaTeX.\n\nCo-authored-by: Claude Sonnet 4.6 <noreply@anthropic.com>",
+        "verified_at": "2026-04-16T19:45:09Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/5662c90515940d55071b859446e04dd17982e0ca",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/5662c90515940d55071b859446e04dd17982e0ca",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/5662c90515940d55071b859446e04dd17982e0ca/comments",
+    "author": {
+      "login": "nemo-srp",
+      "id": 259985051,
+      "node_id": "U_kgDOD38Omw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/259985051?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nemo-srp",
+      "html_url": "https://github.com/nemo-srp",
+      "followers_url": "https://api.github.com/users/nemo-srp/followers",
+      "following_url": "https://api.github.com/users/nemo-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nemo-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nemo-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nemo-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/nemo-srp/orgs",
+      "repos_url": "https://api.github.com/users/nemo-srp/repos",
+      "events_url": "https://api.github.com/users/nemo-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nemo-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "e9b98246a52855692215c1db10308c40691a7213",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/e9b98246a52855692215c1db10308c40691a7213",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/e9b98246a52855692215c1db10308c40691a7213"
+      }
+    ]
+  },
+  {
+    "sha": "e9b98246a52855692215c1db10308c40691a7213",
+    "node_id": "C_kwDORoMXtdoAKGU5Yjk4MjQ2YTUyODU1NjkyMjE1YzFkYjEwMzA4YzQwNjkxYTcyMTM",
+    "commit": {
+      "author": {
+        "name": "tim-srp",
+        "email": "tim@srp.one",
+        "date": "2026-04-16T10:18:56Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-16T10:18:56Z"
+      },
+      "message": "Fix generate_collage.py fallback: emit path, not image_url (#86)\n\nThe designer CLI writes the generated image to a local file and prints the\nfile path on stdout (not a URL). After the CLI rename, the fallback branch\nwas storing that local path under the \"image_url\" key, which callers would\ntry to use as a remote URL.\n\nMatch the sibling make_product_grid.py convention: when the value is a local\npath, use the \"path\" key; reserve \"image_url\" for the primary aimage_generation\npath whose return value is a real URL. Callers must now check both fields.\n\nUpdate outfit-recommendation/SKILL.md Step 7 to document the two return shapes.\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+      "tree": {
+        "sha": "95d8002b3ca2682e97a1b210e555543c67a7e491",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/95d8002b3ca2682e97a1b210e555543c67a7e491"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/e9b98246a52855692215c1db10308c40691a7213",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4LeQCRC1aQ7uu5UhlAAAM8sQAE0yh7+fesuw2MRQL57k5KGa\nUO8KjTACC/X7Uh3vcV5ixLKDinGVb85YTtu31qPBPmIyESCdGsceq+OEn3xUG5KP\n7aC+hLWYTNKD+Cy6KWlL1IdeN4TPDnNfLAn8DoSvZXAMzuJ1KzrCAIdeidY6/DKX\n/DM0h5X1ZHTngMHIhE9TMEOBdXXVmbGatLBXDeFRx7wDi0kdfIRG7HHHt5gxMnsx\nHizBpoZPeLYhWaHM17ajFSt+Md7sfSZ6G+0TZfVqQHJZCHaQsrdgvccyLyYIcczo\nRddJKzfSS3UzKK8ZhL6ECDdrsK5kPJ3Yemra5ejiUMnNxWDU0XGAQBjOXq4TPi0s\nRFD2PSXtqMBpHzpaUDxAR3bHgDs1P+1HyMl1Re2pTV7X9ZXw4pGcRODKQMZ3Cvbp\n6KlrimfkXxj+Xyzl71SxKI9qXV1Uq8uumBLoJKydxRTGNfr3S4koF/d1mtb129P5\ngEh06K+eb0iWTA7CAblbgu2Z0Pyzkc2CT+Y3jdFVgZdEg8xxT1Ec7h/zgW6o6T8F\nXGcrfo4YL2ZzNKeusA7qndc255pGBu0p5DuhEEVpX9auoB3ZC0AM4yV+6BMHA2vo\n9+nwnhxN+bJjWabrIwMgXevCcXcAcirfl1lF1CDzuMpvD0oQLjCT2GoeZKJ8TmMu\nxYQuBVigYs4CW8jLcPrz\n=mw7F\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 95d8002b3ca2682e97a1b210e555543c67a7e491\nparent 40ae2169550f77e265de9c66dd394c4d9f841aee\nauthor tim-srp <tim@srp.one> 1776334736 +0800\ncommitter GitHub <noreply@github.com> 1776334736 +0800\n\nFix generate_collage.py fallback: emit path, not image_url (#86)\n\nThe designer CLI writes the generated image to a local file and prints the\nfile path on stdout (not a URL). After the CLI rename, the fallback branch\nwas storing that local path under the \"image_url\" key, which callers would\ntry to use as a remote URL.\n\nMatch the sibling make_product_grid.py convention: when the value is a local\npath, use the \"path\" key; reserve \"image_url\" for the primary aimage_generation\npath whose return value is a real URL. Callers must now check both fields.\n\nUpdate outfit-recommendation/SKILL.md Step 7 to document the two return shapes.\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+        "verified_at": "2026-04-16T10:18:57Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/e9b98246a52855692215c1db10308c40691a7213",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/e9b98246a52855692215c1db10308c40691a7213",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/e9b98246a52855692215c1db10308c40691a7213/comments",
+    "author": {
+      "login": "tim-srp",
+      "id": 178765090,
+      "node_id": "U_kgDOCqe9Ig",
+      "avatar_url": "https://avatars.githubusercontent.com/u/178765090?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/tim-srp",
+      "html_url": "https://github.com/tim-srp",
+      "followers_url": "https://api.github.com/users/tim-srp/followers",
+      "following_url": "https://api.github.com/users/tim-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/tim-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/tim-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/tim-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/tim-srp/orgs",
+      "repos_url": "https://api.github.com/users/tim-srp/repos",
+      "events_url": "https://api.github.com/users/tim-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/tim-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "40ae2169550f77e265de9c66dd394c4d9f841aee",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/40ae2169550f77e265de9c66dd394c4d9f841aee",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/40ae2169550f77e265de9c66dd394c4d9f841aee"
+      }
+    ]
+  },
+  {
+    "sha": "40ae2169550f77e265de9c66dd394c4d9f841aee",
+    "node_id": "C_kwDORoMXtdoAKDQwYWUyMTY5NTUwZjc3ZTI2NWRlOWM2NmRkMzk0YzRkOWY4NDFhZWU",
+    "commit": {
+      "author": {
+        "name": "tim-srp",
+        "email": "tim@srp.one",
+        "date": "2026-04-16T09:46:26Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-16T09:46:26Z"
+      },
+      "message": "Align designer CLI usage and fix hardcoded /extra-skills paths (#85)\n\nAfter fastclaw PR #56 remapped the ecap-skills mount point, the hardcoded\n/extra-skills/... paths no longer resolve. In addition, the designer skill's\nimage_generation_cli.py renamed --image-urls to --images and changed stdout\nfrom JSON to a plain file path.\n\nChanges:\n- Replace --image-urls with --images across all bash examples and docs\n  (stylist-agent, soulmate-pack)\n- Replace /extra-skills/<skill>/... with ~/.openclaw/skills/<skill>/...\n  so the path resolves via $HOME at runtime\n  (bash blocks use tilde expansion; Python subprocess uses os.path.expanduser)\n- Update generate_collage.py fallback_generate() to parse the new plain\n  stdout format and widen its return type to str | None\n\nAffected agents: stylist-agent, soulmate-pack, restaurant-review-monitor,\nzoodance-vibe-drama.\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+      "tree": {
+        "sha": "261b61f3331b53ce624c09768caeafb30a973a9b",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/261b61f3331b53ce624c09768caeafb30a973a9b"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/40ae2169550f77e265de9c66dd394c4d9f841aee",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4K/yCRC1aQ7uu5UhlAAAucEQAEmqbj0hITgRGZVSwqglhI1t\nTirUMneELWj1umqSUZhLE6WmpI5DvM0seY306c0gkkEmJa8Rt8tBeSiVYE6d5wun\n8esjHCekhdGqsTRt/CHqwQUUhjpGI75lLatxBe8/63zE+7q/nCG8gvQ4XMsLkDYn\nC1TZCy3OfSfFmZMd6w1tjKJtmT/aaGFrPDEfbTjJ7sZTgQ6wKyYLCTYJ0Qu8PUkw\nx+SC85GQiK1PAkE7nhMEgCqT9O4aiBap+sxNWfaQ4cdlUwnnsClAH5Z2nxwYXkez\nlspq4Fj1qJfyQZviJ3XXC0iX/sjv47nfK4P8kNks4OTSwI5VvpgKIu/6D8vWxgEn\nP3R4lOy93uPsErf5tRQ97N+OaLvsoAsLCIy67ydhFk/gGGLHw2qzdgdgVEEQYR+V\nDdnhxDR77F/3wVmoswx7RyqQcO9rHY9EOQmhq+pIb7R3JpPwjSgcwh4l0LvWxvTZ\n69ShUtbIhSmSwDP9cpgwrCp/N9ab0a0eLyevArXULYOQ1dEWvz26EbQfzqcsZFyU\nmeUNdWxigbsQkzY+Aenxv2U9slW64pUb2yfabop56FtUBCwEMxnGJcLjqYL1bkLN\nKqavTjUD84bmPPRtT3jjszb0xlFgTu0tsGncCHDS8tSRo0hooEk/G2gfLuL9mHFK\ndfXcM/PK//39FNCdHckR\n=9+IU\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 261b61f3331b53ce624c09768caeafb30a973a9b\nparent 440dde63bfce0bdeac8d09842d6ed2249b797752\nauthor tim-srp <tim@srp.one> 1776332786 +0800\ncommitter GitHub <noreply@github.com> 1776332786 +0800\n\nAlign designer CLI usage and fix hardcoded /extra-skills paths (#85)\n\nAfter fastclaw PR #56 remapped the ecap-skills mount point, the hardcoded\n/extra-skills/... paths no longer resolve. In addition, the designer skill's\nimage_generation_cli.py renamed --image-urls to --images and changed stdout\nfrom JSON to a plain file path.\n\nChanges:\n- Replace --image-urls with --images across all bash examples and docs\n  (stylist-agent, soulmate-pack)\n- Replace /extra-skills/<skill>/... with ~/.openclaw/skills/<skill>/...\n  so the path resolves via $HOME at runtime\n  (bash blocks use tilde expansion; Python subprocess uses os.path.expanduser)\n- Update generate_collage.py fallback_generate() to parse the new plain\n  stdout format and widen its return type to str | None\n\nAffected agents: stylist-agent, soulmate-pack, restaurant-review-monitor,\nzoodance-vibe-drama.\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+        "verified_at": "2026-04-16T09:46:27Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/40ae2169550f77e265de9c66dd394c4d9f841aee",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/40ae2169550f77e265de9c66dd394c4d9f841aee",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/40ae2169550f77e265de9c66dd394c4d9f841aee/comments",
+    "author": {
+      "login": "tim-srp",
+      "id": 178765090,
+      "node_id": "U_kgDOCqe9Ig",
+      "avatar_url": "https://avatars.githubusercontent.com/u/178765090?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/tim-srp",
+      "html_url": "https://github.com/tim-srp",
+      "followers_url": "https://api.github.com/users/tim-srp/followers",
+      "following_url": "https://api.github.com/users/tim-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/tim-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/tim-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/tim-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/tim-srp/orgs",
+      "repos_url": "https://api.github.com/users/tim-srp/repos",
+      "events_url": "https://api.github.com/users/tim-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/tim-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "440dde63bfce0bdeac8d09842d6ed2249b797752",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/440dde63bfce0bdeac8d09842d6ed2249b797752",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/440dde63bfce0bdeac8d09842d6ed2249b797752"
+      }
+    ]
+  },
+  {
+    "sha": "440dde63bfce0bdeac8d09842d6ed2249b797752",
+    "node_id": "C_kwDORoMXtdoAKDQ0MGRkZTYzYmZjZTBiZGVhYzhkMDk4NDJkNmVkMjI0OWI3OTc3NTI",
+    "commit": {
+      "author": {
+        "name": "tim-srp",
+        "email": "tim@srp.one",
+        "date": "2026-04-16T09:20:32Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-16T09:20:32Z"
+      },
+      "message": "chore: remove obsolete /extra-skills path references from prompts and docs (#84)\n\n* chore: remove obsolete /extra-skills path references from prompts and docs\n\necap-skills have been remounted at ~/.openclaw/skills/ (managed priority\nlevel 3) by fastclaw PR #56, which naturally overrides bundled skills.\nThe old \"Tool Routing Policy (Extra Skills First)\" prompt hack and the\nhardcoded /extra-skills/ path references in docs are no longer needed.\n\nChanges:\n- Remove \"Tool Routing Policy\" section from 5 AGENTS.md files\n  (careerbloom, oura-ring-connector, podcast-pal,\n   restaurant-review-monitor, stylist-agent)\n- Drop Path column from design-researcher/TOOLS.md skill table\n- Replace /extra-skills/<name> text references with skill names in\n  dr-report-builder/SKILL.md, mkt-meta-ads-pro/SKILL.md, stylist-agent/TOOLS.md\n\nOut of scope (follow-up):\n- bash blocks in SKILL.md that invoke `python3 /extra-skills/...`\n- Python scripts with hardcoded subprocess paths\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\n\n* chore: update subprocess script paths for ecap-skills managed-priority mount\n\nAfter fastclaw PR #56, ecap-skills are mounted at ~/.openclaw/skills/\n(managed priority 3) instead of /extra-skills/. Update the cross-skill\nsubprocess calls in these scripts so they resolve the correct location.\n\nUsing os.path.expanduser('~/...') keeps the code independent of the\ncontainer's HOME user (currently 'node') without hardcoding\n/home/node/.openclaw in sources.\n\nFiles:\n- restaurant-review-monitor/skills/daily-digest/scripts/fetch_yelp.py\n- restaurant-review-monitor/skills/daily-digest/scripts/run_daily.py\n- stylist-agent/skills/outfit-recommendation/scripts/generate_collage.py\n\nRationale for keeping subprocess pattern:\n- run_daily.py and fetch_yelp.py run as an OpenClaw cron job with no\n  LLM in the loop, so \"let the corresponding skill do it\" via agent\n  routing is not applicable. subprocess is the current canonical\n  cron-to-skill invocation mechanism.\n- generate_collage.py's subprocess call is a fallback path only; the\n  primary path uses litellm directly. Rewriting the fallback would\n  change the script's exception-handling contract.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\n\n* Revert \"chore: update subprocess script paths for ecap-skills managed-priority mount\"\n\nThis reverts commit eab1244d83013be9a57f73d94d38634d369c3425.\n\n---------\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+      "tree": {
+        "sha": "912604d77a1f8ec698d2f46c0b4d7cd492a550d9",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/912604d77a1f8ec698d2f46c0b4d7cd492a550d9"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/440dde63bfce0bdeac8d09842d6ed2249b797752",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4KngCRC1aQ7uu5UhlAAA2xMQAFG53fqkNDTXs4DjyfMhD52u\nDsaq/PgxefW5QOolUNdm5cJUxLiOOj0Kt7ISWhmkTK7zladttIbXqB8U9fU1RyVv\nNaE5MEerrI8dY6DkX9Ocy0D18lzCvDQpwnFuswc49KkuDioUhbmki+lX/4kj+BYU\nXUVGmj+a7pt3l82pJFDn8WarfOn9MFT5a9Vb/h1RSJPxbhmekjmFGCW/ZbEXXNXp\n2uEW1sl9AeAB1QDibyxO/AAGOn9wXQFxnWMKMqF6cs1PTPqRULEEY7mbNPDG3lhn\n6qwzFOcIDEAW4CxlNPjuDZfPkkzCHtouvBfE2R9epzKb9Y3k9AFpyF33pvrusKDo\nY1+ZOTIt7MEpGR3ZZ42oj4FtMFJH02+wDeSzuF9XTuF6SbrQDWaqzioIRun4/GEl\nLeAXhUq2s0DS4+/A1g4Akv3ISLgS/taWL4raCmmAsyky6XatX+gF11O/rqltoHNB\nSWRbSHCjRpIjzlN91FKMBU5/0ndwlNu5W1Kh1+xP7M5NY16fT2muSty+OG74iM9j\nKhT56Nw2ROf1JO+bKWEOvnFc4ah02+CguAXdZt/2R+jQaUTe8glUXgBelcrrC0OH\nFclEUiRHdSZeBnHZq1/uid2bvA4aHBJM2q9XHpFIKeLpndX1WuPG8a19pFjrotHZ\nm2n/NGBYZsHant+ECWf9\n=Bn32\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 912604d77a1f8ec698d2f46c0b4d7cd492a550d9\nparent ac399082c54faecaba307d7fe5299aac9e39ff85\nauthor tim-srp <tim@srp.one> 1776331232 +0800\ncommitter GitHub <noreply@github.com> 1776331232 +0800\n\nchore: remove obsolete /extra-skills path references from prompts and docs (#84)\n\n* chore: remove obsolete /extra-skills path references from prompts and docs\n\necap-skills have been remounted at ~/.openclaw/skills/ (managed priority\nlevel 3) by fastclaw PR #56, which naturally overrides bundled skills.\nThe old \"Tool Routing Policy (Extra Skills First)\" prompt hack and the\nhardcoded /extra-skills/ path references in docs are no longer needed.\n\nChanges:\n- Remove \"Tool Routing Policy\" section from 5 AGENTS.md files\n  (careerbloom, oura-ring-connector, podcast-pal,\n   restaurant-review-monitor, stylist-agent)\n- Drop Path column from design-researcher/TOOLS.md skill table\n- Replace /extra-skills/<name> text references with skill names in\n  dr-report-builder/SKILL.md, mkt-meta-ads-pro/SKILL.md, stylist-agent/TOOLS.md\n\nOut of scope (follow-up):\n- bash blocks in SKILL.md that invoke `python3 /extra-skills/...`\n- Python scripts with hardcoded subprocess paths\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\n\n* chore: update subprocess script paths for ecap-skills managed-priority mount\n\nAfter fastclaw PR #56, ecap-skills are mounted at ~/.openclaw/skills/\n(managed priority 3) instead of /extra-skills/. Update the cross-skill\nsubprocess calls in these scripts so they resolve the correct location.\n\nUsing os.path.expanduser('~/...') keeps the code independent of the\ncontainer's HOME user (currently 'node') without hardcoding\n/home/node/.openclaw in sources.\n\nFiles:\n- restaurant-review-monitor/skills/daily-digest/scripts/fetch_yelp.py\n- restaurant-review-monitor/skills/daily-digest/scripts/run_daily.py\n- stylist-agent/skills/outfit-recommendation/scripts/generate_collage.py\n\nRationale for keeping subprocess pattern:\n- run_daily.py and fetch_yelp.py run as an OpenClaw cron job with no\n  LLM in the loop, so \"let the corresponding skill do it\" via agent\n  routing is not applicable. subprocess is the current canonical\n  cron-to-skill invocation mechanism.\n- generate_collage.py's subprocess call is a fallback path only; the\n  primary path uses litellm directly. Rewriting the fallback would\n  change the script's exception-handling contract.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\n\n* Revert \"chore: update subprocess script paths for ecap-skills managed-priority mount\"\n\nThis reverts commit eab1244d83013be9a57f73d94d38634d369c3425.\n\n---------\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+        "verified_at": "2026-04-16T09:20:33Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/440dde63bfce0bdeac8d09842d6ed2249b797752",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/440dde63bfce0bdeac8d09842d6ed2249b797752",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/440dde63bfce0bdeac8d09842d6ed2249b797752/comments",
+    "author": {
+      "login": "tim-srp",
+      "id": 178765090,
+      "node_id": "U_kgDOCqe9Ig",
+      "avatar_url": "https://avatars.githubusercontent.com/u/178765090?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/tim-srp",
+      "html_url": "https://github.com/tim-srp",
+      "followers_url": "https://api.github.com/users/tim-srp/followers",
+      "following_url": "https://api.github.com/users/tim-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/tim-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/tim-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/tim-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/tim-srp/orgs",
+      "repos_url": "https://api.github.com/users/tim-srp/repos",
+      "events_url": "https://api.github.com/users/tim-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/tim-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ac399082c54faecaba307d7fe5299aac9e39ff85",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/ac399082c54faecaba307d7fe5299aac9e39ff85",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/ac399082c54faecaba307d7fe5299aac9e39ff85"
+      }
+    ]
+  },
+  {
+    "sha": "ac399082c54faecaba307d7fe5299aac9e39ff85",
+    "node_id": "C_kwDORoMXtdoAKGFjMzk5MDgyYzU0ZmFlY2FiYTMwN2Q3ZmU1Mjk5YWFjOWUzOWZmODU",
+    "commit": {
+      "author": {
+        "name": "Nemo Feng",
+        "email": "nemo@srp.one",
+        "date": "2026-04-16T02:40:52Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-16T02:40:52Z"
+      },
+      "message": "fix(oura-ring-connector, podcast-pal): move config to ~/.config for persistence across claw restarts (#83)\n\nRelocate all runtime data paths from ~/.<pack-name>/ to ~/.config/<pack-name>/\nso that config, auth tokens, and cached data survive container restarts.\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+      "tree": {
+        "sha": "9c7f75d0ced3f6c8d88c5ac3193195c351989476",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/9c7f75d0ced3f6c8d88c5ac3193195c351989476"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/ac399082c54faecaba307d7fe5299aac9e39ff85",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4Ew0CRC1aQ7uu5UhlAAAEt8QAB3928tnGf4GAMA/Xofqkvlv\niQ4PFLlYLhvbxd/Ysp3ekb3DZ+sdwOHUlngxgObrdLajubLkzyAa5GVeYBi6hZ7l\ni+KNmQ7sXI9g1Rjm3Nj9JSW+EXe+zNnj0M1GQ9sH0yarnRsQ2fQ2tqI3yT6mPhPr\n9X853LdD5Lcq+XlCfs5LcC+oGDkahd8TAyzMzV0COFh9WVTKgCG1Qf1aoLmBH91+\nO8bo4CKQhUbkjT22FBZBQU3TM/o7Kev66f+OzSIaxuMjQQiHM3SEUnHT3Jd6+7qy\nEWXajBhJbWLV91i7xuZ7WGb+UC8PgSL3wGXPXY2j5csxEdQGatKzE8rz8rTFK7rK\no/LkLrj7d8WEyaVruF9xf/Rx2B5cpa53nWxz/ZbOqJsaLr2YARqK/ko+u8Tv/0uQ\nUxnKR6Z923FEGoBMPBJB6qoSN9LOdrrotmSSWgR7cTVyfLi2Dwzm4WszMXKzHsiF\nisHwrqNMbU08zH1oJBI+mnArgvYIjemnsASIaG557gHGPp7n5gA8S3dVJV79l6ga\nkX9fROh4t+kmvA/zvkxIND5eNtKPOzQhHy1TWjgc4L9ocaHM50Knl4YJ4Vu60cBH\n61ddpT7I0jer9GEgH8trylOgXcXFl1jKUDmIO7QzJMi0WeXTMGbwbkJbbNs+VqK4\nVBfdkUiAC7Jy9bJD8z0p\n=53Yb\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 9c7f75d0ced3f6c8d88c5ac3193195c351989476\nparent 8fec035842d7e8e57117855a739c22b5f7679be2\nauthor Nemo Feng <nemo@srp.one> 1776307252 -0700\ncommitter GitHub <noreply@github.com> 1776307252 +0800\n\nfix(oura-ring-connector, podcast-pal): move config to ~/.config for persistence across claw restarts (#83)\n\nRelocate all runtime data paths from ~/.<pack-name>/ to ~/.config/<pack-name>/\nso that config, auth tokens, and cached data survive container restarts.\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+        "verified_at": "2026-04-16T02:40:52Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/ac399082c54faecaba307d7fe5299aac9e39ff85",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/ac399082c54faecaba307d7fe5299aac9e39ff85",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/ac399082c54faecaba307d7fe5299aac9e39ff85/comments",
+    "author": {
+      "login": "nemo-srp",
+      "id": 259985051,
+      "node_id": "U_kgDOD38Omw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/259985051?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nemo-srp",
+      "html_url": "https://github.com/nemo-srp",
+      "followers_url": "https://api.github.com/users/nemo-srp/followers",
+      "following_url": "https://api.github.com/users/nemo-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nemo-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nemo-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nemo-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/nemo-srp/orgs",
+      "repos_url": "https://api.github.com/users/nemo-srp/repos",
+      "events_url": "https://api.github.com/users/nemo-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nemo-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8fec035842d7e8e57117855a739c22b5f7679be2",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/8fec035842d7e8e57117855a739c22b5f7679be2",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/8fec035842d7e8e57117855a739c22b5f7679be2"
+      }
+    ]
+  }
+]

@@ -1,0 +1,84 @@
+[
+  {
+    "sha": "583924205bb20f7464bed43c2fb5ae9a3aa1a41a",
+    "node_id": "C_kwDORcceptoAKDU4MzkyNDIwNWJiMjBmNzQ2NGJlZDQzYzJmYjVhZTlhM2FhMWE0MWE",
+    "commit": {
+      "author": {
+        "name": "allenz-srp",
+        "email": "allenz@srp.one",
+        "date": "2026-04-16T06:34:48Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-16T06:34:48Z"
+      },
+      "message": "feat: add VS Code devcontainer with openclaw-docker image (#148)\n\n* feat: add VS Code devcontainer with openclaw-docker image\n\nUse openclaw-docker as the dev environment so skill development\nmatches the production runtime. Mounts host ~/.claude, ~/.claude.json\nand ~/.config into the container for Claude Code and GCP auth.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* use 2026.3.13.38 image version\n\n---------\n\nCo-authored-by: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+      "tree": {
+        "sha": "8e91f9a552703f7313d9dfa6ce39405b22f19451",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/trees/8e91f9a552703f7313d9dfa6ce39405b22f19451"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/commits/583924205bb20f7464bed43c2fb5ae9a3aa1a41a",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4IMICRC1aQ7uu5UhlAAARhsQAFQTZlzVSLWNX6y8qLiaIXd1\nKTY6uF/9NqLGjPJdIFMLel+ZIBFVSU4pI2RIxTTNoF6FYvjn5WNPTRcIt6F2DI+a\n6MyaOpd58wf7494eK/ihVADVjsJMfhGHYD1wrp3dUHKxXlMvu1o/M4r98YBttfgV\nL8StRUxzF8Q21xyMzuE6gJdu40qTBwGX26vz4w0Pl42zz8bVWTmxBHpbGdGlAtJh\nB6QDMXD2MB6/9GYIirZj/JFRS1j9wOu10IgwEuMxtHdJY+3zGSpedL3foGDqaV1s\nM+ij63Lr6DHHvIlVMRpYfg5EE8oAjm/PBFT67XYBKIrBATgf1/DPDt7Z1SLwns0n\nJmEDB/G5jdAAyiLRbSNxwziyJOxKblmLyBjgbyee8FqBICUmACEEU2kRLAITDZAe\nQNGTbTQibI6j23HpkU61P5Ny3TPGr7yz8NiU43bm5K1H4fDlQ5UibJcUpKAmfq/L\nJJj0llTx5I9kF5ZVDjH/ZLfoLDvKRjzrNQEV8UMBg/+pEmyyqkZjPS0014uc+GPZ\n+Hq0PAfh5dEaE0zjj69z9+z/M3ND0cFYyHfoVPo140M1/6Y748gauqSqLJ0gw/zW\naPkDAi73Ug/wVafYdXemWwzqh3U84S944wmNWh4UDwHgWd44RnLxDVvxBEh0zQ50\nB8sexJ3JWVJiahjXZHzs\n=OVQt\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 8e91f9a552703f7313d9dfa6ce39405b22f19451\nparent fce74446bf0f48e2a7cb148916c1ffb35b3457f5\nauthor allenz-srp <allenz@srp.one> 1776321288 +0800\ncommitter GitHub <noreply@github.com> 1776321288 +0800\n\nfeat: add VS Code devcontainer with openclaw-docker image (#148)\n\n* feat: add VS Code devcontainer with openclaw-docker image\n\nUse openclaw-docker as the dev environment so skill development\nmatches the production runtime. Mounts host ~/.claude, ~/.claude.json\nand ~/.config into the container for Claude Code and GCP auth.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* use 2026.3.13.38 image version\n\n---------\n\nCo-authored-by: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+        "verified_at": "2026-04-16T06:34:49Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/583924205bb20f7464bed43c2fb5ae9a3aa1a41a",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/583924205bb20f7464bed43c2fb5ae9a3aa1a41a",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/583924205bb20f7464bed43c2fb5ae9a3aa1a41a/comments",
+    "author": {
+      "login": "allenz-srp",
+      "id": 176031227,
+      "node_id": "U_kgDOCn4F-w",
+      "avatar_url": "https://avatars.githubusercontent.com/u/176031227?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/allenz-srp",
+      "html_url": "https://github.com/allenz-srp",
+      "followers_url": "https://api.github.com/users/allenz-srp/followers",
+      "following_url": "https://api.github.com/users/allenz-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/allenz-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/allenz-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/allenz-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/allenz-srp/orgs",
+      "repos_url": "https://api.github.com/users/allenz-srp/repos",
+      "events_url": "https://api.github.com/users/allenz-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/allenz-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "fce74446bf0f48e2a7cb148916c1ffb35b3457f5",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/fce74446bf0f48e2a7cb148916c1ffb35b3457f5",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/fce74446bf0f48e2a7cb148916c1ffb35b3457f5"
+      }
+    ]
+  }
+]
