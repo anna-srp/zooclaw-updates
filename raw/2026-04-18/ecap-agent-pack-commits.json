@@ -1,0 +1,986 @@
+[
+  {
+    "sha": "525fda8d003353a173f624c2863c423edb6a18f4",
+    "node_id": "C_kwDORoMXtdoAKDUyNWZkYThkMDAzMzUzYTE3M2Y2MjRjMjg2M2M0MjNlZGI2YTE4ZjQ",
+    "commit": {
+      "author": {
+        "name": "felix-srp",
+        "email": "145632298+felix-srp@users.noreply.github.com",
+        "date": "2026-04-17T22:15:37Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-17T22:15:37Z"
+      },
+      "message": "fix(soulmate-pack): stop heartbeat spam + tune for real-partner cadence (#95)\n\n* fix(soulmate-pack): persist next_send_at so heartbeat gate actually fires\n\nshould_message.py has always read data/.last_proactive_sent but never\nwritten it — the state gate has been a dead read since the file first\nlanded in #1. In every branch that returns send: True, the freshly\ncomputed next_send_at is emitted in the JSON output and then discarded.\n\nThe bug was latent until #92 because sm-onboarding previously skipped\nsetting heartbeat 'every' when platform routing config was already\npresent, so the cron had no tick schedule. Once #92 switched Step 6b\nto setdefault-per-key merge, 'every' got set, ticks started firing —\nand with no persisted next_send_at, every tick hits the first_run\nbranch and sends a proactive message.\n\nFix: add _persist_next_send() that mkdirs data_dir and writes\n.last_proactive_sent alongside every non-force send: True branch.\n--force stays stateless by design. Verified locally:\n  run 1 → {\"send\": true, \"reason\": \"first_run\"}\n  run 2 → {\"send\": false, \"reason\": \"not_yet\", \"remaining_min\": 143}\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* rename state file .last_proactive_sent → .next_send.json\n\nThe old name suggests a timestamp of something that already happened,\nbut the file stores a forward-looking schedule — when the next\nproactive tick should fire. Rename to match actual content. Since\nno earlier commit successfully wrote the file, there is no on-disk\ndata to migrate.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* harden get_session_updated_at: surface failures, tighten timeout\n\nThe active-session gate called openclaw sessions with timeout=30s and a\nblanket except Exception: pass — any failure (timeout, missing binary,\nnon-zero exit, JSON parse error, polluted stdout) was silently swallowed,\nreturning None. Callers interpret None as \"no active session\" and proceed\nto send, so every mode of failure degraded to \"heartbeat ignores the\ncooldown gate\" without any signal.\n\n- timeout=30 → timeout=5 (local command, no reason to wait longer)\n- subprocess exceptions logged to stderr with the underlying error\n- non-zero returncode logged to stderr (was silently accepted)\n- JSON parse errors logged to stderr (were silently swallowed)\n- fail-open semantics preserved — on failure, gate is skipped rather\n  than permanently deferring, so a broken openclaw does not silence\n  heartbeat entirely. Operators see stderr logs in cron output.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* HEARTBEAT.md: require silent execution, no status narration\n\nUsers reported seeing lines like \"✅ SOUL.md has Persona / ✅\nStreak-check ran / ✅ should_message.py returned send: true / ✅\nGenerated voice message / ...\" in the conversation. HEARTBEAT.md\nnever asked for them — the agent was narrating progress per\ndefault LLM habit.\n\nMake it explicit: heartbeat is internal, only step 5's in-character\nmessage reaches the user, all other steps and exit paths end silently.\nUpdated both top-level HEARTBEAT.md and the template that /init\nrestores.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* HEARTBEAT.md: route action_type → skill, mandate reading SKILL.md first\n\nProduction logs (zooclaw) show heartbeat selfies look nothing like the\nconfigured companion — the agent calls nano-banana-pro directly, without\n--images portrait.png, generating a generic stranger each tick. It only\nreads sm-photo/SKILL.md belatedly, after already having generated.\n\nRoot cause: step 5 said \"execute action_type in persona\" with no routing\ninstruction. message/question it handled fine as text, but for selfie /\nvoice_message / video it free-formed tool choice instead of invoking the\nowning skill.\n\nFix: explicit action_type → skill routing table, with an up-front rule\nto read the target SKILL.md before executing (matches the /selfie\nconvention already in AGENTS.md, now also required on heartbeat path).\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* simplify: extract _warn helper, trim HEARTBEAT.md callout\n\nCode review pass:\n- Three stderr prints in get_session_updated_at shared the\n  \"[should_message] \" prefix. Extract _warn(msg) to stop repeating\n  it and make renames trivial.\n- HEARTBEAT.md step 5 had a post-mortem parenthetical describing\n  the nano-banana-pro incident. Trim to the rule itself; the\n  selfie bullet now carries the concrete argument requirement\n  (--images portrait.png|fullbody.png) inline.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* HEARTBEAT.md: tighten prose (every tick loads this file)\n\nDrop redundant phrasing without losing meaning:\n- \"Silent execution\" → \"Silent\"; \"no ... no ... no ...\" → single list\n- Drop \"Any exit path ...\" sentence; \"Only step 5's ... reaches the\n  user\" already implies it\n- Drop \"(uses SM_DATA_DIR or `data/`)\" on step 3 — script-internal\n  detail, not actionable for the agent\n- Drop \"route by action_type\"; the bullets are self-evidently the\n  routing table\n- \"compose text\" → \"text\"; \"Then run\" → \"Then\"; drop \"intimacy\"\n  prefix on --delta-type (context made clear by AGENTS.md reference)\n\n~30% fewer words, same directives. Applied to top-level and template.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* HEARTBEAT.md: use uv run for should_message.py\n\nMatches the canonical `uv run --python 3.12 ...` pattern used throughout\nAGENTS.md — consistent Python invocation across the pack.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* HEARTBEAT.md: drop redundant selfie --images note\n\nsm-photo's SKILL.md already mandates passing portrait/fullbody as\n--images. The \"read target skill's SKILL.md first\" directive covers it.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* HEARTBEAT.md: drop title and 'Internal only' preface\n\nTitle is redundant with filename; \"Internal only —\" is covered by\n\"Silent\" + the example list. Silence rule and SKILL.md-first safety\nrail preserved.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* HEARTBEAT.md: tighten silence rule to one absolute line\n\nReplace \"Silent — no narration/status/✅/HEARTBEAT_OK\" enumeration with\n\"No chat output except step 5's in-character message.\" — stronger\nblanket constraint, half the tokens, no loopholes.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* harden state persistence: atomic write, fail-closed on corrupt, session gate on first_run\n\nReview caught three related bugs in the recently-added persistence layer:\n\n1. Non-atomic write: Path.write_text() can leave a torn file on crash\n   or overlapping tick. Switch to tmp-sibling + os.replace().\n\n2. Corrupt vs missing conflation: _read_json returned {} on both, so\n   a torn write re-entered first_run and duplicate-sent. Introduce\n   _load_next_send_at() that distinguishes the two via sentinels;\n   fail closed on parse error (next scheduled write heals the file).\n\n3. first_run bypassed the active-session gate — a missing state file\n   (fresh install, clean.py, disk issue) could fire mid-conversation.\n   Consolidate the gate to run on both first_run and timer-expired.\n\nSmoke-tested: first_run, not_yet, corrupt JSON, empty {}, no .tmp leak.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* self-heal corrupt state file so heartbeat doesn't get permanently stuck\n\nRound-2 review caught: when _load_next_send_at returns _STATE_CORRUPT,\nwe fail-closed but never rewrite — subsequent ticks keep reading the\nsame corrupt file and stay silent forever.\n\nRemove the corrupt file on detection so the next tick sees _STATE_MISSING\nand proceeds through the normal first_run path. Still fail-closed this\ntick to avoid duplicate-send.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* tune heartbeat for real-partner cadence and cheaper texts\n\nThree coordinated changes:\n\n1. FREQ_INTERVAL retuned — default 'regular' now ~3-4/day (was 5-6/day).\n   Real partners text at day-rhythm anchors, not every 2 hours.\n   Simulated: gentle 2/day, regular 3.3/day, attentive 5.1/day.\n\n2. Action weights rebalanced toward text — 40/25/15/15/5 (was 25/20/30/20/5).\n   Media (voice/selfie/video) drops from 55% to 35% of sends. Real\n   partners text more than they voice/photo; media stays meaningful\n   and less costly overall.\n\n3. HEARTBEAT.md compacted ~33% — merged exit-early steps into the\n   should_message.py line and inlined the skill-routing table onto\n   one line. Same semantics, every 30-min cron tick loads less.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* weight actions by cost: voice > selfie, video stays rare\n\nVoice generation is cheaper than image gen; video is the most expensive.\nShift 5% from selfie → voice so the action mix tracks cost:\n\n  message 0.40 / question 0.25 / voice 0.20 / selfie 0.10 / video 0.05\n\nText remains dominant (65%), voice doubles selfie, video unchanged at 5%.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\nCo-authored-by: Ning Hu <ning@gensmo.ai>",
+      "tree": {
+        "sha": "cf853d32a8e6107bedba2e2a657947e4c94ca69a",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/cf853d32a8e6107bedba2e2a657947e4c94ca69a"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/525fda8d003353a173f624c2863c423edb6a18f4",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4rEJCRC1aQ7uu5UhlAAAkxUQABkN0tfD4l4HyqsXyk2HaBDA\nDO/TQGGbmDpYn+l0IKCDrM49qajDPjIGQhzG0bxsqMgnRBSUyUiBbgpJcv1B18mn\nHSXxZeQGc1cswAa6hw6qJht+07jWQNiCibWpSyp/fUP0R6qqgk5ixxLN1+akKaYe\nTDhWh8xwRSuxci/RBWT2C2U5gfg33Aiu5HVKuP8XQDeetmT9dzBrc4LZWA1L1FzD\nzLl5p3U+AvIT9v6j0C/Cas1fdBvZoNSlUWmSGUBh0AzpQReGgv7KYAem+r+StClc\nvaDqkHdKVzImdyQTucm169kZ6OMVefbzq1QItAMkzehVVnOS2WGiJA3oKiLtcpvY\nYhoPifjpCePK5BHhp9HwHA6MaoyFykI2c6/BH7wCR8Cxjh3HB0sPRZE3E2mRtrrL\n6HAvMUt+Wmbf2zMdSwnjQi1XjXrqDieUtEguzMvFCIbDpGQDYx/hUtP3R5sT5+7d\nBI6jwIoFSuuI5M2+g6KG12ZTgNIhX2t9jbrNJ68seFUVi3XSTbbEJ2wwx3x41NBT\nP/rgAKoHMCpbxhrx8Lk1tRFJh3IEyXhgKlk0Z/KHczx9DtdrrxXgud5TufTHQDeE\nzpk0fIVdkiU51+JA1P2gPvW5dcRjGcgoPUOTfIm/56VK9T+zr4ykQIJivvePEeuP\nxsTDiSZeokjbfgK1QVvG\n=LzNC\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree cf853d32a8e6107bedba2e2a657947e4c94ca69a\nparent a1cb0c92b0d696c6c7d8f6ebc6ac031c2448c851\nauthor felix-srp <145632298+felix-srp@users.noreply.github.com> 1776464137 -0400\ncommitter GitHub <noreply@github.com> 1776464137 -0400\n\nfix(soulmate-pack): stop heartbeat spam + tune for real-partner cadence (#95)\n\n* fix(soulmate-pack): persist next_send_at so heartbeat gate actually fires\n\nshould_message.py has always read data/.last_proactive_sent but never\nwritten it — the state gate has been a dead read since the file first\nlanded in #1. In every branch that returns send: True, the freshly\ncomputed next_send_at is emitted in the JSON output and then discarded.\n\nThe bug was latent until #92 because sm-onboarding previously skipped\nsetting heartbeat 'every' when platform routing config was already\npresent, so the cron had no tick schedule. Once #92 switched Step 6b\nto setdefault-per-key merge, 'every' got set, ticks started firing —\nand with no persisted next_send_at, every tick hits the first_run\nbranch and sends a proactive message.\n\nFix: add _persist_next_send() that mkdirs data_dir and writes\n.last_proactive_sent alongside every non-force send: True branch.\n--force stays stateless by design. Verified locally:\n  run 1 → {\"send\": true, \"reason\": \"first_run\"}\n  run 2 → {\"send\": false, \"reason\": \"not_yet\", \"remaining_min\": 143}\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* rename state file .last_proactive_sent → .next_send.json\n\nThe old name suggests a timestamp of something that already happened,\nbut the file stores a forward-looking schedule — when the next\nproactive tick should fire. Rename to match actual content. Since\nno earlier commit successfully wrote the file, there is no on-disk\ndata to migrate.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* harden get_session_updated_at: surface failures, tighten timeout\n\nThe active-session gate called openclaw sessions with timeout=30s and a\nblanket except Exception: pass — any failure (timeout, missing binary,\nnon-zero exit, JSON parse error, polluted stdout) was silently swallowed,\nreturning None. Callers interpret None as \"no active session\" and proceed\nto send, so every mode of failure degraded to \"heartbeat ignores the\ncooldown gate\" without any signal.\n\n- timeout=30 → timeout=5 (local command, no reason to wait longer)\n- subprocess exceptions logged to stderr with the underlying error\n- non-zero returncode logged to stderr (was silently accepted)\n- JSON parse errors logged to stderr (were silently swallowed)\n- fail-open semantics preserved — on failure, gate is skipped rather\n  than permanently deferring, so a broken openclaw does not silence\n  heartbeat entirely. Operators see stderr logs in cron output.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* HEARTBEAT.md: require silent execution, no status narration\n\nUsers reported seeing lines like \"✅ SOUL.md has Persona / ✅\nStreak-check ran / ✅ should_message.py returned send: true / ✅\nGenerated voice message / ...\" in the conversation. HEARTBEAT.md\nnever asked for them — the agent was narrating progress per\ndefault LLM habit.\n\nMake it explicit: heartbeat is internal, only step 5's in-character\nmessage reaches the user, all other steps and exit paths end silently.\nUpdated both top-level HEARTBEAT.md and the template that /init\nrestores.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* HEARTBEAT.md: route action_type → skill, mandate reading SKILL.md first\n\nProduction logs (zooclaw) show heartbeat selfies look nothing like the\nconfigured companion — the agent calls nano-banana-pro directly, without\n--images portrait.png, generating a generic stranger each tick. It only\nreads sm-photo/SKILL.md belatedly, after already having generated.\n\nRoot cause: step 5 said \"execute action_type in persona\" with no routing\ninstruction. message/question it handled fine as text, but for selfie /\nvoice_message / video it free-formed tool choice instead of invoking the\nowning skill.\n\nFix: explicit action_type → skill routing table, with an up-front rule\nto read the target SKILL.md before executing (matches the /selfie\nconvention already in AGENTS.md, now also required on heartbeat path).\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* simplify: extract _warn helper, trim HEARTBEAT.md callout\n\nCode review pass:\n- Three stderr prints in get_session_updated_at shared the\n  \"[should_message] \" prefix. Extract _warn(msg) to stop repeating\n  it and make renames trivial.\n- HEARTBEAT.md step 5 had a post-mortem parenthetical describing\n  the nano-banana-pro incident. Trim to the rule itself; the\n  selfie bullet now carries the concrete argument requirement\n  (--images portrait.png|fullbody.png) inline.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* HEARTBEAT.md: tighten prose (every tick loads this file)\n\nDrop redundant phrasing without losing meaning:\n- \"Silent execution\" → \"Silent\"; \"no ... no ... no ...\" → single list\n- Drop \"Any exit path ...\" sentence; \"Only step 5's ... reaches the\n  user\" already implies it\n- Drop \"(uses SM_DATA_DIR or `data/`)\" on step 3 — script-internal\n  detail, not actionable for the agent\n- Drop \"route by action_type\"; the bullets are self-evidently the\n  routing table\n- \"compose text\" → \"text\"; \"Then run\" → \"Then\"; drop \"intimacy\"\n  prefix on --delta-type (context made clear by AGENTS.md reference)\n\n~30% fewer words, same directives. Applied to top-level and template.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* HEARTBEAT.md: use uv run for should_message.py\n\nMatches the canonical `uv run --python 3.12 ...` pattern used throughout\nAGENTS.md — consistent Python invocation across the pack.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* HEARTBEAT.md: drop redundant selfie --images note\n\nsm-photo's SKILL.md already mandates passing portrait/fullbody as\n--images. The \"read target skill's SKILL.md first\" directive covers it.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* HEARTBEAT.md: drop title and 'Internal only' preface\n\nTitle is redundant with filename; \"Internal only —\" is covered by\n\"Silent\" + the example list. Silence rule and SKILL.md-first safety\nrail preserved.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* HEARTBEAT.md: tighten silence rule to one absolute line\n\nReplace \"Silent — no narration/status/✅/HEARTBEAT_OK\" enumeration with\n\"No chat output except step 5's in-character message.\" — stronger\nblanket constraint, half the tokens, no loopholes.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* harden state persistence: atomic write, fail-closed on corrupt, session gate on first_run\n\nReview caught three related bugs in the recently-added persistence layer:\n\n1. Non-atomic write: Path.write_text() can leave a torn file on crash\n   or overlapping tick. Switch to tmp-sibling + os.replace().\n\n2. Corrupt vs missing conflation: _read_json returned {} on both, so\n   a torn write re-entered first_run and duplicate-sent. Introduce\n   _load_next_send_at() that distinguishes the two via sentinels;\n   fail closed on parse error (next scheduled write heals the file).\n\n3. first_run bypassed the active-session gate — a missing state file\n   (fresh install, clean.py, disk issue) could fire mid-conversation.\n   Consolidate the gate to run on both first_run and timer-expired.\n\nSmoke-tested: first_run, not_yet, corrupt JSON, empty {}, no .tmp leak.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* self-heal corrupt state file so heartbeat doesn't get permanently stuck\n\nRound-2 review caught: when _load_next_send_at returns _STATE_CORRUPT,\nwe fail-closed but never rewrite — subsequent ticks keep reading the\nsame corrupt file and stay silent forever.\n\nRemove the corrupt file on detection so the next tick sees _STATE_MISSING\nand proceeds through the normal first_run path. Still fail-closed this\ntick to avoid duplicate-send.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* tune heartbeat for real-partner cadence and cheaper texts\n\nThree coordinated changes:\n\n1. FREQ_INTERVAL retuned — default 'regular' now ~3-4/day (was 5-6/day).\n   Real partners text at day-rhythm anchors, not every 2 hours.\n   Simulated: gentle 2/day, regular 3.3/day, attentive 5.1/day.\n\n2. Action weights rebalanced toward text — 40/25/15/15/5 (was 25/20/30/20/5).\n   Media (voice/selfie/video) drops from 55% to 35% of sends. Real\n   partners text more than they voice/photo; media stays meaningful\n   and less costly overall.\n\n3. HEARTBEAT.md compacted ~33% — merged exit-early steps into the\n   should_message.py line and inlined the skill-routing table onto\n   one line. Same semantics, every 30-min cron tick loads less.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n* weight actions by cost: voice > selfie, video stays rare\n\nVoice generation is cheaper than image gen; video is the most expensive.\nShift 5% from selfie → voice so the action mix tracks cost:\n\n  message 0.40 / question 0.25 / voice 0.20 / selfie 0.10 / video 0.05\n\nText remains dominant (65%), voice doubles selfie, video unchanged at 5%.\n\nCo-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\nCo-authored-by: Ning Hu <ning@gensmo.ai>",
+        "verified_at": "2026-04-17T22:15:37Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/525fda8d003353a173f624c2863c423edb6a18f4",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/525fda8d003353a173f624c2863c423edb6a18f4",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/525fda8d003353a173f624c2863c423edb6a18f4/comments",
+    "author": {
+      "login": "felix-srp",
+      "id": 145632298,
+      "node_id": "U_kgDOCK4sKg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/145632298?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/felix-srp",
+      "html_url": "https://github.com/felix-srp",
+      "followers_url": "https://api.github.com/users/felix-srp/followers",
+      "following_url": "https://api.github.com/users/felix-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/felix-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/felix-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/felix-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/felix-srp/orgs",
+      "repos_url": "https://api.github.com/users/felix-srp/repos",
+      "events_url": "https://api.github.com/users/felix-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/felix-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "a1cb0c92b0d696c6c7d8f6ebc6ac031c2448c851",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/a1cb0c92b0d696c6c7d8f6ebc6ac031c2448c851",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/a1cb0c92b0d696c6c7d8f6ebc6ac031c2448c851"
+      }
+    ]
+  },
+  {
+    "sha": "a1cb0c92b0d696c6c7d8f6ebc6ac031c2448c851",
+    "node_id": "C_kwDORoMXtdoAKGExY2IwYzkyYjBkNjk2YzZjN2Q4ZjZlYmM2YWMwMzFjMjQ0OGM4NTE",
+    "commit": {
+      "author": {
+        "name": "nolan-srp",
+        "email": "nolan@srp.one",
+        "date": "2026-04-17T08:46:12Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-17T08:46:12Z"
+      },
+      "message": "feat(release): add versioned packaging and release compatibility (#94)\n\n* fix(release): resolve numeric asset ids from GitHub\n\n* fix(release): keep legacy zip assets in releases",
+      "tree": {
+        "sha": "daceaa3e1c8fbc26db642d4fac9df7b6d0ffa429",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/daceaa3e1c8fbc26db642d4fac9df7b6d0ffa429"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/a1cb0c92b0d696c6c7d8f6ebc6ac031c2448c851",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4fNUCRC1aQ7uu5UhlAAAkHYQAFgndRFkq2XdxnQLaP2iVwC6\nZiAX5GPFcsCbjyPa8tzHLR+kqgCgfv9M/QjGBDjW7Xywa2NPGiruf3bf28reJWyr\nQnTUaoH7XYw4PG0f+DPmKVEHFmYolPJc6Akrta0bWzpGw9Vx95cFo57tNKd48Hxw\nIi3FWpYqOSATaLJmw/LWK9W8RovpbUYQJZvW+u7lsmxz0ZTVE6D1qxTqCH3g0ZMQ\n1rkr1WP+zHbDRCZvLhYPfunh1USECbdMH+MSB1A/y8DQXKjdtWZ578pSCKJZHUuP\nRDGA/0w6KB+gxeNfAB+QNUWzueRDYhdpcJapxjw/va2BnK7kItQQp5/uf8rGu6Fs\n+JSskHVK4neqJVWwBEBPu29Xpluf6QceXpc5hRqbGKn7sP+4Sz0KwsmqBCiXe5VG\n/sPipL+TylaJpSz8eRIT2/Y6OqXYWaDxmpP+nZtUHKmPAxrXskXPx+psww6EgIo8\nEJcXx7eE3u1/xgXZuPUCj1fZ0ywe1MNnxypTPXH63k4vVSY3a+WBhKZsEVVNjWRx\nQ/Ua5x0hfQLMQFwHLdnDgZwv/fhedx/JagjznzMkfUsx903vnVCxyDPqpO1U6XxL\nx1p4Ei3skyQmWFJ2Vhl3J8/TxjHSR/65fXCB8Z1Imo6vOhdhqcdgZIchC3WxF2cJ\n9g5BHHtoYrLiw+PM05iA\n=yqKx\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree daceaa3e1c8fbc26db642d4fac9df7b6d0ffa429\nparent 6153a2fc3d21b144f6ba29646574a9a1890345e6\nauthor nolan-srp <nolan@srp.one> 1776415572 +0800\ncommitter GitHub <noreply@github.com> 1776415572 +0800\n\nfeat(release): add versioned packaging and release compatibility (#94)\n\n* fix(release): resolve numeric asset ids from GitHub\n\n* fix(release): keep legacy zip assets in releases",
+        "verified_at": "2026-04-17T08:46:12Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/a1cb0c92b0d696c6c7d8f6ebc6ac031c2448c851",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/a1cb0c92b0d696c6c7d8f6ebc6ac031c2448c851",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/a1cb0c92b0d696c6c7d8f6ebc6ac031c2448c851/comments",
+    "author": {
+      "login": "nolan-srp",
+      "id": 188835990,
+      "node_id": "U_kgDOC0Folg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/188835990?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nolan-srp",
+      "html_url": "https://github.com/nolan-srp",
+      "followers_url": "https://api.github.com/users/nolan-srp/followers",
+      "following_url": "https://api.github.com/users/nolan-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nolan-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nolan-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nolan-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/nolan-srp/orgs",
+      "repos_url": "https://api.github.com/users/nolan-srp/repos",
+      "events_url": "https://api.github.com/users/nolan-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nolan-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6153a2fc3d21b144f6ba29646574a9a1890345e6",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/6153a2fc3d21b144f6ba29646574a9a1890345e6",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/6153a2fc3d21b144f6ba29646574a9a1890345e6"
+      }
+    ]
+  },
+  {
+    "sha": "6153a2fc3d21b144f6ba29646574a9a1890345e6",
+    "node_id": "C_kwDORoMXtdoAKDYxNTNhMmZjM2QyMWIxNDRmNmJhMjk2NDY1NzRhOWExODkwMzQ1ZTY",
+    "commit": {
+      "author": {
+        "name": "nolan-srp",
+        "email": "nolan@srp.one",
+        "date": "2026-04-17T08:38:24Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-17T08:38:24Z"
+      },
+      "message": "feat(release): add versioned agent packaging and validation (#93)",
+      "tree": {
+        "sha": "8b9d1516c07a1507841be630cf83ab368adfe562",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/8b9d1516c07a1507841be630cf83ab368adfe562"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/6153a2fc3d21b144f6ba29646574a9a1890345e6",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4fGACRC1aQ7uu5UhlAAA9TkQAIBZb4JY6ksdBhOkpmOJNr1v\nXduVYGmwhXB8O0lwSe+2HGs1FjgS71DWaHsNopvU1dUayvJunCPhbygax/VKYCMb\nMFfM0kQe9P5Z2gEHcA6L/c9+HP1J+5tqoi2xvTSbCBUEGTdllyLp0rk+j+5pv+B8\n2H6Jjm8aeKbSZAD7gwT26w2ii4ktduJJ6EzzNLmLub5tv6tmvgE0Vc1hGLQjYTfE\nMmCeNlO8tZ4gxAF4H40r2APyBHUjXDWQ8yg8yOxdEO2MNRA8rXfV0IGrVSS1xrh+\nePqZi2HUZi69i3ZwbJ3mAG+X204iI7htuaWBx6BDj+0U/TXCkEd5sS3v7/fvzvD8\nFH7tZDHxLa0OanelS8z6p8qW6srXVsZWgWT4Khc0s2nxNexsvGSXI3lvU8a47/U5\nfZl48QvEZTgb8zocycbrHrtSNHDNeR64Ew/Z6IpkHDJ7C3ENCan+KLVRjQWxYlvb\nKeThXvqbyZnZ2JxoU1YPd0QuPHbBtR1lMvDSm8nJyrhlOdYPV4zBCPE+I5cttgTT\nvp42idc3ugMSJGW4DgKXU9qCyu+Q4ZGFPJGPACOj6LryZoDGuM9LLsdprgqHws9H\nUHQRhwAAxqU/684+A+R0tCa6E+n8Sr63NUaEerfJXETbuVNEzHS9sq3EINCsK7Ss\nbdZsuoC0O0wDHOv1TOdD\n=FJTk\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 8b9d1516c07a1507841be630cf83ab368adfe562\nparent 8539d6e746f2e109266c9891dcbce535d240f7dc\nauthor nolan-srp <nolan@srp.one> 1776415104 +0800\ncommitter GitHub <noreply@github.com> 1776415104 +0800\n\nfeat(release): add versioned agent packaging and validation (#93)",
+        "verified_at": "2026-04-17T08:38:24Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/6153a2fc3d21b144f6ba29646574a9a1890345e6",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/6153a2fc3d21b144f6ba29646574a9a1890345e6",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/6153a2fc3d21b144f6ba29646574a9a1890345e6/comments",
+    "author": {
+      "login": "nolan-srp",
+      "id": 188835990,
+      "node_id": "U_kgDOC0Folg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/188835990?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nolan-srp",
+      "html_url": "https://github.com/nolan-srp",
+      "followers_url": "https://api.github.com/users/nolan-srp/followers",
+      "following_url": "https://api.github.com/users/nolan-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nolan-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nolan-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nolan-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/nolan-srp/orgs",
+      "repos_url": "https://api.github.com/users/nolan-srp/repos",
+      "events_url": "https://api.github.com/users/nolan-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nolan-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8539d6e746f2e109266c9891dcbce535d240f7dc",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/8539d6e746f2e109266c9891dcbce535d240f7dc",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/8539d6e746f2e109266c9891dcbce535d240f7dc"
+      }
+    ]
+  },
+  {
+    "sha": "8539d6e746f2e109266c9891dcbce535d240f7dc",
+    "node_id": "C_kwDORoMXtdoAKDg1MzlkNmU3NDZmMmUxMDkyNjZjOTg5MWRjYmNlNTM1ZDI0MGY3ZGM",
+    "commit": {
+      "author": {
+        "name": "felix-srp",
+        "email": "145632298+felix-srp@users.noreply.github.com",
+        "date": "2026-04-17T08:02:15Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-17T08:02:15Z"
+      },
+      "message": "soulmate-pack: simplify, fix stale code, align docs to code (#92)\n\n* soulmate-pack: simplify, fix stale code, align docs to code\n\nMarkdown (loaded into agent context every turn): trimmed ~26% — removed\nduplicated rules across AGENTS.md/SOUL.md/skills, dropped rationale-only\nexamples, compacted sm-onboarding (160→112 lines). Behavior-preserving.\n\nPython: dropped dead code (compute_streak_status, DECAY_SCHEDULE), merged\nduplicated config reads, unified EN/ZH dashboard output, added mutation-\ntracking so no-op heartbeats no longer rewrite intimacy.json. Total\n~200 lines removed across intimacy.py, should_message.py, health_check.py.\n\nFixes:\n- sm-relationship/SKILL.md threshold table now matches code\n  [0, 200, 600, 1500, 3000, 5500, 9000, 14000] (previously diverged).\n- health_check.py no longer checks three paths that never existed\n  (xai_image.py, xai_video.py, sm-image-search skill).\n- .agents/skills/sm-onboarding/templates/ resynced to top-level (drift\n  would have restored stale versions on /init).\n- should_message.py: time_weight_for was present but never called; wired\n  into compute_next_send_at so proactive messages bias toward evenings\n  (weight 1.3) and mornings (1.2). Night hours return 1.0 so the existing\n  quiet-hours branch owns deferral to next 08:00.\n\nReviewed by Claude + Codex; one critical bug (night weight 0.05 bypassed\nquiet-hours snap → multi-day delivery gaps) caught and fixed pre-merge.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* health_check: resolve skills under .agents/skills/ after refactor\n\nThe skill-existence check in check_workspace() was still joining\nWORKSPACE / \"skills\" / skill, which no longer exists after #90 moved\npack skills under .agents/skills/. Also updated required_dirs to list\n.agents/skills instead of the missing top-level skills/.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* sm-onboarding: merge heartbeat config instead of skipping when one exists\n\nPlatform backend (ecap-workspace #770) now injects per-agent heartbeat\ndelivery config on every deployment — {target: mattermost, accountId, to}\nfor routing. sm-onboarding's old \"skip if heartbeat exists\" path meant\nevery, directPolicy, and lightContext were never set, so the companion\nhad a delivery address but no tick schedule.\n\nSwitch Step 6b semantics from \"set if missing\" to setdefault-per-key\nmerge. Drop 'target: last' — the platform's 'mattermost' target is what\nactually delivers to the user.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* nits from review: drop unused import, update stale comment, fail-only on shipped dirs\n\n- intimacy.py: drop unused 'import sys' left over from earlier refactor.\n- health_check.py: API-keys comment referenced removed xai_image/xai_video\n  scripts; updated to reference the external designer + video-generator\n  skills that actually consume these keys.\n- health_check.py: split required_dirs into shipped_dirs (.agents/skills,\n  scripts) and runtime_dirs (data, artifacts, memory). AUTO_FIX now only\n  creates runtime dirs; a missing .agents/skills indicates a broken install\n  and should fail loudly rather than be silently 'fixed' with an empty dir.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* health_check: probe video-generator skill instead of a fake pass\n\nPrevious commit replaced the stale xai_video.py check with a hardcoded\nok() that always passed. That masks a real failure mode: if video-generator\nisn't installed, sm-video breaks but health_check reports green. Mirror\ncheck_image_gen() and probe the skill via openclaw CLI.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+      "tree": {
+        "sha": "c6cf0f02eb47980e01641671ea9c751366c9f763",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/c6cf0f02eb47980e01641671ea9c751366c9f763"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/8539d6e746f2e109266c9891dcbce535d240f7dc",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4ekHCRC1aQ7uu5UhlAAAfaAQAAP6ybbgmmKufYnJQjm9sLmY\nCFjSKqgWk0VWOSGqkvRG3KC0G3ryNMvdBGeq8BoOTb1F2caTUvPCv/9NIWkBQnLt\nL7/KL11TFIeks3b4OTOosnHCiJI2tyDZpdcwkF3OzcNaIJwQ0/zytSX2Qs+Uzveh\n6dBujdJWta+f31r/qlwNzUaKUJx9RXbHfb+2kzq3MvOCWZ7yv9Wl9T5YIl0UIcCH\n+j4VgsPvOUx3JbA8E2X1vqc0Mmsa0Sc/8Pm8mgdDJdFH/ZxKx5CfLgDbRJpgx9OA\nYZ8j6dVnWdQmPgRpiFQNSWoG4HSylVPFk7xNKf/6R/h6DaiKb289C5mcTY4n9ISb\nrNaQxKUQx4rQJ119qMRE0mlq3pzsGnkfUq7m1b5R+Zu1ETghJ2zq89qkxvFwnfGw\nixhXqPjWwg+SlxkNzCr6vVmkTI8aeLt7Lxsf0VW54oHtIfJY++Wj7gHi+xuCah7V\nFa+HUoWVJVH9YVFW6HJMyiEjkh3YTUZ2KwOfV63+51TQiXMXRg7oUmk4IuJU41Ou\nqq38Ivj67gkWCe+Jg4rBH+u3zzFQ5zzgRJ1PuOCxZfW+1zotWWb6Koyy9h+c+bv5\npDDF5qYDI6gPzjPn5igGIVQ+N+KwFtAonwXa2Q2jNwxNQQ2MZL1QP9JtwL8MjACZ\nN9GsCYgdzRZ3zAuD092I\n=0Qm0\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree c6cf0f02eb47980e01641671ea9c751366c9f763\nparent 09462d61397d106b7438bff3ca0f8fde62c9ea68\nauthor felix-srp <145632298+felix-srp@users.noreply.github.com> 1776412935 +0800\ncommitter GitHub <noreply@github.com> 1776412935 +0800\n\nsoulmate-pack: simplify, fix stale code, align docs to code (#92)\n\n* soulmate-pack: simplify, fix stale code, align docs to code\n\nMarkdown (loaded into agent context every turn): trimmed ~26% — removed\nduplicated rules across AGENTS.md/SOUL.md/skills, dropped rationale-only\nexamples, compacted sm-onboarding (160→112 lines). Behavior-preserving.\n\nPython: dropped dead code (compute_streak_status, DECAY_SCHEDULE), merged\nduplicated config reads, unified EN/ZH dashboard output, added mutation-\ntracking so no-op heartbeats no longer rewrite intimacy.json. Total\n~200 lines removed across intimacy.py, should_message.py, health_check.py.\n\nFixes:\n- sm-relationship/SKILL.md threshold table now matches code\n  [0, 200, 600, 1500, 3000, 5500, 9000, 14000] (previously diverged).\n- health_check.py no longer checks three paths that never existed\n  (xai_image.py, xai_video.py, sm-image-search skill).\n- .agents/skills/sm-onboarding/templates/ resynced to top-level (drift\n  would have restored stale versions on /init).\n- should_message.py: time_weight_for was present but never called; wired\n  into compute_next_send_at so proactive messages bias toward evenings\n  (weight 1.3) and mornings (1.2). Night hours return 1.0 so the existing\n  quiet-hours branch owns deferral to next 08:00.\n\nReviewed by Claude + Codex; one critical bug (night weight 0.05 bypassed\nquiet-hours snap → multi-day delivery gaps) caught and fixed pre-merge.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* health_check: resolve skills under .agents/skills/ after refactor\n\nThe skill-existence check in check_workspace() was still joining\nWORKSPACE / \"skills\" / skill, which no longer exists after #90 moved\npack skills under .agents/skills/. Also updated required_dirs to list\n.agents/skills instead of the missing top-level skills/.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* sm-onboarding: merge heartbeat config instead of skipping when one exists\n\nPlatform backend (ecap-workspace #770) now injects per-agent heartbeat\ndelivery config on every deployment — {target: mattermost, accountId, to}\nfor routing. sm-onboarding's old \"skip if heartbeat exists\" path meant\nevery, directPolicy, and lightContext were never set, so the companion\nhad a delivery address but no tick schedule.\n\nSwitch Step 6b semantics from \"set if missing\" to setdefault-per-key\nmerge. Drop 'target: last' — the platform's 'mattermost' target is what\nactually delivers to the user.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* nits from review: drop unused import, update stale comment, fail-only on shipped dirs\n\n- intimacy.py: drop unused 'import sys' left over from earlier refactor.\n- health_check.py: API-keys comment referenced removed xai_image/xai_video\n  scripts; updated to reference the external designer + video-generator\n  skills that actually consume these keys.\n- health_check.py: split required_dirs into shipped_dirs (.agents/skills,\n  scripts) and runtime_dirs (data, artifacts, memory). AUTO_FIX now only\n  creates runtime dirs; a missing .agents/skills indicates a broken install\n  and should fail loudly rather than be silently 'fixed' with an empty dir.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* health_check: probe video-generator skill instead of a fake pass\n\nPrevious commit replaced the stale xai_video.py check with a hardcoded\nok() that always passed. That masks a real failure mode: if video-generator\nisn't installed, sm-video breaks but health_check reports green. Mirror\ncheck_image_gen() and probe the skill via openclaw CLI.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+        "verified_at": "2026-04-17T08:02:16Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/8539d6e746f2e109266c9891dcbce535d240f7dc",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/8539d6e746f2e109266c9891dcbce535d240f7dc",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/8539d6e746f2e109266c9891dcbce535d240f7dc/comments",
+    "author": {
+      "login": "felix-srp",
+      "id": 145632298,
+      "node_id": "U_kgDOCK4sKg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/145632298?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/felix-srp",
+      "html_url": "https://github.com/felix-srp",
+      "followers_url": "https://api.github.com/users/felix-srp/followers",
+      "following_url": "https://api.github.com/users/felix-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/felix-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/felix-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/felix-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/felix-srp/orgs",
+      "repos_url": "https://api.github.com/users/felix-srp/repos",
+      "events_url": "https://api.github.com/users/felix-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/felix-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "09462d61397d106b7438bff3ca0f8fde62c9ea68",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/09462d61397d106b7438bff3ca0f8fde62c9ea68",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/09462d61397d106b7438bff3ca0f8fde62c9ea68"
+      }
+    ]
+  },
+  {
+    "sha": "09462d61397d106b7438bff3ca0f8fde62c9ea68",
+    "node_id": "C_kwDORoMXtdoAKDA5NDYyZDYxMzk3ZDEwNmI3NDM4YmZmM2NhMGY4ZmRlNjJjOWVhNjg",
+    "commit": {
+      "author": {
+        "name": "felix-srp",
+        "email": "145632298+felix-srp@users.noreply.github.com",
+        "date": "2026-04-17T07:56:58Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-17T07:56:58Z"
+      },
+      "message": "agent-studio: explicit cron + heartbeat delivery policy (#91)\n\n* agent-studio: explicit cron delivery fields + silent session-context capture\n\nAlign Agent Studio's cron-job documentation and code generators with the\nZooClaw Cron Job Delivery Policy (openclaw-docker#39). The old\n`{\"mode\":\"announce\",\"channel\":\"last\"}` default relies on\n`inferDeliveryFromSessionKey`, which fails to extract `accountId` and\nsilently misdelivers cron messages (or drops them entirely).\n\n**Delivery must be explicit:**\n- `agentId` — from the ZooClaw-Agent-Policy block in AGENTS.md\n- `delivery.channel` — concrete (`mattermost` / `feishu` / …), never `last`\n- `delivery.accountId` — `default` for main, else `agentId`\n- `delivery.to` — `user:<peerId>` from the live session key\n\n**End users never supply any of this.** A new silent **Step 0 — Session\nContext Capture** runs at the top of every generated pack-onboarding\nSKILL.md: it resolves `agent_id`, `account_id`, `channel`, and `peer_id`\nfrom `AGENTS.md` + the session key and writes them to `data/config.json`.\nLater cron creations substitute `{{config.*}}` placeholders — no user\nprompt, ever. If an ID can't be resolved at capture time, onboarding\ndefers cron creation and logs a retry note to `MEMORY.md`. Asking the\nuser is never correct — they aren't engineers and have no concept of a\npeerId or session key.\n\nChanges:\n- `references/automation.md`: cron JSON templates now show the full\n  required shape (`enabled`, `agentId`, `wakeMode`, full `delivery` with\n  `accountId`/`to`/`bestEffort`). Added Step 0 at the top of the\n  onboarding step list. Updated the \"immediately create cron\" example\n  inside the `write_onboarding`-must-embed-this section.\n- `scripts/write_cron.py`: dropped the broken `channel: \"last\"` default;\n  callers supply a populated delivery, and we render `accountId`/`to`\n  when present.\n- `scripts/write_onboarding.py`: generated SKILL.md now begins with the\n  silent Step 0 capture, and each automation's cron-tool invocation uses\n  `{{config.*}}` placeholders that the pack agent substitutes from\n  `data/config.json` at call time.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* agent-studio: document platform-injected heartbeat delivery + reply-text convention\n\nMirrors ecap-workspace#770 (feat: inject per-agent heartbeat delivery\nconfig). When a bot is deployed, the platform writes a `heartbeat` block\ninto each agent's entry in `agents.list`:\n\n| Agent     | target      | accountId    | to                    |\n|-----------|-------------|--------------|-----------------------|\n| main      | mattermost  | _(omitted)_  | user:<mm_user_id>     |\n| sub-agent | mattermost  | <agent_id>   | user:<mm_user_id>     |\n\nWithout this injection (pre-#770), heartbeat messages were silently\nmisdelivered in multi-bot Mattermost deployments.\n\nThe agent-side contract is: heartbeat firings carry the prompt \"Output\nyour message as reply text (do NOT use message tool). If nothing to send:\nreply HEARTBEAT_OK.\" The platform routes the reply text via the injected\nconfig. Calling the `message` tool instead bypasses the heartbeat channel\nand silently loses the notification.\n\nChanges:\n- `references/automation.md`: replaced the \"notify user\" line in the\n  example HEARTBEAT.md with an explicit reply-text instruction. Added a\n  paragraph documenting the platform-injected delivery config and the\n  pack's minimal responsibility (keep the checklist + output reply text).\n- `scripts/write_heartbeat.py`: the terminal \"If action needed → notify\n  user\" line now tells the agent to output reply text and warns against\n  the `message` tool. `HEARTBEAT_OK` is now explicitly backtick-wrapped\n  for clarity.\n\nPack authors don't configure the heartbeat delivery — it's platform-\nmanaged at bot-deploy time. They only ensure HEARTBEAT.md is correct and\nthat the agent emits reply text.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* simplify: fix timezone placeholder bug + render cron JSON as fenced block\n\nReview pass found three real issues in the delivery-policy delta:\n\n1. BUG — `{{config.timezone}}` placeholder in the generated cron JSON had\n   no source: Step 0 captured only `agent_id` / `account_id` / `channel` /\n   `peer_id`. Resolution would fail silently and produce an invalid\n   schedule.tz at cron-add time. Fix: Step 0 now also captures `timezone`\n   from `USER.md` (default `UTC` if missing) and writes it to\n   `data/config.json`.\n\n2. RENDERING — emitted cron JSON was a single long string wrapped in\n   inline backticks; unreadable in the generated SKILL.md. Fix: emit via\n   `json.dumps(..., indent=2)` inside a fenced ```json block, indented\n   two spaces so it nests under the list item.\n\n3. DEDUP — every automation repeated the same \"if config.json is missing,\n   re-run the session-context capture step\" prose. Moved to Step 0 once;\n   per-automation copy deleted.\n\nAlso tightened:\n- Step 0 prose (verbose lead-in + triplicate \"never ask user\" emphasis\n  collapsed to a single bold clause).\n- `automation.md` heartbeat section (table + redundant summary paragraph\n  collapsed to one inline sentence covering the same rules).\n- `automation.md` cron delivery bullets: noted the one main-agent\n  asymmetry vs heartbeat (cron requires `accountId: \"default\"`;\n  heartbeat omits the field).\n- `write_cron.py`: delivery comment trimmed from 4 lines to 2.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* write_cron.py: document that this is manifest-only, not runtime\n\nFollow-up review noted ambiguity around write_cron.py's schema: it omits\n`enabled` / `agentId` / `wakeMode` / `delivery.bestEffort` compared to the\ncron-tool JSON emitted by write_onboarding.py. That looked like a bug at\nfirst glance — but the `cron_jobs:` block in agent-pack.yaml is consumed\nonly by generate_description.py, which reads name/description for the\nAgent Mart listing. It is NOT translated to cron-tool calls at runtime;\nthe actual scheduling happens via the full {{config.*}} JSON from\nwrite_onboarding.py.\n\nAdding a module docstring to prevent the same misreading next time.\nBehavior unchanged.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* generate_description.py: detect cron jobs in multi-line onboarding JSON\n\nCodex follow-up review caught a regression I introduced in commit 992b907\n(which switched the emitted cron JSON in pack-onboarding SKILL.md from a\nsingle backtick-wrapped line to a pretty-printed fenced block).\n\nThe existing detector in `generate_description.py` looked for \"name\",\n\"action\", and \"add\" ALL on the same line and then regex-matched\n`\"name\": \"...\"`. With pretty-printed JSON, those three tokens are now\neach on their own line, so the listing's automations array came back\nempty — users would see zero automations in the Agent Mart listing even\nthough the pack creates real cron jobs.\n\nFix: scan the onboarding SKILL.md content as a single string (using\nre.DOTALL) for any `\"action\": \"add\"` / `\"name\": \"...\"` pair within the\nsame JSON block. The pattern matches both orderings (so the pack format\nremains flexible) and still handles the legacy single-line form.\n\nVerified end-to-end: a pack-onboarding SKILL.md with two pretty-printed\ncron JSONs now surfaces both job names in the description.json\nautomations array.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* generate_description.py: parse each cron JSON block independently\n\nPrevious fix (d2ffe5d) used a single re.DOTALL regex over the whole\nonboarding SKILL.md. Codex follow-up correctly pointed out two risks:\n\n1. Cross-talk: the lazy `.*?` could pair an `\"action\": \"add\"` from one\n   cron block with a `\"name\"` from an unrelated following block.\n2. Prose false positives: any literal `\"action\": \"add\"` or `\"name\": \"...\"`\n   occurring in a comment, doc, or message field would match.\n\nReplaced with a proper two-step: (a) extract each fenced ```json block\n(new form) AND each backtick-wrapped inline JSON string that mentions\n\"action\" (legacy form), (b) json.loads each block independently and\nonly take names where `action == \"add\"`. Scoped per-block; no\ncross-talk; prose containing the literal words but not valid JSON is\nignored.\n\nVerified:\n- multi-line fenced JSON, two jobs → both names extracted\n- legacy single-line inline JSON → name extracted\n- prose mentioning \"action\" / \"add\" outside a JSON block → ignored\n- malformed JSON block between valid ones → skipped gracefully\n- non-\"add\" actions (e.g. \"list\") → filtered out\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+      "tree": {
+        "sha": "d3de6be44eb9590b1b1ca2a929a02d236856d9ea",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/d3de6be44eb9590b1b1ca2a929a02d236856d9ea"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/09462d61397d106b7438bff3ca0f8fde62c9ea68",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4efKCRC1aQ7uu5UhlAAAGngQAG3JgE47II0KS8+zjjHQt1zS\nLwqQIwUhpY8peeb1bdElMV/nHN2iLw+CTeIiuCngN4V9hQ7BBWNYRSgMHpqKZEQS\nAthR1AMUXxbDiEfuI8ynZbM06CxOAqIEYIYaXUF0I4WmpykH78b+OGZTUIG31mHk\nnsIB9926VuFR17lqGZEQ6KmCuOCJK0nQJzvMpTaOHmi6vsWN4sZlTJgLO6ZlA9//\nI+X6DIRbL9yExJfMkiLi3DixDiqqUjyXuIAbL1RUK6H4q7ZYETA9ap/yKwrAdLrQ\nOrMjheT5Cta1WwVnqPYUkOJjhh2iIKepq6wbTMdadHexfVUBw9xDg3Dvyr9QnlXp\n89qqzgjPkoub0KC2tUTI2xBD3cfyFCU3oijQ22M9jXiRbI1E1tZU/VYYbEgjvV6i\nFk4RifX+6JLBqo9UJKABr8hN2PqSiN2db5uNLzdDYzV0g4EMZ2in/1CccgSAEDui\n2LegbfFztyH2OUUmo8vpqcw4NUdfzKepmtirD3lo1H9vFG580WVXaMSTk1xPCkak\nQZ3bR4Q9/uQdEZSPV1pH3iM3QTkWtHIiKShfRLK/BWtALT+ocrWJoVs/x0mRjDHp\nBO5ru7EAPd4JpMMPMDB4skieNksU0jACvufYm9IZvg/hvk1cW22T67y+/kr5f/zj\nF7wJCAH6mzQ1Ffmz+nJf\n=Qm/E\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d3de6be44eb9590b1b1ca2a929a02d236856d9ea\nparent 05ca59cbf690bfd7c800f7ab7278326feee8e28c\nauthor felix-srp <145632298+felix-srp@users.noreply.github.com> 1776412618 +0800\ncommitter GitHub <noreply@github.com> 1776412618 +0800\n\nagent-studio: explicit cron + heartbeat delivery policy (#91)\n\n* agent-studio: explicit cron delivery fields + silent session-context capture\n\nAlign Agent Studio's cron-job documentation and code generators with the\nZooClaw Cron Job Delivery Policy (openclaw-docker#39). The old\n`{\"mode\":\"announce\",\"channel\":\"last\"}` default relies on\n`inferDeliveryFromSessionKey`, which fails to extract `accountId` and\nsilently misdelivers cron messages (or drops them entirely).\n\n**Delivery must be explicit:**\n- `agentId` — from the ZooClaw-Agent-Policy block in AGENTS.md\n- `delivery.channel` — concrete (`mattermost` / `feishu` / …), never `last`\n- `delivery.accountId` — `default` for main, else `agentId`\n- `delivery.to` — `user:<peerId>` from the live session key\n\n**End users never supply any of this.** A new silent **Step 0 — Session\nContext Capture** runs at the top of every generated pack-onboarding\nSKILL.md: it resolves `agent_id`, `account_id`, `channel`, and `peer_id`\nfrom `AGENTS.md` + the session key and writes them to `data/config.json`.\nLater cron creations substitute `{{config.*}}` placeholders — no user\nprompt, ever. If an ID can't be resolved at capture time, onboarding\ndefers cron creation and logs a retry note to `MEMORY.md`. Asking the\nuser is never correct — they aren't engineers and have no concept of a\npeerId or session key.\n\nChanges:\n- `references/automation.md`: cron JSON templates now show the full\n  required shape (`enabled`, `agentId`, `wakeMode`, full `delivery` with\n  `accountId`/`to`/`bestEffort`). Added Step 0 at the top of the\n  onboarding step list. Updated the \"immediately create cron\" example\n  inside the `write_onboarding`-must-embed-this section.\n- `scripts/write_cron.py`: dropped the broken `channel: \"last\"` default;\n  callers supply a populated delivery, and we render `accountId`/`to`\n  when present.\n- `scripts/write_onboarding.py`: generated SKILL.md now begins with the\n  silent Step 0 capture, and each automation's cron-tool invocation uses\n  `{{config.*}}` placeholders that the pack agent substitutes from\n  `data/config.json` at call time.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* agent-studio: document platform-injected heartbeat delivery + reply-text convention\n\nMirrors ecap-workspace#770 (feat: inject per-agent heartbeat delivery\nconfig). When a bot is deployed, the platform writes a `heartbeat` block\ninto each agent's entry in `agents.list`:\n\n| Agent     | target      | accountId    | to                    |\n|-----------|-------------|--------------|-----------------------|\n| main      | mattermost  | _(omitted)_  | user:<mm_user_id>     |\n| sub-agent | mattermost  | <agent_id>   | user:<mm_user_id>     |\n\nWithout this injection (pre-#770), heartbeat messages were silently\nmisdelivered in multi-bot Mattermost deployments.\n\nThe agent-side contract is: heartbeat firings carry the prompt \"Output\nyour message as reply text (do NOT use message tool). If nothing to send:\nreply HEARTBEAT_OK.\" The platform routes the reply text via the injected\nconfig. Calling the `message` tool instead bypasses the heartbeat channel\nand silently loses the notification.\n\nChanges:\n- `references/automation.md`: replaced the \"notify user\" line in the\n  example HEARTBEAT.md with an explicit reply-text instruction. Added a\n  paragraph documenting the platform-injected delivery config and the\n  pack's minimal responsibility (keep the checklist + output reply text).\n- `scripts/write_heartbeat.py`: the terminal \"If action needed → notify\n  user\" line now tells the agent to output reply text and warns against\n  the `message` tool. `HEARTBEAT_OK` is now explicitly backtick-wrapped\n  for clarity.\n\nPack authors don't configure the heartbeat delivery — it's platform-\nmanaged at bot-deploy time. They only ensure HEARTBEAT.md is correct and\nthat the agent emits reply text.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* simplify: fix timezone placeholder bug + render cron JSON as fenced block\n\nReview pass found three real issues in the delivery-policy delta:\n\n1. BUG — `{{config.timezone}}` placeholder in the generated cron JSON had\n   no source: Step 0 captured only `agent_id` / `account_id` / `channel` /\n   `peer_id`. Resolution would fail silently and produce an invalid\n   schedule.tz at cron-add time. Fix: Step 0 now also captures `timezone`\n   from `USER.md` (default `UTC` if missing) and writes it to\n   `data/config.json`.\n\n2. RENDERING — emitted cron JSON was a single long string wrapped in\n   inline backticks; unreadable in the generated SKILL.md. Fix: emit via\n   `json.dumps(..., indent=2)` inside a fenced ```json block, indented\n   two spaces so it nests under the list item.\n\n3. DEDUP — every automation repeated the same \"if config.json is missing,\n   re-run the session-context capture step\" prose. Moved to Step 0 once;\n   per-automation copy deleted.\n\nAlso tightened:\n- Step 0 prose (verbose lead-in + triplicate \"never ask user\" emphasis\n  collapsed to a single bold clause).\n- `automation.md` heartbeat section (table + redundant summary paragraph\n  collapsed to one inline sentence covering the same rules).\n- `automation.md` cron delivery bullets: noted the one main-agent\n  asymmetry vs heartbeat (cron requires `accountId: \"default\"`;\n  heartbeat omits the field).\n- `write_cron.py`: delivery comment trimmed from 4 lines to 2.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* write_cron.py: document that this is manifest-only, not runtime\n\nFollow-up review noted ambiguity around write_cron.py's schema: it omits\n`enabled` / `agentId` / `wakeMode` / `delivery.bestEffort` compared to the\ncron-tool JSON emitted by write_onboarding.py. That looked like a bug at\nfirst glance — but the `cron_jobs:` block in agent-pack.yaml is consumed\nonly by generate_description.py, which reads name/description for the\nAgent Mart listing. It is NOT translated to cron-tool calls at runtime;\nthe actual scheduling happens via the full {{config.*}} JSON from\nwrite_onboarding.py.\n\nAdding a module docstring to prevent the same misreading next time.\nBehavior unchanged.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* generate_description.py: detect cron jobs in multi-line onboarding JSON\n\nCodex follow-up review caught a regression I introduced in commit 992b907\n(which switched the emitted cron JSON in pack-onboarding SKILL.md from a\nsingle backtick-wrapped line to a pretty-printed fenced block).\n\nThe existing detector in `generate_description.py` looked for \"name\",\n\"action\", and \"add\" ALL on the same line and then regex-matched\n`\"name\": \"...\"`. With pretty-printed JSON, those three tokens are now\neach on their own line, so the listing's automations array came back\nempty — users would see zero automations in the Agent Mart listing even\nthough the pack creates real cron jobs.\n\nFix: scan the onboarding SKILL.md content as a single string (using\nre.DOTALL) for any `\"action\": \"add\"` / `\"name\": \"...\"` pair within the\nsame JSON block. The pattern matches both orderings (so the pack format\nremains flexible) and still handles the legacy single-line form.\n\nVerified end-to-end: a pack-onboarding SKILL.md with two pretty-printed\ncron JSONs now surfaces both job names in the description.json\nautomations array.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* generate_description.py: parse each cron JSON block independently\n\nPrevious fix (d2ffe5d) used a single re.DOTALL regex over the whole\nonboarding SKILL.md. Codex follow-up correctly pointed out two risks:\n\n1. Cross-talk: the lazy `.*?` could pair an `\"action\": \"add\"` from one\n   cron block with a `\"name\"` from an unrelated following block.\n2. Prose false positives: any literal `\"action\": \"add\"` or `\"name\": \"...\"`\n   occurring in a comment, doc, or message field would match.\n\nReplaced with a proper two-step: (a) extract each fenced ```json block\n(new form) AND each backtick-wrapped inline JSON string that mentions\n\"action\" (legacy form), (b) json.loads each block independently and\nonly take names where `action == \"add\"`. Scoped per-block; no\ncross-talk; prose containing the literal words but not valid JSON is\nignored.\n\nVerified:\n- multi-line fenced JSON, two jobs → both names extracted\n- legacy single-line inline JSON → name extracted\n- prose mentioning \"action\" / \"add\" outside a JSON block → ignored\n- malformed JSON block between valid ones → skipped gracefully\n- non-\"add\" actions (e.g. \"list\") → filtered out\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+        "verified_at": "2026-04-17T07:56:58Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/09462d61397d106b7438bff3ca0f8fde62c9ea68",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/09462d61397d106b7438bff3ca0f8fde62c9ea68",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/09462d61397d106b7438bff3ca0f8fde62c9ea68/comments",
+    "author": {
+      "login": "felix-srp",
+      "id": 145632298,
+      "node_id": "U_kgDOCK4sKg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/145632298?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/felix-srp",
+      "html_url": "https://github.com/felix-srp",
+      "followers_url": "https://api.github.com/users/felix-srp/followers",
+      "following_url": "https://api.github.com/users/felix-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/felix-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/felix-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/felix-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/felix-srp/orgs",
+      "repos_url": "https://api.github.com/users/felix-srp/repos",
+      "events_url": "https://api.github.com/users/felix-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/felix-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "05ca59cbf690bfd7c800f7ab7278326feee8e28c",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/05ca59cbf690bfd7c800f7ab7278326feee8e28c",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/05ca59cbf690bfd7c800f7ab7278326feee8e28c"
+      }
+    ]
+  },
+  {
+    "sha": "05ca59cbf690bfd7c800f7ab7278326feee8e28c",
+    "node_id": "C_kwDORoMXtdoAKDA1Y2E1OWNiZjY5MGJmZDdjODAwZjdhYjcyNzgzMjZmZWVlOGUyOGM",
+    "commit": {
+      "author": {
+        "name": "nolan-srp",
+        "email": "nolan@srp.one",
+        "date": "2026-04-17T07:31:12Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-17T07:31:12Z"
+      },
+      "message": "refactor: move pack skills under .agents (#90)",
+      "tree": {
+        "sha": "6fc4bcbae8db90fc964ddcd26be0027ed5fed11e",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/6fc4bcbae8db90fc964ddcd26be0027ed5fed11e"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/05ca59cbf690bfd7c800f7ab7278326feee8e28c",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4eHACRC1aQ7uu5UhlAAA45cQADkMhdx0oe7iMLbWWwTbrm+O\nX7MmJshHFOxAjotVR5N08CCSV6GUx+EQjS9/VIAUmALxJrP3dVLPjk96/aISueKi\nhlsm+DERBkifLIBAFTk4bg+uzlvlX3UflajVtsOuWTmZE5lkyp0D8OAy2yMD1lIj\nInLA5JIii8+//5jg78OKvIYe0mgoojxQp9JSsdG2EkW99dcGPDrQDDRqEPIqI/wA\n09LY04D9BiGQM6cVFxpNyHBO6xX+xt0ass3vdKB58zyNrHmbT3q1NTFmdjYcXSE3\nMkP2uBLikz3EwQnFnqqrAYrJb65KjzKKuccoAdZ4JjCYTk/yetYAyJ1YuGJgDmB3\nQeCJ4bwyylbHB/BxAc9C9SKiie1cOzVJafAJrGwZ1VElf9IlRYCJU1v1CUmBHtQn\nEBunWYwdCK0ydW4jaCludZBdFv1UaAyCjseAogPs5NVBrShK8kWyjby0L9ZHwNcD\nFl+GbZIM/GmCG5jd0MAYF7yw5IOXilP2Vr7yhFSzR/lUW7gnKtubuoapFxDBJJT3\ndxD87CbtR0JfoOHRKzzHEqrd3z8jaB13rkquXNBLLvJ3bCYcpIySj7FEk7ytxdtT\nhimMOuiR/rKpeYfTL445d8R6vl9DrM//r8XYQEYR04fMyjq46BZUYTxX6vdIbhX2\n4uPnYJwz2TU9Du4Fnkg1\n=RPwk\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 6fc4bcbae8db90fc964ddcd26be0027ed5fed11e\nparent 669e4861462850bd2b3eb62b5d5d19e8b728cbd3\nauthor nolan-srp <nolan@srp.one> 1776411072 +0800\ncommitter GitHub <noreply@github.com> 1776411072 +0800\n\nrefactor: move pack skills under .agents (#90)",
+        "verified_at": "2026-04-17T07:31:13Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/05ca59cbf690bfd7c800f7ab7278326feee8e28c",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/05ca59cbf690bfd7c800f7ab7278326feee8e28c",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/05ca59cbf690bfd7c800f7ab7278326feee8e28c/comments",
+    "author": {
+      "login": "nolan-srp",
+      "id": 188835990,
+      "node_id": "U_kgDOC0Folg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/188835990?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nolan-srp",
+      "html_url": "https://github.com/nolan-srp",
+      "followers_url": "https://api.github.com/users/nolan-srp/followers",
+      "following_url": "https://api.github.com/users/nolan-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nolan-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nolan-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nolan-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/nolan-srp/orgs",
+      "repos_url": "https://api.github.com/users/nolan-srp/repos",
+      "events_url": "https://api.github.com/users/nolan-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nolan-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "669e4861462850bd2b3eb62b5d5d19e8b728cbd3",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/669e4861462850bd2b3eb62b5d5d19e8b728cbd3",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/669e4861462850bd2b3eb62b5d5d19e8b728cbd3"
+      }
+    ]
+  },
+  {
+    "sha": "669e4861462850bd2b3eb62b5d5d19e8b728cbd3",
+    "node_id": "C_kwDORoMXtdoAKDY2OWU0ODYxNDYyODUwYmQyYjNlYjYyYjVkNWQxOWU4YjcyOGNiZDM",
+    "commit": {
+      "author": {
+        "name": "felix-srp",
+        "email": "145632298+felix-srp@users.noreply.github.com",
+        "date": "2026-04-17T07:24:40Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-17T07:24:40Z"
+      },
+      "message": "agent-studio: simplify instructions (-36% words) + clean up lifecycle scripts (#89)\n\n* agent-studio: simplify instructions + tighten lifecycle scripts\n\nThe Agent Studio skill is loaded every time a creator uses the `/dev` flow in\nZooClaw, so every token in SKILL.md / AGENTS.md / references costs real money\non each run. This PR shrinks the instruction surface ~36% while preserving\nevery rule, command, required field, and semantic, then cleans up a handful\nof latent issues in the lifecycle scripts.\n\n## MD simplification (-441 net lines)\n\nWord-count deltas:\n\n| File                  | Before | After | Δ        |\n|-----------------------|--------|-------|----------|\n| references/automation | 2381   | 1192  | -50%     |\n| references/skill-design | 1752 | 965   | -45%     |\n| references/data-sources | 833  | 523   | -37%     |\n| SKILL.md              | 883    | 754   | -15%     |\n| references/publishing | 439    | 359   | -18%     |\n| AGENTS.md             | 418    | 358   | -14%     |\n| references/discovery  | 391    | 340   | -13%     |\n| references/testing    | 229    | 190   | -17%     |\n| BOOTSTRAP.md          | 136    | 114   | -16%     |\n| **Total**             | **7462** | **4795** | **-36%** |\n\nAt ~1.3 tokens/word that's ≈3.5k tokens saved per full skill invocation when\nall references get loaded, plus ≈250 tokens saved on every trigger from the\nalways-loaded pair (SKILL.md + AGENTS.md).\n\nWhat was cut:\n- WRONG-example pairs (the CORRECT example teaches alone)\n- The second of two parallel JSON examples\n- Stage-2 process rules that were restated in both SKILL.md and skill-design.md\n- Verbose prose that restated the adjacent table/code block\n- Filler emphasis like \"CRITICAL:\" / \"Key principles:\" where structure was\n  already obvious\n\nAll rules, commands, required-field lists, CLI auth cases, billing-mode\ntables, and cron-tool JSON shape are preserved.\n\n## Code changes\n\n**New `scripts/_common.py`** — shared `extract_field` / `extract_multiline_field`\n/ `extract_list_field` helpers. Deduplicates 3 copies of the first extractor\n(publish.py + generate_description.py) and the `_extract_yaml_description`\nvariant in validate.py. The common multiline extractor also recognises all\nfour block-scalar indicators (`>`, `|`, `>-`, `|-`, `>+`, `|+`).\n\n**publish.py**\n- Fixes a real tmpdir leak: `tempfile.mkdtemp(prefix=\"publish_\")` for agent-file\n  staging and `tempfile.mkdtemp(prefix=\"publish_data_\")` (one per data template)\n  were never cleaned up, leaving `/tmp/publish_*` dirs around on every publish.\n  Wrapped the whole build in a single `TemporaryDirectory` context so both are\n  cleaned automatically, and pass the shared tmpdir into `_include_data_templates`.\n- Removes unused `from io import BytesIO` import.\n- Factors the duplicated avatar-location loop (steps 0 and 7) into `_find_avatar`.\n- `_should_include`: `.git` and `.pytest_cache` in `dirs_to_skip` are now\n  redundant with the new `part.startswith(\".\")` hidden-dir filter — dropped.\n- Drops a no-op \"ensure data/ directory exists\" comment that described no code.\n\n**validate.py**\n- `check_agent_completeness` had a dict mapping each required file to `None`,\n  only so the loop could test `if required_marker and ...` — that branch is\n  unreachable (the value is always `None`). Simplified to a plain list.\n\n**clean.py**\n- Removes an `errors = []` local that was initialised, returned in JSON, but\n  never written to.\n\n**generate_description.py**\n- Migrated to use `_common.*` extractors; local copies deleted.\n\n## Verification\n\nAll 9 scripts compile (`python3 -m py_compile`). `validate.py --pack-dir .`\nand `generate_description.py --pack-dir .` both run end-to-end on a blank\nStage-1 workspace and emit well-formed JSON.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* publish.py: reject absolute/traversal paths in data_templates\n\nCodex review flagged that `_include_data_templates` joined `tmpl_path` from\nthe manifest without checking for absolute paths or `..` components. On a\nmalformed or hostile manifest, `full_path = pack_dir / tmpl_path` could read\noutside the pack dir and `tmp_path = tmpdir / \"data_templates\" / tmpl_path`\ncould materialize outside the staging tmpdir. Practically unreachable since\ncreators are trusted and scaffolded manifests use clean relative paths, but\ncheap to harden: skip any template whose path is absolute or contains `..`.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* publish.py: also reject symlinks that escape pack_dir\n\nCodex follow-up review noted the previous guard only caught lexical escapes\n(absolute paths / `..`). A manifest entry `\"path\": \"evil\"` where `evil` is a\nsymlink inside pack_dir pointing to `/etc/passwd` still passes the string\ncheck, and `full_path.exists()` follows the link so `tar.add` would read the\ntarget.\n\nResolve the full path and refuse anything whose resolved form sits outside\npack_dir. Legitimate in-pack files resolve within; symlinks-to-outside raise\n`ValueError` on `relative_to` and are skipped.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* publish.py: extend symlink-escape check to agent/ files and avatar\n\nFollow-up to previous commit: Codex consistency check noted that once\ndata_templates were guarded, the agent/ iteration and avatar lookup needed\nthe same treatment — both follow symlinks via `_clean_agent_file`'s\n`read_text()` / `shutil.copy2()`.\n\n- `_should_include`: resolve the path and skip if it falls outside base_dir.\n  This also covers the skills/ iteration, which uses the same filter.\n- `_find_avatar`: apply the same resolve-and-check before returning.\n\nCreators are trusted and this was a pre-existing behavior, but the guards\nare cheap and remove ambiguity under any future threat-model change.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* publish.py: factor symlink-escape check, guard all remaining reads\n\nCodex pointed out that `manifest_path.read_text()` at the top of main()\nwasn't guarded — same class as the earlier findings. Rather than whack-a-mole\nevery read, extract a tiny `_within_pack(path, pack_root)` helper and apply\nit consistently at every read site: main()'s manifest load, _generate_summary's\nSKILL.md + manifest rereads, _clean_agent_file's data/config.json read, and\n_should_include (already covered). _find_avatar now uses the helper too.\n\nNet: every disk read in publish.py is now symlink-safe with respect to\npack_dir. Still a belt-and-braces defence (creators are trusted), but no\nlonger has inconsistent coverage.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+      "tree": {
+        "sha": "72a05115045de14fb3f864945300521b0c99325a",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/72a05115045de14fb3f864945300521b0c99325a"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/669e4861462850bd2b3eb62b5d5d19e8b728cbd3",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4eA4CRC1aQ7uu5UhlAAA2H0QAJTfTdyAUuCpQmgdSDhArZwS\nFwh5fCU891cOEeV3waZsAU0EMWYnlciBfeFOHECO60QgKd/8dgi+XuVk/fL+cRMl\nlw6JF7l7cb4z8yGj5VnHbOouODGK6nOT7fEpUx+dPZpMuQjZiutqx0meOMnUX7MN\n4C5YtwFCM2RQRFTHHhWhfT1LidXJc/1f2Bnx/8dFFDyyX8nErxzuoXi/1ePhrPCs\n+mF7EW0vn3dvt+Nh0TM9P9VX1WR37t/jaoD6CJgZ+YByq4Fa/Ecw3/XCASVT2WYq\nB/lF5Aqb2UusWCncwbyOj2v8/iOa/JmixpYB700rIpCywAm6vzsOXvY5k/BxxWj6\nzc3fA//wW4XV1MReCesvq/+bqzJNamAJfmDHeHjq0Xl3Y/SdGwlrvDt4Yz5zEGP0\nzbMfgfCHRVeWqJM0NZjlJH2jgLM09Fc/D6usf3wAZSrVWECZB0FDycO8tAyBC0Sg\nnFSNwFDuFuUHE5ioF+sy+fnrTywpdl/xiUqi9jIp4nZKMzhSzdkwA/l9rPXJvRqo\nLu9Fu5ukeV2CCUL9lJMbiGzQGFgWQlpmEauSz55RgVk1VyBLO07/pZrs/E6A29JO\nYQsai4KwNRxPFwO5vDl+3lS8YQI6Wp/NMtScjxnSaURkhA3BKF70cqUVoiPY7ky8\nBgF3dy/pZxoynCbMiqnf\n=1L17\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 72a05115045de14fb3f864945300521b0c99325a\nparent 8338793632a6d94db7f3dca24dc57406729f6baa\nauthor felix-srp <145632298+felix-srp@users.noreply.github.com> 1776410680 +0800\ncommitter GitHub <noreply@github.com> 1776410680 +0800\n\nagent-studio: simplify instructions (-36% words) + clean up lifecycle scripts (#89)\n\n* agent-studio: simplify instructions + tighten lifecycle scripts\n\nThe Agent Studio skill is loaded every time a creator uses the `/dev` flow in\nZooClaw, so every token in SKILL.md / AGENTS.md / references costs real money\non each run. This PR shrinks the instruction surface ~36% while preserving\nevery rule, command, required field, and semantic, then cleans up a handful\nof latent issues in the lifecycle scripts.\n\n## MD simplification (-441 net lines)\n\nWord-count deltas:\n\n| File                  | Before | After | Δ        |\n|-----------------------|--------|-------|----------|\n| references/automation | 2381   | 1192  | -50%     |\n| references/skill-design | 1752 | 965   | -45%     |\n| references/data-sources | 833  | 523   | -37%     |\n| SKILL.md              | 883    | 754   | -15%     |\n| references/publishing | 439    | 359   | -18%     |\n| AGENTS.md             | 418    | 358   | -14%     |\n| references/discovery  | 391    | 340   | -13%     |\n| references/testing    | 229    | 190   | -17%     |\n| BOOTSTRAP.md          | 136    | 114   | -16%     |\n| **Total**             | **7462** | **4795** | **-36%** |\n\nAt ~1.3 tokens/word that's ≈3.5k tokens saved per full skill invocation when\nall references get loaded, plus ≈250 tokens saved on every trigger from the\nalways-loaded pair (SKILL.md + AGENTS.md).\n\nWhat was cut:\n- WRONG-example pairs (the CORRECT example teaches alone)\n- The second of two parallel JSON examples\n- Stage-2 process rules that were restated in both SKILL.md and skill-design.md\n- Verbose prose that restated the adjacent table/code block\n- Filler emphasis like \"CRITICAL:\" / \"Key principles:\" where structure was\n  already obvious\n\nAll rules, commands, required-field lists, CLI auth cases, billing-mode\ntables, and cron-tool JSON shape are preserved.\n\n## Code changes\n\n**New `scripts/_common.py`** — shared `extract_field` / `extract_multiline_field`\n/ `extract_list_field` helpers. Deduplicates 3 copies of the first extractor\n(publish.py + generate_description.py) and the `_extract_yaml_description`\nvariant in validate.py. The common multiline extractor also recognises all\nfour block-scalar indicators (`>`, `|`, `>-`, `|-`, `>+`, `|+`).\n\n**publish.py**\n- Fixes a real tmpdir leak: `tempfile.mkdtemp(prefix=\"publish_\")` for agent-file\n  staging and `tempfile.mkdtemp(prefix=\"publish_data_\")` (one per data template)\n  were never cleaned up, leaving `/tmp/publish_*` dirs around on every publish.\n  Wrapped the whole build in a single `TemporaryDirectory` context so both are\n  cleaned automatically, and pass the shared tmpdir into `_include_data_templates`.\n- Removes unused `from io import BytesIO` import.\n- Factors the duplicated avatar-location loop (steps 0 and 7) into `_find_avatar`.\n- `_should_include`: `.git` and `.pytest_cache` in `dirs_to_skip` are now\n  redundant with the new `part.startswith(\".\")` hidden-dir filter — dropped.\n- Drops a no-op \"ensure data/ directory exists\" comment that described no code.\n\n**validate.py**\n- `check_agent_completeness` had a dict mapping each required file to `None`,\n  only so the loop could test `if required_marker and ...` — that branch is\n  unreachable (the value is always `None`). Simplified to a plain list.\n\n**clean.py**\n- Removes an `errors = []` local that was initialised, returned in JSON, but\n  never written to.\n\n**generate_description.py**\n- Migrated to use `_common.*` extractors; local copies deleted.\n\n## Verification\n\nAll 9 scripts compile (`python3 -m py_compile`). `validate.py --pack-dir .`\nand `generate_description.py --pack-dir .` both run end-to-end on a blank\nStage-1 workspace and emit well-formed JSON.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* publish.py: reject absolute/traversal paths in data_templates\n\nCodex review flagged that `_include_data_templates` joined `tmpl_path` from\nthe manifest without checking for absolute paths or `..` components. On a\nmalformed or hostile manifest, `full_path = pack_dir / tmpl_path` could read\noutside the pack dir and `tmp_path = tmpdir / \"data_templates\" / tmpl_path`\ncould materialize outside the staging tmpdir. Practically unreachable since\ncreators are trusted and scaffolded manifests use clean relative paths, but\ncheap to harden: skip any template whose path is absolute or contains `..`.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* publish.py: also reject symlinks that escape pack_dir\n\nCodex follow-up review noted the previous guard only caught lexical escapes\n(absolute paths / `..`). A manifest entry `\"path\": \"evil\"` where `evil` is a\nsymlink inside pack_dir pointing to `/etc/passwd` still passes the string\ncheck, and `full_path.exists()` follows the link so `tar.add` would read the\ntarget.\n\nResolve the full path and refuse anything whose resolved form sits outside\npack_dir. Legitimate in-pack files resolve within; symlinks-to-outside raise\n`ValueError` on `relative_to` and are skipped.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* publish.py: extend symlink-escape check to agent/ files and avatar\n\nFollow-up to previous commit: Codex consistency check noted that once\ndata_templates were guarded, the agent/ iteration and avatar lookup needed\nthe same treatment — both follow symlinks via `_clean_agent_file`'s\n`read_text()` / `shutil.copy2()`.\n\n- `_should_include`: resolve the path and skip if it falls outside base_dir.\n  This also covers the skills/ iteration, which uses the same filter.\n- `_find_avatar`: apply the same resolve-and-check before returning.\n\nCreators are trusted and this was a pre-existing behavior, but the guards\nare cheap and remove ambiguity under any future threat-model change.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* publish.py: factor symlink-escape check, guard all remaining reads\n\nCodex pointed out that `manifest_path.read_text()` at the top of main()\nwasn't guarded — same class as the earlier findings. Rather than whack-a-mole\nevery read, extract a tiny `_within_pack(path, pack_root)` helper and apply\nit consistently at every read site: main()'s manifest load, _generate_summary's\nSKILL.md + manifest rereads, _clean_agent_file's data/config.json read, and\n_should_include (already covered). _find_avatar now uses the helper too.\n\nNet: every disk read in publish.py is now symlink-safe with respect to\npack_dir. Still a belt-and-braces defence (creators are trusted), but no\nlonger has inconsistent coverage.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+        "verified_at": "2026-04-17T07:24:41Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/669e4861462850bd2b3eb62b5d5d19e8b728cbd3",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/669e4861462850bd2b3eb62b5d5d19e8b728cbd3",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/669e4861462850bd2b3eb62b5d5d19e8b728cbd3/comments",
+    "author": {
+      "login": "felix-srp",
+      "id": 145632298,
+      "node_id": "U_kgDOCK4sKg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/145632298?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/felix-srp",
+      "html_url": "https://github.com/felix-srp",
+      "followers_url": "https://api.github.com/users/felix-srp/followers",
+      "following_url": "https://api.github.com/users/felix-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/felix-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/felix-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/felix-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/felix-srp/orgs",
+      "repos_url": "https://api.github.com/users/felix-srp/repos",
+      "events_url": "https://api.github.com/users/felix-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/felix-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8338793632a6d94db7f3dca24dc57406729f6baa",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/8338793632a6d94db7f3dca24dc57406729f6baa",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/8338793632a6d94db7f3dca24dc57406729f6baa"
+      }
+    ]
+  },
+  {
+    "sha": "8338793632a6d94db7f3dca24dc57406729f6baa",
+    "node_id": "C_kwDORoMXtdoAKDgzMzg3OTM2MzJhNmQ5NGRiN2YzZGNhMjRkYzU3NDA2NzI5ZjZiYWE",
+    "commit": {
+      "author": {
+        "name": "felix-srp",
+        "email": "145632298+felix-srp@users.noreply.github.com",
+        "date": "2026-04-17T05:59:39Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-17T05:59:39Z"
+      },
+      "message": "refactor: move agent-studio to .agents/skills/, pack skills under .agents/skills/, avatar & hidden-dir fixes (#79)\n\n* refactor: move agent-studio skill to .agents/skills/ and pack skills under .agents/skills/\n\nOpenClaw natively supports loading skills from {workspace}/.agents/skills/ (project-level\nagents skills directory). This change separates the agent-studio dev tooling from the pack's\nown skills directory, making packaging cleaner:\n\n- Dev mode: agent-studio lives in .agents/skills/agent-studio/ (hidden, dev-only)\n- Dev mode: new agent skills are created in skills/ as before\n- Packaging: publish.py now packs skills/ contents into .agents/skills/ in the archive\n- Removed all agent-studio exclusion logic from publish.py, validate.py, clean.py,\n  and generate_description.py since agent-studio is no longer in skills/\n- Updated all path references in AGENTS.md, SKILL.md, design docs, and 30+ test files\n- Restored tests and design docs that were removed upstream (needed for this project)\n- All 223 tests pass\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix: address review findings — remove stale test refs, clarify docs\n\n- Remove test_no_plain_pip_in_schema (references deleted design/agent-pack-schema.yaml)\n- Skip test_description_example_exists when design/description.example.json is absent\n- Clarify DESIGN-SUMMARY.md: distinguish workspace .agents/ (not packed) from\n  archive .agents/skills/ (mapped from skills/)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* chore: remove design docs from PR — they belong in workspace/design-doc\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* chore: move design docs to design-doc/ directory\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* chore: remove design docs from repo — backed up externally\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* chore: remove test files from PR — deleted upstream\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix: skip hidden directories in archive and copy avatar to artifacts/.agents/\n\n- _should_include() now rejects any path component starting with \".\"\n  (e.g. .backup-pptx-master, .venv, .cache), preventing hidden dirs\n  from leaking into the archive\n- Copy avatar.png to artifacts/.agents/ during packaging for platform discovery\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix: clean.py should also remove hidden directories under skills/\n\n/studio new is a full workspace reset — hidden dirs like .backup-*\nshould not survive. agent-studio is safe in .agents/skills/.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* feat: set avatar path to artifacts/.agents/avatar.png in IDENTITY.md and description.json\n\n- generate_description.py: avatar_url now defaults to artifacts/.agents/avatar.png\n- publish.py: _clean_agent_file sets Avatar field in IDENTITY.md to\n  artifacts/.agents/avatar.png when packaging\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix: copy avatar to artifacts/.agents/ before processing IDENTITY.md\n\nMove avatar copy to step 0 so _clean_agent_file can reliably find\nartifacts/.agents/avatar.png when setting the Avatar field in IDENTITY.md.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* docs: support uploaded avatar — resize to 1024x1024 square, rename to avatar.png\n\nCreator can upload their own avatar or generate one. Uploaded images\nare validated (PNG, center-cropped to 1:1, resized to 1024x1024).\nBoth paths converge at avatar.png at workspace root.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix: avatar regex handles single-line format, use avatar.png for archive path\n\nBug 1: The regex for Avatar field only matched two-line format\n(value on next line). Now handles both single-line and two-line.\nAlso uses re.subn to only set changed=True when substitution occurs.\n\nBug 2: IDENTITY.md in archive referenced artifacts/.agents/avatar.png\nbut that path doesn't exist in the archive (only avatar.png at root).\nChanged to use avatar.png which matches the actual archive layout.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Ning Hu <ning@gensmo.ai>\nCo-authored-by: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+      "tree": {
+        "sha": "62a635c18ee2818227e1915d6652f6369be3476c",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/62a635c18ee2818227e1915d6652f6369be3476c"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/8338793632a6d94db7f3dca24dc57406729f6baa",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4cxLCRC1aQ7uu5UhlAAA7VAQAF5V4d65RSSy3HP00vgW4fbi\ny8gEvSwm4AhHR3OoilkO57PlRzgxzimkKm5lMD0Hv0UuREVFYRCh/QuH7nyR6KE3\n/+ZIrfgFvGrBiZbEFAIxerTjLDZwfAFe2ss7191rL9MFniJmiW4L31Daa8Uqn4xf\n9h2siiOlX/v84CIR+YTrBRFVUTOG45QRIwvS8oFLsiWIYmqDs5TSiZg25bVAkPqI\nwozIrJPBQy5CHxkebn2o5T9lHvweytx9B8gmpYBRVpkvuXbWaEVwlzVawYX2v3fS\nXWsDKt/MhsY/g/r9wuAprLY9aK8Fy2VqTmxs3kLW+ozwzOxS9bILDuMhIvEcyCqE\nEDQ9K424myraJWWptXY6jHs4iTupiYgAm/actVDh7boUbLVXmCCkAivV1d9FObBK\nwpNgj3VkxYDQltyqQz2uCG7ew2XT5sLtUwaEAdi9YGlg1UsB/usUcWOaebpXwabf\nZz1S6YUmK9xVcCYCiwZKl4LpWAb5S+NWTdPnXNp+RknQ/49Gz1hbmaNxhPq/nC1p\nLNcccM/x2nzzxFzKyz2hdBAPTwc1N8qU6le1xTKi6LHXklHGo44K6I+Vk43FIFuR\nDt8ASZJBaaOo5eeunUGM9qBfNy1HuobS8kvM5VK11uexkqAhE9ky8NqmUX/k6uu6\nG/PgIXxVc0rJqrOMiu/R\n=gZfb\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 62a635c18ee2818227e1915d6652f6369be3476c\nparent 01ddc4e258e2f1ae63b409ae7b48a0f4ce24667f\nauthor felix-srp <145632298+felix-srp@users.noreply.github.com> 1776405579 +0800\ncommitter GitHub <noreply@github.com> 1776405579 +0800\n\nrefactor: move agent-studio to .agents/skills/, pack skills under .agents/skills/, avatar & hidden-dir fixes (#79)\n\n* refactor: move agent-studio skill to .agents/skills/ and pack skills under .agents/skills/\n\nOpenClaw natively supports loading skills from {workspace}/.agents/skills/ (project-level\nagents skills directory). This change separates the agent-studio dev tooling from the pack's\nown skills directory, making packaging cleaner:\n\n- Dev mode: agent-studio lives in .agents/skills/agent-studio/ (hidden, dev-only)\n- Dev mode: new agent skills are created in skills/ as before\n- Packaging: publish.py now packs skills/ contents into .agents/skills/ in the archive\n- Removed all agent-studio exclusion logic from publish.py, validate.py, clean.py,\n  and generate_description.py since agent-studio is no longer in skills/\n- Updated all path references in AGENTS.md, SKILL.md, design docs, and 30+ test files\n- Restored tests and design docs that were removed upstream (needed for this project)\n- All 223 tests pass\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix: address review findings — remove stale test refs, clarify docs\n\n- Remove test_no_plain_pip_in_schema (references deleted design/agent-pack-schema.yaml)\n- Skip test_description_example_exists when design/description.example.json is absent\n- Clarify DESIGN-SUMMARY.md: distinguish workspace .agents/ (not packed) from\n  archive .agents/skills/ (mapped from skills/)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* chore: remove design docs from PR — they belong in workspace/design-doc\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* chore: move design docs to design-doc/ directory\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* chore: remove design docs from repo — backed up externally\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* chore: remove test files from PR — deleted upstream\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix: skip hidden directories in archive and copy avatar to artifacts/.agents/\n\n- _should_include() now rejects any path component starting with \".\"\n  (e.g. .backup-pptx-master, .venv, .cache), preventing hidden dirs\n  from leaking into the archive\n- Copy avatar.png to artifacts/.agents/ during packaging for platform discovery\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix: clean.py should also remove hidden directories under skills/\n\n/studio new is a full workspace reset — hidden dirs like .backup-*\nshould not survive. agent-studio is safe in .agents/skills/.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* feat: set avatar path to artifacts/.agents/avatar.png in IDENTITY.md and description.json\n\n- generate_description.py: avatar_url now defaults to artifacts/.agents/avatar.png\n- publish.py: _clean_agent_file sets Avatar field in IDENTITY.md to\n  artifacts/.agents/avatar.png when packaging\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix: copy avatar to artifacts/.agents/ before processing IDENTITY.md\n\nMove avatar copy to step 0 so _clean_agent_file can reliably find\nartifacts/.agents/avatar.png when setting the Avatar field in IDENTITY.md.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* docs: support uploaded avatar — resize to 1024x1024 square, rename to avatar.png\n\nCreator can upload their own avatar or generate one. Uploaded images\nare validated (PNG, center-cropped to 1:1, resized to 1024x1024).\nBoth paths converge at avatar.png at workspace root.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n* fix: avatar regex handles single-line format, use avatar.png for archive path\n\nBug 1: The regex for Avatar field only matched two-line format\n(value on next line). Now handles both single-line and two-line.\nAlso uses re.subn to only set changed=True when substitution occurs.\n\nBug 2: IDENTITY.md in archive referenced artifacts/.agents/avatar.png\nbut that path doesn't exist in the archive (only avatar.png at root).\nChanged to use avatar.png which matches the actual archive layout.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Ning Hu <ning@gensmo.ai>\nCo-authored-by: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+        "verified_at": "2026-04-17T05:59:40Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/8338793632a6d94db7f3dca24dc57406729f6baa",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/8338793632a6d94db7f3dca24dc57406729f6baa",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/8338793632a6d94db7f3dca24dc57406729f6baa/comments",
+    "author": {
+      "login": "felix-srp",
+      "id": 145632298,
+      "node_id": "U_kgDOCK4sKg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/145632298?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/felix-srp",
+      "html_url": "https://github.com/felix-srp",
+      "followers_url": "https://api.github.com/users/felix-srp/followers",
+      "following_url": "https://api.github.com/users/felix-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/felix-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/felix-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/felix-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/felix-srp/orgs",
+      "repos_url": "https://api.github.com/users/felix-srp/repos",
+      "events_url": "https://api.github.com/users/felix-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/felix-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "01ddc4e258e2f1ae63b409ae7b48a0f4ce24667f",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/01ddc4e258e2f1ae63b409ae7b48a0f4ce24667f",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/01ddc4e258e2f1ae63b409ae7b48a0f4ce24667f"
+      }
+    ]
+  },
+  {
+    "sha": "01ddc4e258e2f1ae63b409ae7b48a0f4ce24667f",
+    "node_id": "C_kwDORoMXtdoAKDAxZGRjNGUyNThlMmYxYWU2M2I0MDlhZTdiNDhhMGY0Y2UyNDY2N2Y",
+    "commit": {
+      "author": {
+        "name": "vincent-srp",
+        "email": "vincent@srp.one",
+        "date": "2026-04-17T03:56:05Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-17T03:56:05Z"
+      },
+      "message": "feat: add Deco home decor pack (v0.3.1) (#88)\n\n* feat: add Deco home decor pack (v0.3.1)\n\nDeco is an AI home decor assistant for the North American market:\nanalyzes room photos, finds real purchasable products, and generates\nprofessional interior design mockups with shopping links. Ships with 5\nskills (room-analysis, product-search, design-render, design-summary,\npack-onboarding) plus avatar, SOUL, and onboarding flow.\n\nAlso ignore local CLAUDE.md and docs/ scratch files.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* chore: rename deco-0.3.1/ to deco/\n\nDrop the version suffix from the pack directory name.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: vincent-srp <180138700+vincent-srp@users.noreply.github.com>\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+      "tree": {
+        "sha": "441adcdf9d1c847e2456ce87cfb32fa19a2cbb53",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/441adcdf9d1c847e2456ce87cfb32fa19a2cbb53"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/01ddc4e258e2f1ae63b409ae7b48a0f4ce24667f",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4a9VCRC1aQ7uu5UhlAAAl7cQAAPasKKFv+XWnczbR9QVLlM2\nWcQDjlUDD/Q973AUvtZmATY8NIABRlvq4vPqfNmcrksSLLItcU8C51U3pDopRoVs\nq7hPaLeU2svY09/EjkXewkiT2j0ZCb6DwA1LsTt8Vpbnb7Ip8ED0gT+Svf2flhEx\nLbSHyAIkMLnZx9k5mVzsKz0OF/zwfdPlduLdyPfU9urHfqkjwM2IJs2l+xt6IdG0\nzszfQxOPFYV7wrOc2yYUSYUmCApsBgsC97VCpLxQz1h6LiH+Rbx3PdcH7w19deZC\ngSQfDt2bv9Gj6z+dICku5wgAHP1rekC/Xc6cec4xCy6IlES1e+cS9wHFZ2ppuOoX\nCvVR9Abu6HHdPl5A1kisKTKss1xVIB/7dD9HMBVCGruMFymXuiSu1Rl5oyi9hXah\nm2ckeJloZcg7qOl8B8O65HB7WrXZnIagiVHoc9S5ZflOYc+UN9nvRfrOX1Ec3XaB\nPFRM8DnPxqmjTV9msioNbJ65xsHrJYNfRY47y7A4lYEvLAmAL2kZNmKnvggv4R7j\nWHmhLDD+r0dwO0kWzkhi2bCdCHsrD9FCmze8fBKpqNPRQZT3TDdawLl/1c8ZWddd\n4KC6y/WiHULfn/EoM9K+EeF5uNoEluGbHJkwOoBnbQHR2Fj+f9bfJDL96SdqjeSd\nC6wpFzbzm3CIvP7SO86h\n=THS8\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 441adcdf9d1c847e2456ce87cfb32fa19a2cbb53\nparent 2219fc0c23732e566c29e9749f6a60f41712b60a\nauthor vincent-srp <vincent@srp.one> 1776398165 +0800\ncommitter GitHub <noreply@github.com> 1776398165 +0800\n\nfeat: add Deco home decor pack (v0.3.1) (#88)\n\n* feat: add Deco home decor pack (v0.3.1)\n\nDeco is an AI home decor assistant for the North American market:\nanalyzes room photos, finds real purchasable products, and generates\nprofessional interior design mockups with shopping links. Ships with 5\nskills (room-analysis, product-search, design-render, design-summary,\npack-onboarding) plus avatar, SOUL, and onboarding flow.\n\nAlso ignore local CLAUDE.md and docs/ scratch files.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* chore: rename deco-0.3.1/ to deco/\n\nDrop the version suffix from the pack directory name.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: vincent-srp <180138700+vincent-srp@users.noreply.github.com>\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+        "verified_at": "2026-04-17T03:56:06Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/01ddc4e258e2f1ae63b409ae7b48a0f4ce24667f",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/01ddc4e258e2f1ae63b409ae7b48a0f4ce24667f",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/01ddc4e258e2f1ae63b409ae7b48a0f4ce24667f/comments",
+    "author": {
+      "login": "vincent-srp",
+      "id": 180138700,
+      "node_id": "U_kgDOCryyzA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/180138700?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vincent-srp",
+      "html_url": "https://github.com/vincent-srp",
+      "followers_url": "https://api.github.com/users/vincent-srp/followers",
+      "following_url": "https://api.github.com/users/vincent-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vincent-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vincent-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vincent-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/vincent-srp/orgs",
+      "repos_url": "https://api.github.com/users/vincent-srp/repos",
+      "events_url": "https://api.github.com/users/vincent-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vincent-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "2219fc0c23732e566c29e9749f6a60f41712b60a",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/2219fc0c23732e566c29e9749f6a60f41712b60a",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/2219fc0c23732e566c29e9749f6a60f41712b60a"
+      }
+    ]
+  },
+  {
+    "sha": "2219fc0c23732e566c29e9749f6a60f41712b60a",
+    "node_id": "C_kwDORoMXtdoAKDIyMTlmYzBjMjM3MzJlNTY2YzI5ZTk3NDlmNmE2MGY0MTcxMmI2MGE",
+    "commit": {
+      "author": {
+        "name": "tim-srp",
+        "email": "tim@srp.one",
+        "date": "2026-04-17T03:52:15Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-17T03:52:15Z"
+      },
+      "message": "fix: backward compat for /extra-skills mount on older pods (#87)\n\n* fix: add backward compat for /extra-skills mount on older pods\n\nPR #84/#85/#86 replaced /extra-skills paths with ~/.openclaw/skills\n(following fastclaw#56), but ~395 of ~431 bot pods are still running\nolder images without the new mount point. This causes ENOENT when\nagents are redeployed on these pods.\n\nChanges:\n- Python scripts: detect ~/.openclaw/skills at import time, fall back\n  to /extra-skills if it does not exist\n- SKILL.md bash blocks: prepend SKILLS=... shell variable with the\n  same detection logic\n- generate_collage.py: add _parse_designer_output() to handle both\n  old (JSON) and new (plain path) designer CLI stdout formats\n- Designer CLI flag compat: use IMGFLAG variable (--images vs\n  --image-urls) tied to the detected mount point\n\nAffected agents: stylist-agent, restaurant-review-monitor,\nzoodance-vibe-drama\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\n\n* simplify: remove IMGFLAG — skills content is identical across mount points\n\nThe old (/extra-skills) and new (~/.openclaw/skills) mounts contain\nthe same code; only the path differs. No need for CLI flag or stdout\nformat compat — just path detection is sufficient.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+      "tree": {
+        "sha": "acd56c9ed6c84a7a1c1a56cc2753de426a2fe529",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/acd56c9ed6c84a7a1c1a56cc2753de426a2fe529"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/2219fc0c23732e566c29e9749f6a60f41712b60a",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4a5vCRC1aQ7uu5UhlAAAFGgQAFXv/bxcsfnJbXSoYCSQJ54U\nEkPw2nJMzccfAKYcRLM/5ccACVYSgEgYRr7VQDok5LHRFIWBN6zIcLJm9e5oI1QR\nFrtxxncjteWYMwl6Q+s7mP1kl8y42H008aw8Aur9gcBP8UwgjzHT4TaVQKCGgNCU\n+HRz1iopijebGZKldl19HudUv2hJpYZLw391hSjOT8Ny/iLPcnKNrVUVJ9yxSgp1\nzDcqIzIBZ2nOALqfrC/loUjzrNsuSzTG6lqxLaQlSOcVzISJONjI6u+xafekHDUQ\nFzApyAmFh0IHiUKTrhAKN5j4I3LZ0Aq+IHCfAG5z5mijI1EOmxg3CMIgQBvWgYAx\nP2MY2p+14VVBvGlCh3v+ycDjBqXQ7rBDTfjYj36Cb1gW79DeXPgTQnlqp9jBMJpj\nsAZsawryPwxXIuYnQ+iWrRuVQoqRAjh2PJwYMap8/moLUk28tW10iz1AlAmwit3r\n2Mnd6sFln31V6GCEoVTs3Qbri7LVc0Yo5nkTGpgWcjxV2DG4RLBsW9BFnSgUmM1e\nNz6tdnNnYXydhfuYHCo3EMXh2n2WUUQusRyE0xVHLRVQqRuctbmLQL6rzixek2rI\njHziYWPNqNxVxhKr3nHRAiTBYcKUUKL1icLVHSmGL8MMaLfsQWCI6Whj6rfpwuHH\n0ebB4JIVPTzGXGELh+mJ\n=SVlt\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree acd56c9ed6c84a7a1c1a56cc2753de426a2fe529\nparent 54f755f5c3d6baae9c24194e61049bfc313d241c\nauthor tim-srp <tim@srp.one> 1776397935 +0800\ncommitter GitHub <noreply@github.com> 1776397935 +0800\n\nfix: backward compat for /extra-skills mount on older pods (#87)\n\n* fix: add backward compat for /extra-skills mount on older pods\n\nPR #84/#85/#86 replaced /extra-skills paths with ~/.openclaw/skills\n(following fastclaw#56), but ~395 of ~431 bot pods are still running\nolder images without the new mount point. This causes ENOENT when\nagents are redeployed on these pods.\n\nChanges:\n- Python scripts: detect ~/.openclaw/skills at import time, fall back\n  to /extra-skills if it does not exist\n- SKILL.md bash blocks: prepend SKILLS=... shell variable with the\n  same detection logic\n- generate_collage.py: add _parse_designer_output() to handle both\n  old (JSON) and new (plain path) designer CLI stdout formats\n- Designer CLI flag compat: use IMGFLAG variable (--images vs\n  --image-urls) tied to the detected mount point\n\nAffected agents: stylist-agent, restaurant-review-monitor,\nzoodance-vibe-drama\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\n\n* simplify: remove IMGFLAG — skills content is identical across mount points\n\nThe old (/extra-skills) and new (~/.openclaw/skills) mounts contain\nthe same code; only the path differs. No need for CLI flag or stdout\nformat compat — just path detection is sufficient.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+        "verified_at": "2026-04-17T03:52:15Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/2219fc0c23732e566c29e9749f6a60f41712b60a",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/2219fc0c23732e566c29e9749f6a60f41712b60a",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/2219fc0c23732e566c29e9749f6a60f41712b60a/comments",
+    "author": {
+      "login": "tim-srp",
+      "id": 178765090,
+      "node_id": "U_kgDOCqe9Ig",
+      "avatar_url": "https://avatars.githubusercontent.com/u/178765090?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/tim-srp",
+      "html_url": "https://github.com/tim-srp",
+      "followers_url": "https://api.github.com/users/tim-srp/followers",
+      "following_url": "https://api.github.com/users/tim-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/tim-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/tim-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/tim-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/tim-srp/orgs",
+      "repos_url": "https://api.github.com/users/tim-srp/repos",
+      "events_url": "https://api.github.com/users/tim-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/tim-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "54f755f5c3d6baae9c24194e61049bfc313d241c",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/54f755f5c3d6baae9c24194e61049bfc313d241c",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/54f755f5c3d6baae9c24194e61049bfc313d241c"
+      }
+    ]
+  },
+  {
+    "sha": "54f755f5c3d6baae9c24194e61049bfc313d241c",
+    "node_id": "C_kwDORoMXtdoAKDU0Zjc1NWY1YzNkNmJhYWU5YzI0MTk0ZTYxMDQ5YmZjMzEzZDI0MWM",
+    "commit": {
+      "author": {
+        "name": "tim-srp",
+        "email": "tim@srp.one",
+        "date": "2026-04-17T02:57:59Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-17T02:57:59Z"
+      },
+      "message": "fix: soulmate session cooldown detection was completely broken (#74)\n\nThree bugs in get_session_updated_at() caused active session cooldown\nto never work:\n\n1. Missing --agent flag: `openclaw sessions --json` only lists the\n   default agent's sessions, not soulmate's.\n2. Wrong field name: checked `sessionKey` but the actual JSON field\n   is `key`.\n3. Timeout too short: openclaw CLI takes >10s on pod, causing\n   TimeoutExpired to be silently swallowed by the bare except.\n4. Stdout pollution: openclaw prints plugin registration logs to\n   stdout after JSON, causing json.loads to fail with Extra data.\n\nAll four issues made get_session_updated_at() always return None,\nso the bot could send proactive messages even during active conversations.\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+      "tree": {
+        "sha": "29b42c8904dde25080127e4d35112dc56835242d",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/29b42c8904dde25080127e4d35112dc56835242d"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/54f755f5c3d6baae9c24194e61049bfc313d241c",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4aG3CRC1aQ7uu5UhlAAAk5gQAIoT9mkwPrkgG8VFr9OOlqL8\n6I1+FdX/+pcK7kiYpNhXxMqp1tpXhXEdZeA2CneNSZlYVN//M91jP2nyCTm77r0+\n5XKvhw8RYOIHs1VYONUNjy+ZeP543Ny15OCEasTS8NJlg4eU7BAwXZCoswXNw6nu\nPhUpau1vESSLZt0mo8RML6mEl8Ca6fCZ3XmX9GgU8Jf7FL0l+LE2lNHMHHfzjfL8\nsxLyPwrEpQI/xfiYXbRl5xc10xP0j7JWE81MPL0JsPgpRGP5sLkSmW4RjuJrSUOp\nZNisAPvjujNacDmnYebfHgVTJazrXcu4ZsY1h7ScokPcO+lSeQZXie/FX9Vp7lEf\nxK8x5zSaPU2gkICHXsjJoClxtJqy8csLkzMEPioQoq2d8xF8ISAmaU8/4h7nukhb\nNKCKl8i4DYhRqkELNmEC32WgtgIYRjdXMQFQ/u1QiGYVx3Bw7RlH5ckyLvs46xzf\nP3Zk2oQ4u2C+LwBotUEn9OKveqgL8EgykEJhGLnNDwxi6s9xjnYru01BhHFl/bDL\nGGEkYO8BoV13Xomvna870izmH1TCUq2K2tzDrSbhhtSpF7ipBxp6fzVdDtU5yCt/\nGMVBj18T7dO1PfBkTsS0SSvCfu8KYkMD5yaJo0l9sI7tKaKaK+ikb1Cs/DjYberf\nYfUKDGBOkHWCma/6Uokw\n=fqrs\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 29b42c8904dde25080127e4d35112dc56835242d\nparent 1be38e956d6c3026574455c36cf658a5de7dc7d3\nauthor tim-srp <tim@srp.one> 1776394679 +0800\ncommitter GitHub <noreply@github.com> 1776394679 +0800\n\nfix: soulmate session cooldown detection was completely broken (#74)\n\nThree bugs in get_session_updated_at() caused active session cooldown\nto never work:\n\n1. Missing --agent flag: `openclaw sessions --json` only lists the\n   default agent's sessions, not soulmate's.\n2. Wrong field name: checked `sessionKey` but the actual JSON field\n   is `key`.\n3. Timeout too short: openclaw CLI takes >10s on pod, causing\n   TimeoutExpired to be silently swallowed by the bare except.\n4. Stdout pollution: openclaw prints plugin registration logs to\n   stdout after JSON, causing json.loads to fail with Extra data.\n\nAll four issues made get_session_updated_at() always return None,\nso the bot could send proactive messages even during active conversations.\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+        "verified_at": "2026-04-17T02:57:59Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/54f755f5c3d6baae9c24194e61049bfc313d241c",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/54f755f5c3d6baae9c24194e61049bfc313d241c",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/54f755f5c3d6baae9c24194e61049bfc313d241c/comments",
+    "author": {
+      "login": "tim-srp",
+      "id": 178765090,
+      "node_id": "U_kgDOCqe9Ig",
+      "avatar_url": "https://avatars.githubusercontent.com/u/178765090?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/tim-srp",
+      "html_url": "https://github.com/tim-srp",
+      "followers_url": "https://api.github.com/users/tim-srp/followers",
+      "following_url": "https://api.github.com/users/tim-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/tim-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/tim-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/tim-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/tim-srp/orgs",
+      "repos_url": "https://api.github.com/users/tim-srp/repos",
+      "events_url": "https://api.github.com/users/tim-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/tim-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1be38e956d6c3026574455c36cf658a5de7dc7d3",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/1be38e956d6c3026574455c36cf658a5de7dc7d3",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/1be38e956d6c3026574455c36cf658a5de7dc7d3"
+      }
+    ]
+  },
+  {
+    "sha": "1be38e956d6c3026574455c36cf658a5de7dc7d3",
+    "node_id": "C_kwDORoMXtdoAKDFiZTM4ZTk1NmQ2YzMwMjY1NzQ0NTVjMzZjZjY1OGE1ZGU3ZGM3ZDM",
+    "commit": {
+      "author": {
+        "name": "Nemo Feng",
+        "email": "nemo@srp.one",
+        "date": "2026-04-17T02:48:51Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-17T02:48:51Z"
+      },
+      "message": "improve: make bootstrap and session-start checks silent until onboarding begins (#67)\n\nPrevents premature output to the user during startup checks. The first\nuser-visible message now comes from the onboarding skill itself (or the\nnormal greeting if onboarding is already complete).\n\nCo-authored-by: Nemo Feng <nemofq@gmail.com>\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+      "tree": {
+        "sha": "773821d54b5e7b32768c62d804a25dea42ca6e4b",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/773821d54b5e7b32768c62d804a25dea42ca6e4b"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/1be38e956d6c3026574455c36cf658a5de7dc7d3",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp4Z+TCRC1aQ7uu5UhlAAAMUcQABh8v738YDGR7sSjk8VsAbdx\n58jlxcmoB7NB9+Yy9bSam5rowJZ3axuK1uI0hI6gsJ/eHzXXO6x9BrYH+o0WHnfH\neu5C9CMPt+sh4aabR7QqaCB+2LutyoC/M9jVVp6YDVQ9ZR5fURUEcCSx8z7gZpQl\nTk0alo84zU7kynH9nuljbH5lMpRPHsksQw30+3DNUzY5UNcsfHmazCTHDb/Je8lN\nufmXYwS1bgkhFZBoW1nuab6BclIcNts9ofde0z+hE10sqiEefjHD6NMWPsWjp7Wu\nnrb6UUD9YHurOsLvBwsaJIxlm/Ba0h6CnnXMCJ2v5/qMdUXVxzAAPDlxCAqHtCHC\nXm4zsmoev3QDhVfCyF9a1K8HezXZWwTnzTMIkLMiyonw0N9NqJuw7GEODiDr7sMs\nzkskeViqM8Mn90g60JZ218+o5neuf7+Ouj9XqemSZ/aVCd8r1y+SFaFHQjDRskkV\n3uwvs+F/JEuq1NIGrD3UjMowtfxKl0WYsSBnBNd9+0GJrCTt8DcX+FoXkRHQZ8cU\nzdERyHIEAwDIrx6iX3R2eGhUDNV/rBswwbwZ3pYlCfdSmhOTG/qFo6tajMiBzj14\nAZVGvUH+HJU60XTHoTAw0wmZIVZhm9uFMekLmrqOHk/c52lxxrUcEkQkBO7VQ6SH\nxNxL7DDv1bbNMQNyPiz7\n=1eJC\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 773821d54b5e7b32768c62d804a25dea42ca6e4b\nparent 5662c90515940d55071b859446e04dd17982e0ca\nauthor Nemo Feng <nemo@srp.one> 1776394131 -0700\ncommitter GitHub <noreply@github.com> 1776394131 +0800\n\nimprove: make bootstrap and session-start checks silent until onboarding begins (#67)\n\nPrevents premature output to the user during startup checks. The first\nuser-visible message now comes from the onboarding skill itself (or the\nnormal greeting if onboarding is already complete).\n\nCo-authored-by: Nemo Feng <nemofq@gmail.com>\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+        "verified_at": "2026-04-17T02:48:52Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/1be38e956d6c3026574455c36cf658a5de7dc7d3",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/1be38e956d6c3026574455c36cf658a5de7dc7d3",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/1be38e956d6c3026574455c36cf658a5de7dc7d3/comments",
+    "author": {
+      "login": "nemo-srp",
+      "id": 259985051,
+      "node_id": "U_kgDOD38Omw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/259985051?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nemo-srp",
+      "html_url": "https://github.com/nemo-srp",
+      "followers_url": "https://api.github.com/users/nemo-srp/followers",
+      "following_url": "https://api.github.com/users/nemo-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nemo-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nemo-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nemo-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/nemo-srp/orgs",
+      "repos_url": "https://api.github.com/users/nemo-srp/repos",
+      "events_url": "https://api.github.com/users/nemo-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nemo-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5662c90515940d55071b859446e04dd17982e0ca",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/5662c90515940d55071b859446e04dd17982e0ca",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/5662c90515940d55071b859446e04dd17982e0ca"
+      }
+    ]
+  }
+]
