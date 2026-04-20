@@ -4,6 +4,75 @@
 
 ---
 
+## 2026-04-19
+
+### 🐛 Bug 修复
+
+**Agent Redeploy 不再覆盖用户数据**
+修复了 agent 重新部署时误覆盖 SOUL.md、IDENTITY.md、memory/ 等用户个人数据的问题。重部署后你的个性化配置、记忆、身份设定都会完整保留。
+
+---
+
+## 2026-04-18
+
+### 🚀 新功能
+
+**批量 Credits 发放 + 补偿弹窗**
+支持向用户批量发放 Credits，发放时会弹出提示，让你第一时间知道获得了奖励。
+
+**iOS bot 回复流式推送 + 连接稳定性增强**
+iOS 客户端现在支持 bot 回复流式输出，新增消息 reactions，断线重连更稳定可靠。
+
+---
+
+### 🐛 Bug 修复
+
+**Sentry 监控优化 + Mattermost 事件风暴修复**
+修复了 Mattermost 连接事件引发 9.3 万条错误日志风暴的 bug，系统监控更稳定，不再产生无效噪音。
+
+---
+
+## 2026-04-17
+
+### 🤖 Agent 上架
+
+**Deco — 家居装饰 Agent**
+全新 Deco Agent 上线，专为家居设计与风格搭配场景打造，帮你规划理想中的家。
+
+---
+
+### 🛠 产品功能
+
+**新增 VS Code devcontainer 支持**
+开发者现在可以直接用 VS Code devcontainer 启动 ZooClaw 开发环境，一键配置零负担。
+
+**侧边栏更名：Hire AI Specialists → AI Specialists Hub**
+入口名称更新，更直观，新用户更容易找到。
+
+---
+
+## 2026-04-16
+
+### 🚀 新功能
+
+**版本升级浮动弹窗 + Changelog 独立页面**
+新版本发布时会弹出升级提示，并新增独立 Changelog 页面，随时查看完整更新记录。
+
+**Mattermost 新增 reactions、tool-steps 折叠、更流畅 streaming**
+Mattermost 频道消息支持 emoji reaction，工具步骤可折叠查看，流式输出更顺滑。
+
+---
+
+### 🌐 产品功能
+
+**ecap.gensmo.com → zooclaw.ai 301 重定向**
+旧域名自动跳转到新域名，老用户的书签和分享链接不会失效。
+
+**Starter 试用 UX 优化**
+订阅面板中 Starter 试用体验统一优化，界面更清晰。
+
+---
+
 ## 2025-04-15
 
 ### 🐛 Bug 修复
