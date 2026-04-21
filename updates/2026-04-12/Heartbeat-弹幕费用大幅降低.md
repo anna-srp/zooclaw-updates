@@ -2,7 +2,7 @@
 title: "Heartbeat 弹幕费用大幅降低（降至 <$0.01/次）"
 type: "Bug Fix"
 priority: "中"
-date: "2025-04-12"
+date: "2026-04-12"
 status: "待审核"
 channels: ""
 ---

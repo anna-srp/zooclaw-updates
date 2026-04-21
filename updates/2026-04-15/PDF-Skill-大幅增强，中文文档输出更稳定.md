@@ -2,7 +2,7 @@
 title: "PDF Skill 大幅增强，中文文档输出更稳定"
 type: "Skill 上架/更新"
 priority: "中"
-date: "2025-04-15"
+date: "2026-04-15"
 status: "待审核"
 channels: ""
 ---

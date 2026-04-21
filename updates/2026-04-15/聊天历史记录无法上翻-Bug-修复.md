@@ -2,7 +2,7 @@
 title: "聊天历史记录无法上翻 Bug 修复"
 type: "Bug Fix"
 priority: "高"
-date: "2025-04-15"
+date: "2026-04-15"
 status: "待审核"
 channels: ""
 ---
