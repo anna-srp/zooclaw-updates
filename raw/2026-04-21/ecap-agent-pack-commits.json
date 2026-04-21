@@ -1,0 +1,127 @@
+[
+  {
+    "sha": "47f5fba81927d466d60269731d750ece13ac9b8b",
+    "node_id": "C_kwDORoMXtdoAKDQ3ZjVmYmE4MTkyN2Q0NjZkNjAyNjk3MzFkNzUwZWNlMTNhYzliOGI",
+    "commit": {
+      "author": {
+        "name": "david-srp",
+        "email": "david@srp.one",
+        "date": "2026-04-20T07:45:22Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-20T07:45:22Z"
+      },
+      "message": "feat(vibe-drama): upgrade to v1.0.9 workflow (#99)",
+      "tree": {
+        "sha": "d3323f7c75aa65c0d5b17f23e55133db8d816099",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/d3323f7c75aa65c0d5b17f23e55133db8d816099"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/47f5fba81927d466d60269731d750ece13ac9b8b",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp5dmSCRC1aQ7uu5UhlAAAW9cQAI+wQ+MhlULSrK2ZN4ZrmU6D\nQhi8neqPu+W9QdC/gdwFo26puadY3aJaSuETI46nUfRY1lnIhC7XPdfRkWJnWz+p\nOxPdn+70xiOypXIhYEEfLSC3m/2lmpJXlUW7ZjxrTqMHoJxBr2i36y3Bx1b+TwsL\n+SroxCQuFOao4bz8C5KepvI0gbu9RKJg2EwR4Odkheit8HhDlE/6zk1uC44LJd6K\nhw85tCw7LQYJjsisg2gBA/wZ3+nmZakeeCL3FouSoEzp3DeG6SOHtANa1ynmPQrl\nJ71dyMRyItuaJQWDqoQISRnNH5/kc1jur7B2T3l5NiarKmFIqMAV4wiOOBlACQLk\n7FEAN3dJkpzbbRQ5+AWUxWY2kikZfXJSKo28mWtQFLFQI5T92ojpISAGTUJ1X8L5\npSnNul9W0730MAdKVxk+NBj6r3xBXjcSWcQnhUubxBcWk3Q0ovYlMEAPrJ0EYNax\nq4FBKfy2SnmSqHK6ucdWLRhxG46EabpUjaLnv3t36rWNoTq9dM5B27bovUpsmnWD\nrcge40Vo0TD8Y2fBFFBXVVZIGUegbrOJ4ZOXgrYCnspUUg1vUBXpmAQyaRL5h1EF\nHqs9ZMVpeF1mGIhE25ZBxris7nGIzpJjygfRRfngURK1nTGGet6xAKhY80Eio8WH\nZM3icNr7qTCQRIAYEacG\n=+e4u\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d3323f7c75aa65c0d5b17f23e55133db8d816099\nparent 9382535b39b73a6a3dd1626fb733702e3e20cdc4\nauthor david-srp <david@srp.one> 1776671122 +0800\ncommitter GitHub <noreply@github.com> 1776671122 +0800\n\nfeat(vibe-drama): upgrade to v1.0.9 workflow (#99)",
+        "verified_at": "2026-04-20T07:45:22Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/47f5fba81927d466d60269731d750ece13ac9b8b",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/47f5fba81927d466d60269731d750ece13ac9b8b",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/47f5fba81927d466d60269731d750ece13ac9b8b/comments",
+    "author": {
+      "login": "david-srp",
+      "id": 264104338,
+      "node_id": "U_kgDOD73pkg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/264104338?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/david-srp",
+      "html_url": "https://github.com/david-srp",
+      "followers_url": "https://api.github.com/users/david-srp/followers",
+      "following_url": "https://api.github.com/users/david-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/david-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/david-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/david-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/david-srp/orgs",
+      "repos_url": "https://api.github.com/users/david-srp/repos",
+      "events_url": "https://api.github.com/users/david-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/david-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "9382535b39b73a6a3dd1626fb733702e3e20cdc4",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/9382535b39b73a6a3dd1626fb733702e3e20cdc4",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/9382535b39b73a6a3dd1626fb733702e3e20cdc4"
+      }
+    ],
+    "stats": {
+      "total": 171,
+      "additions": 148,
+      "deletions": 23
+    },
+    "files": [
+      {
+        "sha": "fb50dfbb7afabcfae8d7c4886ec49b0475d8e9c9",
+        "filename": "zoodance-vibe-drama/.agents/skills/vibe-drama/SKILL.md",
+        "status": "modified",
+        "additions": 94,
+        "deletions": 12,
+        "changes": 106,
+        "blob_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/blob/47f5fba81927d466d60269731d750ece13ac9b8b/zoodance-vibe-drama%2F.agents%2Fskills%2Fvibe-drama%2FSKILL.md",
+        "raw_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/raw/47f5fba81927d466d60269731d750ece13ac9b8b/zoodance-vibe-drama%2F.agents%2Fskills%2Fvibe-drama%2FSKILL.md",
+        "contents_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/contents/zoodance-vibe-drama%2F.agents%2Fskills%2Fvibe-drama%2FSKILL.md?ref=47f5fba81927d466d60269731d750ece13ac9b8b",
+        "patch": "@@ -102,6 +102,8 @@ Read `references/genre-database.md`.\n 4. Record the confirmed G code and inject its AIGC prompt keywords into all subsequent prompts.\n - If user already stated a genre → confirm in one sentence, assign code, move on.\n \n+**Language consistency rule (mandatory):** All genre option names, descriptions, rhythm formulas, and hook patterns presented to the user MUST be fully in the user's session language. Do NOT mix Chinese and English (e.g. if session is Chinese, present all text in Chinese; if English, all in English). Never show bilingual labels like \"G14-01 霸总甜宠 CEO Romance\" — pick one language and use it consistently.\n+\n **GATE:** Genre code confirmed → proceed to Phase 3.\n \n ### Phase 3 — Episode Script (one episode at a time)\n@@ -124,22 +126,43 @@ Read `references/art-style-database.md`.\n - If user already stated a style preference → confirm in one sentence, assign code, move on.\n - On Episode 2+: skip if style was already confirmed this session.\n \n+**Language consistency rule (mandatory):** All style names, descriptions, and recommendations presented to the user MUST be fully in the user's session language. Do NOT mix languages. Pick one and use it throughout.\n+\n **GATE:** Art style confirmed → proceed to Phase 5.\n \n ### Phase 5 — Asset Generation\n Read `references/asset-lock-rules.md`.\n Order: character boards first → scene anchors → prop anchors.\n \n-**Art style binding (mandatory):** Every image prompt must open with the confirmed art style line from Phase 4:\n-`Art style: [STYLE NAME] ([S01-##x]). [AIGC prompt direction].`\n-Do NOT generate any asset without this line. All assets in the same session must share the same style.\n+**Art style + Genre binding (mandatory):** Every image prompt must include both confirmed lines from Phase 2 and Phase 4:\n+```\n+Art style: [STYLE NAME] ([S01-##x]). [AIGC prompt direction].\n+Genre: [GENRE NAME] ([G##-##]). Core keywords: [AIGC prompt keywords].\n+```\n+Do NOT generate any asset without both lines. All assets in the same session must share the same style and genre.\n \n **Step 5a — Character boards (定妆图)**\n+\n+**Copyright notice (mandatory — once per session, before any reference image is used):**\n+Whether the user uploads their own reference photos OR you generate character boards, show this notice ONCE at the start of Step 5a (in the session language):\n+\n+> ⚠️ 版权合规提示：请确认您提供的参考图片（含上传的照片）为您本人拍摄或已获授权使用，不包含未授权的真实人物肖像（明星、公众人物），不包含受版权保护的品牌或角色，且您拥有将其用于 AI 生成内容的合法权利。\n+\n+(English version if session is English:)\n+> ⚠️ Copyright notice: Please confirm any reference images you provide are your own work or properly licensed, do not contain unauthorized portraits of real people (celebrities, public figures), and you have the legal right to use them for AI-generated content.\n+\n+Wait for user acknowledgment before proceeding. Show this notice only once per session regardless of how many images follow.\n+\n+**Two paths for character references:**\n+- **User uploads reference photos** → acknowledge copyright notice, record which photo = which character, register faces as assets via `asset_register.py`, proceed directly to Phase 6 (skip board generation).\n+- **No reference photos** → confirm appearance description with user, generate character board via `designer`, send to user for confirmation.\n+\n 1. Extract all characters (leads + supporting) from the episode script.\n-2. For each character: confirm appearance description with user (face, hair, costume, vibe).\n-3. Generate character board via `designer` (i2i + template, 2K, 16:9) using sessions_spawn.\n-4. Send image to user. User confirms or requests changes.\n-5. Repeat for all characters.\n+2. Show copyright notice (once per session). Wait for acknowledgment.\n+3. Ask: \"Do you have reference photos for the characters, or should I generate character boards?\"\n+   - If user provides photos: map each photo to a character name, register as asset, skip to Step 5b.\n+   - If generating: confirm appearance description (face, hair, costume, vibe) per character, generate via `designer` (i2i + template, 2K, 16:9) using sessions_spawn, send to user for confirmation.\n+4. Repeat for all characters.\n \n **Step 5b — Scene anchors (场景图)**\n Auto-extract top 4 key locations from the script.\n@@ -157,18 +180,77 @@ Auto-extract top 4 plot-critical props from the script.\n \n ### Phase 6 — Video Generation\n Read `references/video-packaging-rules.md` and `references/audio-storytelling-rules.md`.\n+\n+**Art style + Genre binding (mandatory):** Every beat prompt must open with both confirmed lines:\n+```\n+Art style: [STYLE NAME]（S01-XXx）. [AIGC prompt direction from Phase 4]\n+Genre: [GENRE NAME]（G##-##）. Core keywords: [AIGC keywords from Phase 2]\n+```\n+Do NOT generate any beat without both lines. Copy the exact strings — do not paraphrase. All beats in the same session must share the same style and genre.\n+\n 1. **Ask user once (before first generation):**\n    - Ratio: 16:9 landscape or 9:16 portrait?\n-   - Resolution: 480p (save tokens) or 720p (higher quality, more tokens)?\n-   - Mode: fast (quick, save tokens) or pro (best quality, more tokens)?\n-   - Remind: higher quality = more token consumption.\n+   - Resolution: 480p / 720p / 1080p?\n+     - 480p: fastest, lowest cost\n+     - 720p: balanced quality and cost\n+     - 1080p: highest quality, **2.5× token cost** vs 720p — pro mode only (fast mode does NOT support 1080p)\n+   - Mode: fast (quick, lower cost — max 720p) or pro (best quality, higher cost — supports up to 1080p)?\n+   - Remind user: 1080p + pro = 2.5× the token cost of 720p. Confirm they want to proceed at that cost.\n 2. Build explicit reference map for each beat:\n    - Image 1 = [lead] character board (asset://ID)\n    - Image 2 = [supporting] character board (asset://ID, if applicable)\n    - Image 3 = scene anchor (HTTPS URL)\n    - Image 4 = prop anchor (HTTPS URL, if beat uses a key prop)\n-3. Generate all 4 beats **concurrently via `sessions_spawn`** — one sub-agent per beat, `sessions_yield` to wait. Each sub-agent saves to independent output dir and renames to `beatN.mp4` on completion. See `references/video-packaging-rules.md` → Beat ordering rule.\n-4. After all 4 beats complete, ask user: \"4 beats are ready. Want to review each clip first, or go straight to stitching?\" (adapt to user's language)\n+   - Additional images as needed (no hard limit on count; single image < 30MB, total request body ≤ 64MB)\n+3. **Pre-flight prompt review (mandatory before any generation):**\n+   Present a compact beat-by-beat summary + reference map table to the user. Format (adapt to user's language):\n+\n+   ```\n+   📋 分镜 Prompt 预览 — 第X集（共4个 Beat）\n+\n+   Beat 1｜[时长]s｜[景别]\n+   画面：[1句话概述画面内容]\n+   台词/OS：[对白或内心独白，若有]\n+\n+   Beat 2｜[时长]s｜[景别]\n+   画面：[1句话概述]\n+   台词/OS：[...]\n+\n+   Beat 3｜[时长]s｜[景别]\n+   画面：[1句话概述]\n+   台词/OS：[...]\n+\n+   Beat 4｜[时长]s｜[景别]\n+   画面：[1句话概述]\n+   台词/OS：[...]\n+\n+   画风：[S01-XXx 风格名]\n+   体裁：[G##-## 体裁名]\n+   参数：[ratio] / [resolution] / [mode]\n+\n+   📌 参考图输入汇总：\n+   | Beat | 图片1 | 图片2 | 图片3 | 图片4 | ... |\n+   |------|-------|-------|-------|-------|-----|\n+   | Beat 1 | [角色名/asset ID] | [角色名/asset ID 或 —] | [场景名/URL] | [道具名/URL 或 —] | ... |\n+   | Beat 2 | ... | ... | ... | ... | ... |\n+   | Beat 3 | ... | ... | ... | ... | ... |\n+   | Beat 4 | ... | ... | ... | ... | ... |\n+\n+   ⚠️ 视频生成费用较高，确认后将并发启动4段生成，无法中途取消。\n+   是否需要查看每个 Beat 的完整 prompt 详情？\n+   还是直接确认开始生成？\n+   ```\n+\n+   **Three possible user responses:**\n+   - \"查看详情\" / \"show full prompts\" → display the complete prompt for each beat, then ask again for generation confirmation\n+   - \"确认\" / \"OK\" / \"yes\" / direct confirmation → proceed to generation\n+   - \"修改 Beat N\" → update that beat only, re-present full summary, wait for confirmation again\n+\n+   - Do NOT skip this step even if the user seems eager — video generation is expensive and irreversible.\n+   - The reference map table is mandatory — it catches missing characters or wrong asset mappings before generation starts.\n+\n+4. Generate all 4 beats **concurrently via `sessions_spawn`** — one sub-agent per beat, `sessions_yield` to wait. Each sub-agent saves to independent output dir and renames to `beatN.mp4` on completion. See `references/video-packaging-rules.md` → Beat ordering rule.\n+5. After all 4 beats complete, ask user: \"4 beats are ready. Want to review each clip first, or go straight to stitching?\" (adapt to user's language)\n    - If review: show each beat result, iterate if needed.\n    - If stitch: proceed to Phase 7.\n "
+      },
+      {
+        "sha": "f147e3bf52b2c7d6b23a3166074bd96891490467",
+        "filename": "zoodance-vibe-drama/.agents/skills/vibe-drama/references/video-packaging-rules.md",
+        "status": "modified",
+        "additions": 52,
+        "deletions": 5,
+        "changes": 57,
+        "blob_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/blob/47f5fba81927d466d60269731d750ece13ac9b8b/zoodance-vibe-drama%2F.agents%2Fskills%2Fvibe-drama%2Freferences%2Fvideo-packaging-rules.md",
+        "raw_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/raw/47f5fba81927d466d60269731d750ece13ac9b8b/zoodance-vibe-drama%2F.agents%2Fskills%2Fvibe-drama%2Freferences%2Fvideo-packaging-rules.md",
+        "contents_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/contents/zoodance-vibe-drama%2F.agents%2Fskills%2Fvibe-drama%2Freferences%2Fvideo-packaging-rules.md?ref=47f5fba81927d466d60269731d750ece13ac9b8b",
+        "patch": "@@ -8,19 +8,42 @@ Use this file during Phase 4 to construct Seedance prompts and manage video gene\n \n Before generating any video, confirm with the user. **Always remind them that higher quality = more token consumption.**\n \n+**Generation sequence (mandatory order):**\n+1. Confirm ratio / resolution / mode (this section)\n+2. Build beat prompts + reference map\n+3. **Pre-flight prompt review** — show compact beat summary + reference map table to user, wait for explicit confirmation (see SKILL.md Phase 6 step 3)\n+4. Only after user confirms → spawn concurrent generation\n+\n+Do NOT skip step 3. Video generation is expensive and irreversible.\n+\n | Parameter | Options | Token impact |\n |-----------|---------|--------------|\n | 画面比例 (Ratio) | 16:9 横版 / 9:16 竖版 | Similar cost |\n-| 分辨率 (Resolution) | 480p（省 token，速度快）/ 720p（更清晰，**token 消耗更多**） | 720p costs significantly more |\n-| 生成模式 (Mode) | fast 快速模式（省 token）/ pro 精品模式（**token 消耗更多，质量更高**） | pro costs significantly more |\n+| 分辨率 (Resolution) | 480p（省 token）/ 720p（均衡）/ **1080p（最高画质，2.5× token，仅 pro 支持）** | 1080p costs 2.5× vs 720p |\n+| 生成模式 (Mode) | fast（省 token，最高 720p）/ pro（最高画质，支持 1080p） | pro costs more; **fast does NOT support 1080p** |\n+\n+**1080p rule:** Only available with `pro` mode. If user selects 1080p + fast, correct to 1080p + pro and explain why.\n \n Example reminder text (adapt to user language):\n-\"提醒：选择 720p + Pro 模式会消耗更多 token，但画质更好。你希望优先省 token 还是优先画质？\"\n+\"提醒：1080p 仅 pro 模式支持，token 消耗是 720p 的 2.5 倍。你希望优先省 token 还是优先画质？\"\n \n Map to Seedance params:\n - `--ratio 16:9` or `--ratio 9:16`\n-- `--resolution 480p` or `--resolution 720p`\n-- `--model dreamina-seedance-2-0-fast-260128` (fast) or `--model dreamina-seedance-2-0-260128` (pro)\n+- `--resolution 480p` or `--resolution 720p` or `--resolution 1080p`\n+- `--model dreamina-seedance-2-0-fast-260128` (fast, max 720p) or `--model dreamina-seedance-2-0-260128` (pro, up to 1080p)\n+\n+---\n+\n+## Seedance reference input limits\n+\n+| Input type | Limit |\n+|------------|-------|\n+| `--reference-image` | No count limit. Single image < 30MB. Total request body ≤ 64MB. |\n+| `--reference-video` | Max 3 videos. Total duration ≤ 15s. Single video < 50MB. |\n+| `--reference-audio` | Max 3 audios. Total duration ≤ 15s. Single audio < 15MB. |\n+\n+**Character boards with human faces MUST be registered as assets (`asset://`) — do not pass raw image URLs for portrait references.**\n+Scene anchors and prop anchors (no faces) can be passed as plain HTTPS URLs.\n \n If user asks for pricing details, refer to chameleon skill: `$4.3/1M tokens` (with reference-video) or `$7.0/1M tokens` (text/image only). Exact token counts vary by duration and resolution.\n \n@@ -95,6 +118,11 @@ Each beat prompt must include all of the following fields:\n ```\n 基于参考图片的角色和场景，生成一段 [DURATION]s 短剧视频片段。\n \n+画风与体裁（Art style + Genre — BOTH MANDATORY）：\n+Art style: [STYLE NAME]（[S01-XXx]）。[AIGC prompt direction from art-style-database.md]。\n+Genre: [GENRE NAME]（[G##-##]）。Core keywords: [AIGC prompt keywords from genre-database.md]。\n+Keep the visual style and genre tone consistent with these directions throughout the entire clip.\n+\n 参考说明：\n - 图片1 = [角色名] 定妆图（主角外貌参考）\n - 图片2 = [角色名] 定妆图（配角外貌参考，如有）\n@@ -124,6 +152,25 @@ No background music (BGM). Keep only spoken dialogue, ambience, and sound effect\n [Additional negative constraints: no extra characters, no style drift, etc.]\n ```\n \n+---\n+\n+## Audio safety filter retry rule\n+\n+If a beat generation fails with `OutputAudioSensitiveContentDetected`:\n+1. **Do NOT silently retry with `--generate-audio false`** — silent video is not acceptable as a final output.\n+2. Report the failure to the user and explain that Seedance's audio safety filter blocked the Chinese dialogue.\n+3. Ask the user: \"The audio was blocked by Seedance's safety filter. Options: (A) retry with slightly rephrased dialogue, (B) generate silent video now and add TTS voiceover after, (C) skip this beat for now.\"\n+4. Only proceed after user explicitly chooses an option.\n+\n+**Root cause note:** Seedance's Chinese audio safety filter can trigger intermittently on certain dialogue patterns. Re-running with slightly rephrased or shorter dialogue often passes on retry.\n+\n+---\n+\n+**⚠️ Both 画风 (art style) AND 体裁 (genre) lines are MANDATORY in every single beat prompt.**\n+- Art style: copy the exact `[STYLE NAME]（[S01-XXx]）. [AIGC prompt direction]` string confirmed in Phase 4.\n+- Genre: copy the exact `[GENRE NAME]（[G##-##]）. Core keywords: [...]` string confirmed in Phase 2.\n+Do not paraphrase or omit either line — omitting either causes visual/tonal inconsistency across beats.\n+\n **⚠️ The subtitle and BGM prohibition lines are MANDATORY in every single beat prompt. Do not omit them even if the user did not ask for subtitles or BGM. The reason: subtitles burned into frames cannot be removed later, and in-video BGM will clash with the BGM added during video_assembly.py pipeline.**\n \n ---"
+      },
+      {
+        "sha": "1fd131ae5e06263d91c15bb053c1ebd72967d42f",
+        "filename": "zoodance-vibe-drama/agent-pack.yaml",
+        "status": "modified",
+        "additions": 2,
+        "deletions": 6,
+        "changes": 8,
+        "blob_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/blob/47f5fba81927d466d60269731d750ece13ac9b8b/zoodance-vibe-drama%2Fagent-pack.yaml",
+        "raw_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/raw/47f5fba81927d466d60269731d750ece13ac9b8b/zoodance-vibe-drama%2Fagent-pack.yaml",
+        "contents_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/contents/zoodance-vibe-drama%2Fagent-pack.yaml?ref=47f5fba81927d466d60269731d750ece13ac9b8b",
+        "patch": "@@ -1,9 +1,9 @@\n name: zoodance-vibe-drama\n display_name: Vibe Drama Generator\n-version: 1.0.8\n+version: 1.0.9\n description: >\n   短剧创作爱好者的一人剧组。从一句话想法出发，AI 帮你完成编剧、定妆、场景、视频生成和剪辑合成，不需要演员和服化道。\n-author: \"\"\n+author: \"David\"\n license: private\n tags: [short-drama, video-generation, creative, AI-filmmaking]\n icon: 🎬\n@@ -38,11 +38,7 @@ onboarding:\n     steps: []\n     connectors: []\n   init:\n-    provision:\n-      script: .agents/skills/pack-onboarding/scripts/provision.py\n     history_scan: []\n-    finalize:\n-      script: .agents/skills/pack-onboarding/scripts/finalize.py\n \n dependencies:\n   python: []"
+      }
+    ]
+  }
+]
