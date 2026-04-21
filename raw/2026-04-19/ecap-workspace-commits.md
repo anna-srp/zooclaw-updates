@@ -270,6 +270,32 @@ IDENTITY.md |
 - BOOTSTRAP.md — skip when local file exists (preserve in-progress
 onboarding), copy when absent. Agents use its presen
 ```
+- **description**:
+  ## Summary
+  Fix the pack redeploy allowlist — it was protecting pack templates (TOOLS.md, AGENTS.md) while exposing user data (SOUL.md, IDENTITY.md, memory/, media/).
+  
+  ## Changes
+  
+  **File allowlist (never overwrite):**
+  
+  | Before | After |
+  |--------|-------|
+  | MEMORY.md, USER.md, TOOLS.md, AGENTS.md | MEMORY.md, USER.md, SOUL.md, IDENTITY.md |
+  
+  **Copy-if-missing (new mechanism):**
+  - BOOTSTRAP.md — skip when local file exists (preserve in-progress onboarding), copy when absent. Agents use its presence to decide whether onboarding is needed.
+  
+  **Dir allowlist (never overwrite):**
+  
+  | Before | After |
+  |--------|-------|
+  | data/, artifacts/, zip/ | data/, artifacts/, zip/, memory/, media/ |
+  
+  ## Test plan
+  - [x] Updated 3 allowlist assertions + added BOOTSTRAP.md copy-if-missing assertions
+  - [x] All 79 unit tests pass
+  
+  🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
 ## [4beb5a91](https://github.com/SerendipityOneInc/ecap-workspace/commit/4beb5a91a9bcab6f7df8b425f968cb7ebe1965d6)
 - **作者**: Chris@ZooClaw
@@ -555,6 +581,75 @@ re-stage，超阈值只警告不阻断 —— 保证设计师工作流顺畅。
 CLAUDE.md 不动）
 - **阈值**：PNG/JPG 500KB · WebP 300KB · GIF 1MB · MP4
 ```
+- **description**:
+  ## 背景
+  
+  设计师偶尔把未优化的大图/GIF 直接 commit 进仓库（存量如 `web/public/themes/panda-claw/w.gif` 13M、`nano-banana-2-hero.png` 6M），增加前端 bundle 体积和首屏负担。现有 `scripts/check-pr-size.sh` 主动排除所有二进制文件（职责是行数预算），素材字节数完全不设防。
+  
+  本 PR 建立两层防线：
+  
+  1. **本地 pre-commit**：自动用 sharp 无损压缩新增/修改的 PNG/JPG/WebP 并 re-stage，超阈值只警告不阻断 —— 保证设计师工作流顺畅。
+  2. **CI `asset-size-guard`**：硬上限，压缩后仍超阈值直接 fail PR。
+  
+  ## 设计要点
+  
+  - **范围**：`web/public/**` + `ios/ZooClaw/ZooClaw/Assets.xcassets/**`（iOS CLAUDE.md 不动）
+  - **阈值**：PNG/JPG 500KB · WebP 300KB · GIF 1MB · MP4/MOV 2MB · SVG 100KB
+  - **存量豁免**：CI 只检查 `git diff --diff-filter=ACMR origin/main..HEAD` 选出的新增/修改文件，历史超标老素材放过；一旦 modify 就回归新规则
+  - **自动 re-stage**：pre-commit 优化工作树文件后会 `git add` 重新入 index（lint-staged 模式），避免 "优化了但 commit 的还是原文件" 的坑
+  - **Worktree 兼容**：`git rev-parse --git-dir` 取真实 gitdir，备份写 `<git-dir>/asset-backup/`
+  - **Summary job 联动**：`asset-size-guard` 已加入 `code-quality` summary 的 needs + 判定脚本，branch protection 生效
+  
+  ## 本地验证
+  
+  | Case | 结果 |
+  |---|---|
+  | 662KB 可压缩 PNG staged | sharp 压到 206KB 并自动 re-stage，index blob 变更 ✓ |
+  | 614KB 随机字节 PNG | sharp 读不通 → warning 不阻断，commit 退出 0 ✓ |
+  | 无 staged asset | 脚本静默退出 0 ✓ |
+  | YAML 语法 | `yaml.safe_load` 通过 ✓ |
+  
+  CI 端 fail path 尚未本地验证 —— 本 PR 合并前会在此分支追加一个超大测试文件推一轮，观察 `asset-size-guard` 红叉，确认后 revert。
+  
+  ## 风险
+  
+  1. **Sharp 原地优化是破坏性的** — 已 mitigate：先 copy 到 `<git-dir>/asset-backup/<basename>.<sha16>.bak`，optimize 后仅在"更小"时 rename 覆盖
+  2. **Rename 噪声**：`--diff-filter=ACMR` 包含 rename；视为 feature（大文件 rename 值得重新审视大小）
+  
+  ## Test plan
+  
+  - [x] 本地 `node scripts/check-asset-size.mjs --mode=precommit` 三个 case
+  - [x] YAML 语法
+  - [ ] CI `asset-size-guard` 在违规文件的 PR 上 fail（见本 PR 后续 commit）
+  - [ ] CI `asset-size-guard` 在合规文件的 PR 上 pass
+  - [ ] `code-quality` summary 把 asset-size-guard 的结果正确汇总
+  
+  🤖 Generated with [Claude Code](https://claude.com/claude-code)
+- **pr_comments**:
+  ---
+  **chris-srp** (2026-04-18):
+  ## Review 反馈处理（commit 53529a5dc）
+  
+  感谢两个 auto-reviewer。三个 actionable finding 已解决：
+  
+  | Finding | 来源 | 处理 |
+  |---|---|---|
+  | Animated WebP 数据损坏（`w.webp` 147 帧 → sharp 塌成 1 帧） | Codex | `optimize()` 加 `metadata.pages > 1` 检测，命中直接 return null 跳过 |
+  | CI 两点 diff → PR 陈旧时 base-only 变更误报 | Claude + Codex | `collectFiles` 改三点 `$base...$head`，对齐 GitHub Files Changed 语义 |
+  | 过时 TODO scaffold 注释（第 18–39 行） | Claude | 已删 22 行注释块 |
+  
+  ### 关于测试覆盖
+  
+  两个 bot 都 flag "no automated tests for primary behavior" 为 `NEED_HUMAN_REVIEW`，本 PR 不再补测试，理由：
+  
+  1. **CI 已实证两条路径**：commit 2ca1660 (548B compliant) → `asset-size-guard pass 54s`；commit 4ee76aa (700KB random) → `asset-size-guard fail 41s` + summary 正确 fail。fixtures 已在 eaf7c831 清理。
+  2. **核心逻辑简单**：`getThreshold` 是扁平表查找；`isAssetPath` 是前缀+扩展名 && 阈值查找；`parseArgs` 是三参数 switch。可读即正确。
+  3. **非关键路径**：脚本失败只影响警告信号，不会损坏代码；sharp 优化被 try/catch 包围，异常写 warn 不抛。
+  
+  如果后续发现实际业务需要补回归测试（例如三点 diff 在 stale PR 上的行为、animated 检测对边缘格式），单独开 issue 补，不卡本 PR。
+  ---
+  **chris-srp** (2026-04-18):
+  /lgtm
 
 ## [091bd65e](https://github.com/SerendipityOneInc/ecap-workspace/commit/091bd65e5916b4e7446f22083dd963276f0991d3)
 - **作者**: Chris@ZooClaw
