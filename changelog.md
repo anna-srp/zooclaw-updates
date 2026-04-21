@@ -84,6 +84,40 @@
 - **Starter 试用页面优化**
   订阅相关的界面统一整理，更清晰易懂。
 
+- **Credits 发放前增加订阅验证**
+  Admin boost、admin grant 和礼品码兑换现在会先确认用户有有效订阅，防止积分错误发放。
+
+- **Seedance 2.0 上新弹窗**
+  用户登录后首次进入聊天页，会看到 Seedance 2.0 上新弹窗，一键自动雇佣 Vibe Drama Agent 并进入创作。每个用户只出现一次。
+
+### 🐛 修复
+
+- **Agent 更新后不再自动重置会话**
+  之前 Agent 重新部署后会自动发 /new 把当前会话重置掉，丢失上下文。现在改为由用户手动确认，更新后继续原来的对话。
+
+- **Stripe 订阅报错修复**
+  修复了因 Stripe SDK 升级导致订阅/会话对象方法报错的问题，计费流程恢复正常。
+
+- **Connector skill 注入路径修正**
+  修复了 Nango connector skill 注入到错误路径的问题，connector 技能加载更可靠。
+
+- **Skill 加载器修正**
+  修复了 Skill 注册时误过滤合法文件的 bug，skill 加载更准确。
+
+- **Agent 详情页头像动画抖动修复**
+  去掉了 Agent 详情页和弹窗里头像的浮动动画效果，页面更稳定，不再闪烁。
+
+- **消息动画渲染竞态修复**
+  修复了 bot 回复打字机动画偶发残留/闪烁的问题，消息渲染更稳定。
+
+### 🛠 Skill 更新
+
+- **podcast-pal PDF 生成切换为平台内置 skill**
+  podcast-pal 的 PDF 输出不再依赖本地 LaTeX 环境，改用平台内置 pdf skill，任何环境下都能稳定生成文档。
+
+- **Oura Ring Connector + podcast-pal 配置持久化修复**
+  修复了 Agent 重启后配置丢失的问题，数据路径统一迁移至 ~/.config，重启后设置完好保留。
+
 ---
 
 ## 2026-04-15

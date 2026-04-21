@@ -41,6 +41,16 @@
 | [Mattermost reactions、tool-steps 切换、更流畅的 streaming](updates/2026-04-16/Mattermost-reactions-tool-steps-streaming优化.md) | 产品基础功能更新 | 高 | 待审核 |
 | [ecap.gensmo.com → zooclaw.ai 301 重定向](updates/2026-04-16/ecap-gensmo-域名301重定向.md) | 产品基础功能更新 | 中 | 待审核 |
 | [Starter 试用 UX 优化](updates/2026-04-16/Starter-试用UX优化.md) | 产品基础功能更新 | 中 | 待审核 |
+| [Seedance 2.0 上新弹窗，自动雇佣 Vibe Drama Agent](updates/2026-04-16/Seedance-2.0上新弹窗.md) | 产品基础功能更新 | 高 | 待审核 |
+| [Credits 发放前增加有效订阅验证](updates/2026-04-16/订阅验证才能发放Credits.md) | 产品基础功能更新 | 中 | 待审核 |
+| [Agent 更新后不再自动重置会话](updates/2026-04-16/Agent更新后不再自动重置会话.md) | Bug Fix | 中 | 待审核 |
+| [Stripe 订阅报错修复](updates/2026-04-16/Stripe-SDK版本锁定修复.md) | Bug Fix | 中 | 待审核 |
+| [Connector skill 注入路径修正](updates/2026-04-16/Connector-skill注入路径修正.md) | Bug Fix | 低 | 待审核 |
+| [Skill 加载器隐藏文件过滤修正](updates/2026-04-16/Skill加载器隐藏文件过滤修正.md) | Bug Fix | 低 | 待审核 |
+| [Agent 详情页头像动画抖动修复](updates/2026-04-16/Agent头像浮动动画修复.md) | Bug Fix | 低 | 待审核 |
+| [消息打字机动画渲染竞态修复](updates/2026-04-16/打字机动画竞态修复.md) | Bug Fix | 低 | 待审核 |
+| [podcast-pal PDF 生成切换平台内置 skill](updates/2026-04-16/podcast-pal-PDF生成切换平台skill.md) | Skill 上架/更新 | 低 | 待审核 |
+| [Oura Ring Connector + podcast-pal 配置持久化修复](updates/2026-04-16/oura-podcast-pal配置路径持久化修复.md) | Bug Fix | 低 | 待审核 |
 
 ## 2026-04-15
 
