@@ -196,10 +196,72 @@
 - **时间**: 2026-04-16T12:24:19Z
 - **链接**: [74d7c69c](https://github.com/SerendipityOneInc/ecap-workspace/commit/74d7c69c51b66b574d069861f08b61e3e35ce111)
 
+**PR #920 Description:**
+## 概要
+  - 新增左下角浮动版本升级弹窗，替换原有顶部 UpgradeNotificationBanner
+    - 暖色渐变背景 + 龙虾装饰图，Figma 设计稿还原
+    - 「What's new」新标签页打开 Changelog 页面
+    - 「Refresh now」触发 bot redeploy 后整页刷新更新版本
+  - 新增独立 Changelog 页面 `/{locale}/changelog`
+    - ZooClaw 官方 SVG logo
+    - 时间线布局，按时间倒序展示版本发布记录
+    - 完全独立页面，无侧边栏和 Onboarding 干扰
+
+  ## 改动文件
+  | 文件 | 说明 |
+  |------|------|
+  | `web/src/components/VersionUpgradeWidget.tsx` | 新增浮动升级弹窗组件 |
+  | `web/src/app/[locale]/changelog/page.tsx` | Changelog 页面入口 |
+  | `web/src/app/[locale]/changelog/ChangelogClient.tsx` | Changelog
+  客户端组件（时间线 + logo） |
+  | `web/public/images/upgrade-mascot.png` | 龙虾装饰图 |
+  | `web/src/app/globals.css` | 新增 `--ecap-upgrade-widget-bg` CSS 变量 |
+  | `web/src/app/[locale]/chat/GenClawClient.tsx` | 替换 Banner → Widget |
+  | `web/src/components/AppLayout.tsx` | Changelog 排除在侧边栏布局之外 |
+  | `web/src/components/onboarding/OnboardingProvider.tsx` | Changelog 排除在
+  Onboarding 之外 |
+  | `web/src/locales/en.ts` / `zh.ts` | 多语言文案 |
+
+  ## 测试计划
+  - [ ] 有版本更新时 → 左下角浮动弹窗出现，龙虾图贴左下角
+  - [ ] 点击 X → 弹窗关闭
+  - [ ] 点击「What's new」→ 新标签页打开 `/en/changelog`
+  - [ ] 点击「Refresh now」→ 触发 redeploy + 页面刷新
+  - [ ] Changelog 页面 → 显示 ZooClaw logo、时间线、版本记录
+  - [ ] Changelog 页面无侧边栏、无 Onboarding 弹窗
+<img width="2542" height="1728" alt="screenshot-20260416-185617" src="https://github.com/user-attachments/assets/4c5867c2-52ab-4bf9-aec4-02d58509bc25" />
+<img width="2556" height="1724" alt="screenshot-20260416-185641" src="https://github.com/user-attachments/assets/16285af7-c191-43f9-a193-597126938c9f" />
+
+<img width="2550" height="1732" alt="screenshot-20260416-185630" src="https://github.com/user-attachments/assets/07dd44df-21cb-4a82-8992-f8863f053332" />
+
 ## `df60173c` feat(billing): align Starter trial UX across subscription panel (#914)
 - **作者**: vincent-srp
 - **时间**: 2026-04-16T12:14:36Z
 - **链接**: [df60173c](https://github.com/SerendipityOneInc/ecap-workspace/commit/df60173cc76673204653154b1a1a00bbe36a22c0)
+
+**PR #914 Description:**
+## Summary
+- 让"开始免费试用"的 UI（红色 ribbon、`$0 for 7 days, then $X/mo` 价格、`Start Free Trial` CTA）**严格跟随真实 trial 权益**：`!hasUsedTrial && (userStatus === 'trial' || 'asleep')`。之前 asleep + 从未用过 trial 的新用户看不到免费试用提示；已用过 trial 的脏数据态会错误展示。
+- Starter 试用文案从 "$20/month" 改为 `$0 for 7 days, then $X/mo` 单行（参考 `PaywallContent` 的 gift 面板模式），消除 "$0 vs $X" 歧义。
+- 修两个 banner + UserCard 时钟图标的脏数据 bug：`pendingDowngrade` / `cancelAtPeriodEnd` 在订阅过期（`asleep`）时后端可能不清，现在前端 gate 在 `(active || trialing)`，与 `SharedPlanCard` / `ProfileTab` 的既有约定对齐。
+- 按设计要求去掉顶部 trial 倒计时 pill + 绿色 `CURRENT PLAN` 标签。
+- 把 `.badge-free` 红色促销 pill 提到 `globals.css` 的 `@layer utilities`，让 Annually 的 "Save 2 months" 和 `PublicPricingClient` 的 "2 months free" 共享一份定义。
+
+## Test plan
+- [ ] 新用户（`subscription_status=null` 或 `'expired'` + `has_used_trial=false`）打开订阅面板 → Starter 卡展示红色 ribbon + `$0 for 7 days, then $X/mo` + `Start Free Trial`
+- [ ] 用过 trial 的 asleep 用户 → Starter 正价 + `Activate`，无 ribbon
+- [ ] `trialing` 用户（已选 Starter 并在试用期） → Starter 显示 `Current Trial`（disabled），Pro/Ultra 显示 `Upgrade`
+- [ ] `active` 订阅用户 → 卡片 CTA 正确（Current Plan / Switch / Upgrade / Downgrade），**无绿色 CURRENT PLAN 标**
+- [ ] 脏数据 asleep 用户（`cancel_at_period_end=true` 但已 expired）→ UserCard 左下角只显示 `Z` 睡眠 icon，无时钟；面板顶部无"Your subscription ends on..."banner
+- [ ] 年付切换 → Starter trial 态显示 "$0 for 7 days, then $20/mo"；非 trial 态显示 "$20 / month, billed yearly"
+- [ ] "Save 2 months" 红色 pill 与 `/pricing` 页面 "2 months free" 视觉一致
+- [ ] `pnpm lint`、`pnpm test:unit`、`tsc --noEmit` 全绿（本地已验证：164 test files / 2236 tests 通过）
+
+## 依赖与兼容
+- 后端 `createOrder` 已返回 `is_trial: boolean`，前端全程透传到 `/stripe/create-checkout-session`。用户没有试用权益时 Stripe 不会 attach `trial_period_days`，**无需后端改动**。
+- 未动的接口：`useBillingCredits` hook 签名、`/credits/check` API、`SharedPlanCard`（Profile 页）、`PaywallContent`（Gift FAB）、所有 i18n keys
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
 ## `7df228e3` fix(sentry): throttle MM connection reports + global rate limit (#910)
 - **作者**: peter-srp
@@ -291,6 +353,16 @@
 - **时间**: 2026-04-16T09:30:40Z
 - **链接**: [233d91b0](https://github.com/SerendipityOneInc/ecap-workspace/commit/233d91b039e13a65df830c6b2f7dc450327d2344)
 
+**PR #884 Description:**
+Admin boost, admin grant, and gift code redeem now pre-check whether the user has an active Lago subscription via billing_client.check_credits(). If billing-gateway returns 400 "no active subscription", the operation is rejected with a clear error instead of silently granting credits that can never be consumed (billing events require an active subscription).
+
+Changes:
+- admin_boost: return failed BoostResultItem with reason
+- orders: _admin_grant_via_billing_gateway returns False on no subscription
+- gift_code: raise HTTPException 400 with error code "no_subscription"
+- UserMenu.tsx: handle "no_subscription" error code in redeem flow
+- en.ts/zh.ts: add errorNoSubscription translation
+
 ## `866bb535` feat(claw-interface): Add Apple subscription status query method (#893)
 - **作者**: bill-srp
 - **时间**: 2026-04-16T09:17:18Z
@@ -311,6 +383,40 @@
 - **时间**: 2026-04-16T08:55:12Z
 - **链接**: [4bee6471](https://github.com/SerendipityOneInc/ecap-workspace/commit/4bee64710a11e4f3d220c751bf4c43c3e4a923f6)
 
+**PR #866 Description:**
+## 概要
+  - 用户登录后进入 chat 页面，等待 5 秒页面渲染完成后，首次展示 Seedance 2.0
+  上新弹窗（每用户仅一次）
+  - 弹窗上方为 16:9 宣传视频，自动播放循环；用户暂停后显示播放按钮可恢复
+  - 点击「立即体验」自动雇佣 Vibe Drama
+  agent，整页跳转到其聊天窗口（确保侧边栏完整加载）
+  - 与 Guide Tour 弹窗互斥：若 Guide Tour 未看过，Seedance
+  弹窗延迟到下次登录再出现
+
+  ## 改动文件
+  | 文件 | 说明 |
+  |------|------|
+  | `web/src/components/SeedanceLaunchModal.tsx` | 新增弹窗组件（视频自动播放
+  + 雇佣 + 整页跳转） |
+  | `web/src/app/[locale]/chat/GenClawClient.tsx` | 在 chat 页面挂载弹窗 |
+  | `web/src/lib/auth/types.ts` | 新增 `SEEDANCE_LAUNCH_SEEN` localStorage 键
+  |
+  | `web/src/locales/en.ts` | 英文文案 |
+  | `web/src/locales/zh.ts` | 中文文案 |
+
+  ## 测试计划
+  - [ ] 登录 → 进入 chat → 页面加载完成约 5
+  秒后弹窗出现，视频自动播放（前提：Guide Tour 已看过）
+  - [ ] 关闭弹窗 → 刷新 → 不再出现
+  - [ ] 点击「立即体验」→ Vibe Drama 被雇佣 → 整页跳转到该 agent
+  聊天，侧边栏显示该 agent
+  - [ ] 暂停视频 → 出现播放按钮 → 点击恢复播放
+  - [ ] 新用户未看过 Guide Tour → Seedance 弹窗不出现 → Guide Tour 先弹
+  - [ ] Guide Tour 关闭后 → 下次进 chat → Seedance 弹窗出现
+  - [ ] 官网首页及其他公共页面不弹出
+
+<img width="2428" height="1772" alt="image" src="https://github.com/user-attachments/assets/818034aa-d3e7-4f62-9aad-6f97e85022dc" />
+
 ## `62338cda` chore(lint): add tests/ override + lint:tests script (1/4) (#890)
 - **作者**: Chris@ZooClaw
 - **时间**: 2026-04-16T08:46:42Z
@@ -320,6 +426,45 @@
 - **作者**: peter-srp
 - **时间**: 2026-04-16T08:34:10Z
 - **链接**: [5b0ecd26](https://github.com/SerendipityOneInc/ecap-workspace/commit/5b0ecd260a733ceb750330567fe8b0707e38e410)
+
+**PR #887 Description:**
+## Summary
+
+- 301 permanent redirect from `ecap.gensmo.com` → `zooclaw.ai` (preserves path + query)
+- `robots.txt` returns `Disallow: /` on legacy hostname to stop crawler indexing
+- Brand upgrade banner shown only to users redirected from old domain (`?from=ecap`)
+- i18n support (en + zh)
+
+## SEO Impact
+
+- 301 tells Google to transfer all ranking authority to `zooclaw.ai`
+- Combined with existing `<link rel="canonical" href="https://zooclaw.ai/...">` (in `seo.ts`) and the new robots.txt block, search results will converge to `zooclaw.ai` within weeks
+- No duplicate content risk — old domain serves only redirects
+
+## How it works
+
+1. User visits `ecap.gensmo.com/en/chat` → middleware returns **301** to `zooclaw.ai/en/chat?from=ecap`
+2. On `zooclaw.ai`, `DomainMigrationBanner` detects `?from=ecap`, shows upgrade toast, cleans the URL param
+3. Normal `zooclaw.ai` users never see the banner
+
+## Files changed (6)
+
+- `web/src/middleware.ts` — legacy host detection + 301 redirect
+- `web/src/app/robots.ts` — Disallow: / on legacy host
+- `web/src/components/DomainMigrationBanner.tsx` — new component
+- `web/src/components/ClientLayout.tsx` — wire banner
+- `web/src/locales/en.ts` / `zh.ts` — brand upgrade copy
+
+## Test plan
+
+- [ ] Visit `ecap.gensmo.com` → verify 301 to `zooclaw.ai?from=ecap`
+- [ ] On `zooclaw.ai?from=ecap` → verify banner appears, then disappears after close
+- [ ] Visit `zooclaw.ai` directly → verify NO banner
+- [ ] `curl -I ecap.gensmo.com/robots.txt` → verify `Disallow: /`
+- [ ] `curl -I zooclaw.ai/robots.txt` → verify normal robots (Allow: /)
+- [ ] `tsc --noEmit` clean
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
 ## `a4b3c4de` chore(ci-lint): guard that three import-linter repo lists stay in sync (#888)
 - **作者**: Chris@ZooClaw
@@ -391,6 +536,9 @@
 - **时间**: 2026-04-16T06:06:18Z
 - **链接**: [031a481d](https://github.com/SerendipityOneInc/ecap-workspace/commit/031a481d8a583bb22eecab27d987206a0f367aeb)
 
+**PR #863 Description:**
+去掉了 agent 详情页和弹窗里头像浮动动画的效果
+
 ## `00e43349` docs(lazy-imports): annotate the non-obvious function-body imports (#874)
 - **作者**: Chris@ZooClaw
 - **时间**: 2026-04-16T05:44:45Z
@@ -430,6 +578,26 @@
 - **作者**: sam-srp
 - **时间**: 2026-04-16T04:07:10Z
 - **链接**: [f6403881](https://github.com/SerendipityOneInc/ecap-workspace/commit/f6403881f57af2391379eaabaddecc0b563d2c2b)
+
+**PR #742 Description:**
+## Summary
+
+Frontend counterpart to the `@zooclaw/mattermost` streaming/tool/emoji work (SerendipityOneInc/zooclaw-extras#15).
+
+- **Mattermost reaction events** — `useMattermost` now subscribes to `reaction_added` / `reaction_removed` WebSocket events and maintains a `reactionsByPostId` map. `OpenClawUserMessage` renders the collected reactions inline on the user's bubble (backed by `REACTION_EMOJI_MAP` covering state + tool-category emoji names).
+- **Drop duplicated ack badge** — the old "👀 Assistant" ack pill was removed; the backend's `statusReactions.setQueued()` already emits a real `:eyes:` reaction, so the frontend badge was just a visual duplicate.
+- **Tool steps UI simplification** — after iterating through several expanded layouts, settled on a compact name-only pill per tool step. Visibility is gated behind a header toggle (orange when on) with state persisted to `localStorage` (`ecap.showToolSteps`, default off).
+- **Smoother streaming** — skip the typewriter effect for live-edited messages so streamed updates don't look like they are being retyped.
+- **Custom `custom_tool_status` post handling** — parses the new hidden-from-native-clients posts that the zooclaw mattermost plugin emits, and surfaces them as tool steps on the corresponding bot message.
+
+## Test plan
+
+- [ ] Send a message via Mattermost bot — verify 👀 reaction appears on your user bubble on arrival and clears when the reply completes.
+- [ ] Trigger a tool call (web search / read file / bash) — verify the category emoji (🔍 / 🖥️ / 🔥) appears during the tool and clears on done.
+- [ ] Toggle tool steps in the header — pills appear/disappear; preference persists across reloads.
+- [ ] Long reply — bot message updates smoothly (no per-character typewriter feel).
+- [ ] Mid-conversation tool activity — pills attach to the correct bot message in chronological order.
+- [ ] No duplicate 👀 on user bubble (the old ack badge is gone; only the server-side reaction should show).
 
 ## `7507366c` refactor(claw-interface): PagedResponse model + duplicate-key helper (#851)
 - **作者**: Chris@ZooClaw
