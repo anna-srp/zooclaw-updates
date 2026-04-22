@@ -1,6 +1,18 @@
 # ZooClaw 更新索引
 > 自动生成，勿手动编辑
 
+## 2026-04-22
+
+- [Specialist Manager v1.0 上线 + 项目惯例路由器](updates/2026-04-22/specialist-manager-v1.md)
+- [PPTX Skill 升级：支持形状级精细编辑](updates/2026-04-22/pptx-shape-level-cli.md)
+- [Chameleon Skill：默认关闭水印 + 支持 1080p 参考视频](updates/2026-04-22/chameleon-watermark-1080p.md)
+- [PPTX 预览修复：OOXML 表格现在正常渲染](updates/2026-04-22/pptx-ooxml-tables.md)
+- [Seedance 2.0 上新弹窗正式上线](updates/2026-04-22/seedance-2-popup.md)
+- [新功能：未雇佣 Agent 深链智能引导雇佣流程](updates/2026-04-22/agent-deep-link-hire.md)
+- [聊天工具调用展示升级：更丰富的文字、emoji、折叠和计时器](updates/2026-04-22/chat-tool-display-upgrade.md)
+- [修复：侧边栏底部导航不再被 Agent 列表遮挡](updates/2026-04-22/sidebar-sticky-nav.md)
+- [性能优化：聊天背景图 880KB→31KB，首屏更快](updates/2026-04-22/chat-lcp-optimization.md)
+
 ## 2026-04-21
 
 | 标题 | 类型 | 优先级 | 状态 |
