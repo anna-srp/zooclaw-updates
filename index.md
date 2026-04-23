@@ -1,6 +1,15 @@
 # ZooClaw 更新索引
 > 自动生成，勿手动编辑
 
+## 2026-04-23
+
+- [iOS 聊天界面全面重构，更流畅更原生](updates/2026-04-23/ios-chat-custom-view.md)
+- [iOS 语音输入全面升级：波形动画 + 更流畅的录音体验](updates/2026-04-23/ios-voice-input-upgrade.md)
+- [支持私有自定义 Agent 目录](updates/2026-04-23/private-custom-agent-catalog.md)
+- [重新订阅后 Bot 自动升级到最新版本](updates/2026-04-23/bot-auto-upgrade-on-resubscribe.md)
+- [修复 Twitter Connector 连接卡死问题](updates/2026-04-23/twitter-nango-proxy-fix.md)
+- [PPTX 预览修复：文字间距现在正确渲染](updates/2026-04-23/pptx-letter-spacing-fix.md)
+
 ## 2026-04-22
 
 - [Specialist Manager v1.0 上线 + 项目惯例路由器](updates/2026-04-22/specialist-manager-v1.md)
