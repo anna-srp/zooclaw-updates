@@ -2,7 +2,7 @@
 title: "新 Skill 上架：Chameleon（Seedance 视频生成）"
 type: "Skill 上架/更新"
 priority: "中"
-date: "2025-04-15"
+date: "2026-04-15"
 status: "待审核"
 channels: ""
 ---

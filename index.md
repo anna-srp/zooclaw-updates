@@ -1,6 +1,27 @@
 # ZooClaw 更新索引
 > 自动生成，勿手动编辑
 
+## 2026-04-22
+
+- [Specialist Manager v1.0 上线 + 项目惯例路由器](updates/2026-04-22/specialist-manager-v1.md)
+- [PPTX Skill 升级：支持形状级精细编辑](updates/2026-04-22/pptx-shape-level-cli.md)
+- [Chameleon Skill：默认关闭水印 + 支持 1080p 参考视频](updates/2026-04-22/chameleon-watermark-1080p.md)
+- [PPTX 预览修复：OOXML 表格现在正常渲染](updates/2026-04-22/pptx-ooxml-tables.md)
+- [Seedance 2.0 上新弹窗正式上线](updates/2026-04-22/seedance-2-popup.md)
+- [新功能：未雇佣 Agent 深链智能引导雇佣流程](updates/2026-04-22/agent-deep-link-hire.md)
+- [聊天工具调用展示升级：更丰富的文字、emoji、折叠和计时器](updates/2026-04-22/chat-tool-display-upgrade.md)
+- [修复：侧边栏底部导航不再被 Agent 列表遮挡](updates/2026-04-22/sidebar-sticky-nav.md)
+- [性能优化：聊天背景图 880KB→31KB，首屏更快](updates/2026-04-22/chat-lcp-optimization.md)
+
+## 2026-04-21
+
+| 标题 | 类型 | 优先级 | 状态 |
+|------|------|--------|------|
+| [vibe-drama Agent 升级至 v1.0.9](updates/2026-04-21/vibe-drama-Agent-升级-v1.0.9.md) | Agent 上架/更新 | 高 | 待审核 |
+| [用 IQ 进度条直观展示 AI 能力状态](updates/2026-04-21/IQ进度条替代降级提示.md) | 产品基础功能更新 | 中 | 待审核 |
+| [Mattermost 附件支持直接预览](updates/2026-04-21/Mattermost附件内联预览.md) | 产品基础功能更新 | 中 | 待审核 |
+| [连接状态显示更准确，修复新用户启动报错](updates/2026-04-21/连接状态准确性与稳定性优化.md) | Bug Fix | 中 | 待审核 |
+
 ## 2026-04-19
 
 | 标题 | 类型 | 优先级 | 状态 |
@@ -32,34 +53,44 @@
 | [Mattermost reactions、tool-steps 切换、更流畅的 streaming](updates/2026-04-16/Mattermost-reactions-tool-steps-streaming优化.md) | 产品基础功能更新 | 高 | 待审核 |
 | [ecap.gensmo.com → zooclaw.ai 301 重定向](updates/2026-04-16/ecap-gensmo-域名301重定向.md) | 产品基础功能更新 | 中 | 待审核 |
 | [Starter 试用 UX 优化](updates/2026-04-16/Starter-试用UX优化.md) | 产品基础功能更新 | 中 | 待审核 |
+| [Seedance 2.0 上新弹窗，自动雇佣 Vibe Drama Agent](updates/2026-04-16/Seedance-2.0上新弹窗.md) | 产品基础功能更新 | 高 | 待审核 |
+| [Credits 发放前增加有效订阅验证](updates/2026-04-16/订阅验证才能发放Credits.md) | 产品基础功能更新 | 中 | 待审核 |
+| [Agent 更新后不再自动重置会话](updates/2026-04-16/Agent更新后不再自动重置会话.md) | Bug Fix | 中 | 待审核 |
+| [Stripe 订阅报错修复](updates/2026-04-16/Stripe-SDK版本锁定修复.md) | Bug Fix | 中 | 待审核 |
+| [Connector skill 注入路径修正](updates/2026-04-16/Connector-skill注入路径修正.md) | Bug Fix | 低 | 待审核 |
+| [Skill 加载器隐藏文件过滤修正](updates/2026-04-16/Skill加载器隐藏文件过滤修正.md) | Bug Fix | 低 | 待审核 |
+| [Agent 详情页头像动画抖动修复](updates/2026-04-16/Agent头像浮动动画修复.md) | Bug Fix | 低 | 待审核 |
+| [消息打字机动画渲染竞态修复](updates/2026-04-16/打字机动画竞态修复.md) | Bug Fix | 低 | 待审核 |
+| [podcast-pal PDF 生成切换平台内置 skill](updates/2026-04-16/podcast-pal-PDF生成切换平台skill.md) | Skill 上架/更新 | 低 | 待审核 |
+| [Oura Ring Connector + podcast-pal 配置持久化修复](updates/2026-04-16/oura-podcast-pal配置路径持久化修复.md) | Bug Fix | 低 | 待审核 |
 
-## 2025-04-15
-
-| 标题 | 类型 | 优先级 | 状态 |
-|------|------|--------|------|
-| [聊天历史记录无法上翻 Bug 修复](updates/2025-04-15/聊天历史记录无法上翻-Bug-修复.md) | Bug Fix | 高 | 待审核 |
-| [多语言支持：新增日、韩、西班牙语、葡萄牙语、阿拉伯语](updates/2025-04-15/多语言支持-新增日韩西班牙语葡萄牙语阿拉伯语.md) | 产品基础功能更新 | 高 | 待审核 |
-| [新 Agent 上架：zoodance-vibe-drama 短剧创作 Agent](updates/2025-04-15/新-Agent-上架-zoodance-vibe-drama.md) | Agent 上架/更新 | 高 | 待审核 |
-| [新 Skill 上架：Chameleon（Seedance 视频生成）](updates/2025-04-15/新-Skill-上架-Chameleon.md) | Skill 上架/更新 | 中 | 待审核 |
-| [PDF Skill 大幅增强，中文文档输出更稳定](updates/2025-04-15/PDF-Skill-大幅增强，中文文档输出更稳定.md) | Skill 上架/更新 | 中 | 待审核 |
-
-## 2025-04-13
-
-| 标题 | 类型 | 优先级 | 状态 |
-|------|------|--------|------|
-| [新用户引导页 "reaching your claw" 问题修复](updates/2025-04-13/新用户引导页-reaching-your-claw-问题修复.md) | Bug Fix | 高 | 待审核 |
-| [新 Skill 上架：web-designer](updates/2025-04-13/新-Skill-上架-web-designer.md) | Skill 上架/更新 | 高 | 待审核 |
-
-## 2025-04-12
+## 2026-04-15
 
 | 标题 | 类型 | 优先级 | 状态 |
 |------|------|--------|------|
-| [Heartbeat 弹幕费用大幅降低（降至 <$0.01/次）](updates/2025-04-12/Heartbeat-弹幕费用大幅降低.md) | 优化 | 中 | 待审核 |
-| [Heartbeat 误触发问题已清洗](updates/2025-04-12/Heartbeat-误触发问题已清洗.md) | Bug Fix | 中 | 待审核 |
+| [聊天历史记录无法上翻 Bug 修复](updates/2026-04-15/聊天历史记录无法上翻-Bug-修复.md) | Bug Fix | 高 | 待审核 |
+| [多语言支持：新增日、韩、西班牙语、葡萄牙语、阿拉伯语](updates/2026-04-15/多语言支持-新增日韩西班牙语葡萄牙语阿拉伯语.md) | 产品基础功能更新 | 高 | 待审核 |
+| [新 Agent 上架：zoodance-vibe-drama 短剧创作 Agent](updates/2026-04-15/新-Agent-上架-zoodance-vibe-drama.md) | Agent 上架/更新 | 高 | 待审核 |
+| [新 Skill 上架：Chameleon（Seedance 视频生成）](updates/2026-04-15/新-Skill-上架-Chameleon.md) | Skill 上架/更新 | 中 | 待审核 |
+| [PDF Skill 大幅增强，中文文档输出更稳定](updates/2026-04-15/PDF-Skill-大幅增强，中文文档输出更稳定.md) | Skill 上架/更新 | 中 | 待审核 |
 
-## 2025-04-11
+## 2026-04-13
 
 | 标题 | 类型 | 优先级 | 状态 |
 |------|------|--------|------|
-| [Agent 任务超时时间延长至 30 分钟](updates/2025-04-11/Agent-任务超时时间延长至-30-分钟.md) | 产品基础功能更新 | 中 | 待审核 |
-| [飞书插件升级，功能更稳定](updates/2025-04-11/飞书插件升级，功能更稳定.md) | Bug Fix | 中 | 待审核 |
+| [新用户引导页 "reaching your claw" 问题修复](updates/2026-04-13/新用户引导页-reaching-your-claw-问题修复.md) | Bug Fix | 高 | 待审核 |
+| [新 Skill 上架：web-designer](updates/2026-04-13/新-Skill-上架-web-designer.md) | Skill 上架/更新 | 高 | 待审核 |
+
+## 2026-04-12
+
+| 标题 | 类型 | 优先级 | 状态 |
+|------|------|--------|------|
+| [Heartbeat 弹幕费用大幅降低（降至 <$0.01/次）](updates/2026-04-12/Heartbeat-弹幕费用大幅降低.md) | 优化 | 中 | 待审核 |
+| [Heartbeat 误触发问题已清洗](updates/2026-04-12/Heartbeat-误触发问题已清洗.md) | Bug Fix | 中 | 待审核 |
+
+## 2026-04-11
+
+| 标题 | 类型 | 优先级 | 状态 |
+|------|------|--------|------|
+| [Agent 任务超时时间延长至 30 分钟](updates/2026-04-11/Agent-任务超时时间延长至-30-分钟.md) | 产品基础功能更新 | 中 | 待审核 |
+| [飞书插件升级，功能更稳定](updates/2026-04-11/飞书插件升级，功能更稳定.md) | Bug Fix | 中 | 待审核 |

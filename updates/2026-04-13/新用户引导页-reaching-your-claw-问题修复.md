@@ -2,7 +2,7 @@
 title: "新用户引导页 "reaching your claw" 问题修复"
 type: "Bug Fix"
 priority: "高"
-date: "2025-04-13"
+date: "2026-04-13"
 status: "待审核"
 channels: ""
 ---

@@ -2,7 +2,7 @@
 title: "新 Agent 上架：zoodance-vibe-drama 短剧创作 Agent"
 type: "Agent 上架/更新"
 priority: "高"
-date: "2025-04-15"
+date: "2026-04-15"
 status: "待审核"
 channels: ""
 ---

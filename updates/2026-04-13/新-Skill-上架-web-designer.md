@@ -2,7 +2,7 @@
 title: "新 Skill 上架：web-designer"
 type: "Skill 上架/更新"
 priority: "高"
-date: "2025-04-13"
+date: "2026-04-13"
 status: "待审核"
 channels: ""
 ---
