@@ -1,0 +1,166 @@
+[
+  {
+    "sha": "1cdaee1f8244a2f009213355fb3d8ac1a134c013",
+    "node_id": "C_kwDORoMXtdoAKDFjZGFlZTFmODI0NGEyZjAwOTIxMzM1NWZiM2Q4YWMxYTEzNGMwMTM",
+    "commit": {
+      "author": {
+        "name": "david-srp",
+        "email": "david@srp.one",
+        "date": "2026-04-23T17:38:36Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-23T17:38:36Z"
+      },
+      "message": "feat(video-ads-duplicate): new agent pack for ad video duplication (#101)\n\nCo-authored-by: David Lu <davidlu@Daviddebijibendiannao.local>\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+      "tree": {
+        "sha": "ebf3378071b2249eb39107134a5a5e677eeab9e8",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/ebf3378071b2249eb39107134a5a5e677eeab9e8"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/1cdaee1f8244a2f009213355fb3d8ac1a134c013",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp6lkcCRC1aQ7uu5UhlAAAFNIQAK+2cFGVZ7EpcmY7q9IFX4DG\ndTDUizNMWMSo4+dptcGLWPGBMvsZSK0xYjlQWMfAsfb8pFrwfP7e2J59sZP65qwV\nYxhKwtmt0xnZru7zEg0VqEjR180qnHYrH5hd9s8S1hhre0ix8gul6XsVVgYhyGfB\newGHEV1Mfc3g6P54tcmwa4DPXXOXRVZLfydFzNrMMr+TOY3p7uOsAaoagpvpcq2c\nQ2BwhlBfatuj8lydPsxtKBhwkHLxd02jatV2dmUKj+Rl0Q6JaEfafcBAymM6KafY\nyeLc38iGAQ+Ndic7V7/Ogk1JLx/3J4t/qKMGiA1F0uVSs5I4R/AhAYkjP8haqz65\nMT3811rRmWenc5k8P30IL2N1buJW5zXVYMFPxqcytaS0PssHjhuZqeAGtuwOq4iA\n/h5OD/mq4WTaNAyZvfysUtZC35OllS8rmMwDYxDzCD1c6klN8271QbCWon/qyr85\ni0SCtPEk8s6WmLGtdr2e05NWqcxXl7axGiI7Vi73fb6BV7k25MnwUcAvLquxS71k\nhm/zDv+4Z5SNT+umYv5uqcy1rBd6K5YThiHZ/N8AWqAktQGq7UICR98qPd6g89yz\naHlbzO14w53fq9/3IAEQUaai57MYKAQhjIvUfLrlBaKxs/eZMNcxq0XP49VwWD+z\nYGzIkiOmzDjwMz1rE1B6\n=68ge\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree ebf3378071b2249eb39107134a5a5e677eeab9e8\nparent 110b61e8c445a88d5600f067babe232187738b37\nauthor david-srp <david@srp.one> 1776965916 +0800\ncommitter GitHub <noreply@github.com> 1776965916 +0800\n\nfeat(video-ads-duplicate): new agent pack for ad video duplication (#101)\n\nCo-authored-by: David Lu <davidlu@Daviddebijibendiannao.local>\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+        "verified_at": "2026-04-23T17:38:37Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/1cdaee1f8244a2f009213355fb3d8ac1a134c013",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/1cdaee1f8244a2f009213355fb3d8ac1a134c013",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/1cdaee1f8244a2f009213355fb3d8ac1a134c013/comments",
+    "author": {
+      "login": "david-srp",
+      "id": 264104338,
+      "node_id": "U_kgDOD73pkg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/264104338?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/david-srp",
+      "html_url": "https://github.com/david-srp",
+      "followers_url": "https://api.github.com/users/david-srp/followers",
+      "following_url": "https://api.github.com/users/david-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/david-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/david-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/david-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/david-srp/orgs",
+      "repos_url": "https://api.github.com/users/david-srp/repos",
+      "events_url": "https://api.github.com/users/david-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/david-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "110b61e8c445a88d5600f067babe232187738b37",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/110b61e8c445a88d5600f067babe232187738b37",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/110b61e8c445a88d5600f067babe232187738b37"
+      }
+    ]
+  },
+  {
+    "sha": "110b61e8c445a88d5600f067babe232187738b37",
+    "node_id": "C_kwDORoMXtdoAKDExMGI2MWU4YzQ0NWE4OGQ1NjAwZjA2N2JhYmUyMzIxODc3MzhiMzc",
+    "commit": {
+      "author": {
+        "name": "christine-srp",
+        "email": "christine@srp.one",
+        "date": "2026-04-23T07:57:57Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-23T07:57:57Z"
+      },
+      "message": "feat(amazon-analyst): new agent pack with proxy-based auth (#100)\n\nIntroduces the Amazon Analyst agent pack (📦 亚马逊分析师) — a friendly,\ndata-driven advisor that routes natural-language questions to one of 10\nbundled skills (listing audit, opportunity discovery, market entry,\ncompetitor intelligence, pricing, reviews, daily radar, trend scanner,\ngeneral analysis, and the apiclaw base layer).\n\nAll upstream APIClaw traffic is routed through ecap-proxy-service:\n- Scripts read ECAP_PROXY_BASE_URL and USER_INTERNAL_TOKEN from the pod env\n- Proxy validates the JWT, swaps in the server-held APIClaw API key, and\n  forwards to api.apiclaw.io/openapi/v2\n- No credential is embedded in the pack — earlier iterations shipped a\n  baked-in APICLAW_API_KEY which is eliminated here\n\nPack layout follows the existing convention (IDENTITY / SOUL / AGENTS /\nBOOTSTRAP at root, skills under .agents/skills/). The apiclaw.py script\nis canonical in .agents/skills/apiclaw/scripts/ and byte-identical copies\nlive in each amazon-*/scripts/ directory.\n\nDepends on SerendipityOneInc/ecap-proxy-service#37 for the /apiclaw\nroute and the server-side APICLAW_API_KEY secret.",
+      "tree": {
+        "sha": "e1387c2fd7d3b9a91241446210ddb3c4d48a8782",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/trees/e1387c2fd7d3b9a91241446210ddb3c4d48a8782"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/git/commits/110b61e8c445a88d5600f067babe232187738b37",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp6dEFCRC1aQ7uu5UhlAAAOBwQAByAac8tVqm0A8qQOLheQ2AV\nafUz5rcVRds5QQ3ZiE5ozfEwjtSpCOY2lAPKopeCcq8+9lfBzXHYAMUFMBVGNl6s\nXKZpJUeAeJbFh5RxcbXajn/SrI7wUEwPtfqGS1LrPvH4OmA8+Z8wKuRrwBOk1xoe\nLRmECBRZogs/IY8N8Kn91XHCDDwvJV4U5YhxxwzGJDyjG6uT/xUnj0Rjgge04/Kz\nzN36ukHqm1OFCeaK4FAZpPnGClopXcs8zKShKkQf+giKd7eaYkuNsKeL3TEIFNHk\nQgye0r3D7Ay7sBliyn7fmP17qDksib66P0G8X6js8vuKdqbtLCF+WAdaamDg6xg+\nyjkSsriL3hvTzLreEf+exOWWv5JIOjkx+2NBsXE8rqszPvVt419wRFHY/jVwXzQ6\nQrjTPym41A2xfVKcWtZexXy1znoplGf0wwJRAwl0gjvd/EGKmE7WTPrVw8IP4YHv\nMqk/SPAappBV1QBoF0siqkIkdqk5GasLoZE1KLnhZCaiRTDJV1lIyHSMqDWGXunT\nns/0Xs/HUfgC/8EZ/JoUpjs4T9wYkkWZ6LQXzR59LZ4uLhh/YY/2dFdZVPhuMyaN\nLZZnFyy2dM+SwjArtCONbkpihjIKnD7hxyhORz3hjeqw114MJhNreHm/41TY5I9t\noFwV8MkNcmQyAIwJEorg\n=xdPS\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree e1387c2fd7d3b9a91241446210ddb3c4d48a8782\nparent 47f5fba81927d466d60269731d750ece13ac9b8b\nauthor christine-srp <christine@srp.one> 1776931077 +0800\ncommitter GitHub <noreply@github.com> 1776931077 +0800\n\nfeat(amazon-analyst): new agent pack with proxy-based auth (#100)\n\nIntroduces the Amazon Analyst agent pack (📦 亚马逊分析师) — a friendly,\ndata-driven advisor that routes natural-language questions to one of 10\nbundled skills (listing audit, opportunity discovery, market entry,\ncompetitor intelligence, pricing, reviews, daily radar, trend scanner,\ngeneral analysis, and the apiclaw base layer).\n\nAll upstream APIClaw traffic is routed through ecap-proxy-service:\n- Scripts read ECAP_PROXY_BASE_URL and USER_INTERNAL_TOKEN from the pod env\n- Proxy validates the JWT, swaps in the server-held APIClaw API key, and\n  forwards to api.apiclaw.io/openapi/v2\n- No credential is embedded in the pack — earlier iterations shipped a\n  baked-in APICLAW_API_KEY which is eliminated here\n\nPack layout follows the existing convention (IDENTITY / SOUL / AGENTS /\nBOOTSTRAP at root, skills under .agents/skills/). The apiclaw.py script\nis canonical in .agents/skills/apiclaw/scripts/ and byte-identical copies\nlive in each amazon-*/scripts/ directory.\n\nDepends on SerendipityOneInc/ecap-proxy-service#37 for the /apiclaw\nroute and the server-side APICLAW_API_KEY secret.",
+        "verified_at": "2026-04-23T07:57:58Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/110b61e8c445a88d5600f067babe232187738b37",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/110b61e8c445a88d5600f067babe232187738b37",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/110b61e8c445a88d5600f067babe232187738b37/comments",
+    "author": {
+      "login": "christine-srp",
+      "id": 237009973,
+      "node_id": "U_kgDODiB8NQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/237009973?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/christine-srp",
+      "html_url": "https://github.com/christine-srp",
+      "followers_url": "https://api.github.com/users/christine-srp/followers",
+      "following_url": "https://api.github.com/users/christine-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/christine-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/christine-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/christine-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/christine-srp/orgs",
+      "repos_url": "https://api.github.com/users/christine-srp/repos",
+      "events_url": "https://api.github.com/users/christine-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/christine-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "47f5fba81927d466d60269731d750ece13ac9b8b",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-agent-pack/commits/47f5fba81927d466d60269731d750ece13ac9b8b",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/47f5fba81927d466d60269731d750ece13ac9b8b"
+      }
+    ]
+  }
+]

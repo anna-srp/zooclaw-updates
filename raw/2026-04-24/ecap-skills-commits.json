@@ -1,0 +1,330 @@
+[
+  {
+    "sha": "49f33cecb6f750c13be4bd22040a5d926a716b1d",
+    "node_id": "C_kwDORcceptoAKDQ5ZjMzY2VjYjZmNzUwYzEzYmU0YmQyMjA0MGE1ZDkyNmE3MTZiMWQ",
+    "commit": {
+      "author": {
+        "name": "david-srp",
+        "email": "david@srp.one",
+        "date": "2026-04-23T16:07:56Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-23T16:07:56Z"
+      },
+      "message": "chore(chameleon): clarify InputVideoSensitiveContentDetected fallback + copyright guidance (#180)\n\nRewrite the two compliance bullets to spell out the actual flow: on\nreal-face rejection ZooClaw onboards the portrait and retries with\nasset://, and a post-retry block means policy-sensitive copyrighted\nmaterial — steer users to switch portraits or pre-vetted safe sources.\n\nCo-authored-by: David Lu <davidlu@Daviddebijibendiannao.local>\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+      "tree": {
+        "sha": "ff14ec9f5f88f0d3b91eea193107d64808a56e79",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/trees/ff14ec9f5f88f0d3b91eea193107d64808a56e79"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/commits/49f33cecb6f750c13be4bd22040a5d926a716b1d",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp6kPcCRC1aQ7uu5UhlAAAxvIQAJdWJZ8B4AykE+PHQ3PzwI0n\nEWzAIwIZxABVviQdav63gXXhzWBorymQysXIQKyhLOmIhVJyoFnkEqkV+JqDcZ69\nNMgkIIsosoOJ7ixmZO1XZuS/OXBuluRrXdMLgwAoLEQ/xv1sbyzV6x2XMsDVb1RX\n7r3XxQeYb0fTkHZr4BPvjdEYKsW5E1oYqnGBk+p1f+LmbShr22OZcRo3uk2pOI11\nXfWB6A5PilZpT7F4BIZzEy+wbIhO7jsAT2uAZz8lgY6SsBDKkbt778qNPEM52ddO\nFgCYxB6NGMVKTtyJF3el7mCFj8LytmTOulGAEITcC5TD/Q+d9YkC9nCzhB5XJ8d3\nLqXQ/XLojaJ3AHP9DyixEQd3DakWqoXPA8aFooDbnt0jgPHmlfQlo7K4+zQuSU8D\nWtQkV5WFB4tmFW64z3VB5IEkZfz/mXKwIDm4X0g9glcZ5wTuwLiHjbcELCMLKC/o\nryGYTnQDACBVuUPsvvNoL/8+63eJEwu6CtVJDhrWlGr/E79z0jv6OlNGkzmFvYAU\n4Ncnl1rlC2Gf+NBeqPSR/Z+BB/4e9Fp7+7/QesG+KBkVkxByjKTCbI74BuZ8mjte\nBHqwNsgnl03/Yj5JETRRD0O+ymyv45vvxoHlBN4PRvhXpv9sLVUZ1VcUhf5ji0R0\n8t7d6jD0FBl8xXGn5Zu4\n=nKzI\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree ff14ec9f5f88f0d3b91eea193107d64808a56e79\nparent d7dce6d38a9a403fbcfa170b6114405aa4b57993\nauthor david-srp <david@srp.one> 1776960476 +0800\ncommitter GitHub <noreply@github.com> 1776960476 +0800\n\nchore(chameleon): clarify InputVideoSensitiveContentDetected fallback + copyright guidance (#180)\n\nRewrite the two compliance bullets to spell out the actual flow: on\nreal-face rejection ZooClaw onboards the portrait and retries with\nasset://, and a post-retry block means policy-sensitive copyrighted\nmaterial — steer users to switch portraits or pre-vetted safe sources.\n\nCo-authored-by: David Lu <davidlu@Daviddebijibendiannao.local>\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+        "verified_at": "2026-04-23T16:07:57Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/49f33cecb6f750c13be4bd22040a5d926a716b1d",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/49f33cecb6f750c13be4bd22040a5d926a716b1d",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/49f33cecb6f750c13be4bd22040a5d926a716b1d/comments",
+    "author": {
+      "login": "david-srp",
+      "id": 264104338,
+      "node_id": "U_kgDOD73pkg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/264104338?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/david-srp",
+      "html_url": "https://github.com/david-srp",
+      "followers_url": "https://api.github.com/users/david-srp/followers",
+      "following_url": "https://api.github.com/users/david-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/david-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/david-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/david-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/david-srp/orgs",
+      "repos_url": "https://api.github.com/users/david-srp/repos",
+      "events_url": "https://api.github.com/users/david-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/david-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d7dce6d38a9a403fbcfa170b6114405aa4b57993",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/d7dce6d38a9a403fbcfa170b6114405aa4b57993",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/d7dce6d38a9a403fbcfa170b6114405aa4b57993"
+      }
+    ]
+  },
+  {
+    "sha": "d7dce6d38a9a403fbcfa170b6114405aa4b57993",
+    "node_id": "C_kwDORcceptoAKGQ3ZGNlNmQzOGE5YTQwM2ZiY2ZhMTcwYjYxMTQ0MDVhYTRiNTc5OTM",
+    "commit": {
+      "author": {
+        "name": "allenz-srp",
+        "email": "allenz@srp.one",
+        "date": "2026-04-23T01:11:19Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-23T01:11:19Z"
+      },
+      "message": "chore(devcontainer): bump openclaw image to 2026.4.2.12 + inject ecap/litellm env vars (#178)\n\n- openclaw-docker: 2026.3.13.38 → 2026.4.2.12 (matches gcp-foundation\n  fastclaw rollout on dev/staging, 2026-04-22)\n- Inject canonical env vars into the container so skills using\n  ecap-proxy / LiteLLM work out-of-the-box: ECAP_PROXY_BASE_URL,\n  USER_INTERNAL_TOKEN, LITELLM_API_BASE, LITELLM_API_KEY\n- All vars use ${VAR:-} so host-unset stays empty (no compose warnings,\n  no hard failures at startup)\n\nCo-authored-by: Claude Opus 4.7 <noreply@anthropic.com>",
+      "tree": {
+        "sha": "e0187a7bf9d8508f2f40104ba57b2fc5da093b4b",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/trees/e0187a7bf9d8508f2f40104ba57b2fc5da093b4b"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/commits/d7dce6d38a9a403fbcfa170b6114405aa4b57993",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp6XG3CRC1aQ7uu5UhlAAAmGoQAAyfZmD3Fp/nBpsqzrbmYV6W\n44+eVrV2dJTGQ0bOKlCKG0D8lAwBO/3TDsXVRNnEUQk02U40l55wEfiXG4UvstN3\nOqv+4T0twMlZm47rVfzg4qnEdv+89z6OfzzAgre8Q9bpbm7z1et1koVUb1gunm4j\nCHJmroCEELQx7ABlqiXd5kR3HRCJuiQPwlispxydIRJneuTm0fG6lMUj1i6+WRBk\neRp+1qWicesRJwZXWgHzvDxlfzwH/T67LD2tidmVaNuZIGivwFKcuvvKf6ZmHgwL\nmUdtXBZ6ebd2Qi5uGNQcXpVwxxNYH1Tx7Prb5/78XbA1c+/TMnr0qBdP97M4n+qx\nhYqJE7SmmqkjVLZalX8oq6jnSrAsIOthaIfNMZ+/cAtAIgjVrwBmZUwYtpULRcy9\ntNnI8IzUMeC91Zte1IpPJjOkf6zrmT5zyz4J7UcTfta3k7tmN2LVAdvHqAEIwiYf\nYSSDcEOsz/aQFoqZuA1N2+Zm4hx9ycYPFPKl9LWFk0vjNPni0HjxnRrpYwleDTYY\nwRiYclhyGx41MmytIdQE31wai8BtAQoc18Llz8YH/Do2j+MTUdLXhIivLRo8zEk5\nBILtA3H6Z4hVjL0wOTmhoR+cnKd9vwDJiIUKX6sWeLDWTqZ3jWZD1gyAwv00Oy0J\n6ea3xp1ZhD4lTsuiGMYt\n=58OT\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree e0187a7bf9d8508f2f40104ba57b2fc5da093b4b\nparent 77f5798cb84d51c8f2104f924e19c3ecfb07cbb9\nauthor allenz-srp <allenz@srp.one> 1776906679 +0800\ncommitter GitHub <noreply@github.com> 1776906679 +0800\n\nchore(devcontainer): bump openclaw image to 2026.4.2.12 + inject ecap/litellm env vars (#178)\n\n- openclaw-docker: 2026.3.13.38 → 2026.4.2.12 (matches gcp-foundation\n  fastclaw rollout on dev/staging, 2026-04-22)\n- Inject canonical env vars into the container so skills using\n  ecap-proxy / LiteLLM work out-of-the-box: ECAP_PROXY_BASE_URL,\n  USER_INTERNAL_TOKEN, LITELLM_API_BASE, LITELLM_API_KEY\n- All vars use ${VAR:-} so host-unset stays empty (no compose warnings,\n  no hard failures at startup)\n\nCo-authored-by: Claude Opus 4.7 <noreply@anthropic.com>",
+        "verified_at": "2026-04-23T01:11:19Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/d7dce6d38a9a403fbcfa170b6114405aa4b57993",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/d7dce6d38a9a403fbcfa170b6114405aa4b57993",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/d7dce6d38a9a403fbcfa170b6114405aa4b57993/comments",
+    "author": {
+      "login": "allenz-srp",
+      "id": 176031227,
+      "node_id": "U_kgDOCn4F-w",
+      "avatar_url": "https://avatars.githubusercontent.com/u/176031227?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/allenz-srp",
+      "html_url": "https://github.com/allenz-srp",
+      "followers_url": "https://api.github.com/users/allenz-srp/followers",
+      "following_url": "https://api.github.com/users/allenz-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/allenz-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/allenz-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/allenz-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/allenz-srp/orgs",
+      "repos_url": "https://api.github.com/users/allenz-srp/repos",
+      "events_url": "https://api.github.com/users/allenz-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/allenz-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "77f5798cb84d51c8f2104f924e19c3ecfb07cbb9",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/77f5798cb84d51c8f2104f924e19c3ecfb07cbb9",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/77f5798cb84d51c8f2104f924e19c3ecfb07cbb9"
+      }
+    ]
+  },
+  {
+    "sha": "77f5798cb84d51c8f2104f924e19c3ecfb07cbb9",
+    "node_id": "C_kwDORcceptoAKDc3ZjU3OThjYjg0ZDUxYzhmMjEwNGY5MjRlMTljM2VjZmIwN2NiYjk",
+    "commit": {
+      "author": {
+        "name": "felix-srp",
+        "email": "145632298+felix-srp@users.noreply.github.com",
+        "date": "2026-04-23T00:18:05Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-23T00:18:05Z"
+      },
+      "message": "chore(web-designer): trim skill docs ~460 lines for runtime context efficiency (#169)\n\n* chore(web-designer): simplify skill docs and scripts\n\nTighten runtime skill files for better context engineering in ZooClaw.\nRemoves prose redundancy in SKILL.md, references/*.md, and scripts/ while\npreserving all CSS themes, component recipes, CLI commands, and \"why\"\ncomments. Net: -460 lines.\n\nKey changes:\n- SKILL.md: condense overview/tech-stack/workflow, keep quality gates\n- design-system.md: remove §13 (duplicated SKILL.md anti-slop), inline\n  per-theme \"Best for\" + font bullets, trim aesthetic-direction prose\n- components.md: compress §2 ECharts gotcha and §7.11.1 reduced-motion\n  walls of prose into structured bullets\n- content.md: collapse headline examples, shorten §9 image-search\n  pipeline, trim per-framework narration\n- scripts: light comment-tightening only; no logic changes\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* chore(web-designer): restore three workflow anchors in SKILL.md\n\nReviewer flagged that the simplification dropped three procedural details\nthat change skill behavior:\n\n- Phase 3: \"(if project not yet initialized)\" guard on init.sh — re-running\n  clobbers customizations\n- Phase 3: \"Apply design system from references/design-system.md\" +\n  library role assignment (shadcn/ui base, ECharts viz, Framer animation)\n- Phase 4: \"verify every gate passes before delivery\" — the workflow hook\n  into the Quality Gates table below\n- Also restored the build-workspace path so debugging the Vite output\n  doesn't require reading scripts/init.sh\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+      "tree": {
+        "sha": "15eced00df7edd2355e64baad4d1eb9af46d646c",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/trees/15eced00df7edd2355e64baad4d1eb9af46d646c"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/commits/77f5798cb84d51c8f2104f924e19c3ecfb07cbb9",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp6WU9CRC1aQ7uu5UhlAAAULsQACXwUu8y8rqIdCZ8kJ+Z7kJ1\ng96poWYSYeiM33y1QuksdaFQ3WBkAzca3RiQEaY+6jqlLaUAZGSSGzhwagA4u3xr\nInaZwVib9dgV2yU/A4sD9jSDDEW97H9ajGW0/lh6Jw+vfC/yZzDCcIIzESSCghq9\nAww111AeZqxKqAfGExnrTieWiNp2C5NCj8zMljajW/ZrtuvleKhIihmRqP+pRBmr\n6e/BVCkK8XMkQhkwOd/2cut2TLadMcpb3ccMOwkOfqAwrYvrGfiC0rL/um9NoAbg\nLR7l3NO+tymW+XhFM16FgCrnP5lnF7rpOgDTyCRusen4WreYwiLCsCufzOGtXPWH\nD4ixDockiOuF1EA+Ik0fQ8SUuc0q9sGWk+UfO5yrPSBnrhLV7sO/xHA+qQJyv1qg\nKdnszVmjYxqJg+Du6HaTN8f70z2jiDYQZ4TWlUoQImXfwAAS6+81DTDjgHYEnv4Q\nlI5kZz4f/+es2lKcQceVbgnCZV2DhhsD40tvKc+C/bAyhXHUi/hnBiT4ZJFQpdOJ\n3on7TWQj7j57Ziac2HMYYoyEhH4BX2vD5wucjJcUdtVR4G+IuBza4F6KHI+H66tm\noEixqHzm5zB/GHvwA/ZNbjGfaSEav+YVdA3wXs3tjI8HJXCF1uLbHQjohu7u/QX7\nlAawvKufpngkk6mLe0DF\n=cDAA\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 15eced00df7edd2355e64baad4d1eb9af46d646c\nparent b17a718d77f744a565faf335394288e258b98943\nauthor felix-srp <145632298+felix-srp@users.noreply.github.com> 1776903485 -0400\ncommitter GitHub <noreply@github.com> 1776903485 -0400\n\nchore(web-designer): trim skill docs ~460 lines for runtime context efficiency (#169)\n\n* chore(web-designer): simplify skill docs and scripts\n\nTighten runtime skill files for better context engineering in ZooClaw.\nRemoves prose redundancy in SKILL.md, references/*.md, and scripts/ while\npreserving all CSS themes, component recipes, CLI commands, and \"why\"\ncomments. Net: -460 lines.\n\nKey changes:\n- SKILL.md: condense overview/tech-stack/workflow, keep quality gates\n- design-system.md: remove §13 (duplicated SKILL.md anti-slop), inline\n  per-theme \"Best for\" + font bullets, trim aesthetic-direction prose\n- components.md: compress §2 ECharts gotcha and §7.11.1 reduced-motion\n  walls of prose into structured bullets\n- content.md: collapse headline examples, shorten §9 image-search\n  pipeline, trim per-framework narration\n- scripts: light comment-tightening only; no logic changes\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* chore(web-designer): restore three workflow anchors in SKILL.md\n\nReviewer flagged that the simplification dropped three procedural details\nthat change skill behavior:\n\n- Phase 3: \"(if project not yet initialized)\" guard on init.sh — re-running\n  clobbers customizations\n- Phase 3: \"Apply design system from references/design-system.md\" +\n  library role assignment (shadcn/ui base, ECharts viz, Framer animation)\n- Phase 4: \"verify every gate passes before delivery\" — the workflow hook\n  into the Quality Gates table below\n- Also restored the build-workspace path so debugging the Vite output\n  doesn't require reading scripts/init.sh\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+        "verified_at": "2026-04-23T00:18:06Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/77f5798cb84d51c8f2104f924e19c3ecfb07cbb9",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/77f5798cb84d51c8f2104f924e19c3ecfb07cbb9",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/77f5798cb84d51c8f2104f924e19c3ecfb07cbb9/comments",
+    "author": {
+      "login": "felix-srp",
+      "id": 145632298,
+      "node_id": "U_kgDOCK4sKg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/145632298?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/felix-srp",
+      "html_url": "https://github.com/felix-srp",
+      "followers_url": "https://api.github.com/users/felix-srp/followers",
+      "following_url": "https://api.github.com/users/felix-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/felix-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/felix-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/felix-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/felix-srp/orgs",
+      "repos_url": "https://api.github.com/users/felix-srp/repos",
+      "events_url": "https://api.github.com/users/felix-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/felix-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b17a718d77f744a565faf335394288e258b98943",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/b17a718d77f744a565faf335394288e258b98943",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/b17a718d77f744a565faf335394288e258b98943"
+      }
+    ]
+  },
+  {
+    "sha": "b17a718d77f744a565faf335394288e258b98943",
+    "node_id": "C_kwDORcceptoAKGIxN2E3MThkNzdmNzQ0YTU2NWZhZjMzNTM5NDI4OGUyNThiOTg5NDM",
+    "commit": {
+      "author": {
+        "name": "felix-srp",
+        "email": "145632298+felix-srp@users.noreply.github.com",
+        "date": "2026-04-23T00:16:40Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-04-23T00:16:40Z"
+      },
+      "message": "pdf: trim runtime docs (~50%) + schema/cache fixes from audit (#166)\n\n* chore(pdf): trim runtime .md files for context efficiency\n\nToken-efficiency pass on skill docs (loaded at runtime by zooclaw).\nTotal: 1919 → 947 lines (~50% reduction).\n\n- SKILL.md: 230 → 206 (tighten route summaries, drop filler)\n- references/forms.md: 427 → 241 (dedupe coord docs, compress pitfalls)\n- references/images.md: 267 → 221 (tighten prose, dedupe with SKILL.md)\n- design/design.md: 383 → 279 (collapse 13 cover patterns to one-liners,\n  drop aspirational prose, simplify math/figure guidance)\n- references/reference.md: 612 → deleted (zero incoming references,\n  generic library examples unused by any route)\n\nPreserved: all footguns, absolute-path warnings, checkbox /Yes rule,\ncoord-mode invariants, ReportLab superscript workaround.\n\n* chore(pdf): safe script cleanups — dead code + hot-path hoists\n\n- render_body.py: drop unused pdfmetrics/TTFont imports; guard\n  _configure_matplotlib so repeat calls (per chart/math/flowchart) no-op\n  instead of re-adding font-manager paths\n- cover.py: remove orphan \"Cross-hatch SVG helper\" banner left behind\n  after the helper was deleted\n- palette.py: drop legacy tokens.json keys (font_heading, font_body_b)\n  — zero readers in the tree\n- pdf_tools.py: hoist watermark font selection above the per-page loop\n  (watermark text doesn't change page-to-page, so the CJK scan was O(pages))\n- fonts.py: memoize _needs_noto via lru_cache — called per codepoint\n  from _canvas_set_font (4×/page for header/footer) and wrap_non_latin\n  (every paragraph); cache hit rate ~99% on multi-page docs\n\n* fix(pdf): schema accuracy + footguns surfaced during trim audit\n\nFollow-up to 40a0b5c. An audit pass found load-bearing gaps that predated\nthe trim (both original and trimmed docs had them). Fixing while we're\nin-context.\n\n- forms.md: `fill_inspect.py` field output uses `bbox`, not `rect`\n  (scripts/fill_inspect.py:108,125). Updated JSON example, coordinate\n  systems reference, and the y-flip formula. Also added the real output\n  envelope ({has_fields, fields}) and the no-fields shape.\n- forms.md: new pitfall — fields whose page annotation cannot be\n  resolved are silently dropped with a stderr warning\n  (fill_inspect.py:134). If the list looks short, check stderr.\n- images.md: documented both body-image error modes — `[Image not\n  found: <path>]` (missing file, render_body.py:787) and `[Image\n  error: <exception>]` (corrupt/0-byte, render_body.py:799). Renderer\n  never fails on image load; it substitutes a caption-style placeholder.\n- images.md: restored the sharper `--cover-image` phrasing — \"silently\n  fail to load — rendered without the image and no error is reported\".\n- SKILL.md: one-liner noting CJK / non-Latin auto-handling\n  (render_body.py wordWrap=\"CJK\" + wrap_non_latin). Prevents agents\n  from preprocessing mixed-script content.json.\n\n* fix(pdf): review findings — fill_annotate schema, fonts cache purity\n\nTwo code fixes from parallel review agents (Claude + Codex) plus one doc tightening.\n\n1. fill_annotate.py: accept both Format A (nested {pages, form_fields})\n   and Format B (flat array). Before, agents following references/forms.md's\n   Approach A built nested JSON that passed check_bounding_boxes.py (which\n   normalizes both) but then failed fill_annotate.py with \"fields_json must\n   contain a JSON array\" — a real wall at the final step of Track B.\n   Added _normalize_fields matching the logic in check_bounding_boxes.py\n   and create_validation_image.py. Coord-mode signals (pdf_width/pdf_height\n   vs image_width/image_height) are treated as exclusive: a field that\n   declares one doesn't inherit the other from page meta.\n\n2. fonts.py: _needs_noto read the mutable _discovered dict while being\n   wrapped in @lru_cache, caching a pre-registration None forever if any\n   caller hit it before register_all(). Split into pure _script_for\n   (cached classification, safe) + thin _needs_noto wrapper that\n   re-checks _discovered on every call. Classification is the expensive\n   work; the dict gate is O(1).\n\n3. design.md: expanded the one-line image error-mode hint so the summary\n   matches the detailed block in references/images.md.\n\n* fix(pdf): round 2 review — empty fields no-op + partial-hint warn + forms.md Format B\n\nRound 2 review (Codex) caught two regressions from 1e6c873 and one doc gap.\n\n1. Empty [] fields.json: original fill_annotate.py treated it as \"0\n   annotations to add, succeed\"; my 1e6c873 rewrite conflated \"bad shape\"\n   with \"empty list\" and started erroring on empty inputs. _normalize_fields\n   now returns None only for truly-bad shapes (non-list, non-dict); empty\n   list and empty form_fields both produce an empty list that the fill loop\n   handles as a no-op.\n\n2. Partial coord-mode hints (e.g. image_width without image_height) used\n   to silently fall through to page meta, which can supply the opposite\n   coord mode — an agent's intent was lost with no signal. Now logs a\n   warning listing which partial keys were present; falls back to page\n   meta as before. Coord modes stay exclusive.\n\n3. references/forms.md now documents both accepted schemas — Format A\n   (nested {pages, form_fields} mirroring form_structure.json) and\n   Format B (flat array, leaner). Before, forms.md only showed Format A\n   while SKILL.md only mentioned the flat array; neither was wrong for\n   check_bounding_boxes.py but it set agents up to discover the mismatch\n   only at fill_annotate.py. Also notes the empty-array no-op behaviour.\n\n* fix(pdf): round 3 — partial coord-hint warn covers Format B too\n\nCodex round-3 flagged a consistency gap: the partial-hint warning added\nin 2a1f799 only fired on the Format A (nested) normalization path;\nFormat B flat-array fields bypassed normalization and reached\nfill_with_annotations with partial hints silently dropped into the\npage-dimension fallback.\n\nExtracted the partial-hint check into _warn_partial_coord_hint and call\nit from both branches — Format B passthrough now iterates the list and\nwarns per-field, same as Format A. Shared helper keeps the two paths\nin sync.\n\n(Codex also flagged the `list[dict] | None` annotation as 3.10+-only;\nfalse positive — the rest of pdf/scripts/ has been using `str | None`\nand `list[dict]` since before this PR — fill_inspect.py, fill_write.py,\nextract_form_structure.py, check_bounding_boxes.py,\ncreate_validation_image.py all already require 3.10+. No new baseline.)\n\n* fix(pdf): left-align FreeText annotations by default\n\nSmoke-testing Track B surfaced that filled form text was horizontally\ncentered in the entry rect, which reads as wrong for form-fill UX —\nusers expect the text to appear where they would have written it\n(left-aligned at the start of the line).\n\nRoot cause: pypdf's FreeText annotation defaults to center quadding\n(/Q=1) and doesn't expose a constructor argument for it.\n\nFix: set /Q=0 (left quadding) on the annotation dict after\nconstruction. Accepts an optional per-field \"align\" key in the flat\nschema (0=left/1=center/2=right) for the rare case where a caller\nwants to override; default is left for both formats.\n\nFormat A (nested) fields route through _normalize_fields which\ndoesn't propagate alignment — intentional; if you need per-field\nalignment, use Format B.\n\n* feat(pdf): add --dpi flag to ocr subcommand\n\nDefault was pdf2image's 200 DPI, which struggles on handwritten or\nsmall-font Chinese text — a scanned resume form with the name \"胡宁\"\nround-tripped through OCR as \"#8\" (tessdata_fast/chi_sim at 200 DPI)\nand \"骨宁\" (best model at 200 DPI). At 400 DPI with tessdata_best the\nsame image OCRs to \"胡 宁\" — searchable.\n\n- ocr: new --dpi (default 300, was unspecified/200). Bump to 400-600\n  for handwritten/small-font CJK. Matches the existing --dpi flag on\n  to-images.\n- SKILL.md: mention the flag in the ocr example + a one-line hint that\n  tessdata_best substantially beats tessdata_fast on CJK accuracy.\n\nNo behavior change at default for non-CJK inputs aside from slightly\nhigher resolution (200 → 300), which produces cleaner but larger\noutput PDFs. Callers can pin --dpi 200 if they need the old size.\n\n* docs(pdf): mention --dpi + tessdata_best hint in ocr usage",
+      "tree": {
+        "sha": "e69c472cff2447d474f51955526a8ce29adf9264",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/trees/e69c472cff2447d474f51955526a8ce29adf9264"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/commits/b17a718d77f744a565faf335394288e258b98943",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp6WToCRC1aQ7uu5UhlAAAZ68QABY8vBh1xM4QkTxwS8eeVcvS\nmSUKrCWLCGXlq55mHO/Hrdxiu7CWAorHTNqlif8LerLlnDUkyAcVI7a7hpDdwZvf\nN++H+7KzFHdSTl9juDZ3cJfWCOhL9ECocWNANCOuro7StU8b1AC4O1+CQj3NZT2E\n8SI7cC9BWPCktgWRpZqQRgVSY9TM4h46CI7WiMxYoQmQSHiQFzis+yTOS/T8oL6I\nOs4YbSagAGhF2FdKw9OlZj2XrCWno7eNpP4+wg2zS3UhwIA0xAkxaVGLCXm412/z\n4D3rZCtwpkmQrzwrEv+46ITDF+aORVqs+FuxLnLc0VxkaSYjjSLvNjnBoVqGaSXn\nrdx9mdo8loqpeS36LU52F6bXM0kkLjL9o2TLcJqM1RJhIfAk3atVtILaJyAYwaOL\nQ+34fRsFsZjAa2dRdpwDWvEL/sM/ZgOMxMBg7tSHHcM0p5vqIS8wGTlnmxyRPkKm\nVxBVQlkNsa1H2O0vMCy4UrSrDLRDxbZEJekLc7OnSBWTTa05eHeTSPSzZdeJzybn\noxHZoEev9gbzx1B9DN9gEebJcYmeahWOeOPCsk0s6BedSMLakI5NrptIA1d1vgKT\njH2sBZ3wiRCzDR85mjcISdF26HmRzdrfoMQPl8+jbgCmobkBMgGgEv2JMps8LfSf\n7A22Mrmy0BYP/TEsrFB9\n=SUtu\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree e69c472cff2447d474f51955526a8ce29adf9264\nparent 1ce789aed6ad500ba252f8ab2f96969e5c93a0e9\nauthor felix-srp <145632298+felix-srp@users.noreply.github.com> 1776903400 -0400\ncommitter GitHub <noreply@github.com> 1776903400 -0400\n\npdf: trim runtime docs (~50%) + schema/cache fixes from audit (#166)\n\n* chore(pdf): trim runtime .md files for context efficiency\n\nToken-efficiency pass on skill docs (loaded at runtime by zooclaw).\nTotal: 1919 → 947 lines (~50% reduction).\n\n- SKILL.md: 230 → 206 (tighten route summaries, drop filler)\n- references/forms.md: 427 → 241 (dedupe coord docs, compress pitfalls)\n- references/images.md: 267 → 221 (tighten prose, dedupe with SKILL.md)\n- design/design.md: 383 → 279 (collapse 13 cover patterns to one-liners,\n  drop aspirational prose, simplify math/figure guidance)\n- references/reference.md: 612 → deleted (zero incoming references,\n  generic library examples unused by any route)\n\nPreserved: all footguns, absolute-path warnings, checkbox /Yes rule,\ncoord-mode invariants, ReportLab superscript workaround.\n\n* chore(pdf): safe script cleanups — dead code + hot-path hoists\n\n- render_body.py: drop unused pdfmetrics/TTFont imports; guard\n  _configure_matplotlib so repeat calls (per chart/math/flowchart) no-op\n  instead of re-adding font-manager paths\n- cover.py: remove orphan \"Cross-hatch SVG helper\" banner left behind\n  after the helper was deleted\n- palette.py: drop legacy tokens.json keys (font_heading, font_body_b)\n  — zero readers in the tree\n- pdf_tools.py: hoist watermark font selection above the per-page loop\n  (watermark text doesn't change page-to-page, so the CJK scan was O(pages))\n- fonts.py: memoize _needs_noto via lru_cache — called per codepoint\n  from _canvas_set_font (4×/page for header/footer) and wrap_non_latin\n  (every paragraph); cache hit rate ~99% on multi-page docs\n\n* fix(pdf): schema accuracy + footguns surfaced during trim audit\n\nFollow-up to 40a0b5c. An audit pass found load-bearing gaps that predated\nthe trim (both original and trimmed docs had them). Fixing while we're\nin-context.\n\n- forms.md: `fill_inspect.py` field output uses `bbox`, not `rect`\n  (scripts/fill_inspect.py:108,125). Updated JSON example, coordinate\n  systems reference, and the y-flip formula. Also added the real output\n  envelope ({has_fields, fields}) and the no-fields shape.\n- forms.md: new pitfall — fields whose page annotation cannot be\n  resolved are silently dropped with a stderr warning\n  (fill_inspect.py:134). If the list looks short, check stderr.\n- images.md: documented both body-image error modes — `[Image not\n  found: <path>]` (missing file, render_body.py:787) and `[Image\n  error: <exception>]` (corrupt/0-byte, render_body.py:799). Renderer\n  never fails on image load; it substitutes a caption-style placeholder.\n- images.md: restored the sharper `--cover-image` phrasing — \"silently\n  fail to load — rendered without the image and no error is reported\".\n- SKILL.md: one-liner noting CJK / non-Latin auto-handling\n  (render_body.py wordWrap=\"CJK\" + wrap_non_latin). Prevents agents\n  from preprocessing mixed-script content.json.\n\n* fix(pdf): review findings — fill_annotate schema, fonts cache purity\n\nTwo code fixes from parallel review agents (Claude + Codex) plus one doc tightening.\n\n1. fill_annotate.py: accept both Format A (nested {pages, form_fields})\n   and Format B (flat array). Before, agents following references/forms.md's\n   Approach A built nested JSON that passed check_bounding_boxes.py (which\n   normalizes both) but then failed fill_annotate.py with \"fields_json must\n   contain a JSON array\" — a real wall at the final step of Track B.\n   Added _normalize_fields matching the logic in check_bounding_boxes.py\n   and create_validation_image.py. Coord-mode signals (pdf_width/pdf_height\n   vs image_width/image_height) are treated as exclusive: a field that\n   declares one doesn't inherit the other from page meta.\n\n2. fonts.py: _needs_noto read the mutable _discovered dict while being\n   wrapped in @lru_cache, caching a pre-registration None forever if any\n   caller hit it before register_all(). Split into pure _script_for\n   (cached classification, safe) + thin _needs_noto wrapper that\n   re-checks _discovered on every call. Classification is the expensive\n   work; the dict gate is O(1).\n\n3. design.md: expanded the one-line image error-mode hint so the summary\n   matches the detailed block in references/images.md.\n\n* fix(pdf): round 2 review — empty fields no-op + partial-hint warn + forms.md Format B\n\nRound 2 review (Codex) caught two regressions from 1e6c873 and one doc gap.\n\n1. Empty [] fields.json: original fill_annotate.py treated it as \"0\n   annotations to add, succeed\"; my 1e6c873 rewrite conflated \"bad shape\"\n   with \"empty list\" and started erroring on empty inputs. _normalize_fields\n   now returns None only for truly-bad shapes (non-list, non-dict); empty\n   list and empty form_fields both produce an empty list that the fill loop\n   handles as a no-op.\n\n2. Partial coord-mode hints (e.g. image_width without image_height) used\n   to silently fall through to page meta, which can supply the opposite\n   coord mode — an agent's intent was lost with no signal. Now logs a\n   warning listing which partial keys were present; falls back to page\n   meta as before. Coord modes stay exclusive.\n\n3. references/forms.md now documents both accepted schemas — Format A\n   (nested {pages, form_fields} mirroring form_structure.json) and\n   Format B (flat array, leaner). Before, forms.md only showed Format A\n   while SKILL.md only mentioned the flat array; neither was wrong for\n   check_bounding_boxes.py but it set agents up to discover the mismatch\n   only at fill_annotate.py. Also notes the empty-array no-op behaviour.\n\n* fix(pdf): round 3 — partial coord-hint warn covers Format B too\n\nCodex round-3 flagged a consistency gap: the partial-hint warning added\nin 2a1f799 only fired on the Format A (nested) normalization path;\nFormat B flat-array fields bypassed normalization and reached\nfill_with_annotations with partial hints silently dropped into the\npage-dimension fallback.\n\nExtracted the partial-hint check into _warn_partial_coord_hint and call\nit from both branches — Format B passthrough now iterates the list and\nwarns per-field, same as Format A. Shared helper keeps the two paths\nin sync.\n\n(Codex also flagged the `list[dict] | None` annotation as 3.10+-only;\nfalse positive — the rest of pdf/scripts/ has been using `str | None`\nand `list[dict]` since before this PR — fill_inspect.py, fill_write.py,\nextract_form_structure.py, check_bounding_boxes.py,\ncreate_validation_image.py all already require 3.10+. No new baseline.)\n\n* fix(pdf): left-align FreeText annotations by default\n\nSmoke-testing Track B surfaced that filled form text was horizontally\ncentered in the entry rect, which reads as wrong for form-fill UX —\nusers expect the text to appear where they would have written it\n(left-aligned at the start of the line).\n\nRoot cause: pypdf's FreeText annotation defaults to center quadding\n(/Q=1) and doesn't expose a constructor argument for it.\n\nFix: set /Q=0 (left quadding) on the annotation dict after\nconstruction. Accepts an optional per-field \"align\" key in the flat\nschema (0=left/1=center/2=right) for the rare case where a caller\nwants to override; default is left for both formats.\n\nFormat A (nested) fields route through _normalize_fields which\ndoesn't propagate alignment — intentional; if you need per-field\nalignment, use Format B.\n\n* feat(pdf): add --dpi flag to ocr subcommand\n\nDefault was pdf2image's 200 DPI, which struggles on handwritten or\nsmall-font Chinese text — a scanned resume form with the name \"胡宁\"\nround-tripped through OCR as \"#8\" (tessdata_fast/chi_sim at 200 DPI)\nand \"骨宁\" (best model at 200 DPI). At 400 DPI with tessdata_best the\nsame image OCRs to \"胡 宁\" — searchable.\n\n- ocr: new --dpi (default 300, was unspecified/200). Bump to 400-600\n  for handwritten/small-font CJK. Matches the existing --dpi flag on\n  to-images.\n- SKILL.md: mention the flag in the ocr example + a one-line hint that\n  tessdata_best substantially beats tessdata_fast on CJK accuracy.\n\nNo behavior change at default for non-CJK inputs aside from slightly\nhigher resolution (200 → 300), which produces cleaner but larger\noutput PDFs. Callers can pin --dpi 200 if they need the old size.\n\n* docs(pdf): mention --dpi + tessdata_best hint in ocr usage",
+        "verified_at": "2026-04-23T00:16:41Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/b17a718d77f744a565faf335394288e258b98943",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/b17a718d77f744a565faf335394288e258b98943",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/b17a718d77f744a565faf335394288e258b98943/comments",
+    "author": {
+      "login": "felix-srp",
+      "id": 145632298,
+      "node_id": "U_kgDOCK4sKg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/145632298?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/felix-srp",
+      "html_url": "https://github.com/felix-srp",
+      "followers_url": "https://api.github.com/users/felix-srp/followers",
+      "following_url": "https://api.github.com/users/felix-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/felix-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/felix-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/felix-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/felix-srp/orgs",
+      "repos_url": "https://api.github.com/users/felix-srp/repos",
+      "events_url": "https://api.github.com/users/felix-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/felix-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1ce789aed6ad500ba252f8ab2f96969e5c93a0e9",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/1ce789aed6ad500ba252f8ab2f96969e5c93a0e9",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/1ce789aed6ad500ba252f8ab2f96969e5c93a0e9"
+      }
+    ]
+  }
+]

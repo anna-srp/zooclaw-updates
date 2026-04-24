@@ -1,6 +1,20 @@
 # ZooClaw 更新索引
 > 自动生成，勿手动编辑
 
+## 2026-04-24
+
+- [订阅码：用礼品码直接激活订阅套餐](updates/2026-04-24/01-subscription-codes.md)
+- [资源面板：聊天页直接浏览 Workspace 文件 & 历史上传](updates/2026-04-24/02-resource-management.md)
+- [自定义 Agent 一键安装：从目录记录直接部署](updates/2026-04-24/03-custom-agent-install.md)
+- [第三方连接器授权完成后自动启用 Skill](updates/2026-04-24/04-connector-auto-enable.md)
+- [修复：重新生成同名 Artifact 时预览不刷新](updates/2026-04-24/05-artifact-preview-fix.md)
+- [安全加固：修复多项 Dependabot 漏洞 + 日志脱敏](updates/2026-04-24/06-security-patches.md)
+- [修复：反馈提交失败时不再清空已输入的内容](updates/2026-04-24/07-feedback-preserve-input.md)
+- [修复：支付成功页异常 UI + 订阅套餐面板加载问题](updates/2026-04-24/08-payment-ux-fix.md)
+- [新 Agent 上架：Video Ads Duplicate — 一句话复刻爆款广告视频](updates/2026-04-24/09-agent-video-ads-duplicate.md)
+- [新 Agent 上架：Amazon Analyst — 亚马逊选品与运营智能顾问](updates/2026-04-24/10-agent-amazon-analyst.md)
+- [会话历史页新增返回按钮](updates/2026-04-24/11-session-history-back-button.md)
+
 ## 2026-04-23
 
 - [iOS 聊天界面全面重构，更流畅更原生](updates/2026-04-23/ios-chat-custom-view.md)
