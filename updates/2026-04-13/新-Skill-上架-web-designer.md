@@ -4,7 +4,7 @@ type: "Skill 上架/更新"
 priority: "高"
 date: "2026-04-13"
 status: "待审核"
-channels: ""
+channels: "站内弹窗+社媒素材+Use Case+Discord+changelog+KOL"
 ---
 
 # 新 Skill 上架：web-designer
