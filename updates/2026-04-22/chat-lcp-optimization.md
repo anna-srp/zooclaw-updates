@@ -4,7 +4,7 @@ type: "体验优化"
 priority: "低"
 date: "2026-04-22"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 
 # 性能优化：聊天背景图 880KB→31KB，首屏更快

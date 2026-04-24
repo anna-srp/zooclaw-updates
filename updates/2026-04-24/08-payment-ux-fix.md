@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "中"
 date: "2026-04-24"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 # 修复：支付成功页异常 UI + 订阅套餐面板加载问题
 

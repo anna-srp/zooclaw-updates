@@ -4,7 +4,7 @@ type: "新功能上线"
 priority: "高"
 date: "2026-04-24"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 # 订阅码：用礼品码直接激活订阅套餐
 

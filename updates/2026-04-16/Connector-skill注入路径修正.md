@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "低"
 date: "2026-04-16"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 # Connector skill 注入路径修正至 ~/.agents/skills
 

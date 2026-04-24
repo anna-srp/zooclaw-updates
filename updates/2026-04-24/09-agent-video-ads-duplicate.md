@@ -4,7 +4,7 @@ type: "Agent 上架/更新"
 priority: "高"
 date: "2026-04-24"
 status: "待审核"
-channels: ""
+channels: "站内弹窗+社媒素材+Use Case+Discord+changelog+KOL+EDM"
 ---
 # 新 Agent 上架：Video Ads Duplicate — 一句话复刻爆款广告视频
 

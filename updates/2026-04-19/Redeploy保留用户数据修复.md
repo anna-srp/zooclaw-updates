@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "高"
 date: "2026-04-19"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 
 # Agent Redeploy 不再覆盖用户数据

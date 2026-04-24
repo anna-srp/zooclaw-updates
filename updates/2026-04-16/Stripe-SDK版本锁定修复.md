@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "中"
 date: "2026-04-16"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 # Stripe SDK 版本锁定，修复订阅对象报错
 

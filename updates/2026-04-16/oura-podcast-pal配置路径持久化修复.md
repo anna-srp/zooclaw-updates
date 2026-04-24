@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "低"
 date: "2026-04-16"
 status: "待审核"
-channels: ""
+channels: "站内弹窗+Use Case+Discord+changelog"
 ---
 # Oura Ring Connector + podcast-pal 配置持久化修复
 

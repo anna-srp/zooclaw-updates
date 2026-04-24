@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "中"
 date: "2026-04-22"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 
 # PPTX 预览修复：OOXML 表格现在正常渲染

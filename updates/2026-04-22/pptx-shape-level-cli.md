@@ -4,7 +4,7 @@ type: "Skill 上架/更新"
 priority: "中"
 date: "2026-04-22"
 status: "待审核"
-channels: ""
+channels: "站内弹窗+Use Case+Discord+changelog"
 ---
 
 # PPTX Skill 升级：支持形状级精细编辑

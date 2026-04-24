@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "低"
 date: "2026-04-23"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 # PPTX 预览修复：文字间距现在正确渲染
 

@@ -4,7 +4,7 @@ type: "产品基础功能更新"
 priority: "中"
 date: "2026-04-24"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 # 第三方连接器授权完成后自动启用 Skill
 

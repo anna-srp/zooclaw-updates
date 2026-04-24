@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "高"
 date: "2026-04-18"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 
 # Sentry 监控优化 + Mattermost 事件风暴修复

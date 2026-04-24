@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "中"
 date: "2026-04-11"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 
 # Agent 任务超时时间延长至 30 分钟

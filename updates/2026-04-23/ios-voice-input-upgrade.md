@@ -4,7 +4,7 @@ type: "新功能上线"
 priority: "高"
 date: "2026-04-23"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 # iOS 语音输入全面升级：波形动画 + 更流畅的录音体验
 

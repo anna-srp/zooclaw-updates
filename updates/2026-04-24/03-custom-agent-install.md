@@ -4,7 +4,7 @@ type: "新功能上线"
 priority: "中"
 date: "2026-04-24"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 # 自定义 Agent 一键安装：从目录记录直接部署
 

@@ -4,7 +4,7 @@ type: "产品基础功能更新"
 priority: "低"
 date: "2026-04-24"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 # 会话历史页新增返回按钮
 

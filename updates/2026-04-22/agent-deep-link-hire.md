@@ -4,7 +4,7 @@ type: "新功能上线"
 priority: "中"
 date: "2026-04-22"
 status: "待审核"
-channels: ""
+channels: "站内弹窗+Use Case+Discord+changelog"
 ---
 
 # 新功能：未雇佣 Agent 深链智能引导雇佣流程

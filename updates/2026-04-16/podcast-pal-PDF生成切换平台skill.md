@@ -4,7 +4,7 @@ type: "Skill 上架/更新"
 priority: "低"
 date: "2026-04-16"
 status: "待审核"
-channels: ""
+channels: "站内弹窗+Use Case+Discord+changelog"
 ---
 # podcast-pal PDF 生成切换为平台内置 pdf skill
 

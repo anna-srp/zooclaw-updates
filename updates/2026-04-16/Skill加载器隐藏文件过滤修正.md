@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "低"
 date: "2026-04-16"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 # Skill 加载器隐藏文件过滤范围修正
 

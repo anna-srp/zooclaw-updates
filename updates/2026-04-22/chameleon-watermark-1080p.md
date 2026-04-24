@@ -4,7 +4,7 @@ type: "Skill 上架/更新"
 priority: "中"
 date: "2026-04-22"
 status: "待审核"
-channels: ""
+channels: "站内弹窗+Use Case+Discord+changelog"
 ---
 
 # Chameleon Skill：默认关闭水印 + 支持 1080p 参考视频

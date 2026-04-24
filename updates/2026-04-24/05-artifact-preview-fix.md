@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "中"
 date: "2026-04-24"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 # 修复：重新生成同名 Artifact 时预览不刷新
 

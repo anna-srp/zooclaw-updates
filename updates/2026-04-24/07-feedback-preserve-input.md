@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "低"
 date: "2026-04-24"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 # 修复：反馈提交失败时不再清空已输入的内容
 

@@ -4,7 +4,7 @@ type: "产品基础功能更新"
 priority: "中"
 date: "2026-04-23"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 # 重新订阅后 Bot 自动升级到最新版本
 

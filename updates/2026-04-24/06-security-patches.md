@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "高"
 date: "2026-04-24"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 # 安全加固：修复多项 Dependabot 漏洞 + 日志脱敏
 

@@ -4,7 +4,7 @@ type: "产品基础功能更新"
 priority: "高"
 date: "2026-04-16"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 
 # 版本升级浮动弹窗 + Changelog 独立页面

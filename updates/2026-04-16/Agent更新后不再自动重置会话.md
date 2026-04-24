@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "中"
 date: "2026-04-16"
 status: "待审核"
-channels: ""
+channels: "Discord+changelog"
 ---
 # Agent 更新后不再自动重置会话，需用户手动确认
 
