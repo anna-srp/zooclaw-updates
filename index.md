@@ -1,4 +1,27 @@
 # ZooClaw 更新索引
+
+## 2026-04-25
+
+- [新 Agent 上架：circe 工作流 Agent](updates/2026-04-25/01-new-agent-pack-circe.md)
+- [Agent Studio 支持分享和安装 Skill](updates/2026-04-25/02-agent-studio-share-install-skills.md)
+- [视频广告 Agent 大升级：多模式 + YouTube 下载 + 多角度生成](updates/2026-04-25/03-video-ads-duplicate-upgrade.md)
+- [订阅码激活修复：积分正确到账 + 激活日期修正](updates/2026-04-25/04-subscription-code-fix.md)
+- [Google 连接器正式上线：Gmail、日历、Drive、表格一键接入](updates/2026-04-25/05-google-connectors-production.md)
+- [对话回放与分享功能上线](updates/2026-04-25/06-chat-replay-share.md)
+- [模型选择体验优化：统一标签 + 默认模型标注](updates/2026-04-25/07-model-labels-default.md)
+- [安全修复：解决 xlsx 库 4 个高危漏洞](updates/2026-04-25/08-security-fix-xlsx-cve.md)
+- [专家 Agent 新增同意授权 + 开放对话卡片](updates/2026-04-25/09-specialist-consent-open-chat.md)
+- [iOS 新增礼品码兑换入口](updates/2026-04-25/10-gift-code-ios.md)
+- [新增 Google 服务图标（Gmail、日历、Drive、Sheets）](updates/2026-04-25/11-google-logos.md)
+- [首页展示视频：用自动播放演示替代静态截图](updates/2026-04-25/12-landing-demo-video.md)
+- [版本更新弹窗修复：What's New 正确跳转 changelog 页](updates/2026-04-25/13-whats-new-changelog-fix.md)
+- [OpenClaw 修复：正确识别命名空间 Skill 工作区](updates/2026-04-25/14-openclaw-skill-namespace-fix.md)
+- [对话分享链接修复：正确使用前端域名](updates/2026-04-25/15-chat-replay-share-link-fix.md)
+- [Artifact 预览修复与 React 生命周期优化](updates/2026-04-25/16-artifacts-preview-fix.md)
+- [结账性能优化：减少重复数据库查询](updates/2026-04-25/17-perf-checkout-cache.md)
+- [资产面板 & 支持工单界面组件化完成](updates/2026-04-25/18-components-assets-support-ticket.md)
+
+
 > 自动生成，勿手动编辑
 
 ## 2026-04-24
