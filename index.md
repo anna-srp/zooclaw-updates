@@ -1,5 +1,9 @@
 # ZooClaw 更新索引
 
+## 2026-04-26
+
+- [iOS 付费页面全新改版，升级体验更清晰](updates/2026-04-26/01-ios-paywall-redesign.md)
+
 ## 2026-04-25
 
 - [新 Agent 上架：circe 工作流 Agent](updates/2026-04-25/01-new-agent-pack-circe.md)
