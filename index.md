@@ -1,22 +1,20 @@
 # ZooClaw 更新索引
 
-## 2026-04-28
+## 2026-04-27
 
-- [功能上新弹窗升级：新增 PPTX Master 展示](updates/2026-04-28/01-pptx-master-launch-modal.md)
-- [User Guide 升级：跳转独立 Tips 站点](updates/2026-04-28/02-user-guide-tips-site.md)
-- [iOS 聊天界面点击和流式卡顿问题修复](updates/2026-04-28/03-ios-tap-gestures-fix.md)
-- [文件上传数量限制修复（上传中拖入绕限漏洞）](updates/2026-04-28/04-file-upload-limit-fix.md)
-- [文件上传稳定性提升（减少间歇性失败）](updates/2026-04-28/05-file-upload-reliability.md)
-- [切换 Agent 时保留输入框草稿](updates/2026-04-28/06-chat-draft-preserve.md)
-- [Bot 唤醒期间聊天界面不再空白等待](updates/2026-04-28/07-bot-wakeup-experience.md)
-- [TVC Studio Agent 更新至 v0.3.5](updates/2026-04-28/08-tvc-studio-0.3.5.md)
-- [Oura Ring 健康 Agent 引导体验优化](updates/2026-04-28/09-oura-ring-cta-fix.md)
-
-## 2026-04-26
-
-- [iOS 付费页面全新改版，升级体验更清晰](updates/2026-04-26/01-ios-paywall-redesign.md)
+- [功能上新弹窗升级：新增 PPTX Master 展示](updates/2026-04-27/01-pptx-master-launch-modal.md)
+- [User Guide 升级：跳转独立 Tips 站点](updates/2026-04-27/02-user-guide-tips-site.md)
+- [iOS 聊天界面点击和流式卡顿问题修复](updates/2026-04-27/03-ios-tap-gestures-fix.md)
+- [文件上传数量限制修复（上传中拖入绕限漏洞）](updates/2026-04-27/04-file-upload-limit-fix.md)
+- [文件上传稳定性提升（减少间歇性失败）](updates/2026-04-27/05-file-upload-reliability.md)
+- [切换 Agent 时保留输入框草稿](updates/2026-04-27/06-chat-draft-preserve.md)
+- [Bot 唤醒期间聊天界面不再空白等待](updates/2026-04-27/07-bot-wakeup-experience.md)
+- [TVC Studio Agent 更新至 v0.3.5](updates/2026-04-27/08-tvc-studio-0.3.5.md)
+- [Oura Ring 健康 Agent 引导体验优化](updates/2026-04-27/09-oura-ring-cta-fix.md)
 
 ## 2026-04-25
+
+- [iOS 付费页面全新改版，升级体验更清晰](updates/2026-04-25/19-ios-paywall-redesign.md)
 
 - [新 Agent 上架：circe 工作流 Agent](updates/2026-04-25/01-new-agent-pack-circe.md)
 - [Agent Studio 支持分享和安装 Skill](updates/2026-04-25/02-agent-studio-share-install-skills.md)
