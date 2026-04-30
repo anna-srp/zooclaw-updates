@@ -1,5 +1,15 @@
 # ZooClaw 更新索引
 
+## 2026-04-29
+
+- [Stock Analyst Agent 上架 — AI 智能股票分析助手](updates/2026-04-29/stock-analyst-agent-launch.md)
+- [支持导入外部 Agent 并安装到 ZooClaw](updates/2026-04-29/imported-agent-support.md)
+- [iOS 客户端 Agent 市场界面全新改版](updates/2026-04-29/ios-agents-view-redesign.md)
+- [iOS 注册引导流程全面视觉升级](updates/2026-04-29/ios-onboarding-redesign.md)
+- [安全加固：多层认证防护升级](updates/2026-04-29/security-auth-hardening.md)
+- [修复：视频 URL 安全漏洞修复](updates/2026-04-29/fix-video-url-sanitize.md)
+- [修复：Agent 安装/卸载操作更稳定可靠](updates/2026-04-29/fix-agent-async-operations.md)
+
 ## 2026-04-27
 
 - [功能上新弹窗升级：新增 PPTX Master 展示](updates/2026-04-27/01-pptx-master-launch-modal.md)

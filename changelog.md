@@ -1,5 +1,29 @@
 # ZooClaw 更新日志
 
+## 2026-04-29
+
+### 🤖 Agent 上架/更新
+
+- **Stock Analyst Agent 上架 (v0.3.0)** — 全新多 AI 角色协同股票分析 Agent，涵盖市场/基本面/情绪/新闻多维度，最终输出 BUY/HOLD/SELL 评级及完整推理链，支持 `yfinance` 实时数据。
+
+### 🚀 新功能
+
+- **支持导入外部 Agent** — 现可将外部自定义 Agent 导入并安装到 ZooClaw，灵活扩展 Agent 生态；后端持久化元数据，保留导入来源信息。
+
+### 📱 iOS 体验更新
+
+- **iOS Agent 市场界面改版** — AgentsView 采用 Zoo Square v2 EXPLORE 设计，全新渐变背景和排版；新增 Agent 更新提示 + 全局「已上岗」Toast。
+- **iOS 注册引导全流程视觉升级** — 完成 Pre-auth 和 Post-auth 双阶段改版（英雄页→姓名→角色→场景→注册→OTP→Agent 选择→通知），新用户体验大幅提升。
+
+### 🛡️ 安全修复
+
+- **多层认证防护加固** — 新增防点击劫持响应头（`X-Frame-Options: DENY` + CSP），收紧内部服务认证（仅 @srp.one 用户可访问内部接口），mini-chat embed 场景单独豁免。
+- **视频 URL 安全漏洞修复** — 修复网页端 `<video>` 标签中的 URL 注入安全问题。
+
+### 🐛 Bug 修复
+
+- **Agent 异步操作稳定性提升** — Agent 安装/卸载切换至异步 endpoint，操作完成后再刷新前端状态，集中处理轮询与失败逻辑，减少状态不同步。
+
 ## 2026-04-28
 
 ### 🚀 新功能
