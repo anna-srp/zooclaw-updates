@@ -1,5 +1,15 @@
 # ZooClaw 更新索引
 
+## 2026-04-30
+
+- [Stock Analyst Agent 上架 — AI 量化分析师帮你做投资决策](updates/2026-04-30/stock-analyst-agent.md)
+- [iOS Agent 广场全新改版，支持一键更新 Agent](updates/2026-04-30/ios-agents-view-redesign.md)
+- [iOS 新用户引导流程全面改版](updates/2026-04-30/ios-onboarding-redesign.md)
+- [OpenClaw 支持从外部导入安装 Agent](updates/2026-04-30/openclaw-imported-agent-installs.md)
+- [修复：安装/卸载 Agent 时界面卡住的问题](updates/2026-04-30/openclaw-async-agent-ops.md)
+- [安全修复：视频链接注入漏洞修复](updates/2026-04-30/security-video-url-xss-fix.md)
+- [安全加固：防止点击劫持攻击，订阅错误自动重试](updates/2026-04-30/security-auth-clickjacking.md)
+
 ## 2026-04-29
 
 - [Stock Analyst Agent 上架 — AI 智能股票分析助手](updates/2026-04-29/stock-analyst-agent-launch.md)
