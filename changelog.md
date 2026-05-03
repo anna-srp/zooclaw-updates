@@ -1,3 +1,7 @@
+## 2026-05-02
+
+> 今日无用户可感知更新（ecap-workspace 共 26 条 commits，均为内部工程变更：lint 规则调整、chore 依赖更新、refactor 重构、CI 配置、test 覆盖等；ecap-skills 和 ecap-agent-pack 无新 commits）
+
 ## 2026-05-01
 
 > 今日（2026-05-01 UTC）三个仓库均无新 commits，无用户可感知更新。
