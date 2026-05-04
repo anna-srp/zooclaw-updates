@@ -1,3 +1,7 @@
+## 2026-05-03
+
+> 今日无用户可感知更新（ecap-workspace 4 条 commits 均为内部代码重组/重命名，ecap-skills 和 ecap-agent-pack 无新 commits）
+
 ## 2026-05-02
 
 > 今日无用户可感知更新（ecap-workspace 26 条均为内部工程变更）
