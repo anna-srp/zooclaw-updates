@@ -1,3 +1,7 @@
+## 2026-05-04
+
+> 今日无用户可感知更新（三个仓库 2026-05-04 均无新 commits）
+
 ## 2026-05-03
 
 > 今日无用户可感知更新（ecap-workspace 4 条 commits 均为内部代码重组/重命名，ecap-skills 和 ecap-agent-pack 无新 commits）
