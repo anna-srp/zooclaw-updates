@@ -1,0 +1,72 @@
+# ecap-agent-pack Commits — 2026-05-06
+
+## b9b9783f — 2026-05-06
+**Author:** nolan-srp
+**SHA:** b9b9783fe902be858bb2e2fb1cc74e19cdcb4e02
+**Stats:** +94 -30 (124 changes)
+
+### Commit Message
+```
+feat(agent-studio): clarify install and share source semantics (#115)
+```
+
+### PR Description
+## Summary
+- clarify install skill source semantics around current pack, archive, and share inputs
+- expose source_kind, locator_kind, and locator_value in install previews while keeping path_type/path_value as API fields
+- update share output docs and script to prefer share_url and share_text_base64
+
+
+---
+
+## ee81b696 — 2026-05-06
+**Author:** Nemo Feng
+**SHA:** ee81b6964cebc29bfa24957feff1a005fc9ea573
+**Stats:** +117 -62 (179 changes)
+
+### Commit Message
+```
+fix(oura-ring-connector,podcast-pal): route cron delivery to agent's Mattermost bot DM (#114)
+
+* fix(oura-ring-connector,podcast-pal): route cron delivery to agent's Mattermost bot DM
+
+Both packs previously used a configurable --channel flag from `openclaw channel list`,
+which routed cron output to the default Zoo bot instead of the pack's own agent. Replace
+with required `--agent / --channel mattermost / --account / --to user:<peer_id>` flags so
+messages come from the pack's bot, and use `--silent` (oura) / `--no-deliver` (podcast)
+on jobs that should not message the user (token refresh, data refresh).
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+
+* docs(oura-ring-connector): require artifact delivery for rendered files
+
+Add a Hard Rule that the agent must never send local file paths for
+HTML/PDF/image/dashboard/report outputs — always deliver as an artifact,
+since paths aren't openable from a chat client.
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Opus 4.7 <noreply@anthropic.com>
+```
+
+### PR Description
+## Summary
+- Both `oura-ring-connector` and `podcast-pal` previously routed cron jobs through a user-picked `--channel` (from `openclaw channel list`), which delivered messages via the default Zoo bot instead of the pack's own agent identity.
+- Replaced the configurable channel with the required delivery quartet: `--agent <agent_id>`, `--channel mattermost`, `--account <agent_id>`, `--to user:<user_peer_id>` — so cron output comes from the pack's own bot DM with the user.
+- For jobs that must not message the user (oura token refresh, oura data refresh), added the silent flag (`--silent` for oura, `--no-deliver` for podcast) used **instead of** `--to`.
+- Updated onboarding SKILL.md in both packs with a new "Delivery Identity" section explaining how to resolve `<agent_id>` (via `openclaw agents list`) and `<user_peer_id>` (from the session key or `USER.md`), plus matching `agent-pack.yaml` defaults and inline comments.
+- Added `silent: true` markers in `oura-ring-connector/agent-pack.yaml` for the data-refresh and token-refresh crons.
+- Cross-referenced the delivery rules from `oura-ring/SKILL.md` so cron edits made post-onboarding reuse the same flags.
+
+## Test plan
+- [ ] Run `openclaw cron add` for `oura-morning-briefing` and confirm the briefing arrives as a DM from the oura agent's bot (not the default Zoo bot).
+- [ ] Run `openclaw cron run` against `oura-token-refresh` and `oura-data-refresh` and confirm no message is delivered to the user (silent path).
+- [ ] Trigger the `podcast-pal` daily-briefing cron and confirm DM delivery from the podcast-pal bot.
+- [ ] Walk through the `pack-onboarding` SKILL.md for both packs end-to-end and confirm the agent_id / peer_id resolution flow works (session key → `USER.md` fallback → ask once).
+- [ ] Verify proactive-poll cron (oura) only delivers when `should_notify=true`.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+---

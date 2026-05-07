@@ -1,3 +1,20 @@
+
+## 2026-05-06
+
+- [支付履约流程原子化——解决订阅状态写入失败问题](updates/2026-05-06/dd3c1f56.md)
+- [Chat 输入框快捷动作栏上线（Quick start / Clear Context / Compress / Tips）](updates/2026-05-06/136e92c5.md)
+- [Chat 中视频改为紧凑缩略图 + 点击全屏播放](updates/2026-05-06/f3c7a5ff.md)
+- [应用页面 URL 去除语言前缀（/en/chat → /chat）](updates/2026-05-06/56b0164e.md)
+- [修复订阅到期时 Bot 资源未正确回收的问题](updates/2026-05-06/52c61a37.md)
+- [官网首页 Demo 视频改为手动播放 + 原生控制条](updates/2026-05-06/ff3e8183.md)
+- [页面加载异常时自动恢复，减少因部署导致的白屏](updates/2026-05-06/be662c63.md)
+- [iOS Chat 键盘交互优化——滚动时不再意外收起键盘](updates/2026-05-06/c5bb5425.md)
+- [新用户首次访问自动识别浏览器语言](updates/2026-05-06/0ebb51d3.md)
+- [iOS 1.6.0 — 图片/视频保存相册、Lightbox 全屏预览、对话体验优化](updates/2026-05-06/a02700fe.md)
+- [Agent Studio 安装与分享流程说明优化](updates/2026-05-06/b9b9783f.md)
+- [修复 Oura Ring / Podcast Pal 定时推送路由错误](updates/2026-05-06/ee81b696.md)
+
+
 ## 2026-05-05
 
 今日无用户可感知更新。
