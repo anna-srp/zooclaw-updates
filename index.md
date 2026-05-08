@@ -1,4 +1,14 @@
 
+## 2026-05-07
+
+- [企业微信（WeCom）渠道正式上线](updates/2026-05-07/wecom-channel-launch.md)
+- [修复 Agent Studio /studio install 安装失败问题](updates/2026-05-07/agent-studio-install-fix.md)
+- [修复 UC 浏览器打开落地页崩溃问题](updates/2026-05-07/uc-browser-crash-fix.md)
+- [修复表格内图片无法点击放大预览](updates/2026-05-07/table-image-preview-fix.md)
+- [语音识别准确率提升：产品名词识别更准](updates/2026-05-07/asr-recognition-improvement.md)
+- [订阅页面补充年付总价展示](updates/2026-05-07/subscription-annual-price-display.md)
+- [引导流程与启动加载页支持深色模式](updates/2026-05-07/onboarding-dark-mode.md)
+
 ## 2026-05-06
 
 - [支付履约流程原子化——解决订阅状态写入失败问题](updates/2026-05-06/dd3c1f56.md)
