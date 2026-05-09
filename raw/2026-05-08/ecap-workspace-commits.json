@@ -1,0 +1,166 @@
+[
+  {
+    "sha": "0a4f118fc7ff741573c633c8d482be03687d51e2",
+    "node_id": "C_kwDORc_p4NoAKDBhNGYxMThmYzdmZjc0MTU3M2M2MzNjOGQ0ODJiZTAzNjg3ZDUxZTI",
+    "commit": {
+      "author": {
+        "name": "sam-srp",
+        "email": "sam@srp.one",
+        "date": "2026-05-08T07:58:11Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-05-08T07:58:11Z"
+      },
+      "message": "fix(web): surface componentStack to Sentry from chat ErrorBoundary (#1572)\n\n## Summary\n- `ChatErrorBoundary` (`web/src/app/[locale]/chat/GenClawClient.tsx`)\nauto-recovers render crashes by remounting children with a fresh `key`.\nIt currently only `logger.warn`s, so any error caught here — including\nthe recurring `Maximum update depth exceeded` (React #185) — never\nreaches Sentry. We've been blind to which component is looping.\n- Add a throttled `captureChatError('render_recovery', ...)` call that\nincludes `componentStack` and a `recoveryCount`. The 2s/per-message\nthrottle prevents a render loop (50+ throws/sec) from flooding the local\nbreadcrumb buffer and crowding out the actual cause.\n- Improve the global `ErrorBoundary`\n(`web/src/components/ErrorBoundary.tsx`): add `tags.boundary = 'global'`\nand mirror `componentStack` into `extra` so it's visible in Sentry's\nissue list view, not just inside the React context tab.\n\n## Why\nSentry issue ECAP-WEBSITE-MA (`Maximum update depth exceeded`) keeps\nfiring on `/chat` with no React component stack — debugging is stuck on\nminified call stacks. With this change, the next occurrence will surface\nthe exact React component tree path (e.g. `TooltipContent →\nDismissableLayer → Popper`), letting us pinpoint the looping component\nwithout enabling production source maps.\n\nNo behavior change for users — auto-recovery flow in `ChatErrorBoundary`\nis preserved.\n\n## Test plan\n- [ ] `cd web && npx tsc --noEmit` passes\n- [ ] `cd web && pnpm lint` passes (already ran via pre-commit)\n- [ ] In dev, throw a synthetic error inside the chat thread and\nconfirm: (a) UI auto-recovers as before, (b) a `monitor:chat` +\n`chat_feature:render_recovery` event lands in Sentry with\n`componentStack` populated\n- [ ] Trigger an error outside the chat thread (e.g. SideNav) and\nconfirm the global boundary captures with `boundary:global` tag and\n`extra.componentStack`\n\n---------\n\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+      "tree": {
+        "sha": "80fe64ea4f67776b9a52b27fc34a224a5288e4f9",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/trees/80fe64ea4f67776b9a52b27fc34a224a5288e4f9"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/commits/0a4f118fc7ff741573c633c8d482be03687d51e2",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp/ZejCRC1aQ7uu5UhlAAAitQQAE6KEFvK9j3Pw0jEKMQY1Emf\n+PFae87zCAXspvFlKW6tahaiJHNxYFMZa/EHsS/GGHb5Gq/RbGeCt+KPR2Co+oZg\nRmNcg0W33z38QFVZn5KIv5qEt1DzUFfXIyEZncv441sIaLSa0ukbe3cWTRUnLoMn\n9CpOL7DZa8soBxvQSnG0QLAJ+xlQFG0uPWnj8ovhfJDXUyD/YMhwLa/c3CVJ762v\nnwTJxDqae36I8Yf3kHp1d2I6Cj6KODJmhBMs0dlKtc1CdmGz7BtK0VpMI8BJ9A17\nPL/4nod1rHmn8n5IUTqwOSD2FAGwAFI6Ymqzgx+wSsiSmkTutiNUfKI8KVLadqzn\np4e4Ugh4Ua0Z7ArpErfWEgtP6ovK8jp7f5WMWNcX/jt3UD93sR50Jx8xybY9ojep\nMD9F/ZggL0/nY0+XpCyOj/EKKOmnKrMpmPmTaBa0ShdiK/HDppjSC4mRBsAYH+JC\nePz3csjxQkle0iUrkcT5AkZI3NcFfDMZ+zXVefkeUoFf+Pi57LdSglRa88TX0P3a\n7zprK/kqM/CFePZvjdUkgUo0LanNYGBplC/oGSn0nnklLT3YnvSV02Vcua9n8h25\nVoheRK+c4hIiaA5QcUYUFqK47v1x/DFtBeJerH+geMyRlbLMLsBaD7Y4z8WYl1/A\nEixQNSv8AqdSjk/vZoR3\n=a/m+\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 80fe64ea4f67776b9a52b27fc34a224a5288e4f9\nparent 13d0a4f0d6b1b5fc629e1b36b3bd6de8cdbc718e\nauthor sam-srp <sam@srp.one> 1778227091 +0800\ncommitter GitHub <noreply@github.com> 1778227091 +0000\n\nfix(web): surface componentStack to Sentry from chat ErrorBoundary (#1572)\n\n## Summary\n- `ChatErrorBoundary` (`web/src/app/[locale]/chat/GenClawClient.tsx`)\nauto-recovers render crashes by remounting children with a fresh `key`.\nIt currently only `logger.warn`s, so any error caught here — including\nthe recurring `Maximum update depth exceeded` (React #185) — never\nreaches Sentry. We've been blind to which component is looping.\n- Add a throttled `captureChatError('render_recovery', ...)` call that\nincludes `componentStack` and a `recoveryCount`. The 2s/per-message\nthrottle prevents a render loop (50+ throws/sec) from flooding the local\nbreadcrumb buffer and crowding out the actual cause.\n- Improve the global `ErrorBoundary`\n(`web/src/components/ErrorBoundary.tsx`): add `tags.boundary = 'global'`\nand mirror `componentStack` into `extra` so it's visible in Sentry's\nissue list view, not just inside the React context tab.\n\n## Why\nSentry issue ECAP-WEBSITE-MA (`Maximum update depth exceeded`) keeps\nfiring on `/chat` with no React component stack — debugging is stuck on\nminified call stacks. With this change, the next occurrence will surface\nthe exact React component tree path (e.g. `TooltipContent →\nDismissableLayer → Popper`), letting us pinpoint the looping component\nwithout enabling production source maps.\n\nNo behavior change for users — auto-recovery flow in `ChatErrorBoundary`\nis preserved.\n\n## Test plan\n- [ ] `cd web && npx tsc --noEmit` passes\n- [ ] `cd web && pnpm lint` passes (already ran via pre-commit)\n- [ ] In dev, throw a synthetic error inside the chat thread and\nconfirm: (a) UI auto-recovers as before, (b) a `monitor:chat` +\n`chat_feature:render_recovery` event lands in Sentry with\n`componentStack` populated\n- [ ] Trigger an error outside the chat thread (e.g. SideNav) and\nconfirm the global boundary captures with `boundary:global` tag and\n`extra.componentStack`\n\n---------\n\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+        "verified_at": "2026-05-08T07:58:28Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/0a4f118fc7ff741573c633c8d482be03687d51e2",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/0a4f118fc7ff741573c633c8d482be03687d51e2",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/0a4f118fc7ff741573c633c8d482be03687d51e2/comments",
+    "author": {
+      "login": "sam-srp",
+      "id": 178765097,
+      "node_id": "U_kgDOCqe9KQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/178765097?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sam-srp",
+      "html_url": "https://github.com/sam-srp",
+      "followers_url": "https://api.github.com/users/sam-srp/followers",
+      "following_url": "https://api.github.com/users/sam-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sam-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sam-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sam-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/sam-srp/orgs",
+      "repos_url": "https://api.github.com/users/sam-srp/repos",
+      "events_url": "https://api.github.com/users/sam-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sam-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "13d0a4f0d6b1b5fc629e1b36b3bd6de8cdbc718e",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/13d0a4f0d6b1b5fc629e1b36b3bd6de8cdbc718e",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/13d0a4f0d6b1b5fc629e1b36b3bd6de8cdbc718e"
+      }
+    ]
+  },
+  {
+    "sha": "13d0a4f0d6b1b5fc629e1b36b3bd6de8cdbc718e",
+    "node_id": "C_kwDORc_p4NoAKDEzZDBhNGYwZDZiMWI1ZmM2MjllMWIzNmIzYmQ2ZGU4Y2RiYzcxOGU",
+    "commit": {
+      "author": {
+        "name": "kaka-srp",
+        "email": "kaka@srp.one",
+        "date": "2026-05-08T07:13:32Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-05-08T07:13:32Z"
+      },
+      "message": "feat(agents): agent-studio uses 1/10 sonnet, hide from picker (#1573)\n\n## Summary\n\nTwo threads, both centered on Linear\n[ECA-636](https://linear.app/srpone/issue/ECA-636)'s \"Agent Studio gets\na 1/10-priced Sonnet variant\":\n\n1. **Wire `agent-studio-sonnet-4-6` into the `agent_studio` builtin\nagent at hire time.** `apply_agents_list` now reads `meta[\"model\"]` from\nthe catalog row and writes `{\"primary\":\n\"openai/agent-studio-sonnet-4-6\"}` into the per-agent entry. Catalog row\nin code (`LEGACY_OFFICIAL_AGENT_MAP`) gains the field; the staging Mongo\nrow was already patched manually before this PR (prod still owes the\nsame `PATCH /openclaw/internal/agent-catalog/agent_studio`).\n2. **Consolidate the user-facing model-id filter on the backend.** New\n`INTERNAL_MODEL_IDS` (exact) + `INTERNAL_MODEL_SUBSTRINGS`\n(case-insensitive) constants in `plan_models.py` plus\n`is_internal_model` / `filter_internal_models` helpers. Both\n`resolve_models_by_type` and `resolve_models_for_plan` apply the filter,\nso the `/openclaw/settings` `available_models` payload and the\n`update_model` validation see the same hidden list. Two duplicate\nfrontend `embedding` filters (`ModelSection.tsx`,\n`AgentModelSection.tsx`) deleted now that the backend is canonical.\n\nEnd-to-end verified on staging: hired `agent_studio` for a test account,\nconfirmed the model id flowed all the way to\n`/home/node/.openclaw/openclaw.json` on the bot pod, observed the\nOpenClaw runtime fallback chain via `[model-fallback/decision]` logs,\nthen confirmed the discount price after LiteLLM team-group access was\nadded by the platform team.\n\n## Test plan\n\n- [x] Backend unit tests: `test_plan_models.py` (10 new),\n`test_agent_catalog.py` (1 new),\n`test_openclaw_agents.py::TestApplyAgentsList` (4 new) — all green\n- [x] Frontend unit tests: `ModelSection.unit.spec.tsx`,\n`AgentModelSection.unit.spec.tsx` — all green\n- [x] ruff / pyright / ESLint clean on touched files\n- [x] Manual E2E on staging: hire `agent_studio`, verify\n`agents.list[].model.primary` in bot's `openclaw.json`, verify upstream\nmodel in chat\n- [ ] CI green (`code-quality / lint-and-test` + `python-code-quality /\nbuild-and-test`)\n\n## Rollout note\n\nProduction deploy still requires a one-time `agent_catalog` row patch:\n\\`\\`\\`bash\ncurl -X PATCH\n\"\\$CLAW_INTERFACE_URL/openclaw/internal/agent-catalog/agent_studio\" \\\\\n  -H 'content-type: application/json' -H \"\\$INTERNAL_AUTH_HEADER\" \\\\\n  -d '{\"model\": \"openai/agent-studio-sonnet-4-6\"}'\n\\`\\`\\`\nCode-only deploy without this patch is a no-op for users on prod (their\nDB row still has no \\`model\\` field).",
+      "tree": {
+        "sha": "d852dab7c5a4db493d514115c3a195236e910ba8",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/trees/d852dab7c5a4db493d514115c3a195236e910ba8"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/commits/13d0a4f0d6b1b5fc629e1b36b3bd6de8cdbc718e",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp/Y0cCRC1aQ7uu5UhlAAAtxsQABy6pdq7eeITIxfQ08D2P+XQ\nPJyGgIKQtuPjIqUyj/Ho4Zk3jatI9n2SdNf4h2e2aMSWpgbK0QOrJz/W/T2V3Ucm\n/vM+yiBGAhH5JFfozA00vBE/19RfX5xs7t995Wq3aZnJV824dCK7uigTOGqPEBF6\nWSbcwRXVOBvd0leo6k3iLhmw8Pyqk67ooAXSr4Y7Rmpwst2gshSNCyw8iLq8VVUr\nq0qHZBr3pdtxRVJHypVTAX3/se97Y985L9ilXgAy5U1V7jc8sbc5S8TIow8cE7XD\nqXINGYH+wJTpnPjG29JdjOWNJAcRjex7zJpw5FRSMIC2Q8wNIyI6zmZPhmctUGn4\njlG7snjoYOOh2+CR7Esc9BLZzdnQ+1FyFGr+Edt4vL3JnIaADs2TqxgmzS9pYc20\nvfUzzuJUQFhXTNbavImIxNwln+9bJlart+khTSuZ3QBprUQqfAo/lK8U9/4lWO08\nZiHG+hpi/ZotB/Sg5QXZO46Cfs+X1F4VghedGANOa0Ff208WHnh8qkuEWwYGNpDY\nSWto86I4EcW4udkzFp54oVuQ6aqb/Q4fzZqO0cDUqCXf5gHyBkIhjes6qlx9/d2z\nG14XSp+O+NP/w3z/gFCp0C/mHOF6Lq7i6tW4RqaX8sCPQkymJg9pmbAFXxAAVTBL\nu9ovwtE1i03gIYv0vb0n\n=+jje\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d852dab7c5a4db493d514115c3a195236e910ba8\nparent 67f57864eddad17e8fcbf90466cc8f829bb41a5b\nauthor kaka-srp <kaka@srp.one> 1778224412 +0800\ncommitter GitHub <noreply@github.com> 1778224412 +0800\n\nfeat(agents): agent-studio uses 1/10 sonnet, hide from picker (#1573)\n\n## Summary\n\nTwo threads, both centered on Linear\n[ECA-636](https://linear.app/srpone/issue/ECA-636)'s \"Agent Studio gets\na 1/10-priced Sonnet variant\":\n\n1. **Wire `agent-studio-sonnet-4-6` into the `agent_studio` builtin\nagent at hire time.** `apply_agents_list` now reads `meta[\"model\"]` from\nthe catalog row and writes `{\"primary\":\n\"openai/agent-studio-sonnet-4-6\"}` into the per-agent entry. Catalog row\nin code (`LEGACY_OFFICIAL_AGENT_MAP`) gains the field; the staging Mongo\nrow was already patched manually before this PR (prod still owes the\nsame `PATCH /openclaw/internal/agent-catalog/agent_studio`).\n2. **Consolidate the user-facing model-id filter on the backend.** New\n`INTERNAL_MODEL_IDS` (exact) + `INTERNAL_MODEL_SUBSTRINGS`\n(case-insensitive) constants in `plan_models.py` plus\n`is_internal_model` / `filter_internal_models` helpers. Both\n`resolve_models_by_type` and `resolve_models_for_plan` apply the filter,\nso the `/openclaw/settings` `available_models` payload and the\n`update_model` validation see the same hidden list. Two duplicate\nfrontend `embedding` filters (`ModelSection.tsx`,\n`AgentModelSection.tsx`) deleted now that the backend is canonical.\n\nEnd-to-end verified on staging: hired `agent_studio` for a test account,\nconfirmed the model id flowed all the way to\n`/home/node/.openclaw/openclaw.json` on the bot pod, observed the\nOpenClaw runtime fallback chain via `[model-fallback/decision]` logs,\nthen confirmed the discount price after LiteLLM team-group access was\nadded by the platform team.\n\n## Test plan\n\n- [x] Backend unit tests: `test_plan_models.py` (10 new),\n`test_agent_catalog.py` (1 new),\n`test_openclaw_agents.py::TestApplyAgentsList` (4 new) — all green\n- [x] Frontend unit tests: `ModelSection.unit.spec.tsx`,\n`AgentModelSection.unit.spec.tsx` — all green\n- [x] ruff / pyright / ESLint clean on touched files\n- [x] Manual E2E on staging: hire `agent_studio`, verify\n`agents.list[].model.primary` in bot's `openclaw.json`, verify upstream\nmodel in chat\n- [ ] CI green (`code-quality / lint-and-test` + `python-code-quality /\nbuild-and-test`)\n\n## Rollout note\n\nProduction deploy still requires a one-time `agent_catalog` row patch:\n\\`\\`\\`bash\ncurl -X PATCH\n\"\\$CLAW_INTERFACE_URL/openclaw/internal/agent-catalog/agent_studio\" \\\\\n  -H 'content-type: application/json' -H \"\\$INTERNAL_AUTH_HEADER\" \\\\\n  -d '{\"model\": \"openai/agent-studio-sonnet-4-6\"}'\n\\`\\`\\`\nCode-only deploy without this patch is a no-op for users on prod (their\nDB row still has no \\`model\\` field).",
+        "verified_at": "2026-05-08T07:13:33Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/13d0a4f0d6b1b5fc629e1b36b3bd6de8cdbc718e",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/13d0a4f0d6b1b5fc629e1b36b3bd6de8cdbc718e",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/13d0a4f0d6b1b5fc629e1b36b3bd6de8cdbc718e/comments",
+    "author": {
+      "login": "kaka-srp",
+      "id": 178872848,
+      "node_id": "U_kgDOCqliEA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/178872848?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kaka-srp",
+      "html_url": "https://github.com/kaka-srp",
+      "followers_url": "https://api.github.com/users/kaka-srp/followers",
+      "following_url": "https://api.github.com/users/kaka-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kaka-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kaka-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kaka-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/kaka-srp/orgs",
+      "repos_url": "https://api.github.com/users/kaka-srp/repos",
+      "events_url": "https://api.github.com/users/kaka-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kaka-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "67f57864eddad17e8fcbf90466cc8f829bb41a5b",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/67f57864eddad17e8fcbf90466cc8f829bb41a5b",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/67f57864eddad17e8fcbf90466cc8f829bb41a5b"
+      }
+    ]
+  }
+]

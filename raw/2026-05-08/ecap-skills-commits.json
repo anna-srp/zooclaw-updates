@@ -1,0 +1,84 @@
+[
+  {
+    "sha": "a99372e01f59c121e28d62893a845f1e3f525cfc",
+    "node_id": "C_kwDORcceptoAKGE5OTM3MmUwMWY1OWMxMjFlMjhkNjI4OTNhODQ1ZjFlM2Y1MjVjZmM",
+    "commit": {
+      "author": {
+        "name": "allenz-srp",
+        "email": "allenz@srp.one",
+        "date": "2026-05-08T12:31:12Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-05-08T12:31:12Z"
+      },
+      "message": "chore(devcontainer): wire @zooclaw/web-fetch into openclaw config (#192)\n\nAdds the zooclaw-web-fetch plugin entry under plugins.entries and sets\ntools.web.fetch.provider=\"zooclaw\" so the devcontainer dispatches\nweb_fetch through the new plugin once openclaw-docker bakes it into\nthe image (ECA-624 W2 work).\n\nThe plugin is configured with no inline config — proxyUrl (from\nECAP_PROXY_BASE_URL) and the bearer token (from USER_INTERNAL_TOKEN)\nare both injected by initializeCommand.sh's fastclaw deployment.env\nfetch.\n\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+      "tree": {
+        "sha": "3a8bc195dd6d959f0ed09538843be8e1fa342210",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/trees/3a8bc195dd6d959f0ed09538843be8e1fa342210"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/commits/a99372e01f59c121e28d62893a845f1e3f525cfc",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp/deQCRC1aQ7uu5UhlAAAUTAQAE6Ik9ORxt1YEpe/vz4MittE\nNV6jK/nTGg7CdtiuRhKF02LN1qw+B7945xNTm46s9H5tj8ul7ub0br0Nv5kg5l9P\ns9kFz+8mKQzcFgU28R2Ay1BfreZdAYdmunuaw/vAxWHEcLiwN9jEw4N+Wmdlo3pL\nMBcMWWxejBjKhyy0+DYS6WROb0qJC8K4m8mkHvolm3pExaBLTiq3Zzf8aSV7SOro\nooOSHi9syVslGJxszu9riPl8XZ7UJhRdISarkzF9RIU0FtwNoYfy4zEnE5SmCQqQ\nfSFPkgTzhzlOPRC0JO0ZFz+Ku7zx1YqCptLb/k+A/a1OZeJwD4saUA0FpW+p+Irk\nDB6xHJg/cKmrgJnWa1qPwcPCjUrUjwGMhacLu/YDfHa9aEsQUpIbUDR3t7GBJaJC\nxv3cAFLcvUczrsJH4inmyL6zDH7RbU2jTk7IquxE0+/da6JJTUBV4jiaREwIJ1v/\nqOizWxl4Sn7Mw+aZQ/ANYR9bwnCQ2XD17+0MZeE+N7bgWlTlGg59sl11UAeYtoBr\nkQMj0F1kfgENnHghWCQYR8kBPGdBvnuAgJ1kmj/ty/I2HcLGu4GtohmH6HHoyUJ6\nxijiEI+VcaOMQ0RSLU1HToz9pQheUIqGYKHqQT3nIAv64PlYp5Np4TVW74lyorLH\nShDUKMnwRfadaLMdZNCp\n=tzVa\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 3a8bc195dd6d959f0ed09538843be8e1fa342210\nparent dee99ccd2671494e9168bc9365f1a78d74a45396\nauthor allenz-srp <allenz@srp.one> 1778243472 +0800\ncommitter GitHub <noreply@github.com> 1778243472 +0800\n\nchore(devcontainer): wire @zooclaw/web-fetch into openclaw config (#192)\n\nAdds the zooclaw-web-fetch plugin entry under plugins.entries and sets\ntools.web.fetch.provider=\"zooclaw\" so the devcontainer dispatches\nweb_fetch through the new plugin once openclaw-docker bakes it into\nthe image (ECA-624 W2 work).\n\nThe plugin is configured with no inline config — proxyUrl (from\nECAP_PROXY_BASE_URL) and the bearer token (from USER_INTERNAL_TOKEN)\nare both injected by initializeCommand.sh's fastclaw deployment.env\nfetch.\n\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+        "verified_at": "2026-05-08T12:31:13Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/a99372e01f59c121e28d62893a845f1e3f525cfc",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/a99372e01f59c121e28d62893a845f1e3f525cfc",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/a99372e01f59c121e28d62893a845f1e3f525cfc/comments",
+    "author": {
+      "login": "allenz-srp",
+      "id": 176031227,
+      "node_id": "U_kgDOCn4F-w",
+      "avatar_url": "https://avatars.githubusercontent.com/u/176031227?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/allenz-srp",
+      "html_url": "https://github.com/allenz-srp",
+      "followers_url": "https://api.github.com/users/allenz-srp/followers",
+      "following_url": "https://api.github.com/users/allenz-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/allenz-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/allenz-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/allenz-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/allenz-srp/orgs",
+      "repos_url": "https://api.github.com/users/allenz-srp/repos",
+      "events_url": "https://api.github.com/users/allenz-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/allenz-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "dee99ccd2671494e9168bc9365f1a78d74a45396",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/dee99ccd2671494e9168bc9365f1a78d74a45396",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/dee99ccd2671494e9168bc9365f1a78d74a45396"
+      }
+    ]
+  }
+]

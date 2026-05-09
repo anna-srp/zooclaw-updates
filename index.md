@@ -1,3 +1,7 @@
+## 2026-05-08
+
+- [Agent Studio 成本大幅优化，运行费用降至原来 1/10](updates/2026-05-08/agent-studio-sonnet-cost-optimization.md)
+
 
 ## 2026-05-07
 
