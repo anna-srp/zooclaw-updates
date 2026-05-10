@@ -1,3 +1,10 @@
+## 2026-05-09
+
+- [订阅状态修复：解决「无法取消订阅」报错及计费数据漂移](updates/2026-05-09/fix-stripe-mongo-subscription-drift.md)
+- [修复：Apple 订阅到期后账户权益正确终止](updates/2026-05-09/fix-apple-subscription-terminate.md)
+- [修复：邀请码试用期正确终止，新增订阅对账机制](updates/2026-05-09/fix-trial-billing-terminate-reconciler.md)
+- [「立即刷新」按钮修复：Bot 升级现在真的会立刻生效](updates/2026-05-09/fix-refresh-now-bot-upgrade.md)
+
 ## 2026-05-08
 
 - [Agent Studio 成本大幅优化，运行费用降至原来 1/10](updates/2026-05-08/agent-studio-sonnet-cost-optimization.md)
