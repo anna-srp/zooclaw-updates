@@ -1,3 +1,12 @@
+## 2026-05-11
+
+- [图片生成 Designer：智能选择最优模型 + 记忆用户偏好](updates/2026-05-11/designer-per-task-model-selection.md)
+- [已登录用户访问首页自动跳转聊天](updates/2026-05-11/web-logged-in-redirect-to-chat.md)
+- [修复：重建 Claw 后不再被迫走注册引导流程](updates/2026-05-11/fix-recreate-skip-onboarding.md)
+- [从 Specialist 落地页进入聊天，自动激活并投递初始问题](updates/2026-05-11/web-specialist-landing-auto-hire.md)
+- [修复：重建 Claw 后邀请码状态正确保留](updates/2026-05-11/fix-invite-code-recreate.md)
+- [新 Agent 上架：Leo 健身教练 🦁（leofit v4.2.1）](updates/2026-05-11/leofit-agent-launch.md)
+
 ## 2026-05-10
 
 （今日无用户可感知更新）
