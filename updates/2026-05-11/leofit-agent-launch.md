@@ -4,7 +4,7 @@ type: "Agent 上架/更新"
 priority: "高"
 date: "2026-05-11"
 status: "待审核"
-channels: ""
+channels: "站内弹窗, 社媒素材, Use Case, Discord, changelog, KOL, EDM"
 ---
 
 # 新 Agent 上架：Leo 健身教练 🦁（leofit v4.2.1）

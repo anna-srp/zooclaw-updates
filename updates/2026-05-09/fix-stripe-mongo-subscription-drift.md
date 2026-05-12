@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "高"
 date: "2026-05-09"
 status: "待审核"
-channels: ""
+channels: "Discord, changelog"
 ---
 # 订阅状态修复：解决「无法取消订阅」报错及计费数据漂移
 

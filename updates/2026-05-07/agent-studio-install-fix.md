@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "高"
 date: "2026-05-07"
 status: "待审核"
-channels: ""
+channels: "Discord, changelog"
 ---
 # 修复 Agent Studio /studio install 安装失败问题
 

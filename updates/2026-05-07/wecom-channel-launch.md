@@ -4,7 +4,7 @@ type: "新功能上线"
 priority: "高"
 date: "2026-05-07"
 status: "待审核"
-channels: ""
+channels: "站内弹窗, 社媒素材, Use Case, Discord, changelog, KOL, EDM"
 ---
 # 企业微信（WeCom）渠道正式上线
 

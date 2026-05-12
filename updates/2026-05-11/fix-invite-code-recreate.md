@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "中"
 date: "2026-05-11"
 status: "待审核"
-channels: ""
+channels: "Discord, changelog"
 ---
 
 # 修复：重建 Claw 后邀请码状态正确保留

@@ -4,7 +4,7 @@ type: "产品基础功能更新"
 priority: "中"
 date: "2026-05-08"
 status: "待审核"
-channels: ""
+channels: "Discord, changelog"
 ---
 
 # Agent Studio 成本大幅优化，运行费用降至原来 1/10

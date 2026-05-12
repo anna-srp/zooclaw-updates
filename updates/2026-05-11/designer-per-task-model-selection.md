@@ -4,7 +4,7 @@ type: "Skill 上架/更新"
 priority: "高"
 date: "2026-05-11"
 status: "待审核"
-channels: ""
+channels: "站内弹窗, Use Case, Discord, changelog"
 ---
 
 # 图片生成 Designer：智能选择最优模型 + 记忆用户偏好

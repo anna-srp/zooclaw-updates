@@ -4,7 +4,7 @@ type: "产品基础功能更新"
 priority: "中"
 date: "2026-05-11"
 status: "待审核"
-channels: ""
+channels: "Discord, changelog"
 ---
 
 # 已登录用户访问首页自动跳转聊天

@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "高"
 date: "2026-05-09"
 status: "待审核"
-channels: ""
+channels: "Discord, changelog"
 ---
 # 修复：Apple 订阅到期后账户权益正确终止
 

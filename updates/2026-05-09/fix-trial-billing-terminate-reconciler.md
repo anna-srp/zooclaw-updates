@@ -4,7 +4,7 @@ type: "Bug Fix"
 priority: "高"
 date: "2026-05-09"
 status: "待审核"
-channels: ""
+channels: "Discord, changelog"
 ---
 # 修复：邀请码试用期正确终止，新增订阅对账机制
 
