@@ -1,0 +1,13 @@
+[
+  {
+    "sha": "043b48de1c8038720f89f54ab26460168cdf41aa",
+    "short_sha": "043b48de",
+    "title": "feat(leofit): add leofit 4.2.1 agent pack (#119)",
+    "message": "feat(leofit): add leofit 4.2.1 agent pack (#119)\n\n* feat(leofit): add leofit 4.2.1 agent pack\n\nAI fitness coach with 11 skills covering profile setup, weekly planner,\nworkout logger, 123-exercise library with muscle maps, nutrition tracking,\nprogress analytics, smart reminders, and AI coaching.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n* fix(leofit): remove ReDoS-prone alternation in muscle-map regex\n\n`[^>]` already matches `\\n`, so the `(?:[^>]|\\n)*?` alternation was\nredundant and caused catastrophic backtracking on inputs starting with\n`<path` followed by many newlines. Replace with `[^>]*` — same matches,\nlinear time.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: vincent-srp <180138700+vincent-srp@users.noreply.github.com>\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+    "author": "vincent-srp",
+    "date": "2026-05-11T05:16:48Z",
+    "pr_number": "119",
+    "pr_title": "feat(leofit): add leofit 4.2.1 agent pack",
+    "pr_body": "## Summary\n- New `leofit/` agent pack — AI fitness coach (Leo 🦁), v4.2.1, unpacked from `build/leofit-v4-20260507-0706.tar.gz`.\n- 11 skills: fitpack-init, CARD-STYLE, LANGUAGE, fit-profile, fit-planner, fit-logger, fit-exercises, fit-nutrition, fit-progress, fit-remind, fit-coach.\n- Bundled data: 123-exercise library, muscle-activation maps (PNG + SVG), foods database.\n\n## Test plan\n- [ ] `agent-pack.yaml` parses; all 11 declared skills resolve to existing `skills/<name>/SKILL.md`.\n- [ ] No sensitive files staged (no `.env`, keys, or credentials).\n- [ ] Install dry-run: `openclaw install leofit` from this branch.\n- [ ] Smoke check `fitpack-init` onboarding flow end-to-end.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+  }
+]
