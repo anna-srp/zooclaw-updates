@@ -1,3 +1,10 @@
+## 2026-05-12
+
+- [修复深链进入时登录弹窗意外关闭的问题](updates/2026-05-12/fix-login-modal-deep-link.md)
+- [统一主 Bot 与自定义 Agent 的消息输出节奏](updates/2026-05-12/fix-agent-streaming-consistency.md)
+- [修复会话标题生成导致的鉴权异常及安全隐患](updates/2026-05-12/fix-session-title-auth-error.md)
+- [Agent Studio v1.1.0 上线：发布/安装/分享流程全面加固](updates/2026-05-12/feat-agent-studio-v1.1.0.md)
+
 ## 2026-05-11
 
 - [图片生成 Designer：智能选择最优模型 + 记忆用户偏好](updates/2026-05-11/designer-per-task-model-selection.md)
