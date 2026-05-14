@@ -1,0 +1,84 @@
+[
+  {
+    "sha": "27552e6755dc094942c40f44586cdfa0819fb5f0",
+    "node_id": "C_kwDORcceptoAKDI3NTUyZTY3NTVkYzA5NDk0MmM0MGY0NDU4NmNkZmEwODE5ZmI1ZjA",
+    "commit": {
+      "author": {
+        "name": "bill-srp",
+        "email": "bill@srp.one",
+        "date": "2026-05-13T07:29:27Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-05-13T07:29:27Z"
+      },
+      "message": "feat(zooclaw-connectors): add skill for third-party connector access via ecap-proxy-service (#194)\n\n* feat(integrations): add skill for third-party connector access via ecap-proxy-service\n\nThin CLI wrapper around the ecap-proxy-service /integrations/* API so an agent\ncan discover what the user has connected (GitHub, Linear, Slack, Notion, Google\nservices, etc.) and invoke tools without per-service skills.\n\n- Single integrations.py with subcommands: list-connectors, list-connections,\n  list-tools <provider>, execute <provider> <action>.\n- Auth mode picked from env: USER_INTERNAL_TOKEN (User-JWT) takes priority over\n  ECAP_PROXY_API_KEY + ECAP_END_USER_ID (Service-key). end_user_id is sent only\n  via X-End-User-Id header (proxy refuses it in body/query).\n- One HTTP call per invocation. Two-phase write confirmation is owned by the\n  agent: first call returns summary, agent shows it, second call re-invokes with\n  --confirmed. Script stays stateless.\n- User-Agent: ecap-skill/1.0 on every call per CLAUDE.md §2.\n- Upstream JSON error envelopes surfaced as-is on stderr so error_code and\n  recovery_hint reach the agent.\n\nCompliance:\n- C1: only canonical env names; no alias fallback.\n- C3: requires.env == os.getenv calls without defaults (ECAP_PROXY_BASE_URL).\n- C4: .env.example omitted — all env vars are platform-injected.\n- C5: USER_INTERNAL_TOKEN / ECAP_PROXY_API_KEY / ECAP_END_USER_ID read with \"\"\n  defaults; documented in Prerequisites as optional overrides.\n- C6: {baseDir}/scripts/... paths, Path Resolution Rule at top, no .claude/skills/\n  substring. Verified locally via .github/scripts/lint_skills.py.\n\n* refactor(zooclaw-connectors): rename skill from integrations\n\n- Directory: integrations/ → zooclaw-connectors/\n- Script: integrations.py → zooclaw-connectors.py\n- SKILL.md frontmatter name + title + path-resolution rule + Quick Start\n  examples updated to the new name.\n\nReferences to the proxy's /integrations/* URL path are intentionally kept —\nthat's the upstream API contract, not the skill name.\n\n* chore(zooclaw-connectors): add to PUBLISHED_SKILLS whitelist",
+      "tree": {
+        "sha": "d7c268062e1b1acdec1fa7ac5fa8b7cf8415b68b",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/trees/d7c268062e1b1acdec1fa7ac5fa8b7cf8415b68b"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/commits/27552e6755dc094942c40f44586cdfa0819fb5f0",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqBChXCRC1aQ7uu5UhlAAAl0wQACGHKvPPY5rpTHt1D0m9RMkh\nt6uXUlvzUjg+fVKIq9W6vfwH+ixau6NN2yrICMeDIJHQHHcEiGfV1K1lGz0T7OqO\nvlfGpZH04SvgxbrkKnpLOqZgvcGVtFIblB7K+C4kWmJA3p6XxiaUgrlBZ3e9CQzt\nImGajs0KPkyGvwKsdsmshLiWsMqxWLQJ7FvFL6R23PRjPn98B8Cl+4AVuNA90IfL\nJFa1BfJaTxfMzQpwZ3yhQTvL3nQbubpKYZ0/V9XV/DFPqXwDFX5AJbMwhawyl/HQ\n6+liTADwoterk8rFFhIXehi3Cu1UG6gbyX170IimgeQHo5wv5OA7wH5bHUD/ZDT9\n11JPtCtg1dUaspe9JCSoGXS81A/4kPVyCSYz08RDPCHF41dYcB9h39baldfJ+EVt\nrJASmJFFyFCDOgTLWHi7VH5zM6syY0J2HgJxh7VjD9MHncuYmHbn/QWLpQ6CQvJC\nCFP+07KJw3gTT1UbDtIAw5kEbtAKdxv/utpoDoCTEJp5pbkvqo0sFFq9D5EnjfPx\nw7y7hKXVoN+3EzuRwY/MfcKQDeNJphzTxzmqCpJ42LuXlHEZsMrwSL1j1lqVN+l2\nYBPpNm0EaqZKZK1aX+bpUkRcWpDs7mu3b+RZa1kRiY1+sWNAwVdLI3aLTCFoiS4/\nEkYRLbpIx1jNPutURfrV\n=dbWd\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d7c268062e1b1acdec1fa7ac5fa8b7cf8415b68b\nparent ca8e132fe50e10ff370923e5be1ef4107818accf\nauthor bill-srp <bill@srp.one> 1778657367 +0800\ncommitter GitHub <noreply@github.com> 1778657367 +0800\n\nfeat(zooclaw-connectors): add skill for third-party connector access via ecap-proxy-service (#194)\n\n* feat(integrations): add skill for third-party connector access via ecap-proxy-service\n\nThin CLI wrapper around the ecap-proxy-service /integrations/* API so an agent\ncan discover what the user has connected (GitHub, Linear, Slack, Notion, Google\nservices, etc.) and invoke tools without per-service skills.\n\n- Single integrations.py with subcommands: list-connectors, list-connections,\n  list-tools <provider>, execute <provider> <action>.\n- Auth mode picked from env: USER_INTERNAL_TOKEN (User-JWT) takes priority over\n  ECAP_PROXY_API_KEY + ECAP_END_USER_ID (Service-key). end_user_id is sent only\n  via X-End-User-Id header (proxy refuses it in body/query).\n- One HTTP call per invocation. Two-phase write confirmation is owned by the\n  agent: first call returns summary, agent shows it, second call re-invokes with\n  --confirmed. Script stays stateless.\n- User-Agent: ecap-skill/1.0 on every call per CLAUDE.md §2.\n- Upstream JSON error envelopes surfaced as-is on stderr so error_code and\n  recovery_hint reach the agent.\n\nCompliance:\n- C1: only canonical env names; no alias fallback.\n- C3: requires.env == os.getenv calls without defaults (ECAP_PROXY_BASE_URL).\n- C4: .env.example omitted — all env vars are platform-injected.\n- C5: USER_INTERNAL_TOKEN / ECAP_PROXY_API_KEY / ECAP_END_USER_ID read with \"\"\n  defaults; documented in Prerequisites as optional overrides.\n- C6: {baseDir}/scripts/... paths, Path Resolution Rule at top, no .claude/skills/\n  substring. Verified locally via .github/scripts/lint_skills.py.\n\n* refactor(zooclaw-connectors): rename skill from integrations\n\n- Directory: integrations/ → zooclaw-connectors/\n- Script: integrations.py → zooclaw-connectors.py\n- SKILL.md frontmatter name + title + path-resolution rule + Quick Start\n  examples updated to the new name.\n\nReferences to the proxy's /integrations/* URL path are intentionally kept —\nthat's the upstream API contract, not the skill name.\n\n* chore(zooclaw-connectors): add to PUBLISHED_SKILLS whitelist",
+        "verified_at": "2026-05-13T07:29:27Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/27552e6755dc094942c40f44586cdfa0819fb5f0",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/27552e6755dc094942c40f44586cdfa0819fb5f0",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/27552e6755dc094942c40f44586cdfa0819fb5f0/comments",
+    "author": {
+      "login": "bill-srp",
+      "id": 173224344,
+      "node_id": "U_kgDOClMxmA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/173224344?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/bill-srp",
+      "html_url": "https://github.com/bill-srp",
+      "followers_url": "https://api.github.com/users/bill-srp/followers",
+      "following_url": "https://api.github.com/users/bill-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/bill-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/bill-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/bill-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/bill-srp/orgs",
+      "repos_url": "https://api.github.com/users/bill-srp/repos",
+      "events_url": "https://api.github.com/users/bill-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/bill-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ca8e132fe50e10ff370923e5be1ef4107818accf",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/ca8e132fe50e10ff370923e5be1ef4107818accf",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/ca8e132fe50e10ff370923e5be1ef4107818accf"
+      }
+    ]
+  }
+]
