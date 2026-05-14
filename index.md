@@ -1,3 +1,13 @@
+## 2026-05-13
+
+- [新 Skill 上架：zooclaw-connectors 第三方服务连接器](updates/2026-05-13/zooclaw-connectors-skill.md)
+- [Agent Studio 升级至 v1.2.0：onboarding 脚本全面强化](updates/2026-05-13/agent-studio-v1-2-0.md)
+- [修复账单发票下载异常及积分显示不一致问题](updates/2026-05-13/billing-invoice-fix.md)
+- [支付宝/Antom 支付渠道全面强化上线](updates/2026-05-13/antom-alipay-payment.md)
+- [着陆页跳转后不再自动发送，改为预填输入框](updates/2026-05-13/landing-query-prefill.md)
+- [修复快速重复点击登录弹窗时的闪退问题](updates/2026-05-13/login-modal-race-fix.md)
+- [安全漏洞修复：清零 31 条 Dependabot + 3 条 CodeQL 告警](updates/2026-05-13/security-deps-upgrade.md)
+
 ## 2026-05-12
 
 - [修复深链进入时登录弹窗意外关闭的问题](updates/2026-05-12/fix-login-modal-deep-link.md)
