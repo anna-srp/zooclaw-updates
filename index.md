@@ -1,3 +1,10 @@
+## 2026-05-14
+
+- [聊天消息时间戳新增日期前缀](updates/2026-05-14/chat-timestamp-date-prefix.md)
+- [聊天框大段粘贴自动转附件，支持预览](updates/2026-05-14/large-paste-auto-attach.md)
+- [修复 Subagent 轮询引发服务崩溃的 Bug](updates/2026-05-14/fix-subagent-polling-crash.md)
+- [LeoFit 健身 Agent 更新至 4.2.2](updates/2026-05-14/leofit-agent-422.md)
+
 ## 2026-05-13
 
 - [新 Skill 上架：zooclaw-connectors 第三方服务连接器](updates/2026-05-13/zooclaw-connectors-skill.md)
