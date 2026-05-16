@@ -1,5 +1,22 @@
 ## 2026-05-14
 
+## 2026-05-15
+
+- [LandingFeatures carousel modulo + drop OpenClaw disable (#1526 G)](updates/2026-05-15/39f3ef93-pr1683.md)
+- [Seed landing context from URL and add handoff traces](updates/2026-05-15/9db95042-pr1682.md)
+- [log DiaryCards success:false API responses](updates/2026-05-15/cb476276-pr1658.md)
+- [ECA-681: Phase 2 subscription lifecycle reliability](updates/2026-05-15/e4301c08-pr1663.md)
+- [Preserve ?sp= across more redirects + observability for landing prefill drops](updates/2026-05-15/d7756a98-pr1674.md)
+- [accept order.is_trial as local truth for checkout trial escape](updates/2026-05-15/e7a7acea-pr1673.md)
+- [disable ECA-681 unique indexes until data cleanup](updates/2026-05-15/1201e24d-pr1669.md)
+- [Preserve ?sp= specialist param across post-auth redirects](updates/2026-05-15/c8eaac63-pr1665.md)
+- [always inject platform rules on agent redeploy](updates/2026-05-15/22820df6-pr1659.md)
+- [Swap xlsx parser to SheetJS for inlineStr tolerance](updates/2026-05-15/5f9b41a3-pr1660.md)
+- [clarify Apple token enforcement rollout (ECA-681)](updates/2026-05-15/71433146-pr1654.md)
+- [Phase 1 security hotfix (ECA-681)](updates/2026-05-15/36931870-pr1629.md)
+- [skip onboarding for landing-context users (ECA-675)](updates/2026-05-15/02a00fe4-pr1628.md)
+- [hotfix v1.2.1 — move user pack files under agent/, auto-recover affected workspaces](updates/2026-05-15/b99e6add-pr125.md)
+
 - [聊天消息时间戳新增日期前缀](updates/2026-05-14/chat-timestamp-date-prefix.md)
 - [聊天框大段粘贴自动转附件，支持预览](updates/2026-05-14/large-paste-auto-attach.md)
 - [修复 Subagent 轮询引发服务崩溃的 Bug](updates/2026-05-14/fix-subagent-polling-crash.md)

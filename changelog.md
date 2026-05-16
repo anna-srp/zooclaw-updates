@@ -1,5 +1,30 @@
 ## 2026-05-14
 
+## 2026-05-15
+
+### 🐛 Bug 修复
+
+- **LandingFeatures carousel modulo + drop OpenClaw disable (#1526 G)**: 修复问题：LandingFeatures carousel modulo + drop OpenClaw disable (#1526 G)
+- **Seed landing context from URL and add handoff traces**: 修复问题：Seed landing context from URL and add handoff traces
+- **log DiaryCards success:false API responses**: 修复问题：log DiaryCards success:false API responses
+- **Preserve ?sp= across more redirects + observability for landing prefill drops**: Three follow-ups to #1665 (which preserved `?sp=` across post-auth redirects). After that landed, three additional gaps remained. This PR covers all three with regression tests.
+- **accept order.is_trial as local truth for checkout trial escape**: 修复问题：accept order.is_trial as local truth for checkout trial escape
+- **disable ECA-681 unique indexes until data cleanup**: - Remove `orders_indexes_repo.py` entirely — the unique indexes on `ecap-orders` block production startup due to duplicate data - Remove its test file, importlinter entries, and lifetime.py call - Acc
+- **Preserve ?sp= specialist param across post-auth redirects**: 修复问题：Preserve ?sp= specialist param across post-auth redirects
+- **always inject platform rules on agent redeploy**: 修复问题：always inject platform rules on agent redeploy
+- **Swap xlsx parser to SheetJS for inlineStr tolerance**: 修复问题：Swap xlsx parser to SheetJS for inlineStr tolerance
+- **clarify Apple token enforcement rollout (ECA-681)**: 修复问题：clarify Apple token enforcement rollout (ECA-681)
+- **Phase 1 security hotfix (ECA-681)**: 修复了影响用户使用的重要问题：Phase 1 security hotfix (ECA-681)
+- **hotfix v1.2.1 — move user pack files under agent/, auto-recover affected workspaces**: 修复了影响用户使用的重要问题：hotfix v1.2.1 — move user pack files under agent/, auto-recover affected workspaces
+
+### ⚡ 产品改进
+
+- **ECA-681: Phase 2 subscription lifecycle reliability**: 产品改进：ECA-681: Phase 2 subscription lifecycle reliability
+
+### 🚀 新功能
+
+- **skip onboarding for landing-context users (ECA-675)**: 新功能上线：skip onboarding for landing-context users (ECA-675)
+
 ### 🚀 新功能
 
 - **聊天框大段粘贴自动转附件，支持预览** — 在聊天框粘贴超大段文字（超5KB 或 4000 字符）时，系统自动将其转为文件附件发送，避免消息过长报错；同时支持发送前点击预览附件内容。
