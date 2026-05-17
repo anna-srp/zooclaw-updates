@@ -1,3 +1,8 @@
+## 2026-05-16
+
+- [Agent Studio 多项 Bug 修复：头像显示、重复卡片、Skill 调用异常](updates/2026-05-16/agent-studio-bugfix.md)
+- [Bot 启动速度提升：预热池机制上线](updates/2026-05-16/warmpool-provisioning.md)
+
 ## 2026-05-14
 
 ## 2026-05-15

@@ -1,3 +1,13 @@
+## 2026-05-16
+
+### 🐛 Bug 修复
+
+- **Agent Studio 多项 Bug 修复：头像显示、重复卡片、Skill 调用异常** — 修复了 Agent Studio 中多个影响使用体验的关键 Bug：安装 Agent 后不再出现重复 Agent 卡片；头像在已发布 Agent 的卡片中能正确显示；Agent 开发过程中调用 designer 等 Skill 功能恢复正常。相关 PR: #127 (ecap-agent-pack)
+
+### ⚡ 性能/成本优化
+
+- **Bot 启动速度提升：预热池机制上线** — 平台新增预热池（warm-pool）机制，提前准备好账号资源，让用户的 Bot 启动更快、响应更顺畅。新增预热池仓库、调度接口和自动化触发机制。相关 PR: #1715 (ecap-workspace)
+
 ## 2026-05-14
 
 ## 2026-05-15
