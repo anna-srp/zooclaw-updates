@@ -1,3 +1,8 @@
+## 2026-05-17
+
+- [重新安装 Agent 时数据不再丢失，安装更稳定](updates/2026-05-17/agent-install-upgrade-stability.md)
+- [Agent 商店展示信息更准确，不再出现 Agent 信息混乱](updates/2026-05-17/agent-pack-description-guard.md)
+
 ## 2026-05-16
 
 - [Agent Studio 多项 Bug 修复：头像显示、重复卡片、Skill 调用异常](updates/2026-05-16/agent-studio-bugfix.md)
