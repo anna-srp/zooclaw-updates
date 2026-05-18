@@ -28,7 +28,7 @@
 
 | 外部层级 | 判断标准 | 渠道 |
 |---------|---------|------|
-| **S** | 新 Agent 上架（常规）；或极少数突破性 Skill（质变而非量变，如 Chameleon 视频生成、web-designer 网页生成这种量级） | 站内弹窗+社媒素材+Use Case+Discord+changelog+KOL（新 Agent 还加 EDM） |
+| **S** | 新 Agent 上架（常规）；或极少数突破性 Skill（质变而非量变，如 Chameleon 视频生成、web-designer 网页生成这种量级）；或帮助用户大幅省钱/省 token 的功能设计（如 agent studio 补贴） | 站内弹窗+社媒素材+Use Case+Discord+changelog+KOL（新 Agent 还加 EDM） |
 | **A** | 常规 Skill 上架/更新 | 站内弹窗+Use Case+Discord+changelog |
 | **B** | 产品功能、Bug 修复、体验改善 | Discord+changelog |
 | **C** | 几乎无用户感知的内部改动 | 不填 |
