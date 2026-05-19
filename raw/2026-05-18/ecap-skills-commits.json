@@ -1,0 +1,12 @@
+[
+  {
+    "sha": "b2974359a68589c549133d86a28b30765a09e13c",
+    "author": "david-srp",
+    "date": "2026-05-18T07:58:59Z",
+    "title": "feat(chameleon): seedance 链路对齐官方教程 + 接入字幕擦除 + 防呆校验 (#197)",
+    "pr_number": 197,
+    "message": "feat(chameleon): seedance 链路对齐官方教程 + 接入字幕擦除 + 防呆校验 (#197)\n\n* feat(chameleon): expose return_last_frame for segment chaining\n* feat(chameleon): enforce client-side parameter validations\n* feat(chameleon): wire subtitle-erasure via ecap-proxy (silent reference)\n* fix(chameleon): move default archive root out of cwd into ~/openclaw\n* fix(chameleon): align erase_subtitles endpoint with ecap-proxy spec",
+    "pr_title": "feat(chameleon): seedance 链路对齐官方教程 + 接入字幕擦除 + 防呆校验",
+    "pr_body_summary": "Chameleon skill 重大升级：1) 支持尾帧接龙实现 >15s 长视频生成；2) 接入字幕擦除能力（静默参考，用户显式触发）；3) 客户端防呆参数校验，避免无效请求和 R2 带宽浪费；4) 修复归档路径污染仓库的 bug。"
+  }
+]

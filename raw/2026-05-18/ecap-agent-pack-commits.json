@@ -1,0 +1,23 @@
+[
+  {
+    "sha": "6a9d57c8e59b6f3b9e6e34dca78f2b5baf1016bd",
+    "author": "vincent-srp",
+    "date": "2026-05-18T20:51:27Z",
+    "title": "feat(pptx-master): upgrade to SlideForge 1.0.0 (#131)",
+    "pr_number": 131
+  },
+  {
+    "sha": "535a7f9f2162edcc7395102daf917bca4518fdec",
+    "author": "felix-srp",
+    "date": "2026-05-18T08:03:36Z",
+    "title": "feat(agent-studio): multi-agent workflow via snapshots (/studio list, /studio open) (#130)",
+    "pr_number": 130
+  },
+  {
+    "sha": "fb24dc4a3a354a6e9bb5af384aae52fd959aaa8f",
+    "author": "Nemo Feng",
+    "date": "2026-05-18T07:14:04Z",
+    "title": "feat: add coros-coach and fitbeing-health-agent packs (#128)",
+    "pr_number": 128
+  }
+]

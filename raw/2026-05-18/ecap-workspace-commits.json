@@ -1,0 +1,58 @@
+[
+  {
+    "sha": "b4ac4d5c4ca9f000a0b4d1be183046e6ad4a8cd2",
+    "author": "tim-srp",
+    "date": "2026-05-18T14:36:30Z",
+    "title": "fix(weixin): preserve account index from runtime fallback (#1730)",
+    "pr_number": 1730
+  },
+  {
+    "sha": "d4452cd23916a27d8f11edf55e1249f1ef8c1cd1",
+    "author": "bill-srp",
+    "date": "2026-05-18T13:18:14Z",
+    "title": "fix(web): Await composer resolution before completing landing handoff (#1728)",
+    "pr_number": 1728
+  },
+  {
+    "sha": "7190c28bf1f7b3e76f0ac1d3abcbdde8e6a73831",
+    "author": "bill-srp",
+    "date": "2026-05-18T11:31:52Z",
+    "title": "feat(ios): 1.7.0 release (#1710)",
+    "pr_number": 1710
+  },
+  {
+    "sha": "7df6a686bd5b7afaebf24bf92d9055a1cebb0d66",
+    "author": "kaka-srp",
+    "date": "2026-05-18T11:26:46Z",
+    "title": "fix(subscription): decouple topup modal + apple renew + backend gate (#1727)",
+    "pr_number": 1727
+  },
+  {
+    "sha": "12dc9ba675fbd54592d3b104c29bf88bd8ad1fba",
+    "author": "siqiao-srp",
+    "date": "2026-05-18T10:22:56Z",
+    "title": "fix(web): persist permanent CDN URL for bot avatar uploads (#1725)",
+    "pr_number": 1725
+  },
+  {
+    "sha": "9e10ace48740624db7f8fc97970efe6106c6fe8d",
+    "author": "bill-srp",
+    "date": "2026-05-18T08:20:00Z",
+    "title": "feat(web): trace landing prefill flow with prod-visible logs (#1724)",
+    "pr_number": 1724
+  },
+  {
+    "sha": "7d1fd441af2c0b314f5e2b8a011cdaae5bf1bdbf",
+    "author": "bill-srp",
+    "date": "2026-05-18T06:43:01Z",
+    "title": "fix(web): Poll localStorage for landing context prefill (#1723)",
+    "pr_number": 1723
+  },
+  {
+    "sha": "970599ba3f232a81c7ccccc60cbfb0bee1e2ea47",
+    "author": "bill-srp",
+    "date": "2026-05-18T03:00:15Z",
+    "title": "fix(web): Preserve landing context after delivery (#1708)",
+    "pr_number": 1708
+  }
+]
