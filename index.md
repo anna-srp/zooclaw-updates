@@ -1,3 +1,14 @@
+## 2026-05-18
+
+- [新 Agent 上架：COROS Coach（运动健康教练）和 Febe（Fitbeing 健康伴侣）](updates/2026-05-18/coros-coach-fitbeing-agents.md)
+- [SlideForge (PPT 制作 Agent) 正式升级到 1.0.0：16 个专业 Skill 全面上线](updates/2026-05-18/slideforge-1-0-0.md)
+- [Agent Studio 新增多 Agent 管理：/studio list 和 /studio open 命令上线](updates/2026-05-18/agent-studio-snapshots.md)
+- [Chameleon 视频生成能力重大升级：支持超 15s 长视频 + 字幕擦除](updates/2026-05-18/chameleon-long-video-subtitle-erase.md)
+- [iOS App v1.7.0 上线：新手引导视频、侧边栏优化、文档内联预览](updates/2026-05-18/ios-1-7-0-release.md)
+- [充值/订阅 Bug 修复：Alipay 支付选项恢复 + 防止双重订阅](updates/2026-05-18/subscription-topup-fixes.md)
+- [修复：Bot 头像每周失效问题](updates/2026-05-18/bot-avatar-permanent-url.md)
+- [修复：新用户注册后进入聊天输入框为空的问题](updates/2026-05-18/new-chat-prefill-fix.md)
+
 ## 2026-05-17
 
 - [重新安装 Agent 时数据不再丢失，安装更稳定](updates/2026-05-17/agent-install-upgrade-stability.md)

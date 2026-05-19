@@ -1,3 +1,27 @@
+## 2026-05-18
+
+### 🤖 Agent 上架/更新
+
+- **新 Agent 上架：COROS Coach（运动健康教练）和 Febe（Fitbeing 健康伴侣）** — COROS Coach 连接 COROS 运动手表，提供基于睡眠/HRV/恢复/训练负荷的个性化运动建议；Febe 连接 Fitbeing 可穿戴设备，每天主动汇报健康状态并支持对话式咨询。（PR #128，ecap-agent-pack）
+
+- **SlideForge (PPT 制作 Agent) 升级到 v1.0.0** — 从单一 onboarding skill 扩展到 16 个专业能力（深度研究、品牌适配、多格式输出），73+ 品牌库，三阶段设计流。（PR #131，ecap-agent-pack）
+
+### 🚀 新功能
+
+- **Agent Studio 新增 /studio list + /studio open 命令** — 支持管理多个 Agent Pack，随时切换和恢复任意 Agent 的工作环境，不再担心新建时丢失之前的工作。（PR #130，ecap-agent-pack）
+
+- **Chameleon 视频生成重大升级** — 支持尾帧接龙实现超 15s 长视频生成；新增一键字幕擦除能力；客户端防呆参数校验避免无效请求和 R2 带宽浪费。（PR #197，ecap-skills）
+
+- **iOS App v1.7.0 发布** — 全屏欢迎视频引导、侧边栏最新消息预览、Office 格式文件内联预览、多项聊天可靠性修复。（PR #1710，ecap-workspace）
+
+### 🐛 Bug 修复
+
+- **充值/订阅 Bug 修复** — 修复 Stripe 订阅用户充值 Token 时 Alipay 选项被灰掉的问题；修复 Apple 取消订阅用户可能发生双重订阅的安全漏洞；后端增加配套的校验防止绕过。（PR #1727，ecap-workspace）
+
+- **Bot 头像永久失效修复** — 修复用户自定义 Bot 头像每 7 天失效的问题，现在上传的头像将永久有效。（PR #1725，ecap-workspace）
+
+- **新用户注册后进入聊天输入框为空修复** — 新用户完成注册/支付流程后跳转到聊天页面，输入框预填内容消失的问题已修复。（PR #1728，ecap-workspace）
+
 ## 2026-05-17
 
 ### 🐛 Bug 修复
