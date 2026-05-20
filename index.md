@@ -1,5 +1,15 @@
 ## 2026-05-18
 
+
+## 2026-05-19
+
+- [支付方式选择弹窗界面全面升级](updates/2026-05-19/01-billing-payment-method-ui.md)
+- [订阅状态修复：解决部分用户订阅数据不一致问题](updates/2026-05-19/02-subscription-reconciliation-fix.md)
+- [Agent Studio 分享功能新增 --archive 打包上传支持](updates/2026-05-19/03-agent-studio-archive-flag.md)
+- [Video Duplicate Agent 升级 v1.7.2：AI 视频理解能力大幅提升](updates/2026-05-19/04-video-duplicate-v172.md)
+- [Video Duplicate Agent 正式上架（v1.6.4）](updates/2026-05-19/05-video-duplicate-v164.md)
+- [新增服务版本查询接口](updates/2026-05-19/06-version-endpoint.md)
+
 - [新 Agent 上架：COROS Coach（运动健康教练）和 Febe（Fitbeing 健康伴侣）](updates/2026-05-18/coros-coach-fitbeing-agents.md)
 - [SlideForge (PPT 制作 Agent) 正式升级到 1.0.0：16 个专业 Skill 全面上线](updates/2026-05-18/slideforge-1-0-0.md)
 - [Agent Studio 新增多 Agent 管理：/studio list 和 /studio open 命令上线](updates/2026-05-18/agent-studio-snapshots.md)

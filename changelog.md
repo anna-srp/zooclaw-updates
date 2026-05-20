@@ -1,3 +1,30 @@
+## 2026-05-19
+
+### 🤖 Agent 上架/更新
+
+- **Video Duplicate Agent 正式上架（v1.6.4）**
+  全新 Video Duplicate Agent 上线！能够分析视频内容并自动生成风格相似的新视频，支持多种工作流，是创作同款视频内容的强力工具。
+
+- **Video Duplicate Agent 升级 v1.7.2：AI 视频理解能力大幅提升**
+  视频分析维度从12个扩展到20+个——新增主体运动弧线、镜头运动意图、情绪弧线等深度理解维度，Workflow C 设为推荐，生成视频更贴近原片气质和节奏。
+
+### 🐛 Bug 修复
+
+- **订阅状态修复：解决部分用户订阅数据不一致问题**
+  修复了 ECA-681 涉及的多类订阅数据漂移问题（plan/billing/product 不一致、遗留月付产品映射、混合支付商 Stripe 残留等），确保订阅状态准确、不误扣费。
+
+### 🚀 新功能 / 体验改善
+
+- **支付方式选择弹窗界面全面升级**
+  按 Figma 设计稿重做 Select Payment Method 弹窗：新增真实品牌 Logo（Visa/MasterCard/Amex/Discover/Alipay）、更清晰的选项布局，支付体验更直观。
+
+- **Agent Studio 分享功能新增 --archive 打包上传支持**
+  `/studio share --archive <path>` 现已文档化可用，创作者可直接上传预打包的 .tar.gz 跳过重新打包步骤，分享流程更顺滑。
+
+- **新增服务版本查询接口**
+  后端新增 `GET /version` 端点，对齐前端版本 schema，便于运维快速比对前后端部署版本。
+
+
 ## 2026-05-18
 
 ### 🤖 Agent 上架/更新
