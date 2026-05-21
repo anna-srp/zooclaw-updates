@@ -1,5 +1,31 @@
 ## 2026-05-18
 
+## 2026-05-20
+
+- [企业管理后台新增 Packs 模块（浏览、审核、详情）](updates/2026-05-20/89d49731-企业管理后台新增-packs-模块-浏览-审核-详情.md)
+- [修复多消息并发时助手 UI 数据竞争问题](updates/2026-05-20/4fbaefbb-修复多消息并发时助手-ui-数据竞争问题.md)
+- [Agent 目录新增快速命令（quick_commands）支持](updates/2026-05-20/c916c572-agent-目录新增快速命令-quick_commands.md)
+- [修复计费模块初始化使用错误 key 的问题](updates/2026-05-20/547c2700-修复计费模块初始化使用错误-key-的问题.md)
+- [企业管理后台新增用户模块（Phase D）](updates/2026-05-20/abb0bf1a-企业管理后台新增用户模块-phase-d.md)
+- [企业版新增组织邀请（OrgInvite）功能后端支持](updates/2026-05-20/ab12f005-企业版新增组织邀请-orginvite-功能后端支持.md)
+- [企业管理后台支持邮箱 OTP 登录（Phase C）](updates/2026-05-20/6da17951-企业管理后台支持邮箱-otp-登录-phase-c.md)
+- [无服务商绑定的兑换码订阅到期自动清理](updates/2026-05-20/d15b358b-无服务商绑定的兑换码订阅到期自动清理.md)
+- [修复订阅入口跳转路径错误](updates/2026-05-20/70e2e015-修复订阅入口跳转路径错误.md)
+- [图片生成失败时自动切换到混元图片3作为备用模型](updates/2026-05-20/5d5d8acd-图片生成失败时自动切换到混元图片3作为备用模型.md)
+- [订阅套餐变更时同步更新 LiteLLM 可用模型](updates/2026-05-20/bb391bf6-订阅套餐变更时同步更新-litellm-可用模型.md)
+- [iOS 1.7.1：对话 UX 优化 + 消息同步提速](updates/2026-05-20/51410854-ios-1-7-1-对话-ux-优化-消息同步提速.md)
+- [企业管理后台完成认证模块接入（Phase B）](updates/2026-05-20/c6de4093-企业管理后台完成认证模块接入-phase-b.md)
+- [企业版后端 Phase 1：组织架构、权限中间件及管理 API](updates/2026-05-20/0f509cfa-企业版后端-phase-1-组织架构-权限中间件及管理-ap.md)
+- [修复 Billing 页面按钮 hover 状态视觉反馈不一致](updates/2026-05-20/0c55ea51-修复-billing-页面按钮-hover-状态视觉反馈不一.md)
+- [顶级套餐用户不再显示升级提示](updates/2026-05-20/c8cfc7cc-顶级套餐用户不再显示升级提示.md)
+- [xAI 提供商接入 LiteLLM，支持视频生成路由](updates/2026-05-20/af310129-xai-提供商接入-litellm-支持视频生成路由.md)
+- [新增账户客户端工厂方法 createAccountClient](updates/2026-05-20/34a7551d-新增账户客户端工厂方法-createaccountclien.md)
+- [IM 渠道（微信、飞书等）可绑定指定 Agent](updates/2026-05-20/666d5cc3-im-渠道-微信-飞书等-可绑定指定-agent.md)
+- [企业管理控制台上线（Bootstrap 阶段）](updates/2026-05-20/05f9ccf9-企业管理控制台上线-bootstrap-阶段.md)
+- [修复 Agent Studio 打包输出路径错误](updates/2026-05-20/8c36cfa2-修复-agent-studio-打包输出路径错误.md)
+- [Agent Studio 分享/打包时展示 --archive 参数提示](updates/2026-05-20/3b9362f6-agent-studio-分享-打包时展示-archiv.md)
+
+
 
 ## 2026-05-19
 
