@@ -1,5 +1,20 @@
 ## 2026-05-18
 
+## 2026-05-21
+
+- [Video Duplicate Agent 升级至 v1.8.2：一键批量复刻 + 全流程视频理解](updates/2026-05-21/01-video-duplicate-v182.md) — Agent 上架/更新
+- [SlideForge 英文优化版 1.0.0 上线](updates/2026-05-21/02-slideforge-1-0-en.md) — Agent 上架/更新
+- [支持 iPhone HEIC 格式图片上传](updates/2026-05-21/03-heic-upload-support.md) — Bug Fix
+- [微信频道支持自定义名称](updates/2026-05-21/04-wechat-channel-naming.md) — 产品基础功能更新
+- [添加 IM 频道界面全面升级，Telegram 接入流程更流畅](updates/2026-05-21/05-im-channel-ui-redesign.md) — 产品基础功能更新
+- [功能上新弹窗新增 SlideForge 和 Agent Studio 介绍](updates/2026-05-21/06-slideforge-agent-studio-popup.md) — 新功能上线
+- [修复 Agent Studio 积分耗尽时报错问题](updates/2026-05-21/07-agent-studio-credits-fix.md) — Bug Fix
+- [修复 Stripe 续费积分重复发放问题](updates/2026-05-21/08-billing-dedup-stripe-credits.md) — Bug Fix
+- [更新 Agent 后 Mattermost Bot 自动刷新](updates/2026-05-21/09-mattermost-refresh-on-agent-update.md) — Bug Fix
+- [修复 Artifact 内容更新后仍显示旧版本的问题](updates/2026-05-21/10-artifact-cache-bust.md) — Bug Fix
+- [Agent Studio 安全加固：禁止静默删除文件](updates/2026-05-21/11-agent-studio-rm-safety.md) — 产品基础功能更新
+
+
 ## 2026-05-20
 
 - [企业管理后台新增 Packs 模块（浏览、审核、详情）](updates/2026-05-20/89d49731-企业管理后台新增-packs-模块-浏览-审核-详情.md)
