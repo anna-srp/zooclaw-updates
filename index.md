@@ -1,5 +1,22 @@
 ## 2026-05-18
 
+## 2026-05-22
+
+- [Designer Skill 支持更多 AI 模型参数（Gemini 分辨率分级 / 思考强度 / DALL-E 数量）](updates/2026-05-22/designer-multi-model-cli-upgrade.md) — Skill 上架/更新
+- [修复 Skill 发布流程：正确加载字体库，移除错误依赖](updates/2026-05-22/fix-publish-lfs-fonts.md) — Bug Fix
+- [新增内置字体库：Designer Skill 支持更多专业字体](updates/2026-05-22/feat-font-library.md) — 产品基础功能更新
+- [Chameleon 视频生成（Seedance）优化：更稳定的排队机制与更清晰的任务命名](updates/2026-05-22/feat-chameleon-seedance-queue-priority.md) — Skill 上架/更新
+- [修复聊天内存泄漏问题，长时间使用不再卡顿](updates/2026-05-22/fix-browser-memory-chat-leak.md) — Bug Fix
+- [修复新手引导状态错误：多账号使用不再互相干扰](updates/2026-05-22/fix-onboarding-status-per-user.md) — Bug Fix
+- [修复聊天草稿混乱：不同 Agent 对话的草稿不再互相覆盖](updates/2026-05-22/fix-chat-draft-per-session.md) — Bug Fix
+- [修复新功能介绍视频播放失败问题](updates/2026-05-22/fix-onboarding-video-playback.md) — Bug Fix
+- [修复聊天中视频预览崩溃问题](updates/2026-05-22/fix-chat-video-preview.md) — Bug Fix
+- [修复子 Agent 会话消失的问题：派生对话现在稳定可见](updates/2026-05-22/fix-spawned-sessions-visible.md) — Bug Fix
+- [企业版新功能：组织级 Agent Pack 商店后端上线](updates/2026-05-22/feat-enterprise-org-pack-store.md) — 新功能上线
+- [修复切换标签页后聊天连接断开的问题](updates/2026-05-22/fix-mattermost-reconnect-tab-resume.md) — Bug Fix
+- [修复 SlideForge（PPT 生成 Agent）文件交付不稳定问题](updates/2026-05-22/fix-pptx-master-artifact-delivery.md) — Bug Fix
+- [新 Agent 上架：WHOOP 健康教练 Agent，实时分析你的运动恢复与压力状态](updates/2026-05-22/feat-whoop-health-agent.md) — Agent 上架/更新
+
 ## 2026-05-21
 
 - [Video Duplicate Agent 升级至 v1.8.2：一键批量复刻 + 全流程视频理解](updates/2026-05-21/01-video-duplicate-v182.md) — Agent 上架/更新
