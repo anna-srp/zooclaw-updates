@@ -1,5 +1,11 @@
 # ZooClaw Updates Index
 
+## 2026-05-23
+
+- [Agent 安装激活稳定性提升](2026-05-23/01-Agent-安装激活稳定性提升.md)
+- [HTML 制品支持「下载为 PDF」功能](2026-05-23/02-HTML-制品支持-下载为-PDF-功能.md)
+
+
 ## 2026-04-28
 
 - [语音识别支持实时取消（后端 WebSocket 协议）](2026-04-28/feat-asr-cancel-websocket.md)
