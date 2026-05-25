@@ -201,6 +201,13 @@
 
 # ZooClaw 更新索引
 
+
+## 2026-05-24
+
+- [修复手机/邮箱验证码登录后页面闪烁问题](updates/2026-05-24/fix-login-otp-remount.md) - Bug Fix
+- [修复新用户引导流程完成状态丢失问题](updates/2026-05-24/fix-onboarding-completion-state.md) - 产品基础功能更新
+- [修复已登录状态下登录弹窗重复弹出问题](updates/2026-05-24/fix-login-modal-duplicate.md) - Bug Fix
+
 ## 2026-04-29
 
 - [Stock Analyst Agent 上架 — AI 量化分析师帮你做投资决策](updates/2026-04-29/stock-analyst-agent.md)
