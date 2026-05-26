@@ -1,3 +1,21 @@
+
+## 2026-05-25
+
+- [支持 Antom 订阅免费试用](updates/2026-05-25/80031811-antom-.md) — 新功能上线 / 高
+- [修复网站公开页面样式覆盖问题](updates/2026-05-25/6d48f649-.md) — Bug Fix / 低
+- [修复网站公开页面样式覆盖问题](updates/2026-05-25/4fbcfa1c-.md) — Bug Fix / 低
+- [支付方式选择弹窗界面优化](updates/2026-05-25/2d4e73a5-.md) — 产品基础功能更新 / 低
+- [账户信息自动从 Profile 补全](updates/2026-05-25/f201230d-profile-.md) — 产品基础功能更新 / 低
+- [企业组织账单与邀请注册功能上线](updates/2026-05-25/5d100ab8-.md) — 新功能上线 / 高
+- [修复 Antom 支付跳转地址错误](updates/2026-05-25/cddf9b83-antom-.md) — Bug Fix / 中
+- [修复 Pack Store 排序问题](updates/2026-05-25/074b68d2-pack-store-.md) — Bug Fix / 中
+- [企业账户 API 核心功能上线](updates/2026-05-25/2a969d3b-api-.md) — 新功能上线 / 中
+- [修复 LiteLLM 安装来源，提升服务稳定性](updates/2026-05-25/4b363265-litellm-.md) — Bug Fix / 中
+- [修复侧边栏无法访问的语言切换面板](updates/2026-05-25/e11c5070-.md) — Bug Fix / 低
+- [修复官网导航菜单悬停消失问题](updates/2026-05-25/9ae045fd-.md) — Bug Fix / 低
+- [Agent Studio：修复模板配置检查逻辑](updates/2026-05-25/090da3a1-agent-studio-.md) — Bug Fix / 中
+- [SlideForge（PPT 生成 Agent）更新至 2.0.7](updates/2026-05-25/33602e93-slideforge-ppt-agent-2-.md) — Agent 上架/更新 / 中
+
 ## 2026-05-18
 
 ## 2026-05-22
