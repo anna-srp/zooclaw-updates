@@ -1,3 +1,12 @@
+## 2026-05-26
+
+- [Designer 生成图片现可直接发送到当前对话](updates/2026-05-26/01-designer-image-delivery-fix.md) — Bug Fix / 高
+- [Agent Pack 资源下载安全性修复](updates/2026-05-26/02-pack-asset-download-auth-fix.md) — Bug Fix / 中
+- [Agent Pack 提交历史页面优化](updates/2026-05-26/03-pack-submission-history-fix.md) — 产品基础功能更新 / 低
+- [企业邀请入驻流程修复](updates/2026-05-26/04-enterprise-invite-onboarding-fix.md) — Bug Fix / 高
+- [聊天窗口长字符串显示修复](updates/2026-05-26/05-chat-long-string-wrap-fix.md) — Bug Fix / 中
+- [Video Duplicate Agent 升级至 v1.9.2](updates/2026-05-26/06-video-duplicate-v1.9.2.md) — Agent 上架/更新 / 高
+
 
 ## 2026-05-25
 
