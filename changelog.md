@@ -418,6 +418,35 @@
 # ZooClaw 更新日志
 
 
+
+## 2026-05-27
+
+### 🚀 新功能
+
+- **DOCX 文档读取能力上线：支持将 Word 文档转为 Markdown** — feat(docx): Pipeline D (read) + SKILL.md modernization (#206
+- **聊天界面新增快捷命令操作** — feat(chat): add quick command actions (#1945)
+
+### 🤖 Agent 上架/更新
+
+- **PPT Master Agent 正式发布 v2.0.7（原 SlideForge 更名）** — feat(pptx-master): apply 2.0.7-final build, rebrand SlideFor
+- **ZooDance Vibe Drama：新增 10 首短剧专属 BGM** — feat(zoodance-vibe-drama): 扩充 BGM 曲库 + 新增 INDEX 索引 (#148)
+
+### 🐛 Bug 修复
+
+- **渠道账号 ID 配置校验优化** — fix(claw-settings): validate channel account ids (#1982)
+- **自定义 Agent 上传界面按钮文字修正** — fix(web): rename "Link" to "Code" in custom agent upload dia
+- **计费系统修复：防止订阅状态漂移导致的错误扣费** — fix(billing): prevent reconciliation drift regressions (#197
+- **聊天界面稳定性提升：修复过时回调引发的状态异常** — fix(web): tighten OpenClawProvider consumer/callee corners a
+- **文件上传稳定性优化：自动重试临时失败** — fix(claw-interface): retry transient R2 upload failures (#19
+
+### ⚡ 产品更新
+
+- **主 Agent 可以创建子 Agent 了** — fix(claw-interface): allow main agent to spawn subagents (#1
+- **注册流程新增数据合规确认弹窗** — feat(settings): add data compliance permissions (#1980)
+- **Agent Studio v1.4.0：规格驱动的构建流程上线** — feat(agent-studio): v1.4.0 — spec-driven build flow + releas
+- **企业版支持 Team Wallet 个人组织自动初始化** — feat(enterprise): add personal org bootstrap (#1947)
+
+
 ## 2026-05-24
 
 ### 🐛 Bug 修复

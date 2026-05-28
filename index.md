@@ -229,6 +229,24 @@
 # ZooClaw 更新索引
 
 
+
+## 2026-05-27
+
+- [DOCX 文档读取能力上线：支持将 Word 文档转为 Markdown](updates/2026-05-27/ecap-skills-236ef78e.md) — 新功能上线
+- [主 Agent 可以创建子 Agent 了](updates/2026-05-27/ecap-workspace-17f14df9.md) — 产品基础功能更新
+- [注册流程新增数据合规确认弹窗](updates/2026-05-27/ecap-workspace-6df680bd.md) — 产品基础功能更新
+- [渠道账号 ID 配置校验优化](updates/2026-05-27/ecap-workspace-566e72dd.md) — Bug Fix
+- [自定义 Agent 上传界面按钮文字修正](updates/2026-05-27/ecap-workspace-2ffed1da.md) — Bug Fix
+- [计费系统修复：防止订阅状态漂移导致的错误扣费](updates/2026-05-27/ecap-workspace-fc2c7697.md) — Bug Fix
+- [聊天界面稳定性提升：修复过时回调引发的状态异常](updates/2026-05-27/ecap-workspace-0318bb11.md) — Bug Fix
+- [文件上传稳定性优化：自动重试临时失败](updates/2026-05-27/ecap-workspace-6a0dc589.md) — Bug Fix
+- [聊天界面新增快捷命令操作](updates/2026-05-27/ecap-workspace-a55ceba8.md) — 新功能上线
+- [Agent Studio v1.4.0：规格驱动的构建流程上线](updates/2026-05-27/ecap-agent-pack-3c486753.md) — 产品基础功能更新
+- [PPT Master Agent 正式发布 v2.0.7（原 SlideForge 更名）](updates/2026-05-27/ecap-agent-pack-34e7189b.md) — Agent 上架/更新
+- [ZooDance Vibe Drama：新增 10 首短剧专属 BGM](updates/2026-05-27/ecap-agent-pack-3ecc06d5.md) — Agent 上架/更新
+- [企业版支持 Team Wallet 个人组织自动初始化](updates/2026-05-27/ecap-workspace-89399973.md) — 产品基础功能更新
+
+
 ## 2026-05-24
 
 - [修复手机/邮箱验证码登录后页面闪烁问题](updates/2026-05-24/fix-login-otp-remount.md) - Bug Fix
