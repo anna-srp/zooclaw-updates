@@ -1,3 +1,18 @@
+
+## 2026-05-28
+
+- [连接器 Skill 现在能准确识别社交平台操作请求](updates/2026-05-28/connectors-skill-social-platform-trigger-fix.md) — Bug Fix / 中
+- [Specialist Agent 快捷指令不再被截断，全部显示](updates/2026-05-28/specialist-quick-commands-show-all.md) — 产品基础功能更新 / 低
+- [修复 Slack 连接设置时因 Token 格式错误导致连接失败的问题](updates/2026-05-28/slack-token-validation-fix.md) — Bug Fix / 中
+- [官网「对比 ZooClaw」链接修复，语言/主题跨页面保持一致](updates/2026-05-28/public-nav-compare-link-locale-fix.md) — Bug Fix / 低
+- [修复切换对话时 Canvas 画布版本号未重置的问题](updates/2026-05-28/canvas-version-reset-fix.md) — Bug Fix / 低
+- [修复分享回放中显示错误用户头像的问题](updates/2026-05-28/share-replay-avatar-fix.md) — Bug Fix / 低
+- [主 Assistant 快捷指令全新升级，更贴合 ZooClaw 核心场景](updates/2026-05-28/main-assistant-quick-commands-redesign.md) — 产品基础功能更新 / 中
+- [新增 Composio 连接器独立接入流程（功能灰度中）](updates/2026-05-28/composio-connector-isolated-flow.md) — 新功能上线 / 中
+- [付费系统 v2 核心服务架构升级（后台准备中）](updates/2026-05-28/billing-v2-payment-core-services.md) — 产品基础功能更新 / 低
+- [PPT Master Agent 升级至 2.0.8，生成画质提升至 1080p](updates/2026-05-28/pptx-master-2.0.8-1080p-upgrade.md) — Agent 上架/更新 / 高
+- [修复 Agent Studio 分享包无法正常生成可安装链接的问题](updates/2026-05-28/agent-studio-share-archive-fix.md) — Bug Fix / 中
+
 ## 2026-05-26
 
 - [Designer 生成图片现可直接发送到当前对话](updates/2026-05-26/01-designer-image-delivery-fix.md) — Bug Fix / 高
