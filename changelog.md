@@ -23,6 +23,17 @@
 - **Specialist Agent 快捷指令不再被截断，全部显示**：Specialist 配置的所有快捷指令现在都会显示，不再被限制为最多 4 条。
 - **付费系统 v2 核心服务架构升级（后台准备中）**：订阅系统后台正在升级到 v2 架构，为更稳定、准确的权益管理奠定基础，暂不影响现有用户使用。
 
+
+## 2026-05-29
+
+### 🚀 新功能上线
+- **route connectors through integrations** - 新增 route connectors through integrations，让您可以完成更多任务
+- **upgrade to 2.0.9 — gdoc-import (Google Docs/Sheets/Slides, n** - 新增 upgrade to 2.0.9 — gdoc-import (Google Docs/Sheets/Slides, n，让您可以完成更多任务
+
+### 🤖 Agent 上架/更新
+- **author quick_commands in pack manifest** - 新 Agent author quick_commands in pack manifest 上架，提供专属 AI 能力
+
+
 ## 2026-05-26
 
 ### 🐛 Bug 修复

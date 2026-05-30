@@ -1,4 +1,10 @@
 
+
+## 2026-05-29
+- [route connectors through integrations](updates/2026-05-29/3b1fc39-route-connectors-through-integ.md) - 新功能上线
+- [author quick_commands in pack manifest](updates/2026-05-29/fc07868-author-quick-commands-in-pack-.md) - Agent 上架/更新
+- [upgrade to 2.0.9 — gdoc-import (Google Docs/Sheets/Slides, n](updates/2026-05-29/fce445e-upgrade-to-2-0-9---gdoc-import.md) - 新功能上线
+
 ## 2026-05-28
 
 - [连接器 Skill 现在能准确识别社交平台操作请求](updates/2026-05-28/connectors-skill-social-platform-trigger-fix.md) — Bug Fix / 中
