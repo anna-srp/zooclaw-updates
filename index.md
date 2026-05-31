@@ -1,5 +1,11 @@
 
 
+## 2026-05-30
+
+- [文件下载与 PPTX 解析稳定性修复](updates/2026-05-30/fix-web-download-pptx-leaks.md) — Bug Fix
+- [Founder IP Studio 2.0 上线](updates/2026-05-30/feat-founder-ip-studio-2.0.md) — Agent 上架/更新
+
+
 ## 2026-05-29
 - [route connectors through integrations](updates/2026-05-29/3b1fc39-route-connectors-through-integ.md) - 新功能上线
 - [author quick_commands in pack manifest](updates/2026-05-29/fc07868-author-quick-commands-in-pack-.md) - Agent 上架/更新

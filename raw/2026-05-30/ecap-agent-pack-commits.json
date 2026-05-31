@@ -1,0 +1,12 @@
+[
+  {
+    "sha": "c6308a57adda75ff2366c184ace4f89e8cf7ff10",
+    "author": "lynn Zhuang",
+    "date": "2026-05-30T04:18:00Z",
+    "message": "feat(founder-ip-studio): add founder-ip-studio 2.0.0 agent pack (#155)\n\nEnd-to-end founder-IP video pipeline: founder-director (topic\nselection, viral copy, legal review, character lock), chameleon-bridge\n(Seedance avatar speaking video), auto-caption (ASR + forced align),\nfounder-post (Remotion animated caption burn, BGM mix). Ships an\n18-track BGM library and a Remotion project for caption styles.\n\nCo-authored-by: Lynn Zhuang <lynnzhuang@MacBook-Pro.local>\nCo-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+    "url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/c6308a57adda75ff2366c184ace4f89e8cf7ff10",
+    "pr_body": "## 概述\r\n  - 新增端到端创始人 IP 视频生产流水线 agent 包 (`founder-ip-studio/`, v2.0.0)\r\n  - 内置 6 个 skill:\r\n    - `founder-director` — 创始人 IP 创意总监:业务/故事访谈、IP 方向推荐(含真实参考账号库)、人脸+人声+场景素材采集、选题(agent 推荐/热点/用户想法)、文案生成、内置法务审核与人设守护\r\n    - `chameleon-bridge` — Seedance 2.0 数字分身视频桥接:从 ip-profile.json 读人脸/人声,处理人脸资产注册回退、对口型、相似度校验、分段拼接、多平台裁切\r\n    - `auto-caption` — ASR + 强制对齐,产出词级字幕\r\n    - `founder-post` — 基于 Remotion 的动态字幕烧录、调色、B-roll、BGM 混音后期\r\n    - `pack-onboarding` — 首次使用引导\r\n    - `zooclaw-forcedalign` — 强制对齐底层 skill\r\n  - 配套资源:\r\n    - 18 首专为创始人 IP 视频准备的 BGM 曲库(覆盖极简电子、轻柔钢琴、企业弦乐、温暖吉他、轻快节拍、高级品牌感 6 种风格)\r\n    - Remotion 项目附带 7 套字幕风格 (tiktok-karaoke / editorial-serif / cn-serif / cn-bold / comic-red / podcast-bold)\r\n    - 中英文字体包 (Noto Serif SC, MaShanZheng, Cormorant Garamond, Anton, Montserrat)\r\n  - 集成:Seedance 2.0 (BytePlus/Volcengine)、Nano Banana 2 (Gemini)、zooclaw-asr + qwen3-forced-align、Remotion、ffmpeg\r\n\r\n  ## 测试计划\r\n  - [ ] agent-pack.yaml 能被解析;description.json 在市场页正确渲染(头像、bio、skill 列表)\r\n  - [ ] founder-director 完整跑通:业务访谈 → IP 方向 → 素材采集 → 选题 → 脚本\r\n  - [ ] chameleon-bridge 能基于 ip-profile.json 生成数字分身口播视频\r\n  - [ ] auto-caption 输出词级对齐 JSON\r\n  - [ ] founder-post Remotion 渲染字幕烧录正确,BGM 混音音量合理\r\n  - [ ] 法务审核 / 人设守护规则在敏感输入上能正确触发",
+    "pr_number": "155",
+    "files_changed": 106
+  }
+]
