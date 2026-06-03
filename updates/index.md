@@ -1,3 +1,15 @@
+# Updates Index
+
+## 2026-06-02
+- [[Skill] align openclaw.json.tmpl with prod for openclaw 2026.5.7](./2026-06-02/1901dbb2-ecap-skills.md)
+- [[Skill] make openclaw work on 2026.5.7 (config schema + skill exec)](./2026-06-02/8d43e8e8-ecap-skills.md)
+- [[平台] add Microsoft Teams channel option](./2026-06-02/831d746a-ecap-workspace.md)
+- [[平台] reload subagent chat history after reconnect](./2026-06-02/4ac676c4-ecap-workspace.md)
+- [[平台] add time-grouped usage records](./2026-06-02/bc0f659d-ecap-workspace.md)
+- [[平台] canonicalize mattermost user on account root](./2026-06-02/2f6e0ee8-ecap-workspace.md)
+- [[平台] expire providerless v2 entitlements](./2026-06-02/d74d617f-ecap-workspace.md)
+- [[平台] handle apple renewal status webhooks](./2026-06-02/e7bc9180-ecap-workspace.md)
+
 # ZooClaw Updates Index
 
 ## 2026-05-23

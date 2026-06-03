@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-06-02
+
+### 🚀 新功能
+- **[平台] add Microsoft Teams channel option**: feat(settings): add Microsoft Teams channel option (#1992)
+
+### 🐛 Bug 修复
+- **[平台] reload subagent chat history after reconnect**: fix(web): reload subagent chat history after reconnect (#2152)
+- **[平台] add time-grouped usage records**: feat(billing): add time-grouped usage records (#2151)
+- **[平台] canonicalize mattermost user on account root**: fix(claw-interface): canonicalize mattermost user on account root (#2149)
+- **[平台] expire providerless v2 entitlements**: fix(billing): expire providerless v2 entitlements (#2150)
+- **[平台] handle apple renewal status webhooks**: fix(billing): handle apple renewal status webhooks (#2145)
+
+### 🛠 Skill 上架/更新
+- **[Skill] align openclaw.json.tmpl with prod for openclaw 2026.5.7**: fix(devcontainer): align openclaw.json.tmpl with prod for openclaw 2026.5.7 (#211)
+- **[Skill] make openclaw work on 2026.5.7 (config schema + skill exec)**: fix(devcontainer): make openclaw work on 2026.5.7 (config schema + skill exec) (#210)
+
 
 ## 2026-06-01
 
