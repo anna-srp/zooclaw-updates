@@ -456,3 +456,24 @@
 |------|------|--------|------|
 | [Agent 任务超时时间延长至 30 分钟](updates/2026-04-11/Agent-任务超时时间延长至-30-分钟.md) | 产品基础功能更新 | 中 | 待审核 |
 | [飞书插件升级，功能更稳定](updates/2026-04-11/飞书插件升级，功能更稳定.md) | Bug Fix | 中 | 待审核 |
+
+## 2026-06-03
+
+- [integrate claw-interface APIs for session and workspace data](updates/2026-06-03/5a587e01-新功能上线.md) — 新功能上线
+- [新增邮箱OTP登录弹窗，支持Google OAuth](updates/2026-06-03/920e5264-新功能上线.md) — 新功能上线
+- [修复订阅试用流程，确保 trial 正常履约](updates/2026-06-03/96f639e4-BugFix.md) — Bug Fix
+- [Settings 新增桌面端连接码复制功能](updates/2026-06-03/e4233473-新功能上线.md) — 新功能上线
+- [修复取消订阅时本地状态覆盖问题](updates/2026-06-03/ad08bebb-BugFix.md) — Bug Fix
+- [修复订阅协议状态更新的竞态条件](updates/2026-06-03/86e63450-BugFix.md) — Bug Fix
+- [新增 Agent Pack 管理后台（列表、CRUD、审核）](updates/2026-06-03/cfef79fe-新功能上线.md) — 新功能上线
+- [搭建 React Router v7 管理员仪表盘框架](updates/2026-06-03/9aebf1fe-新功能上线.md) — 新功能上线
+- [清理旧版订阅 cron 写入逻辑](updates/2026-06-03/ab278882-BugFix.md) — Bug Fix
+- [claw-interface v2 读写设计文档更新](updates/2026-06-03/70e8732d-新功能上线.md) — 新功能上线
+- [修复 Firebase Token 交换认证流程](updates/2026-06-03/3d1923b4-BugFix.md) — Bug Fix
+- [优化会话列表文件 I/O，减少磁盘读写](updates/2026-06-03/6c8cb40f-产品基础功能更新.md) — 产品基础功能更新
+- [降低 claw-interface 探针重启频率](updates/2026-06-03/2bca6fb8-BugFix.md) — Bug Fix
+- [优化 Slack 频道设置体验，支持可配置 manifest](updates/2026-06-03/f48984d4-新功能上线.md) — 新功能上线
+- [新增 Mattermost 频道连接支持](updates/2026-06-03/d4b5eefa-新功能上线.md) — 新功能上线
+- [修复 ZooCaptain URL 值导致 JSON 损坏的问题](updates/2026-06-03/c2382ff7-Agent上架-更新.md) — Agent 上架/更新
+- [创始人IP工坊 Agent 升级到 2.0.1，支持定妆图与外貌描述双重锁定](updates/2026-06-03/080cce2b-Agent上架-更新.md) — Agent 上架/更新
+- [ZooCaptain 新增中央客服支持包](updates/2026-06-03/cef1ce0b-Agent上架-更新.md) — Agent 上架/更新
