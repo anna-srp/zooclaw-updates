@@ -1,5 +1,22 @@
 
 
+
+## 2026-06-04
+
+- [Agent Pack 定价与订阅计划后端上线](updates/2026-06-04/9440881e-agent-pack-定价与订阅计划后端上线.md)
+- [OpenClaw 会话架构升级：每个 Agent 独立频道，会话以 Thread 形式组织](updates/2026-06-04/7d2aee6b-openclaw-会话架构升级-每个-agent-独立频道-会话以-thread.md)
+- [Agent Pack 管理后台支持真实上传头像和 Pack 包文件](updates/2026-06-04/cbd3fbb9-agent-pack-管理后台支持真实上传头像和-pack-包文件.md)
+- [订阅免费试用状态显示修复](updates/2026-06-04/296a9a4b-订阅免费试用状态显示修复.md)
+- [Agent 列表加载问题修复](updates/2026-06-04/4ac82330-agent-列表加载问题修复.md)
+- [订阅计费幂等性修复，防止重复扣款](updates/2026-06-04/cb53981e-订阅计费幂等性修复-防止重复扣款.md)
+- [管理后台访问权限加固（仅限 SRP 内部账号）](updates/2026-06-04/577e08e7-管理后台访问权限加固-仅限-srp-内部账号.md)
+- [注册来源追踪修复，广告投放效果归因更准确](updates/2026-06-04/bc9c9acd-注册来源追踪修复-广告投放效果归因更准确.md)
+- [Artifact 预览缓存刷新统一修复](updates/2026-06-04/b19bc44b-artifact-预览缓存刷新统一修复.md)
+- [多设备 Agent 范围风险说明文档更新](updates/2026-06-04/4a1b12fe-多设备-agent-范围风险说明文档更新.md)
+- [Agent Studio 上线 Connectors 功能：支持连接第三方服务](updates/2026-06-04/cf9efae8-agent-studio-上线-connectors-功能-支持连接第三方服务.md)
+- [Agent Studio 支持一键导入已发布 Pack，快速恢复历史配置](updates/2026-06-04/1ae626d6-agent-studio-支持一键导入已发布-pack-快速恢复历史配置.md)
+
+
 ## 2026-06-01
 
 - [8376b38-2143.md](updates/2026-06-01/8376b38-2143.md) — Apple 订阅支付渠道修复：确保 iOS 订阅在不同环境下正常处理
