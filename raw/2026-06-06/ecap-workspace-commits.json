@@ -1,0 +1,7 @@
+{
+  "repo": "SerendipityOneInc/ecap-workspace",
+  "date": "2026-06-06",
+  "commits": [],
+  "error": "SAML SSO authorization expired",
+  "note": "GitHub PAT requires SAML SSO re-authorization for SerendipityOneInc organization"
+}
