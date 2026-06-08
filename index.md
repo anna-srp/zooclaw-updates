@@ -1,4 +1,12 @@
 
+## 2026-06-05
+- docs(web): set zustand/motion/react-query/usehooks-ts as default frontend libs (
+- ci(auto-review): give Codex reviewer the srp-codex App identity (#2228)
+- ci: migrate workflows to Blacksmith runners (#2227)
+- fix(openclaw): read bot state from v2 computers (#2220)
+- fix(claw-interface): close Redis client on shutdown (#2222)
+- fix(stripe): ignore stale terminal subscription webhooks (#2223)
+
 
 
 ## 2026-06-07
