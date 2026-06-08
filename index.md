@@ -292,6 +292,13 @@
 
 # ZooClaw 更新索引
 
+## 2026-06-07
+
+| SHA | Repo | 标题 | 类型 | 优先级 |
+|-----|------|------|------|--------|
+| fa5dbed0 | ecap-workspace | 修复：Mattermost 连接时顶栏状态异常显示已断开 | Bug Fix | 中 |
+
+
 ## 2026-06-06
 
 > ⚠️ 今日无用户可感知更新（GitHub API SAML SSO 授权过期）

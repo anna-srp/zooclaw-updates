@@ -2,6 +2,13 @@
 
 ## 2026-06-07
 
+### 🐛 Bug Fix
+- **修复：Mattermost 连接时顶栏状态异常显示已断开** (ecap-workspace #2241)
+  - 使用 Mattermost 连接状态作为顶栏状态源，修复断开显示问题
+
+
+## 2026-06-07
+
 > ⚠️ 今日无用户可感知更新（GitHub API SAML SSO 授权过期，无法获取 commit 数据，已连续第 3 天失效）
 
 
