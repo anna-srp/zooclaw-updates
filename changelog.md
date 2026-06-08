@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-06-07
+
+> ⚠️ 今日无用户可感知更新（GitHub API SAML SSO 授权过期，无法获取 commit 数据，已连续第 3 天失效）
+
+
 ## 2026-06-06
 
 > ⚠️ 今日无用户可感知更新（GitHub API SAML SSO 授权过期，无法获取 commit 数据）
