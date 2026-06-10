@@ -1,0 +1,95 @@
+[
+  {
+    "sha": "0a9fefe276d10a68f531a0d1fc43bb656d107f7c",
+    "author_name": "tim-srp",
+    "author_login": "tim-srp",
+    "date": "2026-06-09T09:03:53Z",
+    "title": "chore: stop publishing zooclaw-connectors skill (#213)",
+    "message": "chore: stop publishing zooclaw-connectors skill (#213)",
+    "pr_number": "213",
+    "pr_body": "## Summary\n- remove `zooclaw-connectors` from `PUBLISHED_SKILLS`\n- leave the skill source directory in the repo, but exclude it from S3 extra-skills publishing\n\n## Notes\n- publish workflow stages only entries listed in `PUBLISHED_SKILLS` and syncs with `--delete`, so the next publish will remove this skill from the published extra-skills bundle.\n\n## Verification\n- `rg -n '^zooclaw-connectors$' PUBLISHED_SKILLS` returns no matches\n- `git diff --check`\n- `/tmp/ecap-skills-lint-venv/bin/python .github/scripts/lint_skills.py` (passes with existing warnings)",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/0a9fefe276d10a68f531a0d1fc43bb656d107f7c",
+    "raw": {
+      "sha": "0a9fefe276d10a68f531a0d1fc43bb656d107f7c",
+      "node_id": "C_kwDORcceptoAKDBhOWZlZmUyNzZkMTBhNjhmNTMxYTBkMWZjNDNiYjY1NmQxMDdmN2M",
+      "commit": {
+        "author": {
+          "name": "tim-srp",
+          "email": "tim@srp.one",
+          "date": "2026-06-09T09:03:53Z"
+        },
+        "committer": {
+          "name": "GitHub",
+          "email": "noreply@github.com",
+          "date": "2026-06-09T09:03:53Z"
+        },
+        "message": "chore: stop publishing zooclaw-connectors skill (#213)",
+        "tree": {
+          "sha": "cc354f6ef26285c7b93488422f8246e103fcc928",
+          "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/trees/cc354f6ef26285c7b93488422f8246e103fcc928"
+        },
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/git/commits/0a9fefe276d10a68f531a0d1fc43bb656d107f7c",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqJ9b5CRC1aQ7uu5UhlAAAwTwQAEIqf48uDxD5CvQjRUtV2LJm\ne2nNXApZjiHRePMTKEW3xlr1OnJyg81UJd6aJOSMG25r8F8zaQzeeuC4teLwGoF0\nTrfCGyH7p70tKVgOXPYggdC1Zq+lzhkJXujgBZI16girorkFx/IlQNqKW0n+LK4H\nCX0eUeoL3g8kcwbB6AQ10aC1wEm+5RQWzFu6ApnsuB+KOfj2LkVXJoRx+o/mr3Zb\nwATBmJj+a2XNQYiWs6fzr/Y1VUjvw75TPCLScvtDxpu0lqwKWmQsOvmqy18wpoIB\nrlEakdndckBMKdLiCzAJ92aPMwEgkBWpuibvJ9filvtxaauS9PPIrCkePg06OgEO\nSX9azDPAsLBezlWdL1aeeYX+GDLGMKNqCW1SusxLlHJqI/iqd8QLyD+4rupI7twJ\nrjp1vy3dpgGFwOM0+wruIt3/7fEp2/FiYB2wUYdZPXyW1ziENOLsquMc2ROT1pKR\njN3jAigaxaanQAJVxLur8VmyfLyrRjtW30/VAgr0rPT/DitzFDdq6okhxn+J/EF6\nZ3KjoDaWMtSwnEn2/VRwax/oFuECw0thoqUwAjqBw3SEV8+5sc13TuFOgAo3crmG\nlKAa+x/khM3PNa/I483W+JQ5WRrmZWEHq+XNAQlvklIHkw1UVfrdUFydzCRMVqmx\n9qlVF5h9llqLOsRjwWOM\n=V96c\n-----END PGP SIGNATURE-----\n",
+          "payload": "tree cc354f6ef26285c7b93488422f8246e103fcc928\nparent 1901dbb29175024519d523d63d372f56b5342897\nauthor tim-srp <tim@srp.one> 1780995833 +0800\ncommitter GitHub <noreply@github.com> 1780995833 +0800\n\nchore: stop publishing zooclaw-connectors skill (#213)",
+          "verified_at": "2026-06-09T09:03:54Z"
+        }
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/0a9fefe276d10a68f531a0d1fc43bb656d107f7c",
+      "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/0a9fefe276d10a68f531a0d1fc43bb656d107f7c",
+      "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/0a9fefe276d10a68f531a0d1fc43bb656d107f7c/comments",
+      "author": {
+        "login": "tim-srp",
+        "id": 178765090,
+        "node_id": "U_kgDOCqe9Ig",
+        "avatar_url": "https://avatars.githubusercontent.com/u/178765090?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/tim-srp",
+        "html_url": "https://github.com/tim-srp",
+        "followers_url": "https://api.github.com/users/tim-srp/followers",
+        "following_url": "https://api.github.com/users/tim-srp/following{/other_user}",
+        "gists_url": "https://api.github.com/users/tim-srp/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/tim-srp/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/tim-srp/subscriptions",
+        "organizations_url": "https://api.github.com/users/tim-srp/orgs",
+        "repos_url": "https://api.github.com/users/tim-srp/repos",
+        "events_url": "https://api.github.com/users/tim-srp/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/tim-srp/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "web-flow",
+        "id": 19864447,
+        "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+        "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/web-flow",
+        "html_url": "https://github.com/web-flow",
+        "followers_url": "https://api.github.com/users/web-flow/followers",
+        "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+        "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+        "organizations_url": "https://api.github.com/users/web-flow/orgs",
+        "repos_url": "https://api.github.com/users/web-flow/repos",
+        "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/web-flow/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "1901dbb29175024519d523d63d372f56b5342897",
+          "url": "https://api.github.com/repos/SerendipityOneInc/ecap-skills/commits/1901dbb29175024519d523d63d372f56b5342897",
+          "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/1901dbb29175024519d523d63d372f56b5342897"
+        }
+      ]
+    }
+  }
+]

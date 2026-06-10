@@ -1,5 +1,12 @@
 # Updates Index
 
+## 2026-06-09
+- [修复续费订单历史与发票下载](./2026-06-09/5e4b36b7-billing-renewal-history.md)
+- [连接状态更准、消息延迟更低](./2026-06-09/4104f8e4-fastclaw-status-proxy.md)
+- [桌面节点配对自动恢复，远程操作更稳定](./2026-06-09/4efb44d1-desktop-node-pairing-selfheal.md)
+- [会话线程页正确显示「已连接」状态](./2026-06-09/e2004153-session-thread-connected-status.md)
+- [日程页新增「添加任务」入口、资产页连接状态更准](./2026-06-09/9a85759e-schedule-addjob-assets-status.md)
+
 ## 2026-06-02
 - [[Skill] align openclaw.json.tmpl with prod for openclaw 2026.5.7](./2026-06-02/1901dbb2-ecap-skills.md)
 - [[Skill] make openclaw work on 2026.5.7 (config schema + skill exec)](./2026-06-02/8d43e8e8-ecap-skills.md)
