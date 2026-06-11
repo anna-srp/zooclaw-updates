@@ -1,3 +1,22 @@
+# ZooClaw 更新索引
+
+## 2026-06-10
+
+- [回放分享页面修复：链接可正常打开](updates/2026-06-10/01-ecap-workspace-fix-web-fetch-replay-shares-from-backend-2356.md)
+- [手机号登录新增人机验证，防止短信轰炸](updates/2026-06-10/02-ecap-workspace-fix-auth-add-turnstile-to-ecap-phone-login-2352.md)
+- [修复 Ultra 套餐磁盘容量未生效问题](updates/2026-06-10/03-ecap-workspace-fix-claw-interface-sync-plan-disk-limits-to-bots-2.md)
+- [聊天表情反馈显示修复](updates/2026-06-10/04-ecap-workspace-fix-web-render-openclaw-reaction-emoji-2351.md)
+- [聊天消息渲染稳定性修复](updates/2026-06-10/05-ecap-workspace-fix-web-replace-nested-markdown-hydration-roots-wi.md)
+- [Agent Pack 市场支持隐藏上架](updates/2026-06-10/06-ecap-workspace-fix-agent-packs-hide-market-packs-from-catalog-234.md)
+- [落地页首条提问自动发送](updates/2026-06-10/07-ecap-workspace-feat-web-auto-send-landing-initial-query-2345.md)
+- [Google 登录新增人机验证](updates/2026-06-10/08-ecap-workspace-fix-auth-add-turnstile-to-ecap-google-login-2339.md)
+- [定时任务页面按机器状态加载修复](updates/2026-06-10/09-ecap-workspace-fix-web-gate-schedule-by-computer-status-2336.md)
+- [桌面端账号切换重连修复](updates/2026-06-10/10-ecap-workspace-fix-desktop-account-keyed-reconnect-node-only-boot.md)
+- [结账弹窗被拦截问题修复](updates/2026-06-10/11-ecap-workspace-fix-billing-pre-open-checkout-tabs-across-async-fl.md)
+- [侧边栏新增 Agent 私信入口](updates/2026-06-10/12-ecap-workspace-fix-web-add-agent-direct-message-sidebar-link-2326.md)
+- [账单门户与发票弹窗修复](updates/2026-06-10/13-ecap-workspace-fix-billing-pre-open-portal-and-invoice-tabs-2321.md)
+- [PPT Master 升级 v2.4.0：故事板预览 + 动效修复 + 质量门禁](updates/2026-06-10/14-ecap-agent-pack-pptx-master-v2-4-0-168.md)
+
 ## 2026-06-08
 
 - [全新「New Chat」入口与会话线程上线](2026-06-08/01-全新-New-Chat-入口与会话线程上线.md)
