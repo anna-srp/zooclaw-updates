@@ -1,5 +1,12 @@
 # ZooClaw 更新索引
 
+## 2026-06-11
+
+- [侧边栏「私信」改名为「历史会话」并优化位置](updates/2026-06-11/01-ecap-workspace-fix-sidenav-direct-message-session-history-agent-2371.md)
+- [超大图片上传自动压缩，不再上传失败](updates/2026-06-11/02-ecap-workspace-fix-ecap-website-auto-triage-eca-671-2374.md)
+- [修复回放分享选择过多消息时报错](updates/2026-06-11/03-ecap-workspace-fix-ecap-website-auto-triage-eca-821-2373.md)
+- [桌面端设备配对自愈，配对更稳定](updates/2026-06-11/04-ecap-workspace-fix-desktop-node-heal-agent-operator-pairing-server-seeded-a.md)
+
 ## 2026-06-10
 
 - [回放分享页面修复：链接可正常打开](updates/2026-06-10/01-ecap-workspace-fix-web-fetch-replay-shares-from-backend-2356.md)
