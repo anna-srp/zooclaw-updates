@@ -1,5 +1,9 @@
 # ZooClaw 更新索引
 
+## 2026-06-12
+
+- [修复新版机器人网页聊天连不上、报「Something went wrong」](updates/2026-06-12/01-ecap-workspace-fix-openclaw-ws-protocol-v4-2409.md)
+
 ## 2026-06-11
 
 - [侧边栏「私信」改名为「历史会话」并优化位置](updates/2026-06-11/01-ecap-workspace-fix-sidenav-direct-message-session-history-agent-2371.md)
