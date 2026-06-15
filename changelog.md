@@ -1,5 +1,9 @@
 # ZooClaw Changelog
 
+## 2026-06-14
+
+今日无用户可感知更新（1 条 commit：`chore(agents): unify repo skill configuration (#2436)`，为仓库级开发工具链 / Codex·MCP 配置 / skills 软链与校验脚本维护，用户无感，归入 raw）。
+
 ## 2026-06-13
 
 今日无用户可感知更新（13 条 commits 均为开发工具链 / CI / 依赖维护，归入 raw）。
