@@ -1,5 +1,14 @@
 # ZooClaw 更新索引
 
+## 2026-06-16
+- [Bossclaw 一键开通向导：注册后自动装好专属智能体](updates/2026-06-16/01-feat-bossclaw-one-off-onboarding-wizard-.md) — 新功能上线 / 中
+- [Bossclaw 开通页微信二维码改为图片，手机长按可识别](updates/2026-06-16/02-fix-bossclaw-render-wechat-qr-as-image-2.md) — 体验优化 / 低
+- [新建对话页的智能体名称与头像与侧边栏保持一致](updates/2026-06-16/03-fix-web-align-new-chat-agent-identity-24.md) — 体验优化 / 低
+- [桌面客户端窗口现在可以拖动了](updates/2026-06-16/04-fix-web-make-the-desktop-app-window-drag.md) — 体验优化 / 低
+- [已登录用户跳过新手引导，并新增管理后台入口](updates/2026-06-16/05-fix-web-skip-web-onboarding-and-add-admi.md) — 体验优化 / 低
+- [PPT Master 套用模板时封面图直接作为对话附件送达](updates/2026-06-16/06-feat-landing-context-deliver-ppt-master-.md) — 体验优化 / 中
+
+
 ## 2026-06-12
 
 - [修复新版机器人网页聊天连不上、报「Something went wrong」](updates/2026-06-12/01-ecap-workspace-fix-openclaw-ws-protocol-v4-2409.md)
