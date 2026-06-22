@@ -1,5 +1,21 @@
 # ZooClaw 更新索引
 
+## 2026-06-20
+- [Bossclaw 开通支持微信、企业微信、飞书多种绑定方式](updates/2026-06-20/01-feat-bossclaw-alternate-bind-channels.md) — 新功能上线 / 中
+
+## 2026-06-19
+- [修复多个 Agent Pack 技能路径错误导致技能在线上静默失效](updates/2026-06-19/01-fix-packs-correct-shipped-skill-paths.md) — Skill 上架/更新 / 中
+
+## 2026-06-18
+- [桌面客户端去除多出来的「幽灵」程序坞图标](updates/2026-06-18/01-fix-desktop-remove-ghost-dock-icon.md) — Bug Fix / 中
+- [修复桌面客户端聊天一直卡在「正在接通你的 Claw…」连不上](updates/2026-06-18/02-fix-desktop-pin-server-port-3000.md) — Bug Fix / 高
+- [聊天显示「轮次状态」，更准确地知道智能体是否在生成](updates/2026-06-18/03-feat-chat-show-turn-status.md) — 体验优化 / 中
+
+## 2026-06-17
+- [Bossclaw 微信绑定流程更清晰：可返回上一步、二维码长按识别、绑定成功有提示](updates/2026-06-17/01-fix-bossclaw-clarify-wechat-binding-flow.md) — 体验优化 / 中
+- [聊天输入框上方实时显示「正在接通你的 Claw…」连接状态](updates/2026-06-17/02-fix-chat-show-agent-connecting-status.md) — 体验优化 / 中
+- [侧边栏与用量页正确展示企业垂直套餐订阅状态](updates/2026-06-17/03-fix-billing-show-vertical-package-status.md) — 产品基础功能更新 / 中
+
 ## 2026-06-16
 - [Bossclaw 一键开通向导：注册后自动装好专属智能体](updates/2026-06-16/01-feat-bossclaw-one-off-onboarding-wizard-.md) — 新功能上线 / 中
 - [Bossclaw 开通页微信二维码改为图片，手机长按可识别](updates/2026-06-16/02-fix-bossclaw-render-wechat-qr-as-image-2.md) — 体验优化 / 低
