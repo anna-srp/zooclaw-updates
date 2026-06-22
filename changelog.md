@@ -1,5 +1,9 @@
 # ZooClaw Changelog
 
+## 2026-06-21
+
+今日无用户可感知更新（2 条 commits 均归入 raw）：`test(openclaw): cover untested rate-limit branches (#2543)` 为测试覆盖率补充；`fix(sentry): cut ecap-website 4xx/RQ noise at the source (ECA-1025) (#2512)` 为 Sentry 监控噪音治理，用户无感。
+
 ## 2026-06-16
 
 ### 🚀 新功能
