@@ -1,5 +1,10 @@
 # ZooClaw 更新索引
 
+## 2026-06-22
+- [新用户首次进入新增「欢迎」引导：依次填写称呼、角色、使用场景](updates/2026-06-22/01-feat-onboarding-welcome-flow.md) — 产品基础功能更新 / 中
+- [侧边栏「New Chat / 新对话」按钮统一改名为「New Task / 新任务」](updates/2026-06-22/02-feat-i18n-new-chat-to-new-task.md) — 体验优化 / 中
+- [Bossclaw 权益展示文案从「Token」改为「credit（额度）」](updates/2026-06-22/03-fix-bossclaw-benefit-copy-credit.md) — 体验优化 / 低
+
 ## 2026-06-20
 - [Bossclaw 开通支持微信、企业微信、飞书多种绑定方式](updates/2026-06-20/01-feat-bossclaw-alternate-bind-channels.md) — 新功能上线 / 中
 
