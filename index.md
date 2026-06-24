@@ -1,5 +1,14 @@
 # ZooClaw 更新索引
 
+## 2026-06-23
+
+- [Chameleon 视频生成 Skill 支持 4K 超清输出与高码率](updates/2026-06-23/ecap-skills-pr216.md) — Skill 上架/更新 / 外部A
+- [恢复邮箱验证码登录入口](updates/2026-06-23/ecap-workspace-pr2564.md) — 产品基础功能更新 / 外部B
+- [Mattermost 聊天连接稳定性增强：自动检测并恢复掉线](updates/2026-06-23/ecap-workspace-pr2558.md) — 体验优化 / 外部B
+- [新建对话页 Agent 选择器默认折叠为两行](updates/2026-06-23/ecap-workspace-pr2563.md) — 体验优化 / 外部B
+- [临时存储空间不足时给出提醒](updates/2026-06-23/ecap-workspace-pr2562.md) — 体验优化 / 外部B
+- [主助手默认名称统一显示为「Assistant」](updates/2026-06-23/ecap-workspace-pr2559.md) — 体验优化 / 外部B
+
 ## 2026-06-22
 - [新用户首次进入新增「欢迎」引导：依次填写称呼、角色、使用场景](updates/2026-06-22/01-feat-onboarding-welcome-flow.md) — 产品基础功能更新 / 中
 - [侧边栏「New Chat / 新对话」按钮统一改名为「New Task / 新任务」](updates/2026-06-22/02-feat-i18n-new-chat-to-new-task.md) — 体验优化 / 中

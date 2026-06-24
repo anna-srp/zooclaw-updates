@@ -1,0 +1,11 @@
+[
+  {
+    "sha": "fa7b5ed4bfb8901524958b3b7f1c0d168df71ca4",
+    "author": "bill-srp",
+    "date": "2026-06-23T13:51:44Z",
+    "title": "ci: upload Agent Studio pack after release (#187)",
+    "message": "ci: upload Agent Studio pack after release (#187)\n\n* ci: upload agent studio pack after release\n\n* ci: route agent studio upload by environment\n\n* ci: support semver beta release tags\n\n* ci: log agent studio manifest name\n\n* fix(agent-studio): restore pack manifest name",
+    "pr_number": "187",
+    "pr_body": "## Summary\n- upload Agent Studio pack to the backend after GitHub release packaging\n- route main releases through production and semver beta tags through staging\n- build a root-level Agent Studio upload zip so the backend can parse agent-pack.yaml\n\n## Testing\n- ruby -e 'require \"yaml\"; YAML.load_file(\".github/workflows/release-agent-zips.yml\"); puts \"yaml parse ok\"'\n- git diff --check\n- python3 .github/scripts/agent_release.py package-release --root . --assets-dir /private/tmp/ecap-agent-pack-release-tag-verify --metadata-output /private/tmp/ecap-agent-pack-release-tag-verify/release-artifacts.json"
+  }
+]
