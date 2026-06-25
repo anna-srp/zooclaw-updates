@@ -1,3 +1,11 @@
+# Updates Index
+
+## 2026-06-24
+- [Agent Studio 不再混入用户可见 Agent 列表](./2026-06-24/8b078af2-pr2589.md)
+- [新建对话页新增「快速开始」入口](./2026-06-24/d6bbd193-pr2570.md)
+- [Agent Builder 升级为项目化工作流，做 Agent 更顺手](./2026-06-24/63b5b8e2-pr2571.md)
+- [Agent Studio 整体升级为 Agent Builder 体验](./2026-06-24/e3c58e96-pr186.md)
+- [修复 Agent Studio 目录清理报错（v2.0.1 热修）](./2026-06-24/7a4d998b-pr189.md)
 # ZooClaw 更新索引
 
 ## 2026-06-23
