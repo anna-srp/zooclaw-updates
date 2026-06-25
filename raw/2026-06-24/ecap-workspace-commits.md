@@ -1,0 +1,956 @@
+# SerendipityOneInc/ecap-workspace — 2026-06-24
+
+共 10 个 commit
+
+---
+
+## fix(billing): manage free access lifecycle (#2579)
+
+- **SHA**: `1f16f767fd67364c287cd00acfcc96e60278f0c5`
+- **作者**: kaka-srp
+- **日期**: 2026-06-24T12:37:08Z
+- **PR**: #2579
+- **链接**: https://github.com/SerendipityOneInc/ecap-workspace/commit/1f16f767fd67364c287cd00acfcc96e60278f0c5
+
+### 完整 commit message
+
+```
+fix(billing): manage free access lifecycle (#2579)
+
+## Summary
+- Record 7-day no-credit `free_access` entitlements for
+open-registration and warm-pool bot users.
+- Move redeem-code subscription grants onto billing v2 lifecycle rows
+with BG idempotency keys and remove the old `redeem_gift_code()`
+service.
+- Tighten OpenClaw/computer gates so only active billing v2 access can
+create or use bots, while `free_access` users remain allowed on degraded
+models.
+- Add `/api/subscription-code/redeem` web path and refresh billing
+credits after redeem success.
+
+## Root cause
+Bot access was previously gated mainly by `expired` status, so users
+with billing summary `free/source_type=none` could still create or use
+bots without a billing v2 entitlement. The legacy gift-code redeem
+service also granted subscription-like access outside the
+subscription-code lifecycle model.
+
+## Test plan
+- [x] `pytest
+services/claw-interface/tests/unit/test_subscription_code.py
+services/claw-interface/tests/unit/test_subscription_code_routes.py
+services/claw-interface/tests/unit/test_gift_code.py
+services/claw-interface/tests/unit/test_openclaw_subscription_gate.py
+services/claw-interface/tests/unit/test_computer_service.py
+services/claw-interface/tests/unit/test_routes_account.py
+services/claw-interface/tests/unit/test_warm_pool.py -q`
+- [x] `pytest
+services/claw-interface/tests/unit/test_subscription_code.py -q`
+- [x] `bash scripts/verify-py.sh`
+- [x] `pnpm exec vitest run
+tests/unit/components/UserMenu.unit.spec.tsx`
+- [x] `bash scripts/verify-web.sh web/app/src/components/UserMenu.tsx
+web/app/tests/unit/components/UserMenu.unit.spec.tsx
+web/app/src/app/[locale]/bossclaw/components/RedeemStep.tsx
+web/app/tests/unit/bossclaw/redeem-step.unit.spec.tsx`
+- [x] `bash scripts/verify-changed.sh`
+- [x] `git diff --check`
+
+Linear: https://linear.app/srpone/issue/ECA-1071
+```
+
+### PR 描述
+
+## Summary
+- Record 7-day no-credit `free_access` entitlements for open-registration and warm-pool bot users.
+- Move redeem-code subscription grants onto billing v2 lifecycle rows with BG idempotency keys and remove the old `redeem_gift_code()` service.
+- Tighten OpenClaw/computer gates so only active billing v2 access can create or use bots, while `free_access` users remain allowed on degraded models.
+- Add `/api/subscription-code/redeem` web path and refresh billing credits after redeem success.
+
+## Root cause
+Bot access was previously gated mainly by `expired` status, so users with billing summary `free/source_type=none` could still create or use bots without a billing v2 entitlement. The legacy gift-code redeem service also granted subscription-like access outside the subscription-code lifecycle model.
+
+## Test plan
+- [x] `pytest services/claw-interface/tests/unit/test_subscription_code.py services/claw-interface/tests/unit/test_subscription_code_routes.py services/claw-interface/tests/unit/test_gift_code.py services/claw-interface/tests/unit/test_openclaw_subscription_gate.py services/claw-interface/tests/unit/test_computer_service.py services/claw-interface/tests/unit/test_routes_account.py services/claw-interface/tests/unit/test_warm_pool.py -q`
+- [x] `pytest services/claw-interface/tests/unit/test_subscription_code.py -q`
+- [x] `bash scripts/verify-py.sh`
+- [x] `pnpm exec vitest run tests/unit/components/UserMenu.unit.spec.tsx`
+- [x] `bash scripts/verify-web.sh web/app/src/components/UserMenu.tsx web/app/tests/unit/components/UserMenu.unit.spec.tsx web/app/src/app/[locale]/bossclaw/components/RedeemStep.tsx web/app/tests/unit/bossclaw/redeem-step.unit.spec.tsx`
+- [x] `bash scripts/verify-changed.sh`
+- [x] `git diff --check`
+
+Linear: https://linear.app/srpone/issue/ECA-1071
+
+
+---
+
+## fix(agents): hide agent studio from computer agents (#2589)
+
+- **SHA**: `8b078af2f082768d526b7fbd130fe30c8d8bc89e`
+- **作者**: bill-srp
+- **日期**: 2026-06-24T12:29:03Z
+- **PR**: #2589
+- **链接**: https://github.com/SerendipityOneInc/ecap-workspace/commit/8b078af2f082768d526b7fbd130fe30c8d8bc89e
+
+### 完整 commit message
+
+```
+fix(agents): hide agent studio from computer agents (#2589)
+
+## Summary
+- Hide the system-managed Agent Studio workspace from the user-facing
+computer agents list.
+- Apply the filter in the workspace repo query so both returned rows and
+`total` exclude `agent_studio`.
+
+## Root cause
+Agent Studio is provisioned as a normal computer agent workspace, so
+`GET /computers/{computer_id}/agents` could return it alongside
+user-visible agents unless callers filtered it themselves.
+
+## Test plan
+- [x] `bash scripts/verify-py.sh` *(ruff passed; pyright/lint-imports
+unavailable in this checkout's local toolchain)*
+- [x]
+`/Users/bill/Github/StarQuestAI/ecap-workspace/services/claw-interface/.venv/bin/pytest
+tests/unit/test_agent_routes.py tests/unit/test_agent_service.py
+tests/unit/test_agent_workspace_repo.py -q`
+- [x] `bash scripts/verify-changed.sh`
+- [x] `bash scripts/codex-doctor.sh`
+```
+
+### PR 描述
+
+## Summary
+- Hide the system-managed Agent Studio workspace from the user-facing computer agents list.
+- Apply the filter in the workspace repo query so both returned rows and `total` exclude `agent_studio`.
+
+## Root cause
+Agent Studio is provisioned as a normal computer agent workspace, so `GET /computers/{computer_id}/agents` could return it alongside user-visible agents unless callers filtered it themselves.
+
+## Test plan
+- [x] `bash scripts/verify-py.sh` *(ruff passed; pyright/lint-imports unavailable in this checkout's local toolchain)*
+- [x] `/Users/bill/Github/StarQuestAI/ecap-workspace/services/claw-interface/.venv/bin/pytest tests/unit/test_agent_routes.py tests/unit/test_agent_service.py tests/unit/test_agent_workspace_repo.py -q`
+- [x] `bash scripts/verify-changed.sh`
+- [x] `bash scripts/codex-doctor.sh`
+
+
+---
+
+## refactor(web): migrate agent UI to computer agents (#2569)
+
+- **SHA**: `ab4ef375d3b03cedc78045d8abd8c0ef1bd25f98`
+- **作者**: bill-srp
+- **日期**: 2026-06-24T11:57:35Z
+- **PR**: #2569
+- **链接**: https://github.com/SerendipityOneInc/ecap-workspace/commit/ab4ef375d3b03cedc78045d8abd8c0ef1bd25f98
+
+### 完整 commit message
+
+```
+refactor(web): migrate agent UI to computer agents (#2569)
+
+## Summary
+
+- Migrate visible agent UI from `useUserAgents` to current-computer V2
+agent rows.
+- Add `useCurrentComputerAgents` for the non-`pack_test` current
+computer and computer-scoped agent cache refresh.
+- Remove the `useInstallingComputerAgents` adapter and update SideNav,
+chat, new-chat, agent manager, publish, settings, onboarding, and
+related tests to use `agent_id` / `computer_id` V2 data.
+
+## Tests
+
+- `pnpm --dir web/app exec vitest run
+tests/unit/components/sidenav/SideNavAgentList.unit.spec.tsx
+tests/unit/app/new-chat/AgentSelector.unit.spec.tsx
+tests/unit/app/new-chat/NewChatClient.unit.spec.tsx
+tests/unit/app/new-chat/useViewModel.unit.spec.tsx
+tests/unit/app/chat-thread/SessionThreadClient.unit.spec.tsx
+tests/unit/app/chat/GenClawClient.internals.unit.spec.tsx
+tests/unit/app/chat/OpenClawAssistantMessage.unit.spec.tsx
+tests/unit/app/chat/useChatIdentity.unit.spec.tsx
+tests/unit/app/chat/useDeepLinkHireFlow.unit.spec.ts
+tests/unit/hooks/useLandingContextFlow.unit.spec.ts
+tests/unit/app/claw-settings/ClawSettingsClient.unit.spec.tsx
+tests/unit/app/claw-settings/helpers.unit.spec.ts
+tests/unit/app/claw-settings/ChannelsSection.unit.spec.tsx
+tests/unit/hooks/useAgentActions.unit.spec.ts
+tests/unit/app/agents-manager/useViewModel.unit.spec.tsx
+tests/unit/app/agents-manager-publish.unit.spec.tsx
+tests/unit/app/agents-manager/publish/useAgentInstallToggle.unit.spec.tsx
+tests/unit/components/onboarding/CompanionSelectStep.unit.spec.tsx
+tests/unit/components/providers/OpenClawProvider.behavior.unit.spec.tsx
+tests/unit/hooks/openclaw/useOpenClawVisibilityRecovery.unit.spec.ts
+tests/unit/hooks/useOpenClawInit-extras.unit.spec.ts`
+- `pnpm --dir web/app exec vitest run
+tests/unit/app/new-chat/AgentSelector.unit.spec.tsx
+tests/unit/app/new-chat/AgentSelector.collapse.unit.spec.tsx`
+- `bash scripts/verify-web.sh web/app/src/hooks/useAgentActions.ts
+web/app/src/hooks/queries/openclaw/useCurrentComputerAgents.ts
+web/app/src/components/sidenav/SideNav.tsx
+web/app/src/components/sidenav/SideNavAgentList.tsx
+'web/app/src/app/[locale]/(app)/(chat)/chat/GenClawClient.tsx'
+'web/app/src/app/[locale]/(app)/new-chat/useViewModel.ts'
+'web/app/src/app/[locale]/(app)/new-chat/components/AgentSelector.tsx'
+'web/app/src/app/[locale]/(app)/(chat)/agents-manager/publish/PublishAgentsClient.tsx'`
+
+`verify-web` still fails at the existing
+`src/app/[locale]/(app)/(chat)/chat/components/GenClawInput.tsx(8,31):
+Cannot find module 'ldrs/react'` TypeScript error; guards, targeted
+vitest, and eslint passed.
+```
+
+### PR 描述
+
+## Summary
+
+- Migrate visible agent UI from `useUserAgents` to current-computer V2 agent rows.
+- Add `useCurrentComputerAgents` for the non-`pack_test` current computer and computer-scoped agent cache refresh.
+- Remove the `useInstallingComputerAgents` adapter and update SideNav, chat, new-chat, agent manager, publish, settings, onboarding, and related tests to use `agent_id` / `computer_id` V2 data.
+
+## Tests
+
+- `pnpm --dir web/app exec vitest run tests/unit/components/sidenav/SideNavAgentList.unit.spec.tsx tests/unit/app/new-chat/AgentSelector.unit.spec.tsx tests/unit/app/new-chat/NewChatClient.unit.spec.tsx tests/unit/app/new-chat/useViewModel.unit.spec.tsx tests/unit/app/chat-thread/SessionThreadClient.unit.spec.tsx tests/unit/app/chat/GenClawClient.internals.unit.spec.tsx tests/unit/app/chat/OpenClawAssistantMessage.unit.spec.tsx tests/unit/app/chat/useChatIdentity.unit.spec.tsx tests/unit/app/chat/useDeepLinkHireFlow.unit.spec.ts tests/unit/hooks/useLandingContextFlow.unit.spec.ts tests/unit/app/claw-settings/ClawSettingsClient.unit.spec.tsx tests/unit/app/claw-settings/helpers.unit.spec.ts tests/unit/app/claw-settings/ChannelsSection.unit.spec.tsx tests/unit/hooks/useAgentActions.unit.spec.ts tests/unit/app/agents-manager/useViewModel.unit.spec.tsx tests/unit/app/agents-manager-publish.unit.spec.tsx tests/unit/app/agents-manager/publish/useAgentInstallToggle.unit.spec.tsx tests/unit/components/onboarding/CompanionSelectStep.unit.spec.tsx tests/unit/components/providers/OpenClawProvider.behavior.unit.spec.tsx tests/unit/hooks/openclaw/useOpenClawVisibilityRecovery.unit.spec.ts tests/unit/hooks/useOpenClawInit-extras.unit.spec.ts`
+- `pnpm --dir web/app exec vitest run tests/unit/app/new-chat/AgentSelector.unit.spec.tsx tests/unit/app/new-chat/AgentSelector.collapse.unit.spec.tsx`
+- `bash scripts/verify-web.sh web/app/src/hooks/useAgentActions.ts web/app/src/hooks/queries/openclaw/useCurrentComputerAgents.ts web/app/src/components/sidenav/SideNav.tsx web/app/src/components/sidenav/SideNavAgentList.tsx 'web/app/src/app/[locale]/(app)/(chat)/chat/GenClawClient.tsx' 'web/app/src/app/[locale]/(app)/new-chat/useViewModel.ts' 'web/app/src/app/[locale]/(app)/new-chat/components/AgentSelector.tsx' 'web/app/src/app/[locale]/(app)/(chat)/agents-manager/publish/PublishAgentsClient.tsx'`
+
+`verify-web` still fails at the existing `src/app/[locale]/(app)/(chat)/chat/components/GenClawInput.tsx(8,31): Cannot find module 'ldrs/react'` TypeScript error; guards, targeted vitest, and eslint passed.
+
+
+---
+
+## feat(design-system): components Batch 2 (Tooltip · DropdownMenu · Dialog · Select) (#2576)
+
+- **SHA**: `47b1b7e2fc93d0813db6a654f6e82592d5ab4306`
+- **作者**: lynn Zhuang
+- **日期**: 2026-06-24T11:00:04Z
+- **PR**: #2576
+- **链接**: https://github.com/SerendipityOneInc/ecap-workspace/commit/47b1b7e2fc93d0813db6a654f6e82592d5ab4306
+
+### 完整 commit message
+
+```
+feat(design-system): components Batch 2 (Tooltip · DropdownMenu · Dialog · Select) (#2576)
+
+## What
+
+Batch 2 (Overlays) of the `@zooclaw/design-system` component library, on
+the merged foundation + Batch 1: **Tooltip, DropdownMenu, Dialog,
+Select** (each with sub-parts).
+
+- Unified `radix-ui` primitives, `'use client'`, `data-slot` on every
+part.
+- Floating surfaces (tooltip / menu / dialog / select content) use the
+**Liquid Glass** treatment: `bg-glass-panel border-glass-border
+backdrop-blur-glass shadow-glass`.
+- Active/selected fills ink (`bg-accent`/`bg-foreground`); brand red
+only as the canonical `focus-visible:ring-[3px] ring-ring/50`.
+- Tier-3 utilities only; each with a vitest smoke test (**22 tests
+pass**), exported from the barrel, demoed in the docs-site preview.
+
+## Built in parallel
+Implemented by a background subagent (alongside Batch 3 display/feedback
+in #2575), then given a final whole-branch review (opus). Fixes applied
+from that review:
+- **Dropped dead animation classes**
+(`animate-in`/`fade-in-0`/`zoom-in-95`/`slide-*`) — they require the
+`tw-animate-css` plugin, which isn't part of the foundation, so they
+were silent no-ops. Overlays open/close instantly for now; animation
+polish is a deliberate later enhancement (avoids a lockfile-churning
+dependency in this PR).
+- **Tooltip no longer self-wraps a Provider** — it's now bare
+(`TooltipPrimitive.Root`); the consumer supplies one `TooltipProvider`
+at the app root (shadcn-new-york idiom). `TooltipProvider` stays
+exported.
+- **Dialog scrim** `bg-black/50` → `bg-foreground/50` (token,
+dark-mode-aware).
+
+## Notes
+- DropdownMenu/Select smoke tests assert content via the controlled
+`open` prop (jsdom doesn't synthesize Radix's pointer-events from
+`fireEvent.click`); Dialog drives the real `fireEvent.click` open path.
+No new test dependency.
+- **Merge note:** Batch 3 (#2575) also appends to `src/index.ts` +
+`preview/App.tsx`, so whichever merges second needs a trivial
+append-conflict resolution.
+
+## Verification
+`pnpm --filter @zooclaw/design-system test` (22/22) · `tsc` · `lint` ·
+`build:preview` — all green.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+---------
+
+Co-authored-by: Lynn Zhuang <lynnzhuang@MacBook-Pro.local>
+Co-authored-by: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+```
+
+### PR 描述
+
+## What
+
+Batch 2 (Overlays) of the `@zooclaw/design-system` component library, on the merged foundation + Batch 1: **Tooltip, DropdownMenu, Dialog, Select** (each with sub-parts).
+
+- Unified `radix-ui` primitives, `'use client'`, `data-slot` on every part.
+- Floating surfaces (tooltip / menu / dialog / select content) use the **Liquid Glass** treatment: `bg-glass-panel border-glass-border backdrop-blur-glass shadow-glass`.
+- Active/selected fills ink (`bg-accent`/`bg-foreground`); brand red only as the canonical `focus-visible:ring-[3px] ring-ring/50`.
+- Tier-3 utilities only; each with a vitest smoke test (**22 tests pass**), exported from the barrel, demoed in the docs-site preview.
+
+## Built in parallel
+Implemented by a background subagent (alongside Batch 3 display/feedback in #2575), then given a final whole-branch review (opus). Fixes applied from that review:
+- **Dropped dead animation classes** (`animate-in`/`fade-in-0`/`zoom-in-95`/`slide-*`) — they require the `tw-animate-css` plugin, which isn't part of the foundation, so they were silent no-ops. Overlays open/close instantly for now; animation polish is a deliberate later enhancement (avoids a lockfile-churning dependency in this PR).
+- **Tooltip no longer self-wraps a Provider** — it's now bare (`TooltipPrimitive.Root`); the consumer supplies one `TooltipProvider` at the app root (shadcn-new-york idiom). `TooltipProvider` stays exported.
+- **Dialog scrim** `bg-black/50` → `bg-foreground/50` (token, dark-mode-aware).
+
+## Notes
+- DropdownMenu/Select smoke tests assert content via the controlled `open` prop (jsdom doesn't synthesize Radix's pointer-events from `fireEvent.click`); Dialog drives the real `fireEvent.click` open path. No new test dependency.
+- **Merge note:** Batch 3 (#2575) also appends to `src/index.ts` + `preview/App.tsx`, so whichever merges second needs a trivial append-conflict resolution.
+
+## Verification
+`pnpm --filter @zooclaw/design-system test` (22/22) · `tsc` · `lint` · `build:preview` — all green.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+
+---
+
+## feat(design-system): components Batch 3 (Badge · Card · Tabs · Accordion · Alert · Toast) (#2575)
+
+- **SHA**: `7e3210d088acf07c828ccb11daed0f38f2d7ca8f`
+- **作者**: lynn Zhuang
+- **日期**: 2026-06-24T10:27:34Z
+- **PR**: #2575
+- **链接**: https://github.com/SerendipityOneInc/ecap-workspace/commit/7e3210d088acf07c828ccb11daed0f38f2d7ca8f
+
+### 完整 commit message
+
+```
+feat(design-system): components Batch 3 (Badge · Card · Tabs · Accordion · Alert · Toast) (#2575)
+
+## What
+
+Batch 3 (Display & Feedback) of the `@zooclaw/design-system` component
+library, on the merged foundation + Batch 1: **Badge, Card, Tabs,
+Accordion, Alert, Toast**.
+
+- **Badge** — `cva` variants (default=ink, secondary, destructive=brand
+red, outline).
+- **Card** — presentational composition
+(Header/Title/Description/Content/Footer), glass-card surface, plain
+functions (RSC-compatible).
+- **Tabs, Accordion** — unified `radix-ui`, `'use client'`, `data-slot`;
+active state fills ink, brand red as focus ring.
+- **Alert** — presentational, `default`/`destructive` variants + default
+Heroicon per variant.
+- **Toast** — module-emitter `useToast()` + `Toaster`, Radix Toast under
+the hood.
+
+All shadcn-shaped, tier-3 utilities only, each with a vitest smoke test
+(**37 tests pass**), exported from the barrel, demoed in the docs-site
+preview.
+
+## Built in parallel
+This batch was implemented by a background subagent (alongside Batch 2
+overlays in #PENDING), then given a final whole-branch review (opus).
+Fixes applied from that review: `useToast` render-to-commit sync gap
+closed; `Card` normalized to plain functions (package convention);
+`Toast` close button uses the canonical `focus-visible:` ring.
+
+## Notes
+- Tabs interactive-switch tests use Radix's controlled `value` (jsdom
+doesn't synthesize Radix's pointer-events from `fireEvent.click`);
+Accordion toggles via real `fireEvent.click`. No new test dependency.
+- Accordion open/close is an honest `data-[state]` height show/hide
+(instant, not eased) — smooth easing is a later enhancement once an
+animation plugin is part of the foundation.
+- **Merge note:** Batch 2 (overlays) lands in a sibling PR; both append
+to `src/index.ts` + `preview/App.tsx`, so whichever merges second needs
+a trivial append-conflict resolution.
+
+## Verification
+`pnpm --filter @zooclaw/design-system test` (37/37) · `tsc` · `lint` ·
+`build:preview` — all green.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+---------
+
+Co-authored-by: Lynn Zhuang <lynnzhuang@MacBook-Pro.local>
+Co-authored-by: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+```
+
+### PR 描述
+
+## What
+
+Batch 3 (Display & Feedback) of the `@zooclaw/design-system` component library, on the merged foundation + Batch 1: **Badge, Card, Tabs, Accordion, Alert, Toast**.
+
+- **Badge** — `cva` variants (default=ink, secondary, destructive=brand red, outline).
+- **Card** — presentational composition (Header/Title/Description/Content/Footer), glass-card surface, plain functions (RSC-compatible).
+- **Tabs, Accordion** — unified `radix-ui`, `'use client'`, `data-slot`; active state fills ink, brand red as focus ring.
+- **Alert** — presentational, `default`/`destructive` variants + default Heroicon per variant.
+- **Toast** — module-emitter `useToast()` + `Toaster`, Radix Toast under the hood.
+
+All shadcn-shaped, tier-3 utilities only, each with a vitest smoke test (**37 tests pass**), exported from the barrel, demoed in the docs-site preview.
+
+## Built in parallel
+This batch was implemented by a background subagent (alongside Batch 2 overlays in #PENDING), then given a final whole-branch review (opus). Fixes applied from that review: `useToast` render-to-commit sync gap closed; `Card` normalized to plain functions (package convention); `Toast` close button uses the canonical `focus-visible:` ring.
+
+## Notes
+- Tabs interactive-switch tests use Radix's controlled `value` (jsdom doesn't synthesize Radix's pointer-events from `fireEvent.click`); Accordion toggles via real `fireEvent.click`. No new test dependency.
+- Accordion open/close is an honest `data-[state]` height show/hide (instant, not eased) — smooth easing is a later enhancement once an animation plugin is part of the foundation.
+- **Merge note:** Batch 2 (overlays) lands in a sibling PR; both append to `src/index.ts` + `preview/App.tsx`, so whichever merges second needs a trivial append-conflict resolution.
+
+## Verification
+`pnpm --filter @zooclaw/design-system test` (37/37) · `tsc` · `lint` · `build:preview` — all green.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+
+---
+
+## feat(design-system): components Batch 1 (form primitives) + docs-site preview (#2573)
+
+- **SHA**: `0d02f050b036b17f8a7f67a7c881faa2778a89ad`
+- **作者**: lynn Zhuang
+- **日期**: 2026-06-24T08:44:39Z
+- **PR**: #2573
+- **链接**: https://github.com/SerendipityOneInc/ecap-workspace/commit/0d02f050b036b17f8a7f67a7c881faa2778a89ad
+
+### 完整 commit message
+
+```
+feat(design-system): components Batch 1 (form primitives) + docs-site preview (#2573)
+
+## What
+
+Batch 1 of the `@zooclaw/design-system` component library, on the merged
+shadcn/Tailwind-v4 foundation (#2565) — **plus** a polished docs-site
+preview.
+
+### Components (6 form primitives + showcase)
+- **`Input`, `Textarea`, `Label`, `Field`** — pure, RSC-compatible (no
+`'use client'`), tier-3 utilities only.
+- **`Checkbox`, `Switch`** — unified `radix-ui`, `'use client'`,
+checked/on states fill with **ink** (`bg-foreground`), brand red gated
+to focus ring / invalid only.
+- All shadcn-shaped (`cva` where needed, `data-slot`, `cn`), each with a
+**vitest smoke test** (real TDD — the harness shipped in the
+foundation). 7 test files / 14 tests pass.
+- A preview **Foundations showcase** (Color / Typography / Radius /
+Shadows / Glass).
+
+### Docs-site preview
+Rebuilt the preview chrome into the bespoke-era docs-site layout, on the
+new tokens: glass topbar + sticky sidebar nav (tight rows, 2× module
+gaps) + a frosted glass main panel; each section gets a serif heading +
+中文 description + hairline divider. Named `--zc-*` color palette, the
+"What should *Atlas* do today?" headline, radius/shadow/glass-tier
+tiles. Light + dark auto-theme via token vars. Preview-only — no
+component changes.
+
+## How it was built
+Plan → subagent-driven execution (a fresh implementer + a task reviewer
+per component) → a final whole-branch review (opus) that caught a
+focus-ring inconsistency across primitives (`ring-2/40` vs
+`ring-[3px]/50`) → fixed system-wide before it could propagate to the
+next ~30 components. Also made the `aria-invalid` ring actually paint
+and added explicit `displayName`s.
+
+- Plan:
+`docs/superpowers/plans/2026-06-24-zooclaw-ds-components-batch1.md`
+- Spec:
+`docs/superpowers/specs/2026-06-23-zooclaw-ds-shadcn-rebuild-design.md`
+
+## Verification
+`pnpm --filter @zooclaw/design-system test` (14/14) · `tsc` · `lint` ·
+`build:preview` — all green. Preview visually confirmed in light + dark.
+
+## Locked conventions (template for Batches 2-3)
+Unified `radix-ui` package + `data-slot`; tier-3 utilities only (no raw
+`--zc-*`/`--lg-*`); `'use client'` only on Radix/stateful components;
+selected states fill ink, brand red is a sparing accent; one canonical
+focus ring (`ring-[3px] ring-ring/50`).
+
+## Out of scope (follow-ups)
+- Batch 2 (Select · Dialog · Tooltip · DropdownMenu), Batch 3 (Card ·
+Badge · Tabs · Accordion · Toast · Alert).
+- Consume in `web/app`; close the bespoke #2551.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+---------
+
+Co-authored-by: Lynn Zhuang <lynnzhuang@MacBook-Pro.local>
+Co-authored-by: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+```
+
+### PR 描述
+
+## What
+
+Batch 1 of the `@zooclaw/design-system` component library, on the merged shadcn/Tailwind-v4 foundation (#2565) — **plus** a polished docs-site preview.
+
+### Components (6 form primitives + showcase)
+- **`Input`, `Textarea`, `Label`, `Field`** — pure, RSC-compatible (no `'use client'`), tier-3 utilities only.
+- **`Checkbox`, `Switch`** — unified `radix-ui`, `'use client'`, checked/on states fill with **ink** (`bg-foreground`), brand red gated to focus ring / invalid only.
+- All shadcn-shaped (`cva` where needed, `data-slot`, `cn`), each with a **vitest smoke test** (real TDD — the harness shipped in the foundation). 7 test files / 14 tests pass.
+- A preview **Foundations showcase** (Color / Typography / Radius / Shadows / Glass).
+
+### Docs-site preview
+Rebuilt the preview chrome into the bespoke-era docs-site layout, on the new tokens: glass topbar + sticky sidebar nav (tight rows, 2× module gaps) + a frosted glass main panel; each section gets a serif heading + 中文 description + hairline divider. Named `--zc-*` color palette, the "What should *Atlas* do today?" headline, radius/shadow/glass-tier tiles. Light + dark auto-theme via token vars. Preview-only — no component changes.
+
+## How it was built
+Plan → subagent-driven execution (a fresh implementer + a task reviewer per component) → a final whole-branch review (opus) that caught a focus-ring inconsistency across primitives (`ring-2/40` vs `ring-[3px]/50`) → fixed system-wide before it could propagate to the next ~30 components. Also made the `aria-invalid` ring actually paint and added explicit `displayName`s.
+
+- Plan: `docs/superpowers/plans/2026-06-24-zooclaw-ds-components-batch1.md`
+- Spec: `docs/superpowers/specs/2026-06-23-zooclaw-ds-shadcn-rebuild-design.md`
+
+## Verification
+`pnpm --filter @zooclaw/design-system test` (14/14) · `tsc` · `lint` · `build:preview` — all green. Preview visually confirmed in light + dark.
+
+## Locked conventions (template for Batches 2-3)
+Unified `radix-ui` package + `data-slot`; tier-3 utilities only (no raw `--zc-*`/`--lg-*`); `'use client'` only on Radix/stateful components; selected states fill ink, brand red is a sparing accent; one canonical focus ring (`ring-[3px] ring-ring/50`).
+
+## Out of scope (follow-ups)
+- Batch 2 (Select · Dialog · Tooltip · DropdownMenu), Batch 3 (Card · Badge · Tabs · Accordion · Toast · Alert).
+- Consume in `web/app`; close the bespoke #2551.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+
+---
+
+## fix(cron): move pack test cleanup to admin cron (#2572)
+
+- **SHA**: `700263e785216006fb6d982cb46ecd3064a0e267`
+- **作者**: kaka-srp
+- **日期**: 2026-06-24T08:11:34Z
+- **PR**: #2572
+- **链接**: https://github.com/SerendipityOneInc/ecap-workspace/commit/700263e785216006fb6d982cb46ecd3064a0e267
+
+### 完整 commit message
+
+```
+fix(cron): move pack test cleanup to admin cron (#2572)
+
+## Summary
+
+- Move Pack Test cleanup triggering to
+`/admin/cron/cleanup-pack-test-runs`.
+- Remove the public `/cron/pack-test-cleanup` route.
+- Keep service-key protection on the new admin route with
+`X-Warm-Pool-Key`.
+- Update cron trigger docs and add route coverage for the new admin
+endpoint plus the removed public endpoint.
+
+## Validation
+
+- `/home/node/.venvs/claw-interface/bin/python -m pytest
+services/claw-interface/tests/unit/test_admin_cron.py
+services/claw-interface/tests/unit/test_warm_pool.py -q`
+- `/home/node/.venvs/claw-interface/bin/ruff check
+services/claw-interface/app/routes/admin_cron.py
+services/claw-interface/app/routes/warm_pool_cron.py
+services/claw-interface/tests/unit/test_admin_cron.py
+services/claw-interface/tests/unit/test_warm_pool.py`
+- `/home/node/.venvs/claw-interface/bin/ruff format --check
+services/claw-interface/app/routes/admin_cron.py
+services/claw-interface/app/routes/warm_pool_cron.py
+services/claw-interface/tests/unit/test_admin_cron.py
+services/claw-interface/tests/unit/test_warm_pool.py`
+- `bash scripts/verify-py.sh`
+- `bash scripts/verify-changed.sh` reports no locally verifiable
+surfaces changed vs `origin/main`
+
+## Deploy Note
+
+Configure the scheduler to call:
+
+`POST /admin/cron/cleanup-pack-test-runs?batch_limit=100`
+
+with:
+
+`X-Warm-Pool-Key: <WARM_POOL_CRON_API_KEY>`
+
+The old `POST /cron/pack-test-cleanup` route is intentionally not
+retained. Pack Test cleanup should use the admin cron path while
+preserving the existing service-key protection.
+```
+
+### PR 描述
+
+## Summary
+
+- Move Pack Test cleanup triggering to `/admin/cron/cleanup-pack-test-runs`.
+- Remove the public `/cron/pack-test-cleanup` route.
+- Keep service-key protection on the new admin route with `X-Warm-Pool-Key`.
+- Update cron trigger docs and add route coverage for the new admin endpoint plus the removed public endpoint.
+
+## Validation
+
+- `/home/node/.venvs/claw-interface/bin/python -m pytest services/claw-interface/tests/unit/test_admin_cron.py services/claw-interface/tests/unit/test_warm_pool.py -q`
+- `/home/node/.venvs/claw-interface/bin/ruff check services/claw-interface/app/routes/admin_cron.py services/claw-interface/app/routes/warm_pool_cron.py services/claw-interface/tests/unit/test_admin_cron.py services/claw-interface/tests/unit/test_warm_pool.py`
+- `/home/node/.venvs/claw-interface/bin/ruff format --check services/claw-interface/app/routes/admin_cron.py services/claw-interface/app/routes/warm_pool_cron.py services/claw-interface/tests/unit/test_admin_cron.py services/claw-interface/tests/unit/test_warm_pool.py`
+- `bash scripts/verify-py.sh`
+- `bash scripts/verify-changed.sh` reports no locally verifiable surfaces changed vs `origin/main`
+
+## Deploy Note
+
+Configure the scheduler to call:
+
+`POST /admin/cron/cleanup-pack-test-runs?batch_limit=100`
+
+with:
+
+`X-Warm-Pool-Key: <WARM_POOL_CRON_API_KEY>`
+
+The old `POST /cron/pack-test-cleanup` route is intentionally not retained. Pack Test cleanup should use the admin cron path while preserving the existing service-key protection.
+
+
+---
+
+## feat(new-chat): add Quick Start entries for the main agent + selector polish (#2570)
+
+- **SHA**: `d6bbd19397ccef1f5f8ff5e40a5dba212dbe8fc1`
+- **作者**: lynn Zhuang
+- **日期**: 2026-06-24T07:33:33Z
+- **PR**: #2570
+- **链接**: https://github.com/SerendipityOneInc/ecap-workspace/commit/d6bbd19397ccef1f5f8ff5e40a5dba212dbe8fc1
+
+### 完整 commit message
+
+```
+feat(new-chat): add Quick Start entries for the main agent + selector polish (#2570)
+
+## What
+
+Adds a **Quick Start** module of per-agent quick actions to the new-chat
+launcher, starting with the default Assistant (main agent), plus visual
+polish to the launcher and agent selector.
+
+The per-agent quick-command system already existed
+(`getQuickCommandsForAgent` → `AgentPackQuickCommand`, rendered on
+new-chat and in-chat). The Assistant just had nothing configured, so
+this PR mainly supplies its content and refines the surrounding UI.
+
+## Changes
+
+**Quick Start content (main agent)**
+- `quick-commands.ts`: built-in `MAIN_AGENT_DEFAULT_QUICK_COMMANDS`
+returned for the `main` agent **only when the caller opts in**
+(`includeMainDefaults`):
+- Set up a scheduled task · What can you do? · Connect an IM channel ·
+Make a marketing video (Seedance)
+- A configured `main` pack still overrides the defaults; specialist
+agents are unchanged (they author their own `quick_commands`).
+- Behavior is the existing **send-on-click**; prompts are short so the
+Assistant follows up for specifics.
+
+**Launcher UI (`NewChatClient.tsx`)**
+- Renamed the section label "Start with a task" → **"Quick Start"**.
+- Per-content card icons (calendar / capabilities / chat / video) on a
+soft muted (`bg-muted`) 8px-radius chip; falls back to Sparkles for
+unmapped commands.
+- Softer card shadow (`shadow` → `hover:shadow-md`).
+- Smaller headline and a shorter composer (`rows` 4 → 3).
+
+**Agent selector (`AgentSelector.tsx`)**
+- Light-gray pill outline on every agent (including the glass theme,
+previously borderless).
+- Circular avatars (`rounded-md` → `rounded-full`).
+- Selected agent now uses a **red outline** instead of a solid red fill.
+
+## Scope — new-chat only
+
+The main-agent Quick Start defaults are **new-chat-only**.
+`getQuickCommandsForAgent` takes an opt-in `includeMainDefaults` flag
+that **only the new-chat launcher passes** (`useViewModel`); the in-chat
+quick actions (`ChatQuickActions`) omit it, so their behavior —
+including hiding Quick Start for a main chat with no configured commands
+— is unchanged.
+
+## Testing
+
+- `bash scripts/verify-web.sh` + full unit suite (`vitest run`) — tsc,
+vitest, eslint all pass.
+- `quick-commands.unit.spec.ts`: defaults when opted in, **no defaults
+when not opted in** (in-chat surface), null id → main, zh `label_cn`,
+configured-pack override, specialist → empty.
+- Verified live in-app: Assistant shows the 4 Quick Start cards on
+new-chat; switching to a specialist with no `quick_commands` hides the
+section; in-chat quick actions unaffected.
+
+---------
+
+Co-authored-by: Lynn Zhuang <lynnzhuang@MacBook-Pro.local>
+```
+
+### PR 描述
+
+## What
+
+Adds a **Quick Start** module of per-agent quick actions to the new-chat launcher, starting with the default Assistant (main agent), plus visual polish to the launcher and agent selector.
+
+The per-agent quick-command system already existed (`getQuickCommandsForAgent` → `AgentPackQuickCommand`, rendered on new-chat and in-chat). The Assistant just had nothing configured, so this PR mainly supplies its content and refines the surrounding UI.
+
+## Changes
+
+**Quick Start content (main agent)**
+- `quick-commands.ts`: built-in `MAIN_AGENT_DEFAULT_QUICK_COMMANDS` returned for the `main` agent **only when the caller opts in** (`includeMainDefaults`):
+  - Set up a scheduled task · What can you do? · Connect an IM channel · Make a marketing video (Seedance)
+- A configured `main` pack still overrides the defaults; specialist agents are unchanged (they author their own `quick_commands`).
+- Behavior is the existing **send-on-click**; prompts are short so the Assistant follows up for specifics.
+
+**Launcher UI (`NewChatClient.tsx`)**
+- Renamed the section label "Start with a task" → **"Quick Start"**.
+- Per-content card icons (calendar / capabilities / chat / video) on a soft muted (`bg-muted`) 8px-radius chip; falls back to Sparkles for unmapped commands.
+- Softer card shadow (`shadow` → `hover:shadow-md`).
+- Smaller headline and a shorter composer (`rows` 4 → 3).
+
+**Agent selector (`AgentSelector.tsx`)**
+- Light-gray pill outline on every agent (including the glass theme, previously borderless).
+- Circular avatars (`rounded-md` → `rounded-full`).
+- Selected agent now uses a **red outline** instead of a solid red fill.
+
+## Scope — new-chat only
+
+The main-agent Quick Start defaults are **new-chat-only**. `getQuickCommandsForAgent` takes an opt-in `includeMainDefaults` flag that **only the new-chat launcher passes** (`useViewModel`); the in-chat quick actions (`ChatQuickActions`) omit it, so their behavior — including hiding Quick Start for a main chat with no configured commands — is unchanged.
+
+## Testing
+
+- `bash scripts/verify-web.sh` + full unit suite (`vitest run`) — tsc, vitest, eslint all pass.
+- `quick-commands.unit.spec.ts`: defaults when opted in, **no defaults when not opted in** (in-chat surface), null id → main, zh `label_cn`, configured-pack override, specialist → empty.
+- Verified live in-app: Assistant shows the 4 Quick Start cards on new-chat; switching to a specialist with no `quick_commands` hides the section; in-chat quick actions unaffected.
+
+
+---
+
+## feat(agent-builder): refactor builder workflow (#2571)
+
+- **SHA**: `63b5b8e2c4530df3e6e0bcaaf4168486c2ccecd7`
+- **作者**: kaka-srp
+- **日期**: 2026-06-24T07:33:51Z
+- **PR**: #2571
+- **链接**: https://github.com/SerendipityOneInc/ecap-workspace/commit/63b5b8e2c4530df3e6e0bcaaf4168486c2ccecd7
+
+### 完整 commit message
+
+```
+feat(agent-builder): refactor builder workflow (#2571)
+
+## Summary
+- Adds Agent Builder as a first-class project workflow with project
+history, new/rename/archive actions, current project title,
+latest-project resume, and Agent Studio update entry.
+- Adds backend Agent Builder project, iteration, and test-turn
+orchestration, including DB-first Pack Test status/result handling,
+auto-review feedback, accept, submit, and auto-approve submission flow.
+- Refactors Pack Test runtime handling for direct-created test bots,
+hides temporary/Agent Studio bots from normal navigation, and updates
+related chat/deep-link behavior.
+
+## Size Rationale
+This is intentionally a large cross-surface feature PR: backend
+project/iteration/test-turn contracts, Pack Test runtime behavior,
+frontend Builder workflow, navigation cleanup, and matching tests need
+to land together so the UI and API state machine stay compatible. The
+largest files are new Agent Builder service/tests rather than broad
+unrelated refactors.
+
+## Linear
+
+https://linear.app/srpone/issue/ECA-1038/refactor-agent-builder-functionality
+
+## Validation
+- `pnpm exec vitest run
+tests/unit/app/agent-builder-client.unit.spec.tsx
+tests/unit/app/agent-builder-entry.unit.spec.tsx
+tests/unit/app/chat/useDeepLinkHireFlow.unit.spec.ts
+tests/unit/hooks/useAgentPacks.unit.spec.ts
+tests/unit/services/agent-packs.unit.spec.ts
+tests/unit/app/agents-manager/useViewModel.unit.spec.tsx
+tests/unit/components/sidenav/SideNavAgentList.unit.spec.tsx
+tests/unit/components/sidenav/build-bottom-nav-items.unit.spec.ts`
+- `pnpm exec tsc --noEmit --pretty false`
+- `pnpm exec eslint
+src/app/[locale]/\(app\)/\(chat\)/agent-builder/AgentBuilderClient.tsx
+src/app/[locale]/\(app\)/\(chat\)/agents-manager/useViewModel.ts
+src/app/[locale]/\(app\)/\(chat\)/chat/hooks/useDeepLinkHireFlow.ts
+src/services/agent-packs.ts src/models/agent-pack.ts
+tests/unit/app/chat/useDeepLinkHireFlow.unit.spec.ts
+tests/unit/hooks/useAgentPacks.unit.spec.ts
+tests/unit/services/agent-packs.unit.spec.ts`
+- `/home/node/.venvs/claw-interface/bin/python -m pytest
+tests/unit/test_agent_builder_routes.py
+tests/unit/test_agent_builder_service.py
+tests/unit/test_public_agent_packs_routes.py -q`
+- `/home/node/.venvs/claw-interface/bin/ruff check
+app/routes/agent_packs.py app/routes/agent_builder.py
+app/services/agent_builder_service.py
+tests/unit/test_agent_builder_routes.py
+tests/unit/test_agent_builder_service.py
+tests/unit/test_public_agent_packs_routes.py`
+- `/home/node/.venvs/claw-interface/bin/ruff format --check
+app/routes/agent_packs.py app/routes/agent_builder.py
+app/services/agent_builder_service.py
+tests/unit/test_agent_builder_routes.py
+tests/unit/test_agent_builder_service.py
+tests/unit/test_public_agent_packs_routes.py`
+- `bash scripts/verify-changed.sh`
+```
+
+### PR 描述
+
+## Summary
+- Adds Agent Builder as a first-class project workflow with project history, new/rename/archive actions, current project title, latest-project resume, and Agent Studio update entry.
+- Adds backend Agent Builder project, iteration, and test-turn orchestration, including DB-first Pack Test status/result handling, auto-review feedback, accept, submit, and auto-approve submission flow.
+- Refactors Pack Test runtime handling for direct-created test bots, hides temporary/Agent Studio bots from normal navigation, and updates related chat/deep-link behavior.
+
+## Size Rationale
+This is intentionally a large cross-surface feature PR: backend project/iteration/test-turn contracts, Pack Test runtime behavior, frontend Builder workflow, navigation cleanup, and matching tests need to land together so the UI and API state machine stay compatible. The largest files are new Agent Builder service/tests rather than broad unrelated refactors.
+
+## Linear
+https://linear.app/srpone/issue/ECA-1038/refactor-agent-builder-functionality
+
+## Validation
+- `pnpm exec vitest run tests/unit/app/agent-builder-client.unit.spec.tsx tests/unit/app/agent-builder-entry.unit.spec.tsx tests/unit/app/chat/useDeepLinkHireFlow.unit.spec.ts tests/unit/hooks/useAgentPacks.unit.spec.ts tests/unit/services/agent-packs.unit.spec.ts tests/unit/app/agents-manager/useViewModel.unit.spec.tsx tests/unit/components/sidenav/SideNavAgentList.unit.spec.tsx tests/unit/components/sidenav/build-bottom-nav-items.unit.spec.ts`
+- `pnpm exec tsc --noEmit --pretty false`
+- `pnpm exec eslint src/app/[locale]/\(app\)/\(chat\)/agent-builder/AgentBuilderClient.tsx src/app/[locale]/\(app\)/\(chat\)/agents-manager/useViewModel.ts src/app/[locale]/\(app\)/\(chat\)/chat/hooks/useDeepLinkHireFlow.ts src/services/agent-packs.ts src/models/agent-pack.ts tests/unit/app/chat/useDeepLinkHireFlow.unit.spec.ts tests/unit/hooks/useAgentPacks.unit.spec.ts tests/unit/services/agent-packs.unit.spec.ts`
+- `/home/node/.venvs/claw-interface/bin/python -m pytest tests/unit/test_agent_builder_routes.py tests/unit/test_agent_builder_service.py tests/unit/test_public_agent_packs_routes.py -q`
+- `/home/node/.venvs/claw-interface/bin/ruff check app/routes/agent_packs.py app/routes/agent_builder.py app/services/agent_builder_service.py tests/unit/test_agent_builder_routes.py tests/unit/test_agent_builder_service.py tests/unit/test_public_agent_packs_routes.py`
+- `/home/node/.venvs/claw-interface/bin/ruff format --check app/routes/agent_packs.py app/routes/agent_builder.py app/services/agent_builder_service.py tests/unit/test_agent_builder_routes.py tests/unit/test_agent_builder_service.py tests/unit/test_public_agent_packs_routes.py`
+- `bash scripts/verify-changed.sh`
+
+
+---
+
+## feat(design-system): rebuild foundation on shadcn + Tailwind v4 (@zooclaw/tokens + pipeline + Button) (#2565)
+
+- **SHA**: `ce63e0a5deaea5864223a4ed6bef8f9a4a8ed429`
+- **作者**: lynn Zhuang
+- **日期**: 2026-06-24T04:13:34Z
+- **PR**: #2565
+- **链接**: https://github.com/SerendipityOneInc/ecap-workspace/commit/ce63e0a5deaea5864223a4ed6bef8f9a4a8ed429
+
+### 完整 commit message
+
+```
+feat(design-system): rebuild foundation on shadcn + Tailwind v4 (@zooclaw/tokens + pipeline + Button) (#2565)
+
+## What
+
+The **foundation** of rebuilding `@zooclaw/design-system` on the repo's
+standard **shadcn / Tailwind v4 / Radix / cva** stack. This is **Plan 1
+of 2** — the plumbing + one proof component; the component library
+itself follows in Plan 2.
+
+This supersedes the bespoke first cut (#2551, hand-written `.zds-*` CSS)
+per reviewer feedback to use shadcn + Tailwind rather than custom CSS.
+#2551 stays open as reference until this lands, then closes.
+
+## What's in it
+
+- **`@zooclaw/tokens`** — a standalone pure-CSS package with a **3-tier
+token architecture**: tier-1 `--zc-*` brand-color + `--lg-*`
+glass-material primitives → tier-2 shadcn-shaped semantic vars via
+`var()` → tier-3 `@theme inline` Tailwind utilities. The brand red
+`#d53a49` is a literal **exactly once**; everything else references it,
+so a brand/prefix change is a one-line edit insulated from components
+and apps. Dark mode via `.dark` + `@custom-variant dark`.
+- **`@zooclaw/design-system`** scaffold — `cn` (clsx + tailwind-merge),
+`components.json`, tsconfig, eslint, source-consumed package (no build
+step).
+- **Cross-package Tailwind pipeline** — the package ships raw `.tsx`;
+the consumer's Tailwind generates classes by scanning the package source
+via `@source` (proven end-to-end, zero build step).
+- **Vite preview station** — designer-facing, renders the package via
+the same `@source` path (zero-drift).
+- **Liquid-Glass `Button`** (cva + Radix `Slot` `asChild` + tier-3
+utilities only) — the smoke component proving tokens → `@theme` →
+Tailwind generation → render, in light **and** dark.
+
+## How it was built
+
+Spec → plan → subagent-driven execution: each of the 4 tasks went
+through an implementer + a task reviewer, and a final whole-branch
+review (which caught and fixed a real gap — Tailwind v4's `.dark` mode
+needs an explicit `@custom-variant dark`, otherwise `dark:` utilities
+silently no-op for future components).
+
+- Spec:
+`docs/superpowers/specs/2026-06-23-zooclaw-ds-shadcn-rebuild-design.md`
+- Plan:
+`docs/superpowers/plans/2026-06-23-zooclaw-ds-shadcn-foundation.md`
+
+## Verification
+
+`tsc` ✅ · `eslint --max-warnings=0` ✅ · `vite build:preview` ✅ · `pnpm
+install --frozen-lockfile` ✅. Pipeline visually confirmed in a browser,
+light + dark, with full Liquid Glass fidelity. (The package is not
+consumed by any app yet, so it is not auto-verified by CI — local
+verification was the gate.)
+
+## Deliberately out of scope (follow-ups)
+
+- The **13 core components**
+(Input/Dialog/Select/Switch/Tabs/Accordion/Toast/…) — Plan 2, on this
+proven foundation.
+- The full **foundations showcase + component gallery** in the preview
+(the richer page #2551 had) — returns as Plan 2 lands.
+- **Consuming** the package in `web/app` (`@source` + token import + a
+pilot) — separate PR.
+- **Automated tests** (vitest + primary-flow specs) — separate PR.
+- Token decision: brand-color prefix is `--zc-*` (Option B); migrating
+the three `--color-zc-*` apps + web/app's `--lg-*` onto
+`@zooclaw/tokens` is a later consolidation.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+---------
+
+Co-authored-by: Lynn Zhuang <lynnzhuang@MacBook-Pro.local>
+Co-authored-by: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+```
+
+### PR 描述
+
+## What
+
+The **foundation** of rebuilding `@zooclaw/design-system` on the repo's standard **shadcn / Tailwind v4 / Radix / cva** stack. This is **Plan 1 of 2** — the plumbing + one proof component; the component library itself follows in Plan 2.
+
+This supersedes the bespoke first cut (#2551, hand-written `.zds-*` CSS) per reviewer feedback to use shadcn + Tailwind rather than custom CSS. #2551 stays open as reference until this lands, then closes.
+
+## What's in it
+
+- **`@zooclaw/tokens`** — a standalone pure-CSS package with a **3-tier token architecture**: tier-1 `--zc-*` brand-color + `--lg-*` glass-material primitives → tier-2 shadcn-shaped semantic vars via `var()` → tier-3 `@theme inline` Tailwind utilities. The brand red `#d53a49` is a literal **exactly once**; everything else references it, so a brand/prefix change is a one-line edit insulated from components and apps. Dark mode via `.dark` + `@custom-variant dark`.
+- **`@zooclaw/design-system`** scaffold — `cn` (clsx + tailwind-merge), `components.json`, tsconfig, eslint, source-consumed package (no build step).
+- **Cross-package Tailwind pipeline** — the package ships raw `.tsx`; the consumer's Tailwind generates classes by scanning the package source via `@source` (proven end-to-end, zero build step).
+- **Vite preview station** — designer-facing, renders the package via the same `@source` path (zero-drift).
+- **Liquid-Glass `Button`** (cva + Radix `Slot` `asChild` + tier-3 utilities only) — the smoke component proving tokens → `@theme` → Tailwind generation → render, in light **and** dark.
+
+## How it was built
+
+Spec → plan → subagent-driven execution: each of the 4 tasks went through an implementer + a task reviewer, and a final whole-branch review (which caught and fixed a real gap — Tailwind v4's `.dark` mode needs an explicit `@custom-variant dark`, otherwise `dark:` utilities silently no-op for future components).
+
+- Spec: `docs/superpowers/specs/2026-06-23-zooclaw-ds-shadcn-rebuild-design.md`
+- Plan: `docs/superpowers/plans/2026-06-23-zooclaw-ds-shadcn-foundation.md`
+
+## Verification
+
+`tsc` ✅ · `eslint --max-warnings=0` ✅ · `vite build:preview` ✅ · `pnpm install --frozen-lockfile` ✅. Pipeline visually confirmed in a browser, light + dark, with full Liquid Glass fidelity. (The package is not consumed by any app yet, so it is not auto-verified by CI — local verification was the gate.)
+
+## Deliberately out of scope (follow-ups)
+
+- The **13 core components** (Input/Dialog/Select/Switch/Tabs/Accordion/Toast/…) — Plan 2, on this proven foundation.
+- The full **foundations showcase + component gallery** in the preview (the richer page #2551 had) — returns as Plan 2 lands.
+- **Consuming** the package in `web/app` (`@source` + token import + a pilot) — separate PR.
+- **Automated tests** (vitest + primary-flow specs) — separate PR.
+- Token decision: brand-color prefix is `--zc-*` (Option B); migrating the three `--color-zc-*` apps + web/app's `--lg-*` onto `@zooclaw/tokens` is a later consolidation.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+

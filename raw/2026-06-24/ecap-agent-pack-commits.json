@@ -1,0 +1,32 @@
+[
+  {
+    "sha": "7a4d998b1c40c4c6d3933a8542f6fb9939097db1",
+    "title": "fix(agent-studio): clean directory symlinks safely (#189)",
+    "author": "kaka-srp",
+    "date": "2026-06-24T10:01:08Z",
+    "message": "fix(agent-studio): clean directory symlinks safely (#189)\n\n* fix(agent-studio): clean directory symlinks safely\n\n* docs(agent-studio): clarify accept test before submit",
+    "pr_number": "189",
+    "pr_body": "## Summary\n- Fix `clean.py` so symlink entries are unlinked before normal directory handling; real directories still use `shutil.rmtree()`.\n- Cover both reset paths that can hit directory symlinks: top-level `skills/` cleanup and `agent/` skeleton reset cleanup.\n- Clarify the Builder prompt flow as `Package & Test` -> `Accept Test` -> `Submit`, so the first-run guidance does not imply Submit can happen directly after Pack Test.\n- Bump the Agent Studio pack version to `2.0.1` so the hotfix can be published as a distinct package update.\n\n## Why\nProduction hit `OSError: Cannot call rmtree on a symbolic link` when `clean.py` saw a symlink-to-directory such as `skills/browser-skill`. `Path.is_dir()` follows directory symlinks, but `shutil.rmtree()` refuses to remove the symlink itself. The safe behavior is to unlink symlinks and only recursively delete real directories.\n\nThe core Builder docs already gate Submit behind Accept Test, but `BOOTSTRAP.md` summarized the first-run workflow as Pack Test -> Submit. This PR aligns that prompt with the actual UI gate: creators test the temporary bot, click Accept Test when satisfied, and only then click Submit.\n\n## Tests\n- `python -m pytest tests/test_clean.py -q` - 2 passed\n- `python -m pytest tests -q` from `agent-studio/.agents/skills/agent-studio` - 108 passed\n- `python -m pytest tests -q` from `agent-studio/.agents/skills/agent-studio/scripts` - 129 passed\n- `python3 .github/scripts/agent_release.py validate-changed --root . --paths-file <changed-files>` - validated `agent-studio` version `2.0.1`\n- `git diff --check`\n",
+    "url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/7a4d998b1c40c4c6d3933a8542f6fb9939097db1"
+  },
+  {
+    "sha": "e3c58e9670654629e35e16941b26e562e779e5f4",
+    "title": "refactor(agent-studio): align workflow with agent builder (#186)",
+    "author": "kaka-srp",
+    "date": "2026-06-24T08:51:43Z",
+    "message": "refactor(agent-studio): align workflow with agent builder (#186)\n\n* feat(agent-studio): add pack test publish flow\n\n* fix(agent-studio): clarify pack test publish prompt\n\n* refactor(agent-studio): align workflow with agent builder\n\n* refactor(agent-studio): remove legacy builder triggers\n\n* chore(agent-studio): bump pack version to 2.0.0",
+    "pr_number": "186",
+    "pr_body": "## Summary\n- Reposition the shipped pack as the Agent Builder experience in user-facing identity, prompts, and workflow guidance.\n- Bump the Agent Studio pack version to `2.0.0` for this Builder workflow change.\n- Remove the old local install/share command skills and local submit/test guidance that are no longer part of the Builder flow.\n- Harden `validate` / `package` behavior so validation only blocks on packable manifest-referenced skills, while stale unreferenced skill folders cannot mask packaged cross-reference issues.\n- Keep the internal pack id, paths, release assets, and upload key as `agent-studio` for compatibility; `Agent Builder` is the product/display name.\n\n## Why This Shape\n- The large negative diff is mostly deleting legacy `agent-studio-install` and `agent-studio-share` code that was no longer declared by the pack manifest or supported by the current UI-owned flow.\n- Leaving those legacy skills in-tree made validation/release behavior misleading: the package step ships manifest-referenced content, while old folders could still be scanned or maintained as if they were active entry points.\n- This PR intentionally does not do a full `agent-studio` to `agent-builder` technical rename. Internal ids and artifact names stay stable to avoid breaking existing installs, staging upload routing, release asset conventions, and compatibility assumptions.\n- The user-facing name is now Agent Builder because the workflow is guided agent-pack creation, not a general-purpose studio/IDE surface.\n\n## Tests\n- `python -m pytest tests` from `agent-studio/.agents/skills/agent-studio` - 106 passed\n- `python -m pytest tests` from `agent-studio/.agents/skills/agent-studio/scripts` - 104 passed\n- `git diff --check`\n- PR checks after the `2.0.0` version bump: 8/8 passed\n\n## Beta Release Validation\n- Latest PR head: `28e2934`\n- Created beta tag `v1.0.0-beta.6` at that branch head\n- `Release Agent Zips` completed successfully, including `Upload agent-studio release`\n- Published prerelease: https://github.com/SerendipityOneInc/ecap-agent-pack/releases/tag/v1.0.0-beta.6\n- Agent Studio pack version in the staging package: `2.0.0` (`agent-studio-2.0.0.zip` and `agent-studio.zip`)\n",
+    "url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/e3c58e9670654629e35e16941b26e562e779e5f4"
+  },
+  {
+    "sha": "c10b6b6ae391644b483ea0904b1d91af129c24c5",
+    "title": "ci: release agent studio pack from tags (#188)",
+    "author": "bill-srp",
+    "date": "2026-06-24T07:13:45Z",
+    "message": "ci: release agent studio pack from tags (#188)\n\n* ci: release agent zips from release tags\n\n* ci: notify lark for agent studio releases",
+    "pr_number": "188",
+    "pr_body": "## Summary\n- trigger agent zip releases from release tags instead of merges to main\n- add Lark release notifications for Agent Studio production releases\n- limit release notes changelog content to agent-studio/ changes\n\n## Verification\n- ruby YAML parse for .github/workflows/*.yml\n- bash -n for release-notify-lark.yml run blocks\n",
+    "url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/c10b6b6ae391644b483ea0904b1d91af129c24c5"
+  }
+]
