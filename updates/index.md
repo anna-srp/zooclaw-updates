@@ -1,5 +1,16 @@
 # Updates Index
 
+
+## 2026-06-25
+- [Seedance 2.0 mini 视频模型上线，成本直降约 50%](./2026-06-25/pr217-seedance-2-0-mini.md)
+- [套餐内 Agent 现可显示快捷启动卡片](./2026-06-25/pr2605-vertical-pack-quick-commands.md)
+- [发布页支持删除（下架）已发布的 Agent 包](./2026-06-25/pr2602-publish-delete-org-pack.md)
+- [侧边栏 My Team 入口精简、Hub 图标更直观](./2026-06-25/pr2601-sidenav-myteam-cleanup.md)
+- [按订阅套餐限制可雇佣的 Agent 数量](./2026-06-25/pr2597-limit-installs-by-plan.md)
+- [侧边栏 Agent 行交互重做：多开展开 + 一键新任务](./2026-06-25/pr2600-sidenav-agent-row-redo.md)
+- [新任务页暗色模式适配 + 输入框自动聚焦](./2026-06-25/pr2594-new-chat-dark-autofocus.md)
+- [Agent Studio 新建项目重置修复，体验对齐旧版流程](./2026-06-25/pr190-agent-studio-reset-bootstrap.md)
+
 ## 2026-06-15
 - [新建会话支持给第一条消息直接添加附件](./2026-06-15/1838c0ba-pr2448.md)
 - [新建会话支持「仅附件、无文字」直接发送](./2026-06-15/c9d0ab2b-pr2452.md)
