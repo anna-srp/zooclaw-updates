@@ -1,5 +1,11 @@
 # Updates Index
 
+## 2026-06-26
+- [新增钉钉（DingTalk）IM 渠道接入](./2026-06-26/ecap-workspace-pr2616.md) — 新功能上线 / 外部A
+- [修复邀请试用额度未发放问题](./2026-06-26/ecap-workspace-pr2620.md) — Bug Fix / 外部B
+- [BossClaw 兑换码可从链接自动填充](./2026-06-26/ecap-workspace-pr2618.md) — 体验优化 / 外部B
+- [侧边栏「会话历史」入口移到 Agent 列表底部](./2026-06-26/ecap-workspace-pr2612.md) — 体验优化 / 外部B
+
 ## 2026-06-24
 - [Agent Studio 不再混入用户可见 Agent 列表](./2026-06-24/8b078af2-pr2589.md)
 - [新建对话页新增「快速开始」入口](./2026-06-24/d6bbd193-pr2570.md)
