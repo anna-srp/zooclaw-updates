@@ -1,0 +1,576 @@
+[
+  {
+    "sha": "198e8ff2371e234008538543bd3a9dc0b2e8577d",
+    "node_id": "C_kwDORc_p4NoAKDE5OGU4ZmYyMzcxZTIzNDAwODUzODU0M2JkM2E5ZGMwYjJlODU3N2Q",
+    "commit": {
+      "author": {
+        "name": "rayhuang198212",
+        "email": "ray.huang@mktech.tech",
+        "date": "2026-06-27T13:23:02Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-06-27T13:23:02Z"
+      },
+      "message": "ci(e2e): expand daily production coverage (#2532)\n\n## Summary\n\n- Expand the daily production E2E workflow from the original\nsmoke/scenario subset to the broader Playwright project set.\n- Increase the E2E job timeout from 120 to 360 minutes to account for\nthe larger serial test suite.\n- Remove stale Playwright projects for specs that no longer exist\n(`home`, `assets-gallery`).",
+      "tree": {
+        "sha": "ac8f8009fc4fd36718011edcb157cd6aa9fe3a4f",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/trees/ac8f8009fc4fd36718011edcb157cd6aa9fe3a4f"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/commits/198e8ff2371e234008538543bd3a9dc0b2e8577d",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqP862CRC1aQ7uu5UhlAAAqpwQAFiyrVHbEGazhJ3fJeGjEg0a\ns5L1LCaMBxwfSp1ZGpsXK+A1UZELknQ6l9PUfuyY+kkqJsh7a4NMd+/MEjzC/B7V\nIBhUvISyFNuKEqqBX24HipGtaUTga1HnLFrg6Xyx29HwnOoCW5OVr56jUi+H+8uF\n/pEpYN0xq1J9OLjFNtebn3MIFVOQqjXqaWaZi0N9Emkv2nnmqWr7Fx1gNIamZpwe\ne1wofyNlMsh/Zmlr9opoWH+WTu3rdfWGKB+kkc2o1sJX38P6nEW0rdTMTgAp5xsH\nnh5jc4S1z1BwG54JVnLyzM41+pvkw1PnUl7fZ+6BJAJl4s9nmNvjFPdCE+D9TZ3U\n9501mVCXV5QznfwtUf9OxDwyRhen3VSqNkElc8K9E0nueGgUHjUKp1rsPRo7czcs\nscRTKw70NEIoogBfkprfkX7mgRBtMh79IhmC7RlDohqAfqOeKcNCt+Csm4SXGGMS\nsCyQdMSWrxR8IIizpuxYGEzUTl4IEHqn8+ovObah14MT05X6b1K9VX6n1CYKn0IA\nDUE3owXKVmeQOxJLELrh/Qma4fBpSfV6IZMz5YbX0AvxGJcX5Wzc2y7PVbTsxxwp\nIYd1pnei+Ho2uCAfdzZlQHHfXcn7YjZWP6s7p/31PJBtXuUQgneWki1EwJGgY4Wd\nR0Fe6EnutsXAkLIdnGK3\n=uZe4\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree ac8f8009fc4fd36718011edcb157cd6aa9fe3a4f\nparent f66c847b1e439edb7bb114ba6918765616a649b4\nauthor rayhuang198212 <ray.huang@mktech.tech> 1782566582 +0800\ncommitter GitHub <noreply@github.com> 1782566582 +0800\n\nci(e2e): expand daily production coverage (#2532)\n\n## Summary\n\n- Expand the daily production E2E workflow from the original\nsmoke/scenario subset to the broader Playwright project set.\n- Increase the E2E job timeout from 120 to 360 minutes to account for\nthe larger serial test suite.\n- Remove stale Playwright projects for specs that no longer exist\n(`home`, `assets-gallery`).",
+        "verified_at": "2026-06-27T13:23:03Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/198e8ff2371e234008538543bd3a9dc0b2e8577d",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/198e8ff2371e234008538543bd3a9dc0b2e8577d",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/198e8ff2371e234008538543bd3a9dc0b2e8577d/comments",
+    "author": {
+      "login": "rayhuang198212",
+      "id": 209408902,
+      "node_id": "U_kgDODHtThg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/209408902?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rayhuang198212",
+      "html_url": "https://github.com/rayhuang198212",
+      "followers_url": "https://api.github.com/users/rayhuang198212/followers",
+      "following_url": "https://api.github.com/users/rayhuang198212/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rayhuang198212/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rayhuang198212/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rayhuang198212/subscriptions",
+      "organizations_url": "https://api.github.com/users/rayhuang198212/orgs",
+      "repos_url": "https://api.github.com/users/rayhuang198212/repos",
+      "events_url": "https://api.github.com/users/rayhuang198212/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rayhuang198212/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "f66c847b1e439edb7bb114ba6918765616a649b4",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/f66c847b1e439edb7bb114ba6918765616a649b4",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/f66c847b1e439edb7bb114ba6918765616a649b4"
+      }
+    ]
+  },
+  {
+    "sha": "f66c847b1e439edb7bb114ba6918765616a649b4",
+    "node_id": "C_kwDORc_p4NoAKGY2NmM4NDdiMWU0MzllZGI3YmIxMTRiYTY5MTg3NjU2MTZhNjQ5YjQ",
+    "commit": {
+      "author": {
+        "name": "Chris@ZooClaw",
+        "email": "chris@srp.one",
+        "date": "2026-06-27T13:22:21Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-06-27T13:22:21Z"
+      },
+      "message": "chore(deps): consolidate open dependabot dependency updates (#2631)\n\n## What\n\nConsolidates the **Python-side Dependabot updates** into one PR. The\nweb-side updates are no longer here — `main` #2608 (\"refresh web minor\ndependencies\") already landed that consolidation, so this PR was\nrebased/merged onto it and the now-redundant web changes were dropped.\n\nFinal diff is **2 files** (`requirements.txt`, `requirements-dev.txt`) —\nno production or test code, no lockfile.\n\n| Dependabot PR | Update | Handling |\n|----|--------|----------|\n| #2622 | cryptography `>=49.0.0` | ✅ bumped |\n| #2626 | openai `>=2.43.0,<2.44.0` | ✅ bumped |\n| #2624 | ruff `>=0.15.18` | ✅ bumped |\n| #2625 | fastapi `<0.138` | 🔒 **locked at `<0.137`** |\n| #2623 | pytest `<9.2` | 🔒 **locked at `<9.1`** |\n| #2536 / #2538 | web group / vite | ➡️ handled on main by #2608 |\n\n## Locked instead of bumped (no code changes)\n\nPer review, when a bump only passes CI if we change our own code, we\nlock the version instead:\n\n- **fastapi** — 0.137 turns `APIRoute.methods` into `set[str] | None`,\nwhich would force `Optional` guards in the route tests. Held at\n`<0.137`; `requirements.txt` comment records why.\n- **pytest** — 9.1 makes pytest-bdd 8.1.0's `_register_fixture(nodeid)`\nraise `PytestRemovedIn10Warning` under `filterwarnings=error`; 8.1.0 is\nthe latest pytest-bdd. Held at `<9.1`; `requirements-dev.txt` comment\nrecords why. Revisit once pytest-bdd ships a fix.\n\n## Web side\n\nAlready shipped on `main` via #2608, which refreshed the safe web deps,\nheld `@assistant-ui/react` back (dodging the `@assistant-ui/tap` /\n`useEffectEvent` build break), and intentionally left the Vitest ranges\nunchanged to avoid pnpm importer/override drift. Nothing left to do here\n— this PR merged that in and dropped its own (redundant) web bumps.\n\nSupersedes the Python Dependabot PRs #2622, #2623, #2624, #2625, #2626.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\n---------\n\nCo-authored-by: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "tree": {
+        "sha": "c53e18a6e07afb5049d1ee1b310516d84321a838",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/trees/c53e18a6e07afb5049d1ee1b310516d84321a838"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/commits/f66c847b1e439edb7bb114ba6918765616a649b4",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqP86NCRC1aQ7uu5UhlAAA0WwQAIbCHeNYGM++iQiZ7hv+kS8i\nUekbFRLntnCwcG5PGeVfI4Nz5sa9pu+T5xNMdhhTtW7DD7JOLsoGRMAexRIvYMLR\nSbOqcIL78ECnvQsV2BLrLMAk69ZUyIR0CyAr7R/+Qfsp5GnN1UQU6AlANpSL7euz\nB2lUY+mZIvS9AXO3aWxwKfwawv4npeQUgW7v1irfMmZjWpMGEvluJeMasoXTkpUX\nNWFVJhne2mR80K7W7Xr+QbqiYh5GR0SiCflzIYosTlexNbWne1w+I45plvtRy4Oa\nKWTGaq9eJ7hShrQSXjkQNFXmsLYlfctYAJtcqRGNBE5MetQehMR0MX7q3j1FmHqY\n3cIzIuNzoHrpsMHGcJbiWEyVX8jb6VixOB65mRiO0hLNEP4UG4+v1sLWUzKD4E/E\nx9R1R4bUs6KBBvpOmFt/tdNJlFQtIsx9r5Ib+xg4sCjvZ9OBPw4os845Vm7sdlH8\ncEo0f6zRfxalvjV6ccqA8dlOs3iSQde4RsNPNYDEkvfssBQMhAeGpKYSoe56g51N\nlrma8GXLNuMbXZgzuBerBUAtnsqKggBwgyDdXBYQV7xJc9yypcQchSCquMJB73zY\n/4w4cTaDQ/hbdW9SiFoNrFg5bYZY+zNMHhnWtYiSQKd7lgTTStYb1Z+jkuONczVE\nVUmkfv4chFIHS/57mEfu\n=TA3M\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree c53e18a6e07afb5049d1ee1b310516d84321a838\nparent 2429f0f75192e4c195c84b5136e54d3c9d2b0838\nauthor Chris@ZooClaw <chris@srp.one> 1782566541 +0800\ncommitter GitHub <noreply@github.com> 1782566541 +0800\n\nchore(deps): consolidate open dependabot dependency updates (#2631)\n\n## What\n\nConsolidates the **Python-side Dependabot updates** into one PR. The\nweb-side updates are no longer here — `main` #2608 (\"refresh web minor\ndependencies\") already landed that consolidation, so this PR was\nrebased/merged onto it and the now-redundant web changes were dropped.\n\nFinal diff is **2 files** (`requirements.txt`, `requirements-dev.txt`) —\nno production or test code, no lockfile.\n\n| Dependabot PR | Update | Handling |\n|----|--------|----------|\n| #2622 | cryptography `>=49.0.0` | ✅ bumped |\n| #2626 | openai `>=2.43.0,<2.44.0` | ✅ bumped |\n| #2624 | ruff `>=0.15.18` | ✅ bumped |\n| #2625 | fastapi `<0.138` | 🔒 **locked at `<0.137`** |\n| #2623 | pytest `<9.2` | 🔒 **locked at `<9.1`** |\n| #2536 / #2538 | web group / vite | ➡️ handled on main by #2608 |\n\n## Locked instead of bumped (no code changes)\n\nPer review, when a bump only passes CI if we change our own code, we\nlock the version instead:\n\n- **fastapi** — 0.137 turns `APIRoute.methods` into `set[str] | None`,\nwhich would force `Optional` guards in the route tests. Held at\n`<0.137`; `requirements.txt` comment records why.\n- **pytest** — 9.1 makes pytest-bdd 8.1.0's `_register_fixture(nodeid)`\nraise `PytestRemovedIn10Warning` under `filterwarnings=error`; 8.1.0 is\nthe latest pytest-bdd. Held at `<9.1`; `requirements-dev.txt` comment\nrecords why. Revisit once pytest-bdd ships a fix.\n\n## Web side\n\nAlready shipped on `main` via #2608, which refreshed the safe web deps,\nheld `@assistant-ui/react` back (dodging the `@assistant-ui/tap` /\n`useEffectEvent` build break), and intentionally left the Vitest ranges\nunchanged to avoid pnpm importer/override drift. Nothing left to do here\n— this PR merged that in and dropped its own (redundant) web bumps.\n\nSupersedes the Python Dependabot PRs #2622, #2623, #2624, #2625, #2626.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\n---------\n\nCo-authored-by: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+        "verified_at": "2026-06-27T13:22:22Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/f66c847b1e439edb7bb114ba6918765616a649b4",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/f66c847b1e439edb7bb114ba6918765616a649b4",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/f66c847b1e439edb7bb114ba6918765616a649b4/comments",
+    "author": {
+      "login": "chris-srp",
+      "id": 179114848,
+      "node_id": "U_kgDOCq0TYA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/179114848?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-srp",
+      "html_url": "https://github.com/chris-srp",
+      "followers_url": "https://api.github.com/users/chris-srp/followers",
+      "following_url": "https://api.github.com/users/chris-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-srp/orgs",
+      "repos_url": "https://api.github.com/users/chris-srp/repos",
+      "events_url": "https://api.github.com/users/chris-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "2429f0f75192e4c195c84b5136e54d3c9d2b0838",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/2429f0f75192e4c195c84b5136e54d3c9d2b0838",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/2429f0f75192e4c195c84b5136e54d3c9d2b0838"
+      }
+    ]
+  },
+  {
+    "sha": "2429f0f75192e4c195c84b5136e54d3c9d2b0838",
+    "node_id": "C_kwDORc_p4NoAKDI0MjlmMGY3NTE5MmU0YzE5NWM4NGI1MTM2ZTU0ZDNjOWQyYjA4Mzg",
+    "commit": {
+      "author": {
+        "name": "Chris@ZooClaw",
+        "email": "chris@srp.one",
+        "date": "2026-06-27T12:09:46Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-06-27T12:09:46Z"
+      },
+      "message": "chore(deps): refresh web minor dependencies (#2608)\n\n## Summary\n- Refresh safe web minor/patch dependencies from the Dependabot batch\nwhile leaving `@assistant-ui/react` on the current compatible range.\n- Also leave Vitest-related manifest ranges unchanged to avoid pnpm\nimporter/override drift called out by automated review.\n- Avoid the `@assistant-ui/tap` / React `useEffectEvent` build\nregression seen in Dependabot PR #2536.\n- Regenerate `web/pnpm-lock.yaml` from current `main`.\n\n## Verification\n- `cd web && pnpm install --frozen-lockfile`\n- `cd web/app && APP_ENV=staging NODE_ENV=production\nNODE_OPTIONS=--max-old-space-size=8192 pnpm exec next build\n--experimental-build-mode=compile`\n- `cd web && pnpm --filter @zooclaw/web-app run lint:ci && pnpm --filter\n@zooclaw/web-app run test:unit`\n\nSupersedes the failing Dependabot batch PR #2536.",
+      "tree": {
+        "sha": "d763888af6b47f7b0230beff21f1a93af029c5e9",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/trees/d763888af6b47f7b0230beff21f1a93af029c5e9"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/commits/2429f0f75192e4c195c84b5136e54d3c9d2b0838",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqP72KCRC1aQ7uu5UhlAAAdQIQABaIh5pQ9UtUyzmkBNQgvoSS\nrHniX/lhOXz/xqSTjz1MFrG9K807bW7kY1kNGFBjasWhDhvUywPr5YbCfqEE4k/0\nOca29/Zrobh8IacsFJjQ+YNF7EfXmB1DzJVqz4Mo1d7oPlI7CG3kNvcpwHq128YM\nehLCyw7rcc0yFLFEpzre57IZr6Iqwah4/+CBnjUj4GGP5AzjI2KSbi0DmZhuc5CS\npnZvxOmHXuVdqGNaWqFIbdAsuV9fyz9qzgPB6/6d0T2oviG4A2I8TpLtavXzMNHk\nDSN8lJXUp5uuTx7gz0Kt04WQ+yZjIZGBGyTcDd/79Pnn+7UVIatTVzqKMx4viTJD\nWKX57QZ1PYyscB9TNgo1x2OL64MOucUPMmCHnkfNqQUpNnI11nITmO2zhgVekfBs\n5JbPMS4+tNxjIlBujwznSQHKSSz4SRiec3b6du1AixyaxqJqBuarUIw2mdpEBNfO\nKbABbCvXYuF4TQ8SmMh7njSbinSTYzy7D4HOD/Rvu7T15a0CXX9CexXmVB+eC8RJ\nxXnJhcT2gOVzZneGI0ieE30GTuxgUB3SWDffzxDCVEeqAXcF+8Xr7dDVjEnbx8NH\nQbH+E6xe0N21i26fhhve1JZ/Yo08WdrJpUSetEF/TZafxQrLXX8+VgOlbYgyKQp8\nlJNmsa/0IDAYJV8B/qqY\n=Yx5G\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d763888af6b47f7b0230beff21f1a93af029c5e9\nparent 1b155a77d7864612cf5111d0132bbbe531928f5f\nauthor Chris@ZooClaw <chris@srp.one> 1782562186 +0800\ncommitter GitHub <noreply@github.com> 1782562186 +0800\n\nchore(deps): refresh web minor dependencies (#2608)\n\n## Summary\n- Refresh safe web minor/patch dependencies from the Dependabot batch\nwhile leaving `@assistant-ui/react` on the current compatible range.\n- Also leave Vitest-related manifest ranges unchanged to avoid pnpm\nimporter/override drift called out by automated review.\n- Avoid the `@assistant-ui/tap` / React `useEffectEvent` build\nregression seen in Dependabot PR #2536.\n- Regenerate `web/pnpm-lock.yaml` from current `main`.\n\n## Verification\n- `cd web && pnpm install --frozen-lockfile`\n- `cd web/app && APP_ENV=staging NODE_ENV=production\nNODE_OPTIONS=--max-old-space-size=8192 pnpm exec next build\n--experimental-build-mode=compile`\n- `cd web && pnpm --filter @zooclaw/web-app run lint:ci && pnpm --filter\n@zooclaw/web-app run test:unit`\n\nSupersedes the failing Dependabot batch PR #2536.",
+        "verified_at": "2026-06-27T12:09:46Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/2429f0f75192e4c195c84b5136e54d3c9d2b0838",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/2429f0f75192e4c195c84b5136e54d3c9d2b0838",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/2429f0f75192e4c195c84b5136e54d3c9d2b0838/comments",
+    "author": {
+      "login": "chris-srp",
+      "id": 179114848,
+      "node_id": "U_kgDOCq0TYA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/179114848?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-srp",
+      "html_url": "https://github.com/chris-srp",
+      "followers_url": "https://api.github.com/users/chris-srp/followers",
+      "following_url": "https://api.github.com/users/chris-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-srp/orgs",
+      "repos_url": "https://api.github.com/users/chris-srp/repos",
+      "events_url": "https://api.github.com/users/chris-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1b155a77d7864612cf5111d0132bbbe531928f5f",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/1b155a77d7864612cf5111d0132bbbe531928f5f",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/1b155a77d7864612cf5111d0132bbbe531928f5f"
+      }
+    ]
+  },
+  {
+    "sha": "1b155a77d7864612cf5111d0132bbbe531928f5f",
+    "node_id": "C_kwDORc_p4NoAKDFiMTU1YTc3ZDc4NjQ2MTJjZjUxMTFkMDEzMmJiYmU1MzE5MjhmNWY",
+    "commit": {
+      "author": {
+        "name": "Chris@ZooClaw",
+        "email": "chris@srp.one",
+        "date": "2026-06-27T11:03:54Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-06-27T11:03:54Z"
+      },
+      "message": "ci: raise PR size limit to 3000 lines (#2630)\n\n## Summary\n- raise the reusable PR size gate limit from 2000 to 3000 lines\n- keep code-quality, required PR size check, and label-refresh paths\naligned\n\n## Validation\n- parsed changed workflow YAML with Psych\n- ran git diff --check\n- scanned workflow max_lines/default values for remaining 2000 entries",
+      "tree": {
+        "sha": "eaec06d4f828d0d073b63f6c7b3103006b8fe352",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/trees/eaec06d4f828d0d073b63f6c7b3103006b8fe352"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/commits/1b155a77d7864612cf5111d0132bbbe531928f5f",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqP64aCRC1aQ7uu5UhlAAAScsQAFhyd6A80Xk/h9rMfY15iDc9\ntWUWddSxJWyIBqvBOEmPvXi7nE9uQ6cD1mG8F0bfEhluaNTIUX5Ks3354sXNJRI6\nPAn8I7yTL9SOQQF3hmB67DnZoIyloTJVGSV/1JnaE7whBd8cqoPRM5/MYrtLYU6s\nJcHIJJ644/56HDra5zpNeKPMeeFUfHxPYCLc+n7q56e6AV7op5f4T7qa5KxINQ2C\nXB6UuFY40zMa3JfgdRTQlsL2T1guu3SZIjFTftVGRaQHfR7xpD1qf97KFjRa8sMp\nuDTZIghbULNkhQcfH5jBNnIA73e6lmaCwwjpUXC42Qb1G009r818JwXa905seBvv\n2j7Inuphu9eT2K/ZhKHr4K8YCIRubSFYpHO+sylfQ6ug8ER9598ZJpClQc91hvPU\nSCMEYq4I2N/yvnHTyrBktpszgzvVvXkkTWP/edTmWtoon+N4WJZWBjMl3sUXgGzp\nwz6wo8t+NNxerXKRCuvA0mi7v3vFhntdPS1UmrD4k/2avienZxVGN902CxYRidFi\nogEPZmE4Zx3HoGoI5boTKg7NrMPsw8qv1zspalUjHMoycJZPoB8FR1J6iiL2Qnxd\nc/+x2ETjf1jZmc/8xERb2KsrODQ1phcDyzBoM6MOfAHhfsemu91fSXRQVHiJiG6f\nJ3Ey8j5FhUzhyH5ldKTy\n=YoZ+\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree eaec06d4f828d0d073b63f6c7b3103006b8fe352\nparent cbeb0e04e9c23a120aed66bc0429a72109cfa785\nauthor Chris@ZooClaw <chris@srp.one> 1782558234 +0800\ncommitter GitHub <noreply@github.com> 1782558234 +0800\n\nci: raise PR size limit to 3000 lines (#2630)\n\n## Summary\n- raise the reusable PR size gate limit from 2000 to 3000 lines\n- keep code-quality, required PR size check, and label-refresh paths\naligned\n\n## Validation\n- parsed changed workflow YAML with Psych\n- ran git diff --check\n- scanned workflow max_lines/default values for remaining 2000 entries",
+        "verified_at": "2026-06-27T11:03:55Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/1b155a77d7864612cf5111d0132bbbe531928f5f",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/1b155a77d7864612cf5111d0132bbbe531928f5f",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/1b155a77d7864612cf5111d0132bbbe531928f5f/comments",
+    "author": {
+      "login": "chris-srp",
+      "id": 179114848,
+      "node_id": "U_kgDOCq0TYA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/179114848?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chris-srp",
+      "html_url": "https://github.com/chris-srp",
+      "followers_url": "https://api.github.com/users/chris-srp/followers",
+      "following_url": "https://api.github.com/users/chris-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chris-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chris-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chris-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/chris-srp/orgs",
+      "repos_url": "https://api.github.com/users/chris-srp/repos",
+      "events_url": "https://api.github.com/users/chris-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chris-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "cbeb0e04e9c23a120aed66bc0429a72109cfa785",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/cbeb0e04e9c23a120aed66bc0429a72109cfa785",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/cbeb0e04e9c23a120aed66bc0429a72109cfa785"
+      }
+    ]
+  },
+  {
+    "sha": "cbeb0e04e9c23a120aed66bc0429a72109cfa785",
+    "node_id": "C_kwDORc_p4NoAKGNiZWIwZTA0ZTljMjNhMTIwYWVkNjZiYzA0MjlhNzIxMDljZmE3ODU",
+    "commit": {
+      "author": {
+        "name": "kevin",
+        "email": "kevin@srp.one",
+        "date": "2026-06-27T04:06:37Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-06-27T04:06:37Z"
+      },
+      "message": "fix(knowledge-base): proxy /knowledge-base/* through claw-interface to ecap-proxy-service (#2629)\n\n## What & why\n\nThe knowledge-base upload page (shipped in #2617) loads in deployed\n**staging** but the document list fails with **\"Could not load\ndocuments\"** (and upload would fail too).\n\n**Root cause:** the page's data layer calls\n`callClawInterfaceAPI('/knowledge-base/*')` → web BFF `/api/claw/*` →\n`CLAW_INTERFACE_URL` (**claw-interface**). But the `/knowledge-base/*`\nendpoints live only in **`ecap-proxy-service`** (separate repo +\nseparate ingress). `services/claw-interface` had no kb route and no\nforwarding, so it 404'd. The frontend is correct — the established\npattern for reaching ecap-proxy-service from the web app is *through*\nclaw-interface (exactly what `composio_connectors` does); this feature's\nbackend half was simply missing.\n\n## Change (backend-only, frontend unchanged)\n\nAdd `app/routes/knowledge_base.py`, mirroring\n`composio_connectors._proxy_request`:\n\n- `GET /knowledge-base/documents` → forward to\n`SETTINGS.ECAP_PROXY_SERVICE_URL` with the caller's `Authorization:\nBearer <token>`.\n- `POST /knowledge-base/upload` → forward the multipart body\n**verbatim** (original `Content-Type`/boundary preserved — transparent\npassthrough, no re-encoding); reject `>50MB` early with `413` (mirrors\nthe web soft-check and `VERTEX_SEARCH_MAX_UPLOAD_BYTES`).\n- Reuse composio's error handling: `401` (missing token), `502`\n(upstream `RequestError`), upstream status/detail propagation,\n`retries=1` connect-retry transport.\n\n`CLAW_INTERFACE_URL` stays pointed at claw-interface; no web change.\n\n## Testing\n\n### Static + unit\n- `bash scripts/verify-py.sh` — ruff + ruff-format + pyright +\nimport-linter all pass.\n- `pytest tests/unit/test_knowledge_base.py` — 8 passed (forwarding +\nheaders, multipart passthrough, 413 via content-length and via body\nlength, retries=1 transport, 502 on RequestError, upstream status/detail\npropagation, 401 on missing token).\n\n### Local integration vs the REAL ecap-proxy-service\nExercised the route handlers directly against the real staging\n`ecap-proxy-service` over a Telepresence connection (no deploy, no mongo\nneeded), with a real staging user bearer token:\n\n- `GET /knowledge-base/documents` → **200**, returned the user's real\norg documents (2 `indexed`).\n- `POST /knowledge-base/upload` (small `text/plain` multipart) →\n**200**, `success: true`, `status: pending` (file really written to the\norg's knowledge base + indexing queued).\n- Re-`GET` → the uploaded file appears as `pending` (the same end-to-end\npropagation the page's React Query invalidate-on-success surfaces).\n- Invalid/dummy token → **401** with the upstream detail propagated.\n\nThis confirms the forward path, URL construction, bearer forwarding,\nmultipart passthrough, and upstream error/status propagation against the\nreal backend — i.e. the exact path that previously 404'd now works.\n\n## Deployment\n\nRequires deploying **claw-interface** to staging for the fix to take\neffect in the deployed site. No frontend deploy needed.\n\nCloses #2627\n\nCo-authored-by: Developer <dev@srp.one>",
+      "tree": {
+        "sha": "bac153183a6ec730d059d2dfe373c32ae1d4c178",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/trees/bac153183a6ec730d059d2dfe373c32ae1d4c178"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/commits/cbeb0e04e9c23a120aed66bc0429a72109cfa785",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqP0xdCRC1aQ7uu5UhlAAAsygQAE/jHpLq/ISAdWjnwtUQ38TC\nf1ECgFkTC3XZF3BJ5gJiBdGpZ5hH413shsn+cPO91/FdoqnNyvxfqUnNb6g2rqFu\nfOE8jfb0Nyo4teyTAmh0LguftGN+AyDIkkEeeKizNnBX2id1pT+uVQG898LxlrWN\njr2gOHgf6TZRrUt7+O8DrZPVi0WtPhiEOKokceIJaUCbsALqGUqWzQlhJFnwrFWn\nFwIWjLJBa6wi/yWkB6UWZwDKk7lbmA5QFGnqrG0KLJsdccFskC8D0Wx5F3IVbyOB\nDt2ewJe+w+wOJbCHDqdc2mF6v3GjzG4NWhxel1t3i7RxH12LmC20eeo7cF5r4186\nMCIzuck2lyUTz+Tr097ZbB3I9Qx9nw7QMq2imiU9H0uZUSHil++P5FnnN1NF0Y8E\nh3RE2WulTlb9w4Ex6vOZOAfONhWuPL9g+t5ixuCxj95cYj9hj5idE5acC4yvoPhl\nAuCvOIv8S6Itvz/xPM5+aysp9OaaegWigI6qXYKEg2ekKbE3Lo4LRgMHeyrj2Y6A\nHk3sJFthSpUygJrPPb9qoeUY9KnHrRdx0XwDeQmYz0v4fb0Kea1i9AxwQi/EzK3G\nMQXNdAxDnuKajQZcih4QKHlKpkF0/r08pRsqkrHEUtJrmmwOxdUaPiDyMCtKPKaP\n5QXzY8n7XzNCr2N992G9\n=LB6g\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree bac153183a6ec730d059d2dfe373c32ae1d4c178\nparent 92895b6b2851f591df84aeeb50599b15e6cd0039\nauthor kevin <kevin@srp.one> 1782533197 +0800\ncommitter GitHub <noreply@github.com> 1782533197 +0000\n\nfix(knowledge-base): proxy /knowledge-base/* through claw-interface to ecap-proxy-service (#2629)\n\n## What & why\n\nThe knowledge-base upload page (shipped in #2617) loads in deployed\n**staging** but the document list fails with **\"Could not load\ndocuments\"** (and upload would fail too).\n\n**Root cause:** the page's data layer calls\n`callClawInterfaceAPI('/knowledge-base/*')` → web BFF `/api/claw/*` →\n`CLAW_INTERFACE_URL` (**claw-interface**). But the `/knowledge-base/*`\nendpoints live only in **`ecap-proxy-service`** (separate repo +\nseparate ingress). `services/claw-interface` had no kb route and no\nforwarding, so it 404'd. The frontend is correct — the established\npattern for reaching ecap-proxy-service from the web app is *through*\nclaw-interface (exactly what `composio_connectors` does); this feature's\nbackend half was simply missing.\n\n## Change (backend-only, frontend unchanged)\n\nAdd `app/routes/knowledge_base.py`, mirroring\n`composio_connectors._proxy_request`:\n\n- `GET /knowledge-base/documents` → forward to\n`SETTINGS.ECAP_PROXY_SERVICE_URL` with the caller's `Authorization:\nBearer <token>`.\n- `POST /knowledge-base/upload` → forward the multipart body\n**verbatim** (original `Content-Type`/boundary preserved — transparent\npassthrough, no re-encoding); reject `>50MB` early with `413` (mirrors\nthe web soft-check and `VERTEX_SEARCH_MAX_UPLOAD_BYTES`).\n- Reuse composio's error handling: `401` (missing token), `502`\n(upstream `RequestError`), upstream status/detail propagation,\n`retries=1` connect-retry transport.\n\n`CLAW_INTERFACE_URL` stays pointed at claw-interface; no web change.\n\n## Testing\n\n### Static + unit\n- `bash scripts/verify-py.sh` — ruff + ruff-format + pyright +\nimport-linter all pass.\n- `pytest tests/unit/test_knowledge_base.py` — 8 passed (forwarding +\nheaders, multipart passthrough, 413 via content-length and via body\nlength, retries=1 transport, 502 on RequestError, upstream status/detail\npropagation, 401 on missing token).\n\n### Local integration vs the REAL ecap-proxy-service\nExercised the route handlers directly against the real staging\n`ecap-proxy-service` over a Telepresence connection (no deploy, no mongo\nneeded), with a real staging user bearer token:\n\n- `GET /knowledge-base/documents` → **200**, returned the user's real\norg documents (2 `indexed`).\n- `POST /knowledge-base/upload` (small `text/plain` multipart) →\n**200**, `success: true`, `status: pending` (file really written to the\norg's knowledge base + indexing queued).\n- Re-`GET` → the uploaded file appears as `pending` (the same end-to-end\npropagation the page's React Query invalidate-on-success surfaces).\n- Invalid/dummy token → **401** with the upstream detail propagated.\n\nThis confirms the forward path, URL construction, bearer forwarding,\nmultipart passthrough, and upstream error/status propagation against the\nreal backend — i.e. the exact path that previously 404'd now works.\n\n## Deployment\n\nRequires deploying **claw-interface** to staging for the fix to take\neffect in the deployed site. No frontend deploy needed.\n\nCloses #2627\n\nCo-authored-by: Developer <dev@srp.one>",
+        "verified_at": "2026-06-27T04:06:53Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/cbeb0e04e9c23a120aed66bc0429a72109cfa785",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/cbeb0e04e9c23a120aed66bc0429a72109cfa785",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/cbeb0e04e9c23a120aed66bc0429a72109cfa785/comments",
+    "author": {
+      "login": "kevin-f-srp",
+      "id": 178452074,
+      "node_id": "U_kgDOCqL2ag",
+      "avatar_url": "https://avatars.githubusercontent.com/u/178452074?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kevin-f-srp",
+      "html_url": "https://github.com/kevin-f-srp",
+      "followers_url": "https://api.github.com/users/kevin-f-srp/followers",
+      "following_url": "https://api.github.com/users/kevin-f-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kevin-f-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kevin-f-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kevin-f-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/kevin-f-srp/orgs",
+      "repos_url": "https://api.github.com/users/kevin-f-srp/repos",
+      "events_url": "https://api.github.com/users/kevin-f-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kevin-f-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "92895b6b2851f591df84aeeb50599b15e6cd0039",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/92895b6b2851f591df84aeeb50599b15e6cd0039",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/92895b6b2851f591df84aeeb50599b15e6cd0039"
+      }
+    ]
+  },
+  {
+    "sha": "92895b6b2851f591df84aeeb50599b15e6cd0039",
+    "node_id": "C_kwDORc_p4NoAKDkyODk1YjZiMjg1MWY1OTFkZjg0YWVlYjUwNTk5YjE1ZTZjZDAwMzk",
+    "commit": {
+      "author": {
+        "name": "bill-srp",
+        "email": "bill@srp.one",
+        "date": "2026-06-27T03:47:52Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-06-27T03:47:52Z"
+      },
+      "message": "fix(claw-interface): use billing v2 plan for agent quota (#2628)\n\n## Summary\n- Use Billing v2 current access as the source of truth for agent install\nquota plan checks.\n- Keep vertical/enterprise package bypass behavior unchanged.\n- Add regression coverage for stale `ecap-account.plan` on single and\nbatch agent installs.\n\n## Root cause\nAgent install quota checks used the cached compatibility field\n`ecap-account.plan`. That field can drift from the current Billing v2\nsubscription agreement, so users with a higher active subscription could\nstill be capped by a stale lower plan.\n\n## Test plan\n- [x] `PATH=/Users/bill/.venvs/claw-interface/bin:$PATH bash\nscripts/verify-py.sh`\n- [x] `/Users/bill/.venvs/claw-interface/bin/pytest\nservices/claw-interface/tests/unit/test_agent_install_service.py\nservices/claw-interface/tests/unit/test_agent_multi_install_service.py\n-q`\n- [x] `PATH=/Users/bill/.venvs/claw-interface/bin:$PATH bash\nscripts/verify-changed.sh`",
+      "tree": {
+        "sha": "73d7355a599fb25bab9abf0b01f0d352cf2e7353",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/trees/73d7355a599fb25bab9abf0b01f0d352cf2e7353"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/commits/92895b6b2851f591df84aeeb50599b15e6cd0039",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqP0f4CRC1aQ7uu5UhlAAALKoQACfEIXKDLS/W2BMCs1VaoLHF\no+z0G+EfJHdYPweknDVvwTeIm6H6BedMvq6pBnCchxJ020LPuAGHTWlJtZjrhsbD\nUHmfa0Ywd13d4i5MgljODkr/YDLGZOmQkVR0hF5EMlguUQr7YEGNk/N4QKXhPNIZ\n0J846P0TxZ455u/2eeDWoLTYTSA6Ko5KnPMJScTcwNifEMx3cvFbHTeS83YkOF99\nNugdGzxTOZvbPjsjx5m3VJgGO5Pjqei1FZR7wbMex6ciCsRndcTgYP6DffQuu3pK\ndt3LS+mwrxK9R4ovhVeqcHTgP3ZidMZDgaIW3L5RuEvf+JeVrYaeUlmYjw9bFHcA\nXc0dOwk7W0o4s3th/AlB1ok/PvbjiHul+fcJ8T4cI74F7DzOfi1ilDjM5M9/Lz02\npPGz7bMAebWJuFF+6Gr23AFFJba1ysz647AcNKngsRqJBzt2uwokFRT4iORKr+sE\n87GGNgyHXApKD/nHd6yz+Zq0SzLiqPHC56iVgYa97mYzv0toAxNMYeWcPN62SSzB\nzR25FC5KnFd3hQ4FpjPLrN4M1Nf7o4IgizUKXHa7vZYtfvAIydb8gdAnID3Rjidw\n5cBVJyEB4IlJL4izWKQiVcxCIHa/e612ydgnnwA/o3wOwzu83MDd2u5tLqxKaHYR\ndU85VLRudPl+XCEvJm96\n=rktv\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 73d7355a599fb25bab9abf0b01f0d352cf2e7353\nparent 4e65f7a91758a0ef0abd6da7795b0391c15e1e19\nauthor bill-srp <bill@srp.one> 1782532072 +0800\ncommitter GitHub <noreply@github.com> 1782532072 +0000\n\nfix(claw-interface): use billing v2 plan for agent quota (#2628)\n\n## Summary\n- Use Billing v2 current access as the source of truth for agent install\nquota plan checks.\n- Keep vertical/enterprise package bypass behavior unchanged.\n- Add regression coverage for stale `ecap-account.plan` on single and\nbatch agent installs.\n\n## Root cause\nAgent install quota checks used the cached compatibility field\n`ecap-account.plan`. That field can drift from the current Billing v2\nsubscription agreement, so users with a higher active subscription could\nstill be capped by a stale lower plan.\n\n## Test plan\n- [x] `PATH=/Users/bill/.venvs/claw-interface/bin:$PATH bash\nscripts/verify-py.sh`\n- [x] `/Users/bill/.venvs/claw-interface/bin/pytest\nservices/claw-interface/tests/unit/test_agent_install_service.py\nservices/claw-interface/tests/unit/test_agent_multi_install_service.py\n-q`\n- [x] `PATH=/Users/bill/.venvs/claw-interface/bin:$PATH bash\nscripts/verify-changed.sh`",
+        "verified_at": "2026-06-27T03:48:09Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/92895b6b2851f591df84aeeb50599b15e6cd0039",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/92895b6b2851f591df84aeeb50599b15e6cd0039",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/92895b6b2851f591df84aeeb50599b15e6cd0039/comments",
+    "author": {
+      "login": "bill-srp",
+      "id": 173224344,
+      "node_id": "U_kgDOClMxmA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/173224344?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/bill-srp",
+      "html_url": "https://github.com/bill-srp",
+      "followers_url": "https://api.github.com/users/bill-srp/followers",
+      "following_url": "https://api.github.com/users/bill-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/bill-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/bill-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/bill-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/bill-srp/orgs",
+      "repos_url": "https://api.github.com/users/bill-srp/repos",
+      "events_url": "https://api.github.com/users/bill-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/bill-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "4e65f7a91758a0ef0abd6da7795b0391c15e1e19",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/4e65f7a91758a0ef0abd6da7795b0391c15e1e19",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/4e65f7a91758a0ef0abd6da7795b0391c15e1e19"
+      }
+    ]
+  },
+  {
+    "sha": "4e65f7a91758a0ef0abd6da7795b0391c15e1e19",
+    "node_id": "C_kwDORc_p4NoAKDRlNjVmN2E5MTc1OGEwZWYwYWJkNmRhNzc5NWIwMzkxYzE1ZTFlMTk",
+    "commit": {
+      "author": {
+        "name": "kevin",
+        "email": "kevin@srp.one",
+        "date": "2026-06-27T02:53:59Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-06-27T02:53:59Z"
+      },
+      "message": "feat(knowledge-base): org knowledge-base upload page (#2617)\n\n## What\n\nAdmartels a standalone **org knowledge-base** page to `web-app` at\n`/<locale>/knowledge-base`. It lists the organization's documents with\ntheir index status and lets a member upload new documents — backed by\nthe existing `ecap-proxy-service` `/knowledge-base/*` endpoints.\n\nThe page lives under the `(app)` route group (so it inherits login +\n`AccountSessionGate`) but is **not** registered in any nav menu — it's\nreachable only at its own URL, as requested.\n\n## How\n\n- **Service** `src/services/knowledge-base.ts` — typed wrappers over the\nexisting `callClawInterfaceAPI` (routes through the `/api/claw` BFF →\nproxy service, auto-attaches the JWT). Upload is `multipart/form-data`\n(field `file`) with a 120s timeout.\n- **Hook** `hooks/useKnowledgeBase.ts` — React Query: uid-scoped\ndocuments query + upload mutation that **invalidates the list on\nsuccess** (no polling; new docs appear as `pending`).\n- **Components** — `UploadDropzone` (click + drag-drop with client-side\ntype/size validation), `DocumentList` (rows + empty state),\n`StatusBadge` (indexed/pending/failed via semantic `ecap-*` tokens).\n- **Page** — `KnowledgeBaseClient` composes them with\nsuccess/warning/error toasts; `page.tsx` is a server component wrapping\nit in `<Suspense>`.\n- **i18n** — new `knowledgeBase` namespace in `en.ts` + `zh.ts` (other\nlocales fall back to English).\n\n## Tenancy / security\n\nOrg is resolved **server-side from the JWT**; the client never sends\nuid/org in the request body (upload sends only the file; list is a bare\nGET). The uid only scopes the React Query cache key, so switching\naccounts can't leak another org's cached list.\n\n## Scope\n\nList + basic single-file upload. Intentionally **no** polling, batch\nupload, or delete/rename (none were requested; the backend exposes no\ndelete).\n\n## Tests\n\n14 unit tests across service, hook, and the three components (Vitest).\n`pnpm tsc --noEmit` and `pnpm eslint` over the feature both pass clean.\n\n⚠️ **Not yet done** (needs a live backend + auth, infeasible in the dev\nsandbox): manual smoke test of `/en/knowledge-base` against a running\nproxy service — please verify the live list-load + a real upload before\nmerge.\n\nDesign + plan:\n`docs/superpowers/specs/2026-06-26-knowledge-base-upload-page-design.md`,\n`docs/superpowers/plans/2026-06-26-knowledge-base-upload-page.md`.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\n---------\n\nCo-authored-by: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nCo-authored-by: Developer <dev@srp.one>",
+      "tree": {
+        "sha": "d1639e898f1fedec7d8bd88edec036c183c2962b",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/trees/d1639e898f1fedec7d8bd88edec036c183c2962b"
+      },
+      "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/git/commits/4e65f7a91758a0ef0abd6da7795b0391c15e1e19",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqPztWCRC1aQ7uu5UhlAAAc64QAFlFwjQpkMc+9FO6AHTAmb6u\n2qAJICLvUr7QDa59dFHDLg6cw9b9NNKFtPmg6duFgfy7sLkE9dhIaxEmdiV55Iyy\nnHyaTx4IjHM2z8avTCHX5P8ZtigwPvSBFJBaGn1e5zWHfv3ecvmjtKVi9LxBF3vR\nkeVYmSShwfgKLii35V7vpUQ1xNTg45hYcl4RPikCnZfHnwbyDzDyVoYOBLU+0zMy\nlswHNr4JDrYSHpCPr5yovbD1XwKtp/skbjBTs8t+2vCyLx1mOcWLZT+lCLdpHj8A\ny9nWDeVbuQhsSF7sXOqe8TWVuJMi6HsUjKdxXtzZY0F0U6gMaS08LKl3RDW0bXmW\n299H/pEX3Pw6vX/IdFQQsmeyBw/SGYpWvZNOIsZyCffMY1ASm1Rby8hwMiNv16Od\ndfA50uTofYC7NSICjkkvLXvcNc3d2mJzoIVxdbK75lNBSoa78sDv/KL0Yr+ZCp/E\nDkZuKnhCJ0tE49Jgslic9ekrx0HGRBgQ9KToW0Vv3bHvjBl+wR87ZQA0sTQXNGEV\ngxItT2PgY+AUteHzhKspEf1ek3wZbpfeRlU/IV89OlNK8KGPgITtzB9flisinFVY\nnvKIaCGvxQvebll3fTBDpEnN38EMiyZHJt/UVVAcUWAYXTGdWnRu0KRBOCG5UT00\n9THJCK5JUwb/ItD1j7vJ\n=x141\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d1639e898f1fedec7d8bd88edec036c183c2962b\nparent d2518dbbabdd56fa3e56b421f3ee251075bb8d30\nauthor kevin <kevin@srp.one> 1782528839 +0800\ncommitter GitHub <noreply@github.com> 1782528839 +0000\n\nfeat(knowledge-base): org knowledge-base upload page (#2617)\n\n## What\n\nAdmartels a standalone **org knowledge-base** page to `web-app` at\n`/<locale>/knowledge-base`. It lists the organization's documents with\ntheir index status and lets a member upload new documents — backed by\nthe existing `ecap-proxy-service` `/knowledge-base/*` endpoints.\n\nThe page lives under the `(app)` route group (so it inherits login +\n`AccountSessionGate`) but is **not** registered in any nav menu — it's\nreachable only at its own URL, as requested.\n\n## How\n\n- **Service** `src/services/knowledge-base.ts` — typed wrappers over the\nexisting `callClawInterfaceAPI` (routes through the `/api/claw` BFF →\nproxy service, auto-attaches the JWT). Upload is `multipart/form-data`\n(field `file`) with a 120s timeout.\n- **Hook** `hooks/useKnowledgeBase.ts` — React Query: uid-scoped\ndocuments query + upload mutation that **invalidates the list on\nsuccess** (no polling; new docs appear as `pending`).\n- **Components** — `UploadDropzone` (click + drag-drop with client-side\ntype/size validation), `DocumentList` (rows + empty state),\n`StatusBadge` (indexed/pending/failed via semantic `ecap-*` tokens).\n- **Page** — `KnowledgeBaseClient` composes them with\nsuccess/warning/error toasts; `page.tsx` is a server component wrapping\nit in `<Suspense>`.\n- **i18n** — new `knowledgeBase` namespace in `en.ts` + `zh.ts` (other\nlocales fall back to English).\n\n## Tenancy / security\n\nOrg is resolved **server-side from the JWT**; the client never sends\nuid/org in the request body (upload sends only the file; list is a bare\nGET). The uid only scopes the React Query cache key, so switching\naccounts can't leak another org's cached list.\n\n## Scope\n\nList + basic single-file upload. Intentionally **no** polling, batch\nupload, or delete/rename (none were requested; the backend exposes no\ndelete).\n\n## Tests\n\n14 unit tests across service, hook, and the three components (Vitest).\n`pnpm tsc --noEmit` and `pnpm eslint` over the feature both pass clean.\n\n⚠️ **Not yet done** (needs a live backend + auth, infeasible in the dev\nsandbox): manual smoke test of `/en/knowledge-base` against a running\nproxy service — please verify the live list-load + a real upload before\nmerge.\n\nDesign + plan:\n`docs/superpowers/specs/2026-06-26-knowledge-base-upload-page-design.md`,\n`docs/superpowers/plans/2026-06-26-knowledge-base-upload-page.md`.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\n---------\n\nCo-authored-by: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nCo-authored-by: Developer <dev@srp.one>",
+        "verified_at": "2026-06-27T02:54:14Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/4e65f7a91758a0ef0abd6da7795b0391c15e1e19",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/4e65f7a91758a0ef0abd6da7795b0391c15e1e19",
+    "comments_url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/4e65f7a91758a0ef0abd6da7795b0391c15e1e19/comments",
+    "author": {
+      "login": "kevin-f-srp",
+      "id": 178452074,
+      "node_id": "U_kgDOCqL2ag",
+      "avatar_url": "https://avatars.githubusercontent.com/u/178452074?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kevin-f-srp",
+      "html_url": "https://github.com/kevin-f-srp",
+      "followers_url": "https://api.github.com/users/kevin-f-srp/followers",
+      "following_url": "https://api.github.com/users/kevin-f-srp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kevin-f-srp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kevin-f-srp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kevin-f-srp/subscriptions",
+      "organizations_url": "https://api.github.com/users/kevin-f-srp/orgs",
+      "repos_url": "https://api.github.com/users/kevin-f-srp/repos",
+      "events_url": "https://api.github.com/users/kevin-f-srp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kevin-f-srp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d2518dbbabdd56fa3e56b421f3ee251075bb8d30",
+        "url": "https://api.github.com/repos/SerendipityOneInc/ecap-workspace/commits/d2518dbbabdd56fa3e56b421f3ee251075bb8d30",
+        "html_url": "https://github.com/SerendipityOneInc/ecap-workspace/commit/d2518dbbabdd56fa3e56b421f3ee251075bb8d30"
+      }
+    ]
+  }
+]
