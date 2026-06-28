@@ -1,6 +1,9 @@
 # Updates Index
 
 
+## 2026-06-27
+- [组织知识库页面上线：可上传并管理文档](./2026-06-27/ecap-workspace-pr2617.md)
+
 ## 2026-06-25
 - [Seedance 2.0 mini 视频模型上线，成本直降约 50%](./2026-06-25/pr217-seedance-2-0-mini.md)
 - [套餐内 Agent 现可显示快捷启动卡片](./2026-06-25/pr2605-vertical-pack-quick-commands.md)
