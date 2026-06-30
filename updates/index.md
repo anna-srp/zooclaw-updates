@@ -1,6 +1,13 @@
 # Updates Index
 
 
+## 2026-06-29
+- [应用市场支持付费 Agent 包上架](./2026-06-29/ecap-workspace-pr2655.md)
+- [会话支持标题：自动生成 + 手动重命名](./2026-06-29/ecap-workspace-pr2636.md)
+- [修复 Agent Builder 历史项目崩溃，重建机器人后可恢复项目](./2026-06-29/ecap-workspace-pr2635.md)
+- [Agent Studio 头像升级为写实人物肖像](./2026-06-29/ecap-agent-pack-pr194.md)
+- [Agent Studio 新增创作者知识库（RAG）：可基于专属内容问答](./2026-06-29/ecap-agent-pack-pr193.md)
+
 ## 2026-06-28
 - [微信渠道设置不再重启机器人、会话不中断](./2026-06-28/ecap-workspace-pr2610.md)
 - [微信渠道设置更可靠：绑定失败会明确报错并自动回滚](./2026-06-28/ecap-workspace-pr2613.md)
