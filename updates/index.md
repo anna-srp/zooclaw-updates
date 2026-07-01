@@ -1,6 +1,16 @@
 # Updates Index
 
 
+## 2026-06-30
+- [企业管理后台登录流程更稳（OTP 验证码登录修复）](./2026-06-30/ecap-workspace-pr2666.md) — Bug Fix / 外部B
+- [BossClaw 企业微信/飞书绑定不再显示微信专属提示](./2026-06-30/ecap-workspace-pr2665.md) — 体验优化 / 外部B
+- [修复 Agent Builder 提交新版本时元信息被旧数据覆盖](./2026-06-30/ecap-workspace-pr2660.md) — Bug Fix / 外部B
+- [修复 BossClaw 手机端扫码绑定页面无法滚动](./2026-06-30/ecap-workspace-pr2663.md) — Bug Fix / 外部B
+- [修复 BossClaw 手机端注册与扫码弹窗体验](./2026-06-30/ecap-workspace-pr2641.md) — Bug Fix / 外部B
+- [修复引导浮层按钮在部分页面点击后 404](./2026-06-30/ecap-workspace-pr2659.md) — Bug Fix / 外部B
+- [Agent Builder 测试预览自动重置为全新会话](./2026-06-30/ecap-workspace-pr2656.md) — 体验优化 / 外部B
+- [Agent Studio 打包测试前提前校验元信息](./2026-06-30/ecap-agent-pack-pr195.md) — 体验优化 / 外部B
+
 ## 2026-06-29
 - [应用市场支持付费 Agent 包上架](./2026-06-29/ecap-workspace-pr2655.md)
 - [会话支持标题：自动生成 + 手动重命名](./2026-06-29/ecap-workspace-pr2636.md)
