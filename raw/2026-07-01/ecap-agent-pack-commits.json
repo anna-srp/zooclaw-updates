@@ -1,0 +1,24 @@
+[
+  {
+    "sha": "117c4884a9cb0672ccf8995cc46f290d4931c31e",
+    "title": "fix(agent-studio): lock project workspace cleanup (#198)",
+    "message": "fix(agent-studio): lock project workspace cleanup (#198)",
+    "author_name": "kaka-srp",
+    "author_email": "kaka@srp.one",
+    "date": "2026-07-01T10:14:14Z",
+    "pr_number": "198",
+    "pr_body": "## Summary\n- Add a shared Agent Studio workspace lock helper using `.agent-builder-projects/.workspace.lock`.\n- Use the shared lock in `project_workspace.py` and `clean.py` so project activation and cleanup do not mutate the same live workspace concurrently.\n- Retry transient `ENOTEMPTY` / `EBUSY` directory removals in `clean.py` while still surfacing persistent failures.\n- Add tests for retry behavior and lock creation.\n\n## Tests\n- `python -m py_compile agent-studio/.agents/skills/agent-studio/scripts/_workspace_lock.py agent-studio/.agents/skills/agent-studio/scripts/clean.py agent-studio/.agents/skills/agent-studio/scripts/project_workspace.py`\n- `python -m pytest agent-studio/.agents/skills/agent-studio/tests/test_clean.py agent-studio/.agents/skills/agent-studio/tests/test_project_workspace.py`\n\n## Notes\n- This PR only changes Agent Studio source files; no generated pack archive was rebuilt.\n",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/117c4884a9cb0672ccf8995cc46f290d4931c31e"
+  },
+  {
+    "sha": "11595538207eec20eb2a24f5af8c80ff3617a2af",
+    "title": "fix(agent-studio): publish display name as pack name (#197)",
+    "message": "fix(agent-studio): publish display name as pack name (#197)",
+    "author_name": "kaka-srp",
+    "author_email": "kaka@srp.one",
+    "date": "2026-07-01T09:50:25Z",
+    "pr_number": "197",
+    "pr_body": "## Summary\n- send agent-pack.yaml display_name as Pack Test pack_name from Agent Studio publish\n- keep manifest name as stable display_id / archive manifest_name\n- reject stale description.json agentPack_id and sync description name from display_name\n- keep existing-source version-bump enforcement even when only display_name changes\n\n## Tests\n- uv run --python 3.12 -m pytest agent-studio/.agents/skills/agent-studio/scripts/tests/test_publish.py -q\n- uv run --python 3.12 -m pytest agent-studio/.agents/skills/agent-studio/scripts/tests/test_connect_composio.py agent-studio/.agents/skills/agent-studio/scripts/tests/test_connectors.py agent-studio/.agents/skills/agent-studio/scripts/tests/test_connectors_helpers.py agent-studio/.agents/skills/agent-studio/scripts/tests/test_package_agent_md.py agent-studio/.agents/skills/agent-studio/scripts/tests/test_package_connectors.py agent-studio/.agents/skills/agent-studio/scripts/tests/test_publish.py agent-studio/.agents/skills/agent-studio/scripts/tests/test_validate_connectors.py -q\n\n## Notes\n- Full scripts test collection currently needs numpy for KB tests in this local environment.\n",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-agent-pack/commit/11595538207eec20eb2a24f5af8c80ff3617a2af"
+  }
+]

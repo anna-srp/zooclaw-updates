@@ -1,0 +1,35 @@
+[
+  {
+    "sha": "6b86ec42e37a1e95a190c1e2a562b4a07cc57e54",
+    "title": "fix(publish): add _BGM to PUBLISHED_SKILLS whitelist (#226)",
+    "message": "fix(publish): add _BGM to PUBLISHED_SKILLS whitelist (#226)\n\n## Summary\n- Register the shared `_BGM` library in `PUBLISHED_SKILLS` so it is\nactually published to the JuiceFS S3 gateway.\n\n## Root cause\nPR #225 added `_BGM/` (mp3 via Git LFS + `bgm.json` + scripts) and\ncorrectly configured `.gitattributes` (`*.mp3` → LFS) and the workflow\ncheckout (`lfs: true`). However, `publish-skills.yml` does **not** sync\nthe whole repo — it only copies directories listed in `PUBLISHED_SKILLS`\ninto a staging dir, then runs `aws s3 sync --delete`.\n\nSince `_BGM` was never added to the whitelist, it was silently skipped.\nRun\n[#28507111747](https://github.com/SerendipityOneInc/ecap-skills/actions/runs/28507111747)\nreported success but the BGM assets never reached JuiceFS. Same class of\nissue previously handled for `_fonts`.\n\n## Fix\nAdd `_BGM` to `PUBLISHED_SKILLS` (next to `_fonts` as a shared LFS\nlibrary).\n\n## After merge\nCut a new tag (e.g. `v0.6.9-beta.2`) to re-trigger the staging publish,\nor run the workflow via `workflow_dispatch`.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-authored-by: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+    "author_name": "allenz-srp",
+    "author_email": "allenz@srp.one",
+    "date": "2026-07-01T12:09:54Z",
+    "pr_number": "226",
+    "pr_body": "## Summary\n- Register the shared `_BGM` library in `PUBLISHED_SKILLS` so it is actually published to the JuiceFS S3 gateway.\n\n## Root cause\nPR #225 added `_BGM/` (mp3 via Git LFS + `bgm.json` + scripts) and correctly configured `.gitattributes` (`*.mp3` → LFS) and the workflow checkout (`lfs: true`). However, `publish-skills.yml` does **not** sync the whole repo — it only copies directories listed in `PUBLISHED_SKILLS` into a staging dir, then runs `aws s3 sync --delete`.\n\nSince `_BGM` was never added to the whitelist, it was silently skipped. Run [#28507111747](https://github.com/SerendipityOneInc/ecap-skills/actions/runs/28507111747) reported success but the BGM assets never reached JuiceFS. Same class of issue previously handled for `_fonts`.\n\n## Fix\nAdd `_BGM` to `PUBLISHED_SKILLS` (next to `_fonts` as a shared LFS library).\n\n## After merge\nCut a new tag (e.g. `v0.6.9-beta.2`) to re-trigger the staging publish, or run the workflow via `workflow_dispatch`.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/6b86ec42e37a1e95a190c1e2a562b4a07cc57e54"
+  },
+  {
+    "sha": "caace94eb8a73a083c7331b14551fa59c1f0a23b",
+    "title": "Add shared BGM library (#225)",
+    "message": "Add shared BGM library (#225)\n\n## Summary\n- add a shared _BGM library with the Founder IP Studio BGM collection\n- add bgm.json metadata and resolve_bgm.py for agent consumption\n- publish _BGM alongside _fonts and track mp3 assets with Git LFS\n\n## Verification\n- jq empty _BGM/bgm.json\n- python3 _BGM/scripts/resolve_bgm.py --id calm-ambition\n- python3 _BGM/scripts/resolve_bgm.py --use-case 'founder vision'\n--energy medium --format json\n- confirmed mp3 files are staged and pushed as Git LFS pointers\n\n---------\n\nCo-authored-by: Lynn Zhuang <lynnzhuang@MacBook-Pro.local>",
+    "author_name": "lynn Zhuang",
+    "author_email": "lynn@srp.one",
+    "date": "2026-07-01T09:06:18Z",
+    "pr_number": "225",
+    "pr_body": "## Summary\n- add a shared _BGM library with the Founder IP Studio BGM collection\n- add bgm.json metadata and resolve_bgm.py for agent consumption\n- publish _BGM alongside _fonts and track mp3 assets with Git LFS\n\n## Verification\n- jq empty _BGM/bgm.json\n- python3 _BGM/scripts/resolve_bgm.py --id calm-ambition\n- python3 _BGM/scripts/resolve_bgm.py --use-case 'founder vision' --energy medium --format json\n- confirmed mp3 files are staged and pushed as Git LFS pointers",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/caace94eb8a73a083c7331b14551fa59c1f0a23b"
+  },
+  {
+    "sha": "7e46f342efee319773026a75d68d99b94de5c9c2",
+    "title": "docs(review): customized code-review.md (#224)",
+    "message": "docs(review): customized code-review.md (#224)\n\nCustomized review guide (PR 2 of 2, stacked on baseline). Distilled from\n~3mo local git history + CLAUDE.md/docs + ECA Linear, lean\necap-workspace style. Base is the baseline branch (diff reads baseline\n-> custom); auto-retargets to main when baseline merges.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\n---------\n\nCo-authored-by: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+    "author_name": "Chris@ZooClaw",
+    "author_email": "chris@srp.one",
+    "date": "2026-07-01T07:24:55Z",
+    "pr_number": "224",
+    "pr_body": "Customized review guide (PR 2 of 2, stacked on baseline). Distilled from ~3mo local git history + CLAUDE.md/docs + ECA Linear, lean ecap-workspace style. Base is the baseline branch (diff reads baseline -> custom); auto-retargets to main when baseline merges.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+    "html_url": "https://github.com/SerendipityOneInc/ecap-skills/commit/7e46f342efee319773026a75d68d99b94de5c9c2"
+  }
+]

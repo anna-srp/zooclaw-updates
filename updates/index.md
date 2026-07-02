@@ -1,6 +1,14 @@
 # Updates Index
 
 
+
+## 2026-07-01
+- [新增共享 BGM 背景音乐库，视频创作可直接调用](./2026-07-01/ecap-skills-pr225.md) — Skill 上架/更新 / 外部A
+- [BossClaw 引导页视觉与动效全面升级](./2026-07-01/ecap-workspace-pr2691.md) — 体验优化 / 外部B
+- [Agent Builder 操作区布局优化，主次操作更清晰](./2026-07-01/ecap-workspace-pr2682.md) — 体验优化 / 外部B
+- [Agent Builder 新增引导式首页](./2026-07-01/ecap-workspace-pr2676.md) — 体验优化 / 外部B
+- [Specialist Hub 页面应用全新设计系统](./2026-07-01/ecap-workspace-pr2679.md) — 体验优化 / 外部B
+
 ## 2026-06-30
 - [企业管理后台登录流程更稳（OTP 验证码登录修复）](./2026-06-30/ecap-workspace-pr2666.md) — Bug Fix / 外部B
 - [BossClaw 企业微信/飞书绑定不再显示微信专属提示](./2026-06-30/ecap-workspace-pr2665.md) — 体验优化 / 外部B
