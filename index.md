@@ -1,5 +1,18 @@
 # Updates Index
 
+## 2026-07-02
+- [新增「知识库检索」Skill：Agent 可直接搜索组织内部知识库](./2026-07-02/ecap-skills-pr220.md) — Skill 上架/更新 / 外部A
+- [应用市场支持直接购买付费 Agent 包](./2026-07-02/ecap-workspace-paid-purchase.md) — 新功能上线 / 外部A
+- [知识库支持删除文档，并在设置中新增入口](./2026-07-02/ecap-workspace-pr2688.md) — 体验优化 / 外部B
+- [修复 Windows 桌面版构建兼容问题，桌面端恢复可用](./2026-07-02/ecap-workspace-pr2685.md) — Bug Fix / 外部B
+- [修复 Firefox 下偶发「无法验证会话」黑屏问题](./2026-07-02/ecap-workspace-pr2700.md) — Bug Fix / 外部B
+- [修复部分老账号缺失组织信息导致无法正常使用的问题](./2026-07-02/ecap-workspace-pr2710.md) — Bug Fix / 外部B
+- [官网首页焕新：浅色主题 + 全新首屏设计](./2026-07-02/ecap-workspace-pr2577.md) — 体验优化 / 外部B
+- [企业版登录页焕新并更名为 ZooWork](./2026-07-02/ecap-workspace-pr2614.md) — 体验优化 / 外部B
+- [首页侧边栏玻璃质感 UI 打磨](./2026-07-02/ecap-workspace-pr2709.md) — 体验优化 / 外部B
+- [BossClaw 页面启用全新藏青金爪 App 图标](./2026-07-02/ecap-workspace-pr2703.md) — 体验优化 / 外部B
+- [Agent Builder 在 Claw 未运行时给出明确提示](./2026-07-02/ecap-workspace-pr2699.md) — 体验优化 / 外部B
+
 ## 2026-06-26
 - [新增钉钉（DingTalk）IM 渠道接入](./2026-06-26/ecap-workspace-pr2616.md) — 新功能上线 / 外部A
 - [修复邀请试用额度未发放问题](./2026-06-26/ecap-workspace-pr2620.md) — Bug Fix / 外部B
