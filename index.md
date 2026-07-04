@@ -1,5 +1,11 @@
 # Updates Index
 
+## 2026-07-03
+- [Deep Research 深度研究提速：多路调研汇总不再卡死](./2026-07-03/ecap-skills-pr221.md) — Skill 上架/更新 / 外部B
+- [知识库支持一次上传多个文件](./2026-07-03/ecap-workspace-pr2726.md) — Bug Fix / 外部B
+- [Agent Builder 构建会话恢复「回放分享」功能](./2026-07-03/ecap-workspace-pr2725.md) — Bug Fix / 外部B
+- [修复聊天框上传失败后残留「上传中」占位导致无法发送](./2026-07-03/ecap-workspace-pr2719.md) — Bug Fix / 外部B
+
 ## 2026-07-02
 - [新增「知识库检索」Skill：Agent 可直接搜索组织内部知识库](./2026-07-02/ecap-skills-pr220.md) — Skill 上架/更新 / 外部A
 - [应用市场支持直接购买付费 Agent 包](./2026-07-02/ecap-workspace-paid-purchase.md) — 新功能上线 / 外部A
