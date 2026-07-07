@@ -1,5 +1,18 @@
 # Updates Index
 
+## 2026-07-06
+- [Agent 包支持公开分享链接](./2026-07-06/ecap-workspace-pack-share.md) — 新功能上线 / 外部A
+- [新增 WhatsApp Business 渠道接入](./2026-07-06/ecap-workspace-whatsapp-bridge.md) — 新功能上线 / 外部A
+- [Deep Research 深度研究可靠性升级](./2026-07-06/ecap-skills-pr232.md) — Skill 上架/更新 / 外部B
+- [Agent Builder 操作按钮支持中文显示](./2026-07-06/ecap-workspace-pr2749.md) — 体验优化 / 外部B
+- [Agent Builder 打包测试流程更可靠](./2026-07-06/ecap-workspace-pr2744.md) — Bug Fix / 外部B
+- [Agent Builder 校验失败可直接在对话中修复](./2026-07-06/ecap-workspace-pr2748.md) — 体验优化 / 外部B
+- [BossClaw 电脑端登录页焕新](./2026-07-06/ecap-workspace-pr2733.md) — 体验优化 / 外部B
+- [修复暗色模式刷新时闪白问题](./2026-07-06/ecap-workspace-pr2720.md) — Bug Fix / 外部B
+- [全站玻璃面板视觉统一](./2026-07-06/ecap-workspace-pr2722.md) — 体验优化 / 外部B
+- [修复小窗聊天与 Agent Builder 中图片附件导致的页面崩溃](./2026-07-06/ecap-workspace-pr2652.md) — Bug Fix / 外部B
+- [ZooClaw iOS 1.8.0 版本准备就绪](./2026-07-06/ecap-workspace-pr2734.md) — 新功能上线 / 外部B
+
 ## 2026-07-03
 - [Deep Research 深度研究提速：多路调研汇总不再卡死](./2026-07-03/ecap-skills-pr221.md) — Skill 上架/更新 / 外部B
 - [知识库支持一次上传多个文件](./2026-07-03/ecap-workspace-pr2726.md) — Bug Fix / 外部B
