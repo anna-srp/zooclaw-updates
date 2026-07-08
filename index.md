@@ -1,5 +1,16 @@
 # Updates Index
 
+## 2026-07-07
+
+- [docx 文档技能修复中文文档生成崩溃问题](updates/2026-07-07/docx-skill-cjk-quote-fix.md) — Skill 上架/更新 / 优先级中
+- [已安装的组织包 Agent 支持一键更新](updates/2026-07-07/custom-publish-agent-update.md) — 体验优化 / 优先级中
+- [iOS 端修复聊天消息列表解析失败问题](updates/2026-07-07/ios-mattermost-props-fix.md) — Bug Fix / 优先级中
+- [Agent Builder 测试模式布局优化](updates/2026-07-07/agent-builder-test-mode-layout.md) — 体验优化 / 优先级中
+- [iOS 登录与新手引导界面焕新](updates/2026-07-07/ios-login-onboarding-ui.md) — 体验优化 / 优先级中
+- [修复侧边栏用户指南跳转错误](updates/2026-07-07/sidebar-user-guide-link-fix.md) — Bug Fix / 优先级中
+- [AI Specialists Hub 页面布局恢复](updates/2026-07-07/specialists-hub-layout-restore.md) — Bug Fix / 优先级中
+- [修复会话线程分享授权问题](updates/2026-07-07/chat-replay-thread-share-fix.md) — Bug Fix / 优先级中
+
 ## 2026-07-06
 - [Agent 包支持公开分享链接](./2026-07-06/ecap-workspace-pack-share.md) — 新功能上线 / 外部A
 - [新增 WhatsApp Business 渠道接入](./2026-07-06/ecap-workspace-whatsapp-bridge.md) — 新功能上线 / 外部A
