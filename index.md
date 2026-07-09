@@ -1,5 +1,11 @@
 # Updates Index
 
+## 2026-07-08
+
+- [Deep Research 深度研究技能对齐 Anthropic 多智能体研究实践](updates/2026-07-08/ecap-skills-deep-research-pr235.md) — Skill 上架/更新 / 外部B
+- [工具执行状态展示更丰富、可点击查看详情](updates/2026-07-08/ecap-workspace-tool-status-display-pr2768.md) — 体验优化 / 外部B
+- [聊天连接状态下拉菜单更清晰易读](updates/2026-07-08/ecap-workspace-chat-status-dropdown-pr2772.md) — 体验优化 / 外部B
+
 ## 2026-07-07
 
 - [docx 文档技能修复中文文档生成崩溃问题](updates/2026-07-07/docx-skill-cjk-quote-fix.md) — Skill 上架/更新 / 优先级中
