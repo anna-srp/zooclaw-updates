@@ -1,5 +1,11 @@
 # Updates Index
 
+## 2026-07-09
+
+- [免费体验改为绑卡后 7 天免费，订阅用户流程不变](updates/2026-07-09/ecap-workspace-pr2786.md) — 产品基础功能更新 / 外部B
+- [修复中文/输入法状态下回车误发送消息](updates/2026-07-09/ecap-workspace-pr2795.md) — Bug Fix / 外部B
+- [低余额付费提示体验优化：不打断发送、提示不再频繁弹出](updates/2026-07-09/ecap-workspace-pr2806.md) — 体验优化 / 外部B
+
 ## 2026-07-08
 
 - [Deep Research 深度研究技能对齐 Anthropic 多智能体研究实践](updates/2026-07-08/ecap-skills-deep-research-pr235.md) — Skill 上架/更新 / 外部B
