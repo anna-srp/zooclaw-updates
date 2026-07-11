@@ -1,5 +1,15 @@
 # Updates Index
 
+## 2026-07-10
+
+- [技能商店重新开放，可为电脑 Agent 安装技能](updates/2026-07-10/ecap-workspace-pr2824.md) — Skill 上架/更新 / 外部A
+- [修复聊天连接状态显示不准确的问题](updates/2026-07-10/ecap-workspace-pr2792.md) — Bug Fix / 外部B
+- [会话重置设置升级：支持“关闭/每日/空闲”三种模式](updates/2026-07-10/ecap-workspace-pr2818.md) — 产品基础功能更新 / 外部B
+- [网页版聊天现已支持渲染 Agent 交互卡片](updates/2026-07-10/ecap-workspace-pr2816.md) — 新功能上线 / 外部A
+- [Agent Builder 版本冲突可自动修复并反馈](updates/2026-07-10/ecap-workspace-pr2822.md) — Agent 上架/更新 / 外部B
+- [修复 Agent Builder 提交的 Pack 头像不显示的问题](updates/2026-07-10/ecap-workspace-pr2814.md) — Bug Fix / 外部B
+- [优化 IM 频道连接的快捷引导提示](updates/2026-07-10/ecap-workspace-pr2761.md) — 体验优化 / 外部B
+
 ## 2026-07-09
 
 - [免费体验改为绑卡后 7 天免费，订阅用户流程不变](updates/2026-07-09/ecap-workspace-pr2786.md) — 产品基础功能更新 / 外部B
