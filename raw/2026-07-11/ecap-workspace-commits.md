@@ -1,0 +1,427 @@
+# SerendipityOneInc/ecap-workspace — commits 2026-07-11
+
+共 5 个 commit。
+
+## `f4b687ffb1` fix(dashboard-console): align subscription code create form row (#2836)
+
+- **SHA**: `f4b687ffb146ffd1a9b2d2295ca0b457881054ce`
+- **作者**: bill-srp
+- **日期**: 2026-07-11T06:47:12Z
+- **PR**: #2836
+
+### 完整 commit message
+
+```
+fix(dashboard-console): align subscription code create form row (#2836)
+
+<!-- PR 标题：type(scope): description —— 必须遵循 Conventional Commits -->
+
+## Summary
+User-reported UI bug on the Subscription codes page: the create-form row
+is misaligned — the "Code (optional)" field sits visibly higher than
+Plan tier / Duration / Note / Create code.
+
+Cause: the row grid bottom-aligns its cells (`lg:items-end`), but the
+Code `Field` passed `hint="Leave blank to auto-generate"`, which renders
+an extra text line under the input (`Field` in `ui-kit.tsx` places hints
+below children). The hint duplicated the input's placeholder verbatim,
+and its extra line height broke the row's bottom alignment.
+
+Fix: remove the redundant `hint` prop (the placeholder carries the same
+copy). One line changed; all cells now have uniform label+input height,
+so `items-end` aligns the row.
+
+## Test plan
+- [x] `pnpm exec vitest run` — 66 files, 543 tests pass (no test
+asserted the hint text)
+- [x] `pnpm run typecheck` — exit 0
+- [x] `pnpm exec eslint .` — exit 0
+```
+
+### PR body
+
+<!-- PR 标题：type(scope): description —— 必须遵循 Conventional Commits -->
+
+## Summary
+User-reported UI bug on the Subscription codes page: the create-form row is misaligned — the "Code (optional)" field sits visibly higher than Plan tier / Duration / Note / Create code.
+
+Cause: the row grid bottom-aligns its cells (`lg:items-end`), but the Code `Field` passed `hint="Leave blank to auto-generate"`, which renders an extra text line under the input (`Field` in `ui-kit.tsx` places hints below children). The hint duplicated the input's placeholder verbatim, and its extra line height broke the row's bottom alignment.
+
+Fix: remove the redundant `hint` prop (the placeholder carries the same copy). One line changed; all cells now have uniform label+input height, so `items-end` aligns the row.
+
+## Test plan
+- [x] `pnpm exec vitest run` — 66 files, 543 tests pass (no test asserted the hint text)
+- [x] `pnpm run typecheck` — exit 0
+- [x] `pnpm exec eslint .` — exit 0
+
+
+---
+
+## `17201f2815` refactor(dashboard-console): remove dead ui primitives and inert dark classes (#2834)
+
+- **SHA**: `17201f28154986b4f516e258ff519d47083c5005`
+- **作者**: bill-srp
+- **日期**: 2026-07-11T06:06:22Z
+- **PR**: #2834
+
+### 完整 commit message
+
+```
+refactor(dashboard-console): remove dead ui primitives and inert dark classes (#2834)
+
+<!-- PR 标题：type(scope): description —— 必须遵循 Conventional Commits -->
+
+## Summary
+Slice 5 of 5 (final) of the console Administration pages redesign (spec
+merged in #2827; slices 2-4 in #2828/#2831/#2832): hygiene per spec §4
+R9 (audit finding A10). Pure dead-code removal in
+`web/dashboard-console` — **zero visual or behavior change**, net −1011
+lines.
+
+Deleted `app/components/ui/*` files, each confirmed to have zero
+executable-code imports by project-wide search (only historical doc/spec
+mentions remain):
+
+- `sidebar.tsx` (−724, the stock shadcn sidebar named in the spec)
+- `badge.tsx` (−48), `card.tsx` (−92), `checkbox.tsx` (−30) — superseded
+by the `ui-kit` ledger primitives
+- `input.tsx` (−21), `separator.tsx` (−28), `tooltip.tsx` (−57) — were
+imported only by the deleted sidebar
+
+Pruned `button.tsx` (kept: used by `dialog.tsx` and `UserMenu.tsx`):
+removed all inert `dark:` tokens (console is light-only) and unused
+variants (`destructive`, `secondary`, `link`) and sizes (`xs`, `sm`,
+`lg`, `icon`, `icon-xs`, `icon-lg`); retained
+`default`/`outline`/`ghost` and `default`/`icon-sm`, the only ones with
+call sites.
+
+No `lint:deadcode`/knip config exists in this package; removals are
+justified by manual exact-path reference sweeps (re-verified
+independently before commit).
+
+Implemented by Codex (rescue task) from the spec; reviewed, re-verified,
+and committed by Claude.
+
+## Test plan
+- [x] `pnpm exec vitest run` — 66 files, 543 tests pass (unchanged from
+baseline; no test edits needed, confirming nothing referenced the
+deleted code)
+- [x] `pnpm run typecheck` (react-router typegen + `tsc -b`) — exit 0
+- [x] `pnpm exec eslint .` — exit 0
+```
+
+### PR body
+
+<!-- PR 标题：type(scope): description —— 必须遵循 Conventional Commits -->
+
+## Summary
+Slice 5 of 5 (final) of the console Administration pages redesign (spec merged in #2827; slices 2-4 in #2828/#2831/#2832): hygiene per spec §4 R9 (audit finding A10). Pure dead-code removal in `web/dashboard-console` — **zero visual or behavior change**, net −1011 lines.
+
+Deleted `app/components/ui/*` files, each confirmed to have zero executable-code imports by project-wide search (only historical doc/spec mentions remain):
+
+- `sidebar.tsx` (−724, the stock shadcn sidebar named in the spec)
+- `badge.tsx` (−48), `card.tsx` (−92), `checkbox.tsx` (−30) — superseded by the `ui-kit` ledger primitives
+- `input.tsx` (−21), `separator.tsx` (−28), `tooltip.tsx` (−57) — were imported only by the deleted sidebar
+
+Pruned `button.tsx` (kept: used by `dialog.tsx` and `UserMenu.tsx`): removed all inert `dark:` tokens (console is light-only) and unused variants (`destructive`, `secondary`, `link`) and sizes (`xs`, `sm`, `lg`, `icon`, `icon-xs`, `icon-lg`); retained `default`/`outline`/`ghost` and `default`/`icon-sm`, the only ones with call sites.
+
+No `lint:deadcode`/knip config exists in this package; removals are justified by manual exact-path reference sweeps (re-verified independently before commit).
+
+Implemented by Codex (rescue task) from the spec; reviewed, re-verified, and committed by Claude.
+
+## Test plan
+- [x] `pnpm exec vitest run` — 66 files, 543 tests pass (unchanged from baseline; no test edits needed, confirming nothing referenced the deleted code)
+- [x] `pnpm run typecheck` (react-router typegen + `tsc -b`) — exit 0
+- [x] `pnpm exec eslint .` — exit 0
+
+
+---
+
+## `078c2892d2` feat(dashboard-console): add offline orders home card and styled error boundary (#2832)
+
+- **SHA**: `078c2892d2d1a3f9f9c6ed69180c749107c2e842`
+- **作者**: bill-srp
+- **日期**: 2026-07-11T05:46:05Z
+- **PR**: #2832
+
+### 完整 commit message
+
+```
+feat(dashboard-console): add offline orders home card and styled error boundary (#2832)
+
+<!-- PR 标题：feat(scope): description —— 必须遵循 Conventional Commits -->
+
+## Linear
+<!-- No Linear issue; design spec:
+docs/superpowers/specs/2026-07-10-console-admin-pages-redesign-design.md
+(merged in #2827) -->
+
+## Summary
+Slice 4 of 5 of the console Administration pages redesign (spec merged
+in #2827; slices 2-3 in #2828/#2831): shell/home completeness per spec
+§4 R8 (audit finding A9). Small and surgical — two changes:
+
+- **Home Offline-orders entry card** (`app/routes/home.tsx`): adds the
+missing entry card for the existing `/offline-orders` route, eyebrow
+`Billing`, `ReceiptTextIcon`, following the existing `EntryCard`
+pattern, inside the `isAdmin` gate.
+- **Styled root ErrorBoundary** (`app/root.tsx`): the one unstyled
+screen in the console now uses the ledger language — full-height
+`zc-canvas` backdrop, `Card` + `EmptyState` with an alert icon, and a
+mono scrollable detail block for message/stack. The 404 vs generic
+route-error handling and dev-only stack behavior are unchanged; the
+composition uses only `ui-kit` primitives, so it renders standalone
+outside the app shell/providers.
+
+**Admin gating fix (from Codex review P1)**: every
+`/internal/offline-orders` endpoint is `require_admin_user`-guarded on
+the backend, but the frontend exposed Offline orders to non-admins (a
+pre-existing gap from #2801 that the new card initially copied). Fixed
+across all three surfaces: home card inside the `isAdmin` block, Billing
+nav group in `dashboard-shell.tsx` rendered only for admins, and
+`OfflineOrdersRoute` wrapped in `AdminOnly` (mirroring the users route)
+so its query hook never fires for non-admins.
+
+Spec deviations: the spec's "same audience as the nav item" rule for the
+home card was corrected to "admin-only" because the nav item's own
+gating was the bug.
+
+Implemented by Codex (rescue task) from the spec; reviewed, re-verified,
+and committed by Claude.
+
+## Test plan
+- [x] `pnpm exec vitest run` — 66 files, 543 tests pass (535 baseline +
+home card coverage incl. admin/non-admin gating, ErrorBoundary
+route-error and generic-error cases, sidebar Billing-group gating,
+offline-orders AdminOnly wrap; TDD red/green)
+- [x] `pnpm run typecheck` (react-router typegen + `tsc -b`) — exit 0
+- [x] `pnpm exec eslint .` — exit 0
+```
+
+### PR body
+
+<!-- PR 标题：feat(scope): description —— 必须遵循 Conventional Commits -->
+
+## Linear
+<!-- No Linear issue; design spec: docs/superpowers/specs/2026-07-10-console-admin-pages-redesign-design.md (merged in #2827) -->
+
+## Summary
+Slice 4 of 5 of the console Administration pages redesign (spec merged in #2827; slices 2-3 in #2828/#2831): shell/home completeness per spec §4 R8 (audit finding A9). Small and surgical — two changes:
+
+- **Home Offline-orders entry card** (`app/routes/home.tsx`): adds the missing entry card for the existing `/offline-orders` route, eyebrow `Billing`, `ReceiptTextIcon`, following the existing `EntryCard` pattern, inside the `isAdmin` gate.
+- **Styled root ErrorBoundary** (`app/root.tsx`): the one unstyled screen in the console now uses the ledger language — full-height `zc-canvas` backdrop, `Card` + `EmptyState` with an alert icon, and a mono scrollable detail block for message/stack. The 404 vs generic route-error handling and dev-only stack behavior are unchanged; the composition uses only `ui-kit` primitives, so it renders standalone outside the app shell/providers.
+
+**Admin gating fix (from Codex review P1)**: every `/internal/offline-orders` endpoint is `require_admin_user`-guarded on the backend, but the frontend exposed Offline orders to non-admins (a pre-existing gap from #2801 that the new card initially copied). Fixed across all three surfaces: home card inside the `isAdmin` block, Billing nav group in `dashboard-shell.tsx` rendered only for admins, and `OfflineOrdersRoute` wrapped in `AdminOnly` (mirroring the users route) so its query hook never fires for non-admins.
+
+Spec deviations: the spec's "same audience as the nav item" rule for the home card was corrected to "admin-only" because the nav item's own gating was the bug.
+
+Implemented by Codex (rescue task) from the spec; reviewed, re-verified, and committed by Claude.
+
+## Test plan
+- [x] `pnpm exec vitest run` — 66 files, 543 tests pass (535 baseline + home card coverage incl. admin/non-admin gating, ErrorBoundary route-error and generic-error cases, sidebar Billing-group gating, offline-orders AdminOnly wrap; TDD red/green)
+- [x] `pnpm run typecheck` (react-router typegen + `tsc -b`) — exit 0
+- [x] `pnpm exec eslint .` — exit 0
+
+
+---
+
+## `fec1073b7b` feat(dashboard-console): recompose subscription codes and releases admin pages (#2831)
+
+- **SHA**: `fec1073b7b38b9a99f88fc7f5808b99d1071518d`
+- **作者**: bill-srp
+- **日期**: 2026-07-11T05:07:46Z
+- **PR**: #2831
+
+### 完整 commit message
+
+```
+feat(dashboard-console): recompose subscription codes and releases admin pages (#2831)
+
+<!-- PR 标题：feat(scope): description —— 必须遵循 Conventional Commits -->
+
+## Linear
+<!-- No Linear issue; design spec:
+docs/superpowers/specs/2026-07-10-console-admin-pages-redesign-design.md
+(merged in #2827) -->
+
+## Summary
+Slice 3 of 5 of the console Administration pages redesign (spec merged
+in #2827; slice 2 in #2828): recompose the Subscription codes and
+Releases admin pages per spec §4 R2/R3/R5/R7 and §5 after-states, using
+the slice-1 kit. View-model hooks and mutation semantics are untouched.
+
+**Both pages**
+- **R7**: `Administration` eyebrow on the heading; the "N codes · page X
+of Y" count + Prev/Next line moves into a footer bar inside the table
+card (`border-t border-zc-line`), closing the composition like the Users
+page.
+- **R5**: initial table load renders `TableSkeleton` matching the column
+shape instead of the centered spinner.
+- **R2**: humanized enum labels (plan tier options `Starter` / `Pro` /
+`Ultra`, type/plan cells via a `humanizeEnum` helper) with raw values
+unchanged for backend params.
+
+**Subscription codes**
+- Table extracted to `subscription-codes-table.tsx`; codes stay mono
+(`TagMono tone="line"`), Max uses / Used right-aligned `tabular-nums`,
+Used turns `zc-red` when fully consumed, notes truncate with a title
+tooltip. Create form card unchanged.
+
+**Releases**
+- **R3 row-action hierarchy**: `Set latest` / `Publish` / `Unpublish`
+remain visible secondary buttons (the page's whole job); `Delete` moves
+into a per-row `RowMenu` with the danger treatment and keeps its confirm
+flow.
+- `latest` renders as `TagMono tone="red"` (identity marker) alongside a
+`Published` / `Draft` lifecycle `StatusBadge`, per the
+StatusBadge-vs-TagMono rule encoded in the kit.
+- Delete confirm dialog ported to the shared `ConsoleDialog` shell
+(close-button gating while mutating preserved) in
+`delete-release-dialog.tsx`; table extracted to `releases-table.tsx`
+(`route.tsx` 351 → 157 lines, all files < 400).
+
+Spec deviations: none. Subscription codes had no dialogs to port.
+
+Implemented by Codex (rescue task) from the spec; reviewed, re-verified,
+and committed by Claude.
+
+## Test plan
+- [x] `pnpm exec vitest run` — 63 files, 535 tests pass (531 baseline +
+new coverage: skeleton loading states, footer pagination placement,
+RowMenu delete flow with confirm dialog, humanized labels)
+- [x] Accessible-name assertions updated deliberately where Delete moved
+into the row menu (spec §8 selector-churn risk); publish/set-latest
+tests unchanged
+- [x] `pnpm exec tsc --noEmit` — exit 0
+- [x] `pnpm exec eslint .` — exit 0
+```
+
+### PR body
+
+<!-- PR 标题：feat(scope): description —— 必须遵循 Conventional Commits -->
+
+## Linear
+<!-- No Linear issue; design spec: docs/superpowers/specs/2026-07-10-console-admin-pages-redesign-design.md (merged in #2827) -->
+
+## Summary
+Slice 3 of 5 of the console Administration pages redesign (spec merged in #2827; slice 2 in #2828): recompose the Subscription codes and Releases admin pages per spec §4 R2/R3/R5/R7 and §5 after-states, using the slice-1 kit. View-model hooks and mutation semantics are untouched.
+
+**Both pages**
+- **R7**: `Administration` eyebrow on the heading; the "N codes · page X of Y" count + Prev/Next line moves into a footer bar inside the table card (`border-t border-zc-line`), closing the composition like the Users page.
+- **R5**: initial table load renders `TableSkeleton` matching the column shape instead of the centered spinner.
+- **R2**: humanized enum labels (plan tier options `Starter` / `Pro` / `Ultra`, type/plan cells via a `humanizeEnum` helper) with raw values unchanged for backend params.
+
+**Subscription codes**
+- Table extracted to `subscription-codes-table.tsx`; codes stay mono (`TagMono tone="line"`), Max uses / Used right-aligned `tabular-nums`, Used turns `zc-red` when fully consumed, notes truncate with a title tooltip. Create form card unchanged.
+
+**Releases**
+- **R3 row-action hierarchy**: `Set latest` / `Publish` / `Unpublish` remain visible secondary buttons (the page's whole job); `Delete` moves into a per-row `RowMenu` with the danger treatment and keeps its confirm flow.
+- `latest` renders as `TagMono tone="red"` (identity marker) alongside a `Published` / `Draft` lifecycle `StatusBadge`, per the StatusBadge-vs-TagMono rule encoded in the kit.
+- Delete confirm dialog ported to the shared `ConsoleDialog` shell (close-button gating while mutating preserved) in `delete-release-dialog.tsx`; table extracted to `releases-table.tsx` (`route.tsx` 351 → 157 lines, all files < 400).
+
+Spec deviations: none. Subscription codes had no dialogs to port.
+
+Implemented by Codex (rescue task) from the spec; reviewed, re-verified, and committed by Claude.
+
+## Test plan
+- [x] `pnpm exec vitest run` — 63 files, 535 tests pass (531 baseline + new coverage: skeleton loading states, footer pagination placement, RowMenu delete flow with confirm dialog, humanized labels)
+- [x] Accessible-name assertions updated deliberately where Delete moved into the row menu (spec §8 selector-churn risk); publish/set-latest tests unchanged
+- [x] `pnpm exec tsc --noEmit` — exit 0
+- [x] `pnpm exec eslint .` — exit 0
+
+
+---
+
+## `56e2151724` feat(dashboard-console): recompose users admin page (#2828)
+
+- **SHA**: `56e2151724985465188e5bd7d0492ba6da561fea`
+- **作者**: bill-srp
+- **日期**: 2026-07-11T01:42:24Z
+- **PR**: #2828
+
+### 完整 commit message
+
+```
+feat(dashboard-console): recompose users admin page (#2828)
+
+<!-- PR 标题：feat(scope): description —— 必须遵循 Conventional Commits -->
+
+## Linear
+<!-- No Linear issue; design spec:
+docs/superpowers/specs/2026-07-10-console-admin-pages-redesign-design.md
+(merged in #2827) -->
+
+## Summary
+Slice 2 of 5 of the console Administration pages redesign (spec merged
+in #2827): recompose the Users admin page per spec §4 R2/R3/R4/R7 and
+§5, using the slice-1 kit groundwork. Mutation semantics (idempotency
+keys, pending-operation cache, batch-grant runner, boost retry) are
+untouched.
+
+- **R2 humanized enums**: `User type` options are now `All` /
+`Subscribed` / `Not subscribed`; subscription statuses show human labels
+(`Past due` etc., raw values unchanged). Plan cell renders as plain
+text; Status cell uses `StatusBadge` with a humanized `label` while the
+tone keys on the raw status.
+- **R3 row-action hierarchy**: Orders/Events become ghost icon buttons
+with tooltips + aria-labels; Grant/Boost move into a per-row `RowMenu`
+(disabled-aware). The multi-select batch toolbar keeps explicit labeled
+buttons.
+- **R4 URL-state filters**: committed filters + pagination offset live
+in URL search params (shareable/bookmarkable, back/forward-safe); drafts
+stay in the view-model and rehydrate on navigation. Committed filters
+render as removable `Tag` chips; `Created before` sits under a "More
+filters" disclosure. Pure param mapping extracted to `filter-state.ts`.
+- **R5**: initial table load renders `TableSkeleton` (8 rows) instead of
+the centered spinner.
+- **R7**: `Administration` eyebrow on the heading; count + Prev/Next
+pagination moved into a table footer bar inside the card.
+- **Dialogs**: all five Users dialogs ported onto the shared
+`ConsoleDialog` shell (close-button gating while submitting, remount
+keys, per-user result views preserved). The Credits-context balance
+panel is extracted to `grant-credits-context.tsx`.
+- `route.tsx` split into `users-table.tsx` / `users-filters.tsx` /
+`filter-state.ts` (495 → 247 lines, all files < 400).
+
+Implemented by Codex (rescue task) from the spec; reviewed, re-verified,
+and committed by Claude.
+
+## Test plan
+- [x] `pnpm exec vitest run` — 63 files, 530 tests pass (view-model
+URL-state tests, filter-state param mapping, chips, RowMenu row actions,
+skeleton loading state, dialog shell gating)
+- [x] Existing mutation behavior tests (idempotency, batch runner, boost
+retry, partial-failure notices) pass with semantics unmodified; only
+accessible-name assertions updated where row actions changed
+- [x] `pnpm run typecheck` — exit 0
+- [x] `pnpm run lint` — exit 0
+```
+
+### PR body
+
+<!-- PR 标题：feat(scope): description —— 必须遵循 Conventional Commits -->
+
+## Linear
+<!-- No Linear issue; design spec: docs/superpowers/specs/2026-07-10-console-admin-pages-redesign-design.md (merged in #2827) -->
+
+## Summary
+Slice 2 of 5 of the console Administration pages redesign (spec merged in #2827): recompose the Users admin page per spec §4 R2/R3/R4/R7 and §5, using the slice-1 kit groundwork. Mutation semantics (idempotency keys, pending-operation cache, batch-grant runner, boost retry) are untouched.
+
+- **R2 humanized enums**: `User type` options are now `All` / `Subscribed` / `Not subscribed`; subscription statuses show human labels (`Past due` etc., raw values unchanged). Plan cell renders as plain text; Status cell uses `StatusBadge` with a humanized `label` while the tone keys on the raw status.
+- **R3 row-action hierarchy**: Orders/Events become ghost icon buttons with tooltips + aria-labels; Grant/Boost move into a per-row `RowMenu` (disabled-aware). The multi-select batch toolbar keeps explicit labeled buttons.
+- **R4 URL-state filters**: committed filters + pagination offset live in URL search params (shareable/bookmarkable, back/forward-safe); drafts stay in the view-model and rehydrate on navigation. Committed filters render as removable `Tag` chips; `Created before` sits under a "More filters" disclosure. Pure param mapping extracted to `filter-state.ts`.
+- **R5**: initial table load renders `TableSkeleton` (8 rows) instead of the centered spinner.
+- **R7**: `Administration` eyebrow on the heading; count + Prev/Next pagination moved into a table footer bar inside the card.
+- **Dialogs**: all five Users dialogs ported onto the shared `ConsoleDialog` shell (close-button gating while submitting, remount keys, per-user result views preserved). The Credits-context balance panel is extracted to `grant-credits-context.tsx`.
+- `route.tsx` split into `users-table.tsx` / `users-filters.tsx` / `filter-state.ts` (495 → 247 lines, all files < 400).
+
+Implemented by Codex (rescue task) from the spec; reviewed, re-verified, and committed by Claude.
+
+## Test plan
+- [x] `pnpm exec vitest run` — 63 files, 530 tests pass (view-model URL-state tests, filter-state param mapping, chips, RowMenu row actions, skeleton loading state, dialog shell gating)
+- [x] Existing mutation behavior tests (idempotency, batch runner, boost retry, partial-failure notices) pass with semantics unmodified; only accessible-name assertions updated where row actions changed
+- [x] `pnpm run typecheck` — exit 0
+- [x] `pnpm run lint` — exit 0
+
+
+---
