@@ -1,0 +1,52 @@
+[
+  {
+    "sha": "ae32fbf5cd32b552d151dbdd7ab73bcb1b5a08d1",
+    "author_name": "sharplee-srp",
+    "author_email": "sharplee@srp.one",
+    "date": "2026-07-13T10:09:31Z",
+    "message": "fix(pptx): integrate native image search and strengthen E2E gates (#236)\n\n## Summary\n\n- update the PPT skill to use the platform `web_image_search` tool for\nvisual discovery and keep source-policy decisions in the task workflow\n- strengthen deck-spec, frame-map, render-QA, and QA-gate validation for\nmissing assets, template coverage, and dense table layouts\n\n## Stack and runtime dependency\n\n- stacked on #234 (`feat/pptx-runtime-image-fixes`)\n- requires SerendipityOneInc/zooclaw-extras#178 for the\n`web_image_search` tool\n- the runtime image must package `@zooclaw/web-search@20260606.0.3`\nbefore this skill is deployed\n\n## Validation\n\n- `uv run --with pytest --with python-pptx --with pillow pytest -q\npptx/tests/runtime` (143 passed)\n- Ruff on all changed Python runtime and test files\n- `git diff --check`\n- fresh stagingbot + devcontainer run through Gateway on\n`openclaw-docker:2026.6.11.5@sha256:1c16b6c6c27e0e6a4ed66fbed7dde8c0756fa2a5c4622546acad4ad1c7c8e1dd`\n\n## E2E result\n\nThe fresh run completed a full PPT without host-side artifact repair.\nThe agent selected `web_image_search` naturally 32 times and made zero\nbrowser calls; the previous summary-slide overlap was not reproduced.\nIndependent inspection still found source-provenance and requested\nprice-band gaps that the generic profile did not reject, so this PR does\nnot claim that the current washing-machine deck fully passes semantic\nacceptance.",
+    "pr_number": 236,
+    "pr_body": "## Summary\n\n- update the PPT skill to use the platform `web_image_search` tool for visual discovery and keep source-policy decisions in the task workflow\n- strengthen deck-spec, frame-map, render-QA, and QA-gate validation for missing assets, template coverage, and dense table layouts\n\n## Stack and runtime dependency\n\n- stacked on #234 (`feat/pptx-runtime-image-fixes`)\n- requires SerendipityOneInc/zooclaw-extras#178 for the `web_image_search` tool\n- the runtime image must package `@zooclaw/web-search@20260606.0.3` before this skill is deployed\n\n## Validation\n\n- `uv run --with pytest --with python-pptx --with pillow pytest -q pptx/tests/runtime` (143 passed)\n- Ruff on all changed Python runtime and test files\n- `git diff --check`\n- fresh stagingbot + devcontainer run through Gateway on `openclaw-docker:2026.6.11.5@sha256:1c16b6c6c27e0e6a4ed66fbed7dde8c0756fa2a5c4622546acad4ad1c7c8e1dd`\n\n## E2E result\n\nThe fresh run completed a full PPT without host-side artifact repair. The agent selected `web_image_search` naturally 32 times and made zero browser calls; the previous summary-slide overlap was not reproduced. Independent inspection still found source-provenance and requested price-band gaps that the generic profile did not reject, so this PR does not claim that the current washing-machine deck fully passes semantic acceptance.\n",
+    "pr_title": "fix(pptx): integrate native image search and strengthen E2E gates"
+  },
+  {
+    "sha": "28ac76217a3b0fcd32829f7420d9cdce21421239",
+    "author_name": "sharplee-srp",
+    "author_email": "sharplee@srp.one",
+    "date": "2026-07-13T09:37:31Z",
+    "message": "fix(pptx): harden official image handling (#234)\n\nStacked on #230.\\n\\nSummary:\\n- tighten DeckSpec/frame-map/render QA\ngates for consumer product decks and official product images\\n- add\ndownload-image helper support for compressed official image responses\\n-\npreserve aspect ratio for template image inserts via\nimage_fit=contain\\n\\nValidation:\\n- uv run --with-requirements\npptx/requirements.txt python -m pytest pptx/tests/test_download_image.py\npptx/tests/shape_cli/test_shape_insert.py pptx/tests/test_shape_batch.py\npptx/tests/runtime/test_deck_spec.py\npptx/tests/runtime/test_frame_map.py pptx/tests/runtime/test_qa_gate.py\npptx/tests/runtime/test_render_qa.py\npptx/tests/runtime/test_template_starter.py\\n- uv run\n--with-requirements pptx/requirements.txt python\npptx/tests/check_links.py pptx\\n- git diff --check",
+    "pr_number": 234,
+    "pr_body": "Stacked on #230.\\n\\nSummary:\\n- tighten DeckSpec/frame-map/render QA gates for consumer product decks and official product images\\n- add download-image helper support for compressed official image responses\\n- preserve aspect ratio for template image inserts via image_fit=contain\\n\\nValidation:\\n- uv run --with-requirements pptx/requirements.txt python -m pytest pptx/tests/test_download_image.py pptx/tests/shape_cli/test_shape_insert.py pptx/tests/test_shape_batch.py pptx/tests/runtime/test_deck_spec.py pptx/tests/runtime/test_frame_map.py pptx/tests/runtime/test_qa_gate.py pptx/tests/runtime/test_render_qa.py pptx/tests/runtime/test_template_starter.py\\n- uv run --with-requirements pptx/requirements.txt python pptx/tests/check_links.py pptx\\n- git diff --check",
+    "pr_title": "fix(pptx): harden official image handling"
+  },
+  {
+    "sha": "fb84b038c3a394ade3cdc7689be00c4cbdf37ea1",
+    "author_name": "sharplee-srp",
+    "author_email": "sharplee@srp.one",
+    "date": "2026-07-13T09:33:59Z",
+    "message": "docs(pptx): wire zooclaw runtime workflow (#230)\n\n## Summary\n- Wire the PPTX skill instructions to the Zooclaw runtime workflow.\n- Add agent contracts, execution router, profile gates, and runtime\nreference docs.\n- Update link validation coverage for the newly linked reference\ndocuments.\n\n## Stack\n1. Runtime core primitives.\n2. Build/raw/render QA CLI: base branch for this PR.\n3. This PR: skill-facing docs and routing instructions.\n\n## Testing\n- python3 pptx/tests/check_links.py pptx\n- python3 -m pytest pptx/tests/runtime pptx/tests/test_shape_batch.py -q\n- bash pptx/tests/smoke_test.sh\n\n---------\n\nCo-authored-by: sharp <sharpalgotrading@gmail.com>",
+    "pr_number": 230,
+    "pr_body": "## Summary\n- Wire the PPTX skill instructions to the Zooclaw runtime workflow.\n- Add agent contracts, execution router, profile gates, and runtime reference docs.\n- Update link validation coverage for the newly linked reference documents.\n\n## Stack\n1. Runtime core primitives.\n2. Build/raw/render QA CLI: base branch for this PR.\n3. This PR: skill-facing docs and routing instructions.\n\n## Testing\n- python3 pptx/tests/check_links.py pptx\n- python3 -m pytest pptx/tests/runtime pptx/tests/test_shape_batch.py -q\n- bash pptx/tests/smoke_test.sh\n",
+    "pr_title": "docs(pptx): wire zooclaw runtime workflow"
+  },
+  {
+    "sha": "34add9f46851d82cf6444b40b5611552aa2fd429",
+    "author_name": "sharplee-srp",
+    "author_email": "sharplee@srp.one",
+    "date": "2026-07-13T09:24:24Z",
+    "message": "feat(pptx): add runtime build and QA CLI (#229)\n\n## Summary\n- Add raw DeckSpec PPTX builder, RenderQA artifacts, QA gate evaluation,\nand template inspection.\n- Add the unified zooclaw_ppt_runtime.py CLI and runtime smoke coverage.\n- Keep this stacked on the runtime core PR so reviewers only see\nbuild/QA integration here.\n\n## Stack\n1. Runtime core primitives: base branch for this PR.\n2. This PR: build/raw/render QA CLI.\n3. Follow-up: SKILL.md and reference docs wiring.\n\n## Testing\n- python3 -m pytest pptx/tests/runtime pptx/tests/test_shape_batch.py -q\n- python3 pptx/tests/check_links.py pptx\n- bash pptx/tests/smoke_test.sh\n\n---------\n\nCo-authored-by: sharp <sharpalgotrading@gmail.com>",
+    "pr_number": 229,
+    "pr_body": "## Summary\n- Add raw DeckSpec PPTX builder, RenderQA artifacts, QA gate evaluation, and template inspection.\n- Add the unified zooclaw_ppt_runtime.py CLI and runtime smoke coverage.\n- Keep this stacked on the runtime core PR so reviewers only see build/QA integration here.\n\n## Stack\n1. Runtime core primitives: base branch for this PR.\n2. This PR: build/raw/render QA CLI.\n3. Follow-up: SKILL.md and reference docs wiring.\n\n## Testing\n- python3 -m pytest pptx/tests/runtime pptx/tests/test_shape_batch.py -q\n- python3 pptx/tests/check_links.py pptx\n- bash pptx/tests/smoke_test.sh\n",
+    "pr_title": "feat(pptx): add runtime build and QA CLI"
+  },
+  {
+    "sha": "751bf49e5f5c222f8928c417569e14a2d9114d88",
+    "author_name": "sharplee-srp",
+    "author_email": "sharplee@srp.one",
+    "date": "2026-07-13T09:11:27Z",
+    "message": "feat(pptx): add runtime core primitives (#228)\n\n## Summary\n- Add DeckSpec validation/resolution and source manifest helpers.\n- Add frame-map validation, shape-op emission, layout export, template\nstarter, and workspace path helpers.\n- Extend shape_batch insert-image support used by template workflows.\n\n## Stack\n1. This PR: runtime core primitives.\n2. Follow-up: build/raw/render QA CLI.\n3. Follow-up: SKILL.md and reference docs wiring.\n\n## Testing\n- python3 -m pytest pptx/tests/runtime/test_deck_spec.py\npptx/tests/runtime/test_frame_map.py\npptx/tests/runtime/test_layout_export.py\npptx/tests/runtime/test_template_starter.py\npptx/tests/runtime/test_workspace.py pptx/tests/test_shape_batch.py -q\n\n---------\n\nCo-authored-by: sharp <sharpalgotrading@gmail.com>",
+    "pr_number": 228,
+    "pr_body": "## Summary\n- Add DeckSpec validation/resolution and source manifest helpers.\n- Add frame-map validation, shape-op emission, layout export, template starter, and workspace path helpers.\n- Extend shape_batch insert-image support used by template workflows.\n\n## Stack\n1. This PR: runtime core primitives.\n2. Follow-up: build/raw/render QA CLI.\n3. Follow-up: SKILL.md and reference docs wiring.\n\n## Testing\n- python3 -m pytest pptx/tests/runtime/test_deck_spec.py pptx/tests/runtime/test_frame_map.py pptx/tests/runtime/test_layout_export.py pptx/tests/runtime/test_template_starter.py pptx/tests/runtime/test_workspace.py pptx/tests/test_shape_batch.py -q\n",
+    "pr_title": "feat(pptx): add runtime core primitives"
+  }
+]
