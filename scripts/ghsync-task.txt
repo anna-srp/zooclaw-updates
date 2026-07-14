@@ -1,0 +1,141 @@
+每天定时任务：抓取 ZooClaw 三个 GitHub 仓库最新一天的 commits，写入 raw/、updates/、changelog.md，并 push 到 GitHub。
+
+⚠️ 重要：步骤 1-5（raw 写入）和步骤 6-7（updates/changelog 写入）同等重要，必须都完成。如果来不及，优先保证步骤 6-7 完整执行，raw 可以简化。
+
+步骤：
+
+1. 用 GitHub API 抓取以下三个仓库今天的 commits（since 昨天 UTC 00:00）：
+   - SerendipityOneInc/ecap-skills
+   - SerendipityOneInc/ecap-workspace
+   - SerendipityOneInc/ecap-agent-pack
+   Token: 从 ~/.openclaw/openclaw.json → env.GITHUB_TOKEN 读取
+
+   对每个 commit：
+   步骤 A：调用 GET /repos/{owner}/{repo}/commits/{sha} 获取完整 commit message
+   步骤 B：从 commit title 提取 PR 号（格式 "(#123)"），调用 GET /repos/{owner}/{repo}/pulls/{pr_number} 获取 PR body。如无 PR 号跳过。
+
+2. 按 commits 实际发生的日期（即 since 那天，昨天的日期 YYYY-MM-DD）创建目录：
+   /home/node/.openclaw/workspace/tmp/zooclaw-updates/raw/YYYY-MM-DD/
+   ⚠️ 注意：目录名用昨天的日期（commits 发生的日期），不是脚本运行的今天
+
+3. 每个仓库存两个文件：
+   - {repo}-commits.md（人类可读，含 sha/作者/日期/完整message/完整PR body）
+   - {repo}-commits.json（原始 JSON）
+   如果某个仓库当天没有 commits，写「今日无更新」的 md 文件。
+
+4. git add + commit + push 到 https://github.com/anna-srp/zooclaw-updates
+   git 配置：remote: https://anna-srp:{GITHUB_TOKEN}@github.com/anna-srp/zooclaw-updates.git
+   user.name: ZooClaw Agent / user.email: agent@zooclaw.ai
+   commit message: "sync: YYYY-MM-DD GitHub commits update"
+
+5. 筛选规则（用于步骤 6 和 7）：
+
+   ⚠️ 核心原则：按【用户视角】判断，不看 commit 前缀（feat/fix 不等于新功能/Bug）。判类型问"这对用户意味着什么"，判分级问"是否命中真实用户痛点/价值"。
+
+   ⚠️⚠️ 硬规则（实操误判教训，写入前逐条核对 commit 原文，不看标题/前缀）：
+     1. devcontainer/开发环境维护（fix(devcontainer)、schema 迁移、镜像版本对齐如"兼容 OpenClaw x.y.z"、image tool 路由）→ 一律「后端功能/外C」，用户无感，绝不给 A，即使标题含 "Skills"/"配置模板" 也不算 Skill 上架更新。
+     2. Agent/Skill 带版本号小迭代（2.0.0→2.0.1、v1.4.2→v1.6.0 这类持续迭代）→ 默认 B，除非首次上架或质变能力（参考 S 级突破性 Skill）。别因类型是「Agent/Skill 上架/更新」就默认 A。
+     3. polish/improve/"优化XX设置/体验" = 已存在功能的改善 → 归「体验优化」外 B（除非命中强痛点）。只有新接入/新建才算「新功能上线」。例：新接入 Teams/Mattermost 频道=新功能A；优化已有 Slack 频道设置=体验优化B。
+     4. 判级前必读 commit message/PR body 确认"新建能力 vs 维护/迭代/打磨"，标题里的"Agent升级""频道""配置模板""Skills兼容"都不能直接套 A。
+
+   ✅ 写入 updates/ 和飞书多维表格（用户能感知到的价值）：
+     * 平台自身新能力（以前做不到→现在能做，如 New Chat、Connectors、新增 IM 频道接入）
+     * 用户能感知的体验改善（已有功能更好用/展示更清晰）
+     * 新 Agent / 新 Skill 上架或更新
+     * 费用/性能显著改善
+     * 安全相关修复
+
+   ⚠️ 后端功能（用户完全无感的纯基建，多为 ToB）：写入 raw + 飞书表（信息类型记为「后端功能」、外部固定 C、不进分发），但【不写 updates/】。例如：企业组织/账户架构、各类管理后台、计费/订阅后端、会话架构重构、内部 API 集成、设计文档。
+
+   ❌ 完全不写（只保留 raw）：
+     * refactor、chore、lint、dead code 清理、import 边界
+     * Sentry/日志/监控噪音
+     * test、vitest、jscpd、BDD、coverage
+     * CI/CD 流程、pipeline、merge queue
+     * iOS/Android 构建配置（provisioning、code signing）
+     * HEARTBEAT 内部机制
+     * 代理/proxy 配置
+     * E2E 测试文档、埋点（GA4/gtag）
+
+6. 将通过步骤 5 筛选的 commits 写入 GitHub repo 的 updates/ 目录：
+   - repo 本地路径：/home/node/.openclaw/workspace/tmp/zooclaw-updates/
+   - 先 git pull 拉取最新
+   - 创建子目录：updates/YYYY-MM-DD/（用昨天的日期，即 commits 实际发生的日期）
+   - 每条更新一个 md 文件，front matter：
+     ---
+     title: "更新标题（中文，简洁，面向用户）"
+     type: "Bug Fix | 新功能上线 | Skill 上架/更新 | Agent 上架/更新 | 产品基础功能更新 | 后端功能 | 体验优化 | 其他公告"
+     priority: "高 | 中 | 低"
+     date: "YYYY-MM-DD"（用昨天的日期，即 commits 实际发生的日期）
+     status: "待审核"
+     channels: ""
+     ---
+     # 更新标题
+     ## 核心宣传点
+     （一句话用户价值，面向非技术用户，不用内部术语）
+     ## 原始内容
+     （完整 commit message + PR description，不截断）
+   - 更新 index.md：在最顶部新增 ## YYYY-MM-DD 分组，列出所有新条目
+   - 更新 changelog.md：在最顶部新增 ## YYYY-MM-DD 日期段（用昨天的日期，即 commits 实际发生的日期），按分类写入（🚀 新功能 / 🐛 Bug 修复 / 🤖 Agent 上架/更新 / 🛠 Skill 上架/更新 / ⚡ 性能/成本优化），每条 bullet+加粗标题+正文
+   - git add + commit（"feat: YYYY-MM-DD 自动写入 updates"）+ push
+   - 如果当天没有值得写入的条目，在 commit message 里注明「今日无用户可感知更新」
+
+7. 将通过步骤 5 筛选的 commits 写入飞书多维表格：
+   - app_token: Iap1bcHgnaWlJqs8wRdcvcPcnye
+   - table_id: tbl3NTAENOKmW0mv
+   - 飞书 appId/appSecret 从 ~/.openclaw/openclaw.json → channels.feishu.accounts.default 读取
+   - 字段映射：
+     * 标题：中文简洁标题，面向用户
+     * 信息类型（单选）：Bug Fix / 新功能上线 / Skill 上架/更新 / Agent 上架/更新 / 产品基础功能更新 / 后端功能 / 体验优化 / 其他公告
+       ⚠️ 按用户视角判，不看 commit 前缀：
+       - 新功能上线：平台/产品自身新能力（New Chat、Connectors、IM 频道接入）。⚠️ 不含 Agent/Skill（各有专属标签），不含登录/账户/安全增强
+       - Agent 上架/更新：仅 Agent
+       - Skill 上架/更新：仅 Skill
+       - 产品基础功能更新：用户能感知的基础层（登录方式、用量展示、订阅入口等）
+       - 后端功能：用户完全无感的纯基建/ToB（企业组织/账户架构、管理后台、计费/订阅后端、会话架构、内部 API、设计文档）→ 外部固定 C、不进分发
+       - 体验优化：已有功能更好用/展示更清晰（很多 fix( 前缀实为优化，归这里）
+       - Bug Fix：确实坏了/报错才算
+       ⚠️ 查重：登录、订阅、计费等高频区，写入前对照历史，疑似旧功能重构的不标"新功能上线"，并在备注注明
+     * 内部（P级，单选）：按以下规则打分：
+       - P0：严重影响用户使用的 Bug，或整体/全局性重大更新
+       - P1：明显用户价值值得主动告知；或影响面广的平台级基建（计费体系、会话/账户架构、核心后台能力）。⚠️「后端功能」类即使外部 C，内部仍可按基建影响面给 P1
+       - P2：有记录价值，用户能感知但影响有限；普通 bug 修复默认 P2
+       - P3：几乎无用户感知（通常不写入多维表格）
+     * 外部（S级，单选）：按以下规则打分：
+       ⚠️ ZooClaw 核心价值 = 帮用户完成任务，评分以此为准
+       ⚠️ 外部 S 级与信息类型脱钩，按【是否命中真实用户痛点/价值】判，命中强痛点即可给 A，不因类型是"产品基础功能更新""体验优化"就锁死 B
+       - S级：新 Agent 上架（常规）；或极少数突破性 Skill（让用户能做以前完全做不到的事，质变而非量变，例如 Chameleon 视频生成、web-designer 网页生成这种量级）；或帮助用户大幅省钱/省 token 的功能设计（如 agent studio 补贴）
+       - A级：平台新能力（新接入的 IM 频道、Connectors 等）；Skill 首次上架或能力特别突出的更新；命中强用户痛点/诉求的功能或体验改善（即使非新能力，如用量明细花费透明化）
+       - B级：产品基础功能更新、Bug 修复、一般体验改善；⚠️ Skill 常规持续迭代降 B（除非能力突出）；⚠️ 账户/登录/安全常规增强一律 B 或以下
+       - C级：几乎无用户感知的内部改动；⚠️「后端功能」类一律 C，不进分发
+       ⚠️ UI 改版、底层重构、平台弹窗等一律 B 或以下，不给 S
+     * 分发渠道（多选）：按外部S级决定：
+       - S级：站内弹窗 + 社媒素材 + Use Case + Discord + changelog + KOL
+         （若为新 Agent 上架还加：EDM）
+       - A级：站内弹窗 + Use Case + Discord + changelog
+       - B级：Discord + changelog
+       - C级：不填渠道
+     * 核心宣传点：一句话用户价值，面向非技术用户，不用内部术语
+     * 原始内容：完整 commit message + PR description，不截断
+     * 处理状态：待审核
+     * 发布状态（单选，字段已存在，选项：已上线 / 已合并待发版 / 未知/需确认）：见步骤 8 判定后回填。写入本行时先留空或填「未知/需确认」，步骤 8 再更新。
+     * 来源日期：commits 实际发生那天（即昨天）的 UTC 零点毫秒时间戳。计算方法：用 Python datetime.datetime(YYYY, M, D, tzinfo=datetime.timezone.utc).timestamp() * 1000 取整。例如 2026-05-19 → 1747612800000，2026-05-20 → 1747699200000。⚠️ 务必用 Python 实时计算今天运行时昨天的日期和时间戳，绝对不要硬编码，也不要依赖任何示例数字。当前是 2026 年，不是 2025 年
+   - 如果当天没有值得写入的条目，跳过
+
+8. 【发布状态判定】为本次写入飞书多维表格的每条记录判定「发布状态」并回填。
+   目的：区分「代码已合并进 main」和「已随正式 release 部署到线上、用户真能用到」——避免宣发了用户还看不到的功能。
+
+   判定工具：/home/node/.openclaw/workspace/tmp/zooclaw-updates/scripts/release_status.py
+     - 非 Skill 类：`python3 scripts/release_status.py <owner/repo> <commit_sha>` → 输出 已上线 / 已合并待发版 / 未知
+       原理：取该仓库最新【正式 release tag】(排除 draft/prerelease；ecap-workspace 取 `ecap-v*-release`，agent-pack 取 `vX.Y.Z-release` 非 beta)，
+       用 GitHub compare API 判断该 tag 是否包含此 commit。包含=已上线，晚于 tag=已合并待发版。
+     - ⚠️ Skill 类（信息类型=Skill 上架/更新）：不要用上面的 release tag（ecap-skills 仓库 tag 常年很旧不可靠）。
+       改用 ClawHub：`openclaw skills verify <slug>`，看返回 JSON 的 version + createdAt(发布时间)。
+       若 ClawHub 最新发布时间 >= 该 commit 日期 且已含本次改动 → 已上线；否则 已合并待发版。
+       额外注意：部分 Skill(如 pptx)依赖运行时镜像打包(如 @zooclaw/web-search)，即使 ClawHub 已发布也需运行时重建才生效；存疑标「已合并待发版」并在备注注明原因。
+     - 判不出来（无 SHA / API 错 / 拿不准）→ 填「未知/需确认」，不要瞎猜。
+
+   回填：用 bitable batch_update 把每条记录的「发布状态」字段更新为判定结果；
+   若为 Skill 或有运行时依赖导致的特殊结论，在「备注」字段补一句原因。
+
+9. 完成后发飞书消息到 ou_0e072f489d2fccad3efc69242ab8a2fc，告知：今天同步了多少条 commits，写入了几条到 updates/，写入了几条到飞书多维表格，并列出飞书多维表格写入的条目标题、外部(S级)评分和发布状态(已上线/待发版)。
