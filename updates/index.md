@@ -1,5 +1,17 @@
 # Updates Index
 
+## 2026-07-14
+- [Agent Builder 支持自定义默认模型](2026-07-14/agent-builder-default-model.md) — 产品基础功能更新 / 外部A
+- [对话默认升级到 Claude Sonnet 5](2026-07-14/default-sonnet-5.md) — 体验优化 / 外部A
+- [知识库支持上传 JSON / Markdown 文件](2026-07-14/kb-sharing-json-md-upload.md) — 新功能上线 / 外部B
+- [知识库选择器显示「共享给我」的库（只读）](2026-07-14/kb-sharing-shared-with-me.md) — 体验优化 / 外部B
+- [知识库上传页新增「所属库」列与独立筛选](2026-07-14/kb-doc-library-column.md) — 体验优化 / 外部B
+- [一键复制知识库 Library ID](2026-07-14/kb-copy-library-id.md) — 体验优化 / 外部B
+- [知识库共享面板显示被添加编辑者的脱敏标识](2026-07-14/kb-editor-display-hint.md) — 体验优化 / 外部B
+- [交互卡片未处理时隐藏输入框](2026-07-14/web-hide-composer-cards.md) — 体验优化 / 外部B
+- [Agent Builder 无对话时保留（禁用）分享入口](2026-07-14/agent-builder-share-entry.md) — 体验优化 / 外部B
+- [修复移除知识库编辑者时的授权校验](2026-07-14/kb-editor-revoke-fix.md) — Bug Fix / 外部B
+
 
 ## 2026-07-13
 - [PPT 生成技能重构：接入原生图片搜索，稳定性大幅提升](./2026-07-13/228-Skill上架更新.md) — Skill 上架/更新 / 外部A
