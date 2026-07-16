@@ -1,5 +1,11 @@
 # Updates Index
 
+## 2026-07-15
+- [所有 Starter 用户均可购买 Agent Pack](2026-07-15/2889-agent-packs-starter-buy.md) — 产品基础功能更新 / 外部A
+- [Agent Studio 新建/Fork 时按目录模型策略配置（含折扣模型）](2026-07-15/2879-agent-studio-model-policy.md) — 产品基础功能更新 / 外部B
+- [修复 Agent Builder 共享输入框在无文件预览时崩溃](2026-07-15/2888-agent-builder-file-preview-fix.md) — Bug Fix / 外部B
+
+
 ## 2026-07-14
 - [Agent Builder 支持自定义默认模型](2026-07-14/agent-builder-default-model.md) — 产品基础功能更新 / 外部A
 - [对话默认升级到 Claude Sonnet 5](2026-07-14/default-sonnet-5.md) — 体验优化 / 外部A

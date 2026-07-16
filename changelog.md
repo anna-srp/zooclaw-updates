@@ -1,5 +1,14 @@
 # ZooClaw Changelog
 
+## 2026-07-15
+
+### 🚀 新功能
+- **所有 Starter 用户均可购买 Agent Pack** — 所有 Starter 用户（含试用、订阅码、手动调整获得的有效 Starter 权益）均可直接购买付费 Agent Pack，无需额外付费主订阅门槛。
+- **Agent Studio 新建/Fork 时按目录模型策略配置** — 在 Agent Builder 新建或 Fork 项目时按官方模型目录策略分配默认模型（含 Agent Studio 折扣模型），避免误用全价全局默认模型。
+
+### 🐛 Bug 修复
+- **修复 Agent Builder 共享输入框在无文件预览时崩溃** — 修复共享对话输入框在未挂载文件预览组件的界面上直接崩溃的问题，无预览界面仅禁用预览动作而不再报错。
+
 ## 2026-07-14
 
 ### 🚀 新功能
