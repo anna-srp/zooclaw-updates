@@ -1,5 +1,13 @@
 # Updates Index
 
+## 2026-07-17
+- [修复历史 Stripe 发票下载（旧版兼容）](2026-07-17/2937-legacy-stripe-invoice-download.md) — Bug Fix / 外部B
+- [修复落地页所选幻灯片模板预览](2026-07-17/2929-slide-template-preview.md) — Bug Fix / 外部B
+- [Agent Builder 仅允许对已雇佣 Agent 进行 Fork](2026-07-17/2924-restrict-forks-to-hired-agents.md) — Bug Fix / 外部B
+
+## 2026-07-16
+- 本日无用户可感知更新（合并项均为重构/chore/后端；#2921 Antom 账单修复经核实为关闭未合并，未交付）。
+
 ## 2026-07-15
 - [所有 Starter 用户均可购买 Agent Pack](2026-07-15/2889-agent-packs-starter-buy.md) — 产品基础功能更新 / 外部A
 - [Agent Studio 新建/Fork 时按目录模型策略配置（含折扣模型）](2026-07-15/2879-agent-studio-model-policy.md) — 产品基础功能更新 / 外部B
