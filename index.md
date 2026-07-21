@@ -1,5 +1,15 @@
 # Updates Index
 
+## 2026-07-20
+
+- [修复登录问题：Google / 手机号登录不再被邮箱验证码拦住](updates/2026-07-20/2970-auth-captcha-email.md) — Bug Fix / 外部B
+- [修复计费：Antom 试用转付费不再卡住权益开通](updates/2026-07-20/2917-billing-antom-trial.md) — Bug Fix / 外部B
+- [修复 Agent Studio：更新 Agent 后再编辑不再失败](updates/2026-07-20/2948-agent-builder-update-lock.md) — Bug Fix / 外部B
+- [修复 ZooClaw 桌面版启动白屏问题](updates/2026-07-20/2952-desktop-white-screen.md) — Bug Fix / 外部B
+- [对话体验优化：Agent 回复不再重复显示头像和名称](updates/2026-07-20/2950-chat-reply-grouping.md) — 体验优化 / 外部B
+- [首页焕新：示例提示词与专家 Agent 展示优化](updates/2026-07-20/2964-landing-refresh.md) — 体验优化 / 外部B
+- [Agent 管理增强：支持对引擎版 Agent 卸载与更新](updates/2026-07-20/2934-agents-v2-lifecycle.md) — 产品基础功能更新 / 外部B
+
 ## 2026-07-10
 
 - [技能商店重新开放，可为电脑 Agent 安装技能](updates/2026-07-10/ecap-workspace-pr2824.md) — Skill 上架/更新 / 外部A
