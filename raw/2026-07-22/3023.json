@@ -1,0 +1,9 @@
+{
+ "num": 3023,
+ "title": "fix(e2e): stabilize production test suite",
+ "user": "chris-srp",
+ "sha": "c397846899a6b922a6f6443803253743ed2a068b",
+ "merged_at": "2026-07-22T13:26:00Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/3023",
+ "body": "## Summary\n\n- add one generic dismissible-overlay DOM contract and replace popup-specific E2E handlers\n- update stale workspace routing, anonymous-access, agent lifecycle, i18n, theme, and keyboard assertions\n- use the stable Soulmate agent for recovery scenarios instead of the removed Agent Studio entry\n\n## Root cause\n\nThe latest scheduled production run had 26 failures and one flaky test. The largest group was caused by the Gift Paywall overlay intercepting pointer events. Other failures came from application contracts that had changed without the E2E expectations following them: installed-agent chats now navigate by `workspace_id`, anonymous chat access redirects to the landing page, app navigation is locale-free, and dark-mode surfaces use gradients rather than a fixed background color.\n\nPopup dismissal also depended on a growing list of feature-specific selectors. Dismissible overlays now expose `data-e2e-overlay=\"dismissible\"` and `data-e2e-overlay-dismiss`; shared `DialogContent` applies the contract automatically. Required-action overlays remain outside this contract.\n\n## Test plan\n\n- [x] `bash scripts/verify-web.sh <changed paths>` — 118 related unit tests, TypeScript, ESL"
+}

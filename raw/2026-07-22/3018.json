@@ -1,0 +1,9 @@
+{
+ "num": 3018,
+ "title": "refactor(web): clean up legacy routes and relocate presigned + composio-connectors",
+ "user": "bill-srp",
+ "sha": "5c1643f22afdf0fb6e17231fb4711dc26e3c3d06",
+ "merged_at": "2026-07-22T08:35:28Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/3018",
+ "body": "## Summary\n\nFrontend route cleanup pass (`web/app`) — dead-route removal, one architectural relocation, and one layering fix. Each change was verified against its actual callers (grep + git history + backend where relevant) rather than assumed. Net **−334 lines**.\n\n**Relocation + auth**\n- **`refactor(web): move image/video presigned routes into /api/`** — `image/presigned` + `video/presigned` moved out of `[locale]/(app)/` into `src/app/api/`. They were locale-prefixed page routes only because they predate the BFF convention; sitting outside `/api/` also left them **unauthenticated**. Under `/api/`, the middleware auth gate now enforces a verified Bearer token. All three callers (chat composer, subagent panel, agent-avatar upload) already send the token, so behavior is unchanged for them — this just closes anonymous access to the R2 write-grant. Dropped the dead `requireAuth` config field.\n\n**Layering fix**\n- **`refactor(web): hoist composio-connectors UI to the shared component layer`** — the real connector UI lived inside the *legacy* `composio-connectors` route dir, which redirects to `/integrations/connector`, which then imported back into the legacy dir (and `claw-settings` cr"
+}

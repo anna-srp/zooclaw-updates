@@ -1,0 +1,9 @@
+{
+ "num": 2962,
+ "title": "fix(web): improve homepage SSR and multilingual SEO",
+ "user": "Mori-srp",
+ "sha": "6e898bc9e525c3a3b2a88aa240663e80d8460a6e",
+ "merged_at": "2026-07-22T09:26:49Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/2962",
+ "body": "## Summary\n\n- keep the redesigned anonymous homepage's H1, hero description, core navigation, and main content in the initial HTML by isolating `usePageTracking` behind a leaf-level Suspense boundary\n- scope homepage title, description, canonical, Open Graph, and Twitter metadata to the homepage route, while keeping shared root fallbacks brand-safe for ZooClaw and Gensmo builds\n- expose stable multilingual homepage URLs: English uses `/`; Chinese, Japanese, Korean, French, German, Italian, Spanish, Arabic, and Portuguese use `/{locale}`\n- emit a self-canonical and matching Open Graph URL per homepage, reciprocal hreflang for all 10 languages, and `x-default` pointing to `/`\n- include `/` plus the 9 non-English homepages in `sitemap-main.xml`; `/en` is intentionally excluded because it permanently redirects to `/`\n- keep language switching, homepage navigation, and the logo on the selected homepage URL instead of collapsing every locale back to `/`\n- add regression coverage for SSR boundaries, brand isolation, metadata, routing, locale switching, sitemap entries, and homepage semantics\n\n## Root causes fixed\n\n1. `ClientLayout` called `usePageTracking()` at the top level. Because the "
+}

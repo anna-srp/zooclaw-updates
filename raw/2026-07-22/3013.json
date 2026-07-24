@@ -1,0 +1,9 @@
+{
+ "num": 3013,
+ "title": "refactor(chat): migrate composer Add menu to the shared design system",
+ "user": "bill-srp",
+ "sha": "19c26ee23ffab2b9d02ba9fde8e5603c59d14c4e",
+ "merged_at": "2026-07-22T05:45:25Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/3013",
+ "body": "## Summary\n\nECA-1288 Add-menu slice (**Approach Y**): migrates the composer Add-menu dropdown tree — `ComposerAddMenu` **and** the nested `ComposerSkillsMenu` (Skills submenu) — from the app-local `@/components/ds` primitives to `@zooclaw/design-system`, **in place**. This puts the composer's whole dropdown tree on the shared design system and finally brings the Skills submenu along.\n\n### Why in-place, not a chat-ui extraction\n\nThe Add menu is ~90% orchestration (6 open states, the recent-assets react-query with `menuSession` / `requestGeneration` / `assetIdentity` race guards, the `Cmd/Ctrl+U` shortcut, and the `dialogCloseFocusRef` / `onCloseAutoFocus` / `flushSync` focus flow) wrapped around a nested Radix dropdown tree. Extracting that presentation to chat-ui would need a large, awkward props surface and would split the race/focus guards across the package boundary. Like the thread/surface that's genuinely dep-blocked, the Add menu is inherently an **orchestration** component — the right move is to put its dropdown on the shared DS, not to force it into the package.\n\n### What changed\n\n- `ComposerAddMenu.tsx` + `ComposerSkillsMenu.tsx`: `DropdownMenu*` / `Tooltip*` / `Button` im"
+}

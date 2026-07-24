@@ -1,0 +1,9 @@
+{
+ "num": 3000,
+ "title": "fix(knowledge-base): render the knowledge base as a settings tab",
+ "user": "kevin-f-srp",
+ "sha": "31dbcf3ec5874d80f0e75af5bc32cb9bfc44b96b",
+ "merged_at": "2026-07-22T06:02:41Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/3000",
+ "body": "## 问题分类\n- [x] 前端 (web/)\n- [ ] 后端 (services/claw-interface/)\n- [ ] 基础设施/CI\n- [ ] 其他\n\n## 问题描述\n\nCloses #2987\n\n知识库虽然出现在 settings 的 tab 列表里，但行为和其他 tab 完全不同：\n\n1. 页面布局不一致\n2. 点击其他 tab 不刷新页面，点知识库**整页重新加载**\n3. URL pattern 不对（`/knowledge-base` vs `/claw-settings?tab=…`）\n\n## 根因\n\n三个现象是同一个原因。知识库的 tab 配置带了 `href`，而 `SettingsLayout` 对带 `href` 的 tab 渲染成**纯 `<a>` 而非 `next/link`**：\n\n```ts\n{ id: 'knowledge-base', …, href: '/knowledge-base' },\n```\n\n所以点击触发的是真实浏览器导航——整个 document 重载、provider 栈重新挂载、react-query 缓存重置、Mattermost socket 状态丢失。其余 tab 只改变 `?tab=` query，pathname 不变，App Router 视为 soft navigation，`ClawSettingsClient` 保持挂载。\n\n布局差异同源：它作为独立页面自带容器（`max-w-3xl p-6`）和 `<h1>`，从未共享 settings 的 chrome（`SettingsLayout` 内容区已提供 `px-8 py-6` + `mx-auto max-w-4xl`）。\n\n**历史背景**：`docs/superpowers/plans/2026-06-26-knowledge-base-upload-page.md` 显示这个页面当初就是刻意设计成「独立 URL、不进导航」的，后来才加了 settings 入口，于是产生了「看起来是设置项、行为是外链」的割裂。\n\n## 修复方案\n\n### 1. 去掉 `href`，内联渲染\n\n参照既有先例 `connectors` tab（`ComposioConnectorsClient` 同样是独立路由 + 跨路由 import 内联），无需新模式。\n\n跨路由 import 不触发 dependency-cruiser 的 W5：该规则比较 `[locale]` 后的**首段**，`claw-settings`（`(app)/(chat)/`）与 `knowledge-base`（`(app)/`）首段同为 `(app)`，与 connectors 情况一致，无需改 baseline。\n\n### 2. bot 门禁：拆成两个具名常量"
+}

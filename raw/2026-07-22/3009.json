@@ -1,0 +1,9 @@
+{
+ "num": 3009,
+ "title": "feat(landing): refresh hero copy",
+ "user": "shana-maker",
+ "sha": "f1cb7160653a81a10b933f7050d2cffc27fceb1c",
+ "merged_at": "2026-07-22T03:42:01Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/3009",
+ "body": "## Linear\n\nN/A\n\n## Summary\n\n- Refresh the English landing hero headline and prompt placeholder.\n- Rename the landing quick actions and More menu options around user outcomes.\n- Tighten horizontal padding on the landing category pills.\n\n## Test plan\n\n- [x] Repository frontend guard scripts passed.\n- [x] TypeScript type-check passed with Node 24.\n- [x] LandingHero targeted tests passed (13 tests).\n- [x] Verified the updated copy and layout in the local landing-page preview.\n- [ ] Targeted ESLint was unavailable locally because the existing dependency installation could not resolve `@next/eslint-plugin-next`; CI remains authoritative.\n"
+}

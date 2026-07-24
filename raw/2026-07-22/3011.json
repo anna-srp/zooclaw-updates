@@ -1,0 +1,9 @@
+{
+ "num": 3011,
+ "title": "refactor(chat): extract Skill Store dialog into chat-ui SkillStoreDialog",
+ "user": "bill-srp",
+ "sha": "bbdfa09ffa92e3f8f902fef826e1c2f404b23ba3",
+ "merged_at": "2026-07-22T03:48:16Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/3011",
+ "body": "## Summary\n\nECA-1288 Skills slice (dialog only): moves the **Skill Store dialog** presentation into `@zooclaw/chat-ui` as a new `SkillStoreDialog` (composing `@zooclaw/design-system` primitives), and reduces the app's `ComposerSkillMarketDialog` to a **thin data-container** that feeds it.\n\n### Why dialog-only (scoping note)\n\nThe Skills surface is two pieces with very different coupling:\n\n- The **Skills submenu** (`ComposerSkillsMenu`) is a `DropdownMenuSub` nested inside `ComposerAddMenu`, which uses the **app-local `@/components/ds`** dropdown. A chat-ui submenu would use `@zooclaw/design-system`'s dropdown — a *different Radix instance*, which won't share menu context when nested. So the submenu is welded to the Add menu and **moves with the Add-menu slice** (last). It is untouched here.\n- The **Skill Store dialog** is a standalone `Dialog` (portal-based, already on `@zooclaw/design-system`), so it extracts cleanly now — exactly like `ModelPicker`/`AgentPicker`, just a dialog.\n\n### What changed\n\n- **New `chat-ui/src/composer/SkillStoreDialog.tsx`** — presentational: `open`/`onOpenChange`, `items: SkillStoreDialogItem[]` (already deduped), `isLoading`/`isError`/`onRetry`, `hasNext"
+}

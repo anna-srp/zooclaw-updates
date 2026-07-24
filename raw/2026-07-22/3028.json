@@ -1,0 +1,9 @@
+{
+ "num": 3028,
+ "title": "fix(e2e): stabilize shared chat harness",
+ "user": "chris-srp",
+ "sha": "1e581aee583e66b934a745bdf508a471cfccdc6c",
+ "merged_at": "2026-07-22T17:24:59Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/3028",
+ "body": "## Summary\n\n- fixes `openAgentChat` readiness without waiting for the page `load` event\n- fixes locale normalization that incorrectly treated the `/ch` prefix in `/chat` as a locale segment\n- keeps tool-to-final-message stability polling inside one caller-provided response deadline instead of adding an extra 120-second trailing wait\n- waits for the exact submitted smoke-test message instead of reading an immediate count snapshot\n- rechecks the shared dismissible-overlay contract before opening agent settings\n- adds unauthenticated Playwright regressions for incomplete resource loading, bounded persistent tool groups, and delayed final messages after tool output\n\nFollow-up implementation for the analysis in #3027. This PR changes only E2E test code and helpers; no product behavior or assertions are weakened.\n\n## Production failures addressed\n\n- `chat-lifecycle`, `chat-streaming`, `chat-errors`, and `error-recovery`: chat URL readiness timeout\n- `file-preview` PDF failure and HTML flake: response stability consumed the test timeout\n- `smoke`: user-message assertion raced the rendered message\n- `model-switching`: a late Gift Paywall overlay intercepted the Settings click\n\nFixing the s"
+}

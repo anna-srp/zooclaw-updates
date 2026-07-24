@@ -1,0 +1,9 @@
+{
+ "num": 3025,
+ "title": "fix(e2e): support legacy production popups",
+ "user": "chris-srp",
+ "sha": "ee446eccf0fe6cca56781b381b6f6ed110a3ba72",
+ "merged_at": "2026-07-22T14:04:02Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/3025",
+ "body": "## Summary\n- keep the shared `data-e2e-overlay` contract as the primary popup selector\n- fall back to the four selectors that existed before #3023 when an environment has not deployed the contract yet\n- add an isolated Playwright project covering the shared contract, legacy production paywall, and required-action safety\n\n## Root cause\nProduction E2E runs branch test code against the currently deployed application. The helper from #3023 only recognized the new shared selector, but production had not deployed those application attributes yet. The subscription paywall therefore remained open and intercepted chat composer clicks until the long test timeout expired.\n\n## Test plan\n- [x] `pnpm exec playwright test --project=popup-helper --reporter=line` — 3 passed\n- [x] `bash scripts/verify-web.sh web/app/playwright.config.ts web/app/tests/e2e/utils/popups.ts web/app/tests/e2e/specs/popup-helper.spec.ts`\n- [x] `bash scripts/verify-changed.sh`\n- [ ] Run the Production E2E workflow from this branch\n"
+}

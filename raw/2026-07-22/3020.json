@@ -1,0 +1,9 @@
+{
+ "num": 3020,
+ "title": "feat(chat): float pending interactive cards above the live composer",
+ "user": "bill-srp",
+ "sha": "a60616f9dbcb390a988760ef6ebefb529e8ce06a",
+ "merged_at": "2026-07-22T09:43:03Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/3020",
+ "body": "## Linear\n<!-- 建议（非必填）：完整 Linear URL -->\n_None filed yet._\n\n## Summary\n\nImplements the approved design (spec + plan merged in #3016). Pending interactive card-kit cards (`buttons` / `select`) now **float above the live input composer** instead of being buried inline in the scrolling message list; the composer stays usable (non-blocking). Once a card is answered, the server-produced completion **`banner`** renders inline as a permanent, **user-side** receipt. Replay and the other live surfaces are unchanged.\n\nThis reverses the old behavior where an unresolved card **hid the whole composer** while the buttons sat up in the bubble.\n\nApp-side only — `@zooclaw/chat-ui` is not touched.\n\n### Approach\n\n- **Pure selectors** (`chat/lib/interactive-card-float.ts`): `selectFloatingInteractiveCards` (which pending cards to float, grouped by post) + `selectInlineInteractiveCards` (which cards render inline per message).\n- **`FloatingInteractiveCards`** host stacks pending cards above the composer, reusing the existing app `InteractiveCards` wrapper unchanged (same `doPostAction` transport / replay guard / toast).\n- Computed at `ChatBody` from `displayMessages`, passed into `OpenClawChatSurface`,"
+}

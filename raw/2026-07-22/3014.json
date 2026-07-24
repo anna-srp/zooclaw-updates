@@ -1,0 +1,9 @@
+{
+ "num": 3014,
+ "title": "feat(chat): unify engine and computer session threads on a workspace-keyed route",
+ "user": "bill-srp",
+ "sha": "6abf202b3868d2233e0a0b02b7d901c00ca4b409",
+ "merged_at": "2026-07-22T08:33:14Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/3014",
+ "body": "## Summary\n\nFrontend slice of **ECA-1269** (engine agent session threads), stacked on the merged backend (#2998). Engine agents had no thread-per-session chat: the session-thread route and its conversation list were computer-id-keyed and filtered to computer agents, and engine rows had their sidenav session accordion suppressed. This migrates **both runtimes** onto a single **workspace-keyed** surface backed by Slice 1's `/agents/{workspace_id}/conversations*` routes.\n\nLinear: https://linear.app/srpone/issue/ECA-1269\nPlan: `docs/superpowers/plans/2026-07-21-eca-1269-engine-session-threads.md`\nDepends on: #2998 (merged).\n\n### What's new\n\n- **Route** — `/chat/{workspaceId}/sessions/{sessionId}` (new) resolving the active agent by `workspace_id` (any runtime) via a new `selectAgentByWorkspaceId`; the thread client, title bar, and thread hooks move out of the old per-route dir into `src/components/chat` (or the new session route) so both the route and the agent-builder consumer share them.\n- **Legacy redirect shim** — `/chat/{computerId}/{agentId}/{sessionId}` is kept as a thin client redirect (physically nested under `[workspaceId]/[agentId]/[sessionId]`, since Next.js forbids sibling"
+}

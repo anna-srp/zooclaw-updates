@@ -1,0 +1,9 @@
+{
+ "num": 3010,
+ "title": "refactor(chat): render the composer agent menu via chat-ui AgentPicker",
+ "user": "bill-srp",
+ "sha": "2ec61c8d0089949167440911336c3b0458ff97fe",
+ "merged_at": "2026-07-22T03:18:06Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/3010",
+ "body": "## Summary\n\nThird slice of ECA-1288: builds a new `AgentPicker` in `@zooclaw/chat-ui` (composing `@zooclaw/design-system` primitives), wires `UnifiedChatComposer` to it, and **deletes the app-local `ComposerAgentMenu`**. Both New Chat and session chat render through the shared composer, so this lands on both.\n\nNet **~-200 lines** (206 insertions / 414 deletions across tracked files, plus the new `AgentPicker` + app avatar adapter).\n\n### The avatar crossing (the interesting bit)\n\nThe agent avatar can be an image, an emoji, or an **animal** — and the animal case needs the app's `AnimalAvatar` (an onboarding component). So the avatar crosses into the shared layer **as a slot, not as data**:\n\n- The app's `resolveComposerAgentPresentation` (unchanged) normalizes each agent into `{ displayName, description, avatar-union }`.\n- A thin **app-side** `ComposerAgentAvatar` adapter renders the union to a `ReactNode` (`image` -> `<img>`, `animal` -> `AnimalAvatar`, `emoji` -> `<span>`).\n- `AgentPickerOption` carries `avatar: ReactNode`; chat-ui's `AgentPicker` just places it.\n\nSo **chat-ui never imports `AnimalAvatar`**, and the public view-model carries no domain types (a `ReactNode` is not a d"
+}

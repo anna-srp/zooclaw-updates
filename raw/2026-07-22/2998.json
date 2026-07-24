@@ -1,0 +1,9 @@
+{
+ "num": 2998,
+ "title": "feat(claw-interface): workspace-keyed conversation routes for engine agents",
+ "user": "bill-srp",
+ "sha": "92425bf9ac8571a9d0872313de897b41710a9cc7",
+ "merged_at": "2026-07-22T03:08:37Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/2998",
+ "body": "## Summary\n\nBackend slice of **ECA-1269** (engine agent session threads). Engine agents couldn't have thread-per-session chat: the conversation list/create/rename surface only existed as computer-addressed routes (`/computers/{cid}/agents/{aid}/conversations*`), and the only engine \"sessions\" route on the `/agents` group read the **wrong source** — controld's engine `session_store` (agent-side transcript), not the user-visible Mattermost conversation.\n\nThis adds **workspace-keyed conversation routes** on the unified `/agents` group, serving **both runtimes**, and removes the wrong-source route.\n\nLinear: https://linear.app/srpone/issue/ECA-1269\nPlan: `docs/superpowers/plans/2026-07-21-eca-1269-engine-session-threads.md`\nFollow-up: the frontend workspace-keyed thread route (`/chat/{workspaceId}/sessions/{sessionId}`) stacks on this as Slice 2.\n\n### What's new\n\n- **Routes** (`app/routes/agents/conversations.py`) — `GET /agents/{workspace_id}/conversations`, `POST /agents/{workspace_id}/conversations/stream`, `POST /agents/{workspace_id}/conversations/{session_id}`. Each resolves `workspace_id` → owned row → `(uid, org_id, computer_id, agent_id)` via a new runtime-neutral `agent_worksp"
+}

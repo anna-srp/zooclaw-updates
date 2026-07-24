@@ -1,0 +1,9 @@
+{
+ "num": 3030,
+ "title": "test(e2e): stabilize low-credit flows",
+ "user": "chris-srp",
+ "sha": "4b35e7e53ba67c7896d6f302c96c23f6ef1af06d",
+ "merged_at": "2026-07-22T17:25:41Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/3030",
+ "body": "## Summary\n\n- replace the shared serial page in `insufficient-credits` with Playwright's authenticated test-scoped page\n- wait for explicit Usage-card readiness and reuse the chat page object's composer-ready contract\n- add only the two product `data-testid` hooks required by the flow: billing card readiness and the trial subscribe action\n\nBilling behavior and business assertions are unchanged. Each low-credit scenario now reports its own result instead of sharing transient page state across retries.\n\n## Test plan\n\n- [x] `pnpm exec vitest run --config ./vitest.config.mts tests/unit/components/billing/SharedPlanCard.unit.spec.tsx` — 22 passed\n- [x] `pnpm exec playwright test --list --project=insufficient-credits` — setup + 5 scenarios collected\n- [x] `bash scripts/verify-local.sh --web-static web/app/src/components/billing/SharedPlanCard.tsx web/app/tests/unit/components/billing/SharedPlanCard.unit.spec.tsx web/app/tests/e2e/specs/insufficient-credits.spec.ts`\n- [ ] PR checks\n- [ ] targeted production E2E after deployment\n\n## Scope guard\n\n- Product code changes are limited to `data-testid` attributes.\n- No timeout, retry, billing state, or assertion was relaxed.\n"
+}

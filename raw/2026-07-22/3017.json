@@ -1,0 +1,9 @@
+{
+ "num": 3017,
+ "title": "style(landing): refresh hero category icons",
+ "user": "shana-maker",
+ "sha": "fa70874d106628f086e4ca1b8c3cb0a8c11fd651",
+ "merged_at": "2026-07-22T06:58:25Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/3017",
+ "body": "## Summary\n\n- replace the four landing-page Hero category icons with the supplied SVG assets\n- serve the icons from local static assets instead of remote URLs\n- preserve the existing 24x24 rendered size and pill layout\n\n## Testing\n\n- `bash scripts/verify-web.sh src/app/landing/landingContent.ts` with Node.js 24\n- pre-push changed-surface verification (`tsc` and ESLint)\n- verified all four SVG assets return HTTP 200 in the local preview\n- verified the landing page renders all four icons at 24x24 with no browser console errors\n"
+}

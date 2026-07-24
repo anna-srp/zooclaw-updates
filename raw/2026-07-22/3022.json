@@ -1,0 +1,9 @@
+{
+ "num": 3022,
+ "title": "feat(web): add workspace theme skins",
+ "user": "shana-maker",
+ "sha": "c779c3aa23e8c4ba36edc27ec60cb882fe5ef2f9",
+ "merged_at": "2026-07-22T10:30:13Z",
+ "url": "https://github.com/SerendipityOneInc/ecap-workspace/pull/3022",
+ "body": "## Summary\n\n- add the light-mode `Terracotta Note / 赤陶暖笺` and `Indigo Focus / 靛蓝专注` workspace skins, with persistence and toggle-back to the original UI\n- extend semantic skin styling across navigation, settings, new chat, active chat/composer, AI Specialists Hub, and Schedule\n- keep dark/system appearance independent by disabling skin selection outside light mode\n- improve local mock preview support, agent avatars, WebSocket handshake, and hire-button behavior\n\n## Validation\n\n- `bash scripts/verify-changed.sh`\n- focused web validation: 37 test files / 692 tests passed, TypeScript and ESLint passed\n- `@zooclaw/chat-ui`: TypeScript, ESLint, and 30 test files / 293 tests passed\n\n## Notes\n\n- merged the latest `origin/main` before final validation\n- the focused web lint reports one pre-existing accessibility warning in `LandingStartupOverlay.tsx`; there are no lint errors\n"
+}

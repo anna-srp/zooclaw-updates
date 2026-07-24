@@ -6,6 +6,19 @@
 - [修复企业管理后台：线下付费企业账户登录卡在验证页](2026-07-23/enterprise-admin-offline-payment-login-fix.md) — Bug Fix / 外部B
 - [首页移除 H1 下方的说明段落](2026-07-23/homepage-remove-hero-description.md) — 体验优化 / 外部B
 
+## 2026-07-22
+- [工作区支持主题皮肤（赤陶暖笺 / 靛蓝专注 浅色皮肤）](2026-07-22/3022-feat-web-add-workspace-theme-skins.md) — 新功能 / 外部A
+- [知识库改为设置内嵌页，切换不再整页刷新](2026-07-22/3000-fix-knowledge-base-render-the-knowledge-.md) — Bug Fix / 外部B
+- [流式回复时视口自动跟随，长回答不再需手动滚动](2026-07-22/3007-fix-chat-keep-the-viewport-following-str.md) — Bug Fix / 外部B
+- [首页 Hero 文案焕新](2026-07-22/3009-feat-landing-refresh-hero-copy.md) — 新功能 / 外部B
+- [首页 Hero 分类图标焕新](2026-07-22/3017-style-landing-refresh-hero-category-icon.md) — 体验优化 / 外部B
+- [模型选择器详情面板交互与样式优化](2026-07-22/3012-fix-chat-ui.md) — Bug Fix / 外部B
+- [Sonnet 4.6 费用倍率修正为 1x，模型菜单支持滚动限高](2026-07-22/3019-fix-chat-sonnet-4-6-1x.md) — Bug Fix / 外部B
+- [引擎版与电脑版 Agent 会话线程统一到同一入口](2026-07-22/3014-feat-chat-unify-engine-and-computer-sess.md) — 新功能 / 外部B
+- [发出的消息即时显示在对话框（乐观渲染）](2026-07-22/3015-feat-chat-render-the-user-s-message-the-.md) — 新功能 / 外部B
+- [交互卡片浮动到输入框上方，可边处理边输入](2026-07-22/3016-feat-chat-float-pending-interactive-card.md) — 新功能 / 外部B
+- [首页 SSR 与多语言 SEO 优化](2026-07-22/2962-fix-web-improve-homepage-ssr-and-multili.md) — Bug Fix / 外部B
+
 ## 2026-07-21
 - [聊天流式回复更流畅，修复长回答重复显示](2026-07-21/01-4dde531c.md) — Bug Fix / 外部B
 - [长会话聊天不再越聊越卡](2026-07-21/02-5bf159a7.md) — 体验优化 / 外部B
