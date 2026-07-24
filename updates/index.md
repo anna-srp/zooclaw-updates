@@ -1,5 +1,11 @@
 # Updates Index
 
+## 2026-07-23
+- [Agent Builder 新增实时模型选择器](2026-07-23/agent-builder-model-selector.md) — 新功能上线 / 外部A
+- [首页 Hero 输入框体验优化：保留提示词、智能推荐专家、默认模型更新](2026-07-23/landing-hero-composer-refine.md) — 体验优化 / 外部B
+- [修复企业管理后台：线下付费企业账户登录卡在验证页](2026-07-23/enterprise-admin-offline-payment-login-fix.md) — Bug Fix / 外部B
+- [首页移除 H1 下方的说明段落](2026-07-23/homepage-remove-hero-description.md) — 体验优化 / 外部B
+
 ## 2026-07-21
 - [聊天流式回复更流畅，修复长回答重复显示](2026-07-21/01-4dde531c.md) — Bug Fix / 外部B
 - [长会话聊天不再越聊越卡](2026-07-21/02-5bf159a7.md) — 体验优化 / 外部B
