@@ -1,5 +1,14 @@
 # Updates Index
 
+## 2026-07-24
+
+- [AI 研究议会：多模型协作，一次调研让多家顶尖模型交叉验证](updates/2026-07-24/council-multi-model-research-swarm.md) — Skill 上架/更新 / 外部S
+- [修复：同一套餐重复下单/重复扣款风险](updates/2026-07-24/fix-duplicate-subscription-checkout.md) — Bug Fix / 外部B
+- [修复：试用到期后无法进入付费购买的问题](updates/2026-07-24/fix-paid-checkout-after-trial-expiry.md) — Bug Fix / 外部B
+- [优化：阿拉伯语页面正确从右到左显示](updates/2026-07-24/fix-arabic-rtl-direction.md) — Bug Fix / 外部B
+- [性能优化：多语言字典按需加载，页面加载更快](updates/2026-07-24/perf-i18n-lazy-load-locales.md) — 体验优化 / 外部B
+- [年度订阅积分：按自然月定期重置](updates/2026-07-24/feat-annual-credits-monthly-reset.md) — 产品基础功能更新 / 外部B
+
 ## 2026-07-20
 
 - [修复登录问题：Google / 手机号登录不再被邮箱验证码拦住](updates/2026-07-20/2970-auth-captcha-email.md) — Bug Fix / 外部B
