@@ -1,5 +1,9 @@
 # Updates Index
 
+## 2026-07-25
+- [企业管理后台恢复 Agent Pack 上传能力](2026-07-25/enterprise-admin-pack-uploads.md) — 产品基础功能更新 / 外部B
+- [修复组织升级时的钱包重复配置问题](2026-07-25/org-upgrade-wallet-fix.md) — Bug Fix / 外部B
+
 ## 2026-07-23
 - [Agent Builder 新增实时模型选择器](2026-07-23/agent-builder-model-selector.md) — 新功能上线 / 外部A
 - [首页 Hero 输入框体验优化：保留提示词、智能推荐专家、默认模型更新](2026-07-23/landing-hero-composer-refine.md) — 体验优化 / 外部B
