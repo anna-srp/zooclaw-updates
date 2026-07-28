@@ -1,5 +1,12 @@
 # Updates Index
 
+## 2026-07-27
+- [新增 cron-job Skill：一条命令可靠地创建/更新定时任务](2026-07-27/cron-job-skill.md) — Skill 上架/更新 / 外部A
+- [Agent 自带 Skill 现已真正注册并生效](2026-07-27/pack-skills-register-engine.md) — 产品基础功能更新 / 外部B
+- [修复结账/支付偶发 500 错误](2026-07-27/billing-checkout-500-fix.md) — Bug Fix / 外部B
+- [slide-master 幻灯片 Agent：品牌配色自动守护可读性](2026-07-27/slide-master-brand-contrast.md) — Agent 上架/更新 / 外部B
+- [主题皮肤适配深色模式（Warm Ember / Mono OLED）](2026-07-27/theme-skin-dark-mode.md) — 体验优化 / 外部B
+
 ## 2026-07-25
 - [企业管理后台恢复 Agent Pack 上传能力](2026-07-25/enterprise-admin-pack-uploads.md) — 产品基础功能更新 / 外部B
 - [修复组织升级时的钱包重复配置问题](2026-07-25/org-upgrade-wallet-fix.md) — Bug Fix / 外部B
