@@ -1,0 +1,91 @@
+{
+  "first_run": false,
+  "total_packs": 12,
+  "updated_count": 1,
+  "updated": [
+    {
+      "display_id": "slide-master",
+      "pack_name": "Slide Master",
+      "category": "productivity",
+      "requires_payment": false,
+      "latest_version": "0.4.2",
+      "total_versions": 9,
+      "is_new_pack": false,
+      "has_update": true,
+      "diff": {
+        "versions": 9,
+        "from": "0.4.1",
+        "to": "0.4.2",
+        "added": [],
+        "removed": [],
+        "modified": [
+          "./agent-pack.yaml",
+          "./scripts/deck_tokens.py"
+        ],
+        "_dir": "/tmp/pk-PmvPsI"
+      }
+    }
+  ],
+  "all": [
+    {
+      "display_id": "slide-master",
+      "latest_version": "0.4.2",
+      "total_versions": 9
+    },
+    {
+      "display_id": "bossclaw",
+      "latest_version": "0.1.29",
+      "total_versions": 24
+    },
+    {
+      "display_id": "motion-video",
+      "latest_version": "0.2.2",
+      "total_versions": 2
+    },
+    {
+      "display_id": "video-duplicate",
+      "latest_version": "1.9.7",
+      "total_versions": 2
+    },
+    {
+      "display_id": "founder-ip-studio",
+      "latest_version": "2.0.0",
+      "total_versions": 1
+    },
+    {
+      "display_id": "pptx_master",
+      "latest_version": "2.0.9",
+      "total_versions": 1
+    },
+    {
+      "display_id": "podcast_pal",
+      "latest_version": "1.0.0",
+      "total_versions": 1
+    },
+    {
+      "display_id": "soulmate",
+      "latest_version": "1.0.1",
+      "total_versions": 1
+    },
+    {
+      "display_id": "deco",
+      "latest_version": "0.3.1",
+      "total_versions": 1
+    },
+    {
+      "display_id": "zoodance_vibe_drama",
+      "latest_version": "1.0.11",
+      "total_versions": 1
+    },
+    {
+      "display_id": "amazon-analyst",
+      "latest_version": "1.0.0",
+      "total_versions": 1
+    },
+    {
+      "display_id": "oura_ring",
+      "latest_version": "1.0.0",
+      "total_versions": 1
+    }
+  ]
+}
