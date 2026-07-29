@@ -1,5 +1,9 @@
 # Updates Index
 
+## 2026-07-28
+- [知识库协作者可浏览共享库文件，“编辑者”更名为“协作者”](2026-07-28/kb-collaborator-browsing.md) — 产品基础功能更新 / 外部A
+- [定时任务（cron-job）技能升级 v2.3：飞书定时消息校验更可靠、更新提示不再误伤权限](2026-07-28/cron-job-skill-hardening.md) — Skill 上架/更新 / 外部B
+
 ## 2026-07-27
 - [新增 cron-job Skill：一条命令可靠地创建/更新定时任务](2026-07-27/cron-job-skill.md) — Skill 上架/更新 / 外部A
 - [Agent 自带 Skill 现已真正注册并生效](2026-07-27/pack-skills-register-engine.md) — 产品基础功能更新 / 外部B
