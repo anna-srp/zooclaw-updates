@@ -1,5 +1,18 @@
 # Updates Index
 
+## 2026-07-29
+- [Council 多模型专家研讨功能上线（Beta）：一个问题，多位 AI 专家协同产出深度报告](2026-07-29/council-surface-beta.md) — 新功能上线 / 外部A
+- [Agent Builder v2 上线：由全新引擎驱动，搭建 Agent 更强更稳](2026-07-29/agent-builder-v2.md) — 新功能上线 / 外部A
+- [知识库支持压缩包上传：拖入 .zip/.tar 一次性导入整包文件](2026-07-29/kb-archive-upload.md) — 新功能上线 / 外部A
+- [Council 研讨技能升级：议题自动消歧、引用更完整、盲点排查、专家分工更合理](2026-07-29/council-skill-quality.md) — Skill 上架/更新 / 外部A
+- [Council 研讨技能：新增「单专家主笔」合成、实时赛季/序列解析、论点处就地引用](2026-07-29/council-skill-synthesis.md) — Skill 上架/更新 / 外部B
+- [cron-job 技能安全加固：拦截把定时任务当作消息中继的不安全用法](2026-07-29/cron-job-block-unsafe-relays.md) — Skill 上架/更新 / 外部B
+- [Engine 版 Agent 接入 Slack 也有完整向导了](2026-07-29/slack-guided-setup-engine.md) — 体验优化 / 外部A
+- [聊天输入区 5 项体验优化：最近文件更全、附件图标更清晰、引用截断不再劈开表情](2026-07-29/chat-composer-ux.md) — 体验优化 / 外部B
+- [聊天连接失败时不再暴露技术报错：改为友好的重连提示](2026-07-29/chat-connection-failure-state.md) — 体验优化 / 外部B
+- [修复 WhatsApp 部分海外号码被误加 +86 导致无法接入的问题](2026-07-29/whatsapp-country-code-fix.md) — Bug Fix / 外部B
+- [聊天界面 5 个用户报告 Bug 批量修复](2026-07-29/chat-ui-bugfix-batch.md) — Bug Fix / 外部B
+
 ## 2026-07-28
 - [知识库协作者可浏览共享库文件，“编辑者”更名为“协作者”](2026-07-28/kb-collaborator-browsing.md) — 产品基础功能更新 / 外部A
 - [定时任务（cron-job）技能升级 v2.3：飞书定时消息校验更可靠、更新提示不再误伤权限](2026-07-28/cron-job-skill-hardening.md) — Skill 上架/更新 / 外部B
