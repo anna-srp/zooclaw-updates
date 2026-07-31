@@ -1,5 +1,11 @@
 # Updates Index
 
+## 2026-07-30
+- [Council 多模型调研功能上线（Beta）：支持调研深度与档位选择](2026-07-30/council-multimodel-research-beta.md) — 新功能上线 / 外部A
+- [飞书/企业微信一键扫码接入（引导式配置）](2026-07-30/feishu-wecom-qr-setup.md) — 新功能上线 / 外部A
+- [Council 调研：每次运行独立线程，审批/取消更稳定](2026-07-30/council-dedicated-thread.md) — 新功能上线 / 外部B
+- [Council 调研：运行状态实时刷新](2026-07-30/council-realtime-refresh.md) — 新功能上线 / 外部B
+- [切换模型即时生效，无需重启提示](2026-07-30/model-switch-no-restart.md) — 体验优化 / 外部B
 ## 2026-07-29
 - [Council 多模型专家研讨功能上线（Beta）：一个问题，多位 AI 专家协同产出深度报告](2026-07-29/council-surface-beta.md) — 新功能上线 / 外部A
 - [Agent Builder v2 上线：由全新引擎驱动，搭建 Agent 更强更稳](2026-07-29/agent-builder-v2.md) — 新功能上线 / 外部A
