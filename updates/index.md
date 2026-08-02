@@ -1,5 +1,8 @@
 # Updates Index
 
+## 2026-08-01
+- [工作区文件与产出物（Artifacts）新增网页浏览、预览与下载](2026-08-01/artifacts-v2-web-ui.md) — 产品基础功能更新 / 外部B
+
 ## 2026-07-31
 - [Council 新增 Deep Research 深度研究模式](2026-07-31/council-deep-research.md) — 新功能上线 / 外部A
 - [定时任务页面新增引擎 Agent 计划展示](2026-07-31/engine-agent-schedules.md) — 产品基础功能更新 / 外部B
