@@ -1,11 +1,10 @@
-# SerendipityOneInc/ecap-workspace — commits 2026-08-01
+# SerendipityOneInc/ecap-workspace commits — 2026-08-01
 
 ## feat(web): consume V2 artifacts and workspace files (#3181)
 
 - **SHA**: `8ee27ed3d686c211c85c8fbf28c277ea116557de`
 - **作者**: Chris@ZooClaw
 - **日期**: 2026-08-01T13:11:01Z
-- **PR**: #3181
 
 ### Commit Message
 
@@ -63,7 +62,6 @@ This is PR 2/3 and is based on #3180.
 - **SHA**: `a3b377cd171ec1e75b41a8a10c1974adc0441887`
 - **作者**: dependabot[bot]
 - **日期**: 2026-08-01T12:54:27Z
-- **PR**: #3177
 
 ### Commit Message
 
@@ -189,7 +187,6 @@ You can trigger Dependabot actions by commenting on this PR:
 - **SHA**: `85ec04b9307a90ef18c4f8c1863ddf0365c98844`
 - **作者**: dependabot[bot]
 - **日期**: 2026-08-01T12:54:15Z
-- **PR**: #3178
 
 ### Commit Message
 
@@ -452,7 +449,6 @@ You can trigger Dependabot actions by commenting on this PR:
 - **SHA**: `3066dfa47be3fc2949054bee9b3b29bcd8e38513`
 - **作者**: dependabot[bot]
 - **日期**: 2026-08-01T12:54:03Z
-- **PR**: #3179
 
 ### Commit Message
 
@@ -868,7 +864,6 @@ You can trigger Dependabot actions by commenting on this PR:
 - **SHA**: `ff4b6fe716febabb79c3a55b8658f17018fb0d00`
 - **作者**: Chris@ZooClaw
 - **日期**: 2026-08-01T12:47:41Z
-- **PR**: #3180
 
 ### Commit Message
 
