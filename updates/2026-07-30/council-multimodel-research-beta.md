@@ -2,6 +2,7 @@
 title: "Council 多模型调研功能上线（Beta）：支持调研深度与档位选择"
 type: "新功能上线"
 priority: "高"
+外部: "A"
 date: "2026-07-30"
 status: "待审核"
 channels: ""
