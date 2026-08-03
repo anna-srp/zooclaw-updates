@@ -2,6 +2,7 @@
 title: "Council 调研：运行状态实时刷新"
 type: "新功能上线"
 priority: "中"
+外部: "B"
 date: "2026-07-30"
 status: "待审核"
 channels: ""
