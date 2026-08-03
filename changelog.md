@@ -1,5 +1,9 @@
 # ZooClaw Changelog
 
+## 2026-08-02
+
+（今日无用户可感知更新；ecap-workspace 3 个 commit 均为 Pack/Engine 运行时资产的后端基建改动，用户无感，已记入 raw 与飞书「后端功能」。无 Agent Pack 上架/更新。）
+
 ## 2026-08-01
 
 ### 🚀 新功能上线
