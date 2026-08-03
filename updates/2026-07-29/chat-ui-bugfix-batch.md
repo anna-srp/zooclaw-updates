@@ -2,6 +2,7 @@
 title: "聊天界面 5 个用户报告 Bug 批量修复：换行丢失、头像不一致、我的上传为空等"
 type: "Bug Fix"
 priority: "中"
+外部: "B"
 date: "2026-07-29"
 status: "待审核"
 channels: ""
