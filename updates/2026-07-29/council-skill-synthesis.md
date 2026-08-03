@@ -2,6 +2,7 @@
 title: "Council 研讨技能：新增「单专家主笔」合成、实时赛季/序列解析、论点处就地引用"
 type: "Skill 上架/更新"
 priority: "中"
+外部: "A"
 date: "2026-07-29"
 status: "待审核"
 channels: ""
