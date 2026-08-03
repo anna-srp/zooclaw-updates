@@ -2,7 +2,7 @@
 title: "cron-job 技能安全加固：拦截把定时任务当作消息中继的不安全用法"
 type: "Skill 上架/更新"
 priority: "高"
-外部: "A"
+外部: "B"
 date: "2026-07-29"
 status: "待审核"
 channels: ""
@@ -26,89 +26,61 @@ fix(cron-job): block unsafe message relays (#245)
 
 ## Summary
 
-- Make `cron-job` discoverable for creating, updating, repairing, and
+- Make cron-job discoverable for creating, updating, repairing, and
 diagnosing scheduled jobs, and define it as the Cron workflow source of
 truth.
-- Block preparation when a stored payload invokes `openclaw message
-send` or uses `sessions_send` as a persistent-session relay.
+- Block preparation when a stored payload invokes openclaw message send
+or uses sessions_send as a persistent-session relay.
 - Add a read-only stored-job scan that reports stable hazard codes
 without emitting raw payload text.
 - Preserve explicit provider-consistency checks and require confirmation
 instead of guessing when routing is ambiguous.
-- Document the routing decision order and the residual risk that direct
-production Cron mutations can still bypass the workflow until a runtime
-guard exists.
 
 ## Root cause
 
-The messaging CLI bypasses the in-process `message` tool's routing
-policy and produces no `messageToolSentTo` evidence. The incident jobs
-previously appeared healthy only while their orchestration content used
-that CLI path. A later repair attempted `sessions_send`, which cannot
-relay from an isolated Cron into an unrelated persistent session under
-`tools.sessions.visibility=tree`.
-
-Detailed Cron behavior also needs one authoritative home. Agent-level
-policies now state when to invoke this skill and provide only a minimal
-fallback when it is unavailable.
+The messaging CLI bypasses the in-process message tool's routing policy
+and produces no messageToolSentTo evidence. A later repair attempted
+sessions_send, which cannot relay from an isolated Cron into an
+unrelated persistent session under tools.sessions.visibility=tree.
 
 ## Impact
 
 Unsafe messaging paths are rejected before scheduler mutation and can be
 flagged in read-only job snapshots. Provider/account mismatches and
 ambiguous routes stop for confirmation, and session-tree isolation is
-not relaxed.
-
-This PR adds procedural workflow enforcement only; it does not claim to
-prevent direct in-process Cron tool bypasses at runtime.
+not relaxed. This PR adds procedural workflow enforcement only.
 
 ## Validation
 
-- `python3 -m py_compile cron-job/scripts/cron_workflow.py`
-- `python3 cron-job/scripts/cron_workflow.py --self-test` — 139
+- python3 -m py_compile cron-job/scripts/cron_workflow.py
+- python3 cron-job/scripts/cron_workflow.py --self-test - 139
 assertions passed
-- `uv run --with pyyaml python3 .github/scripts/lint_skills.py` — passed
-with 15 pre-existing warnings
-- Exercised the new `--scan-jobs` CLI against a safe/unsafe fixture.
-- `git diff --check`
-
-## Companion changes
-
-Companion PRs reduce `openclaw-docker` and `ecap-agent-pack` policies to
-skill delegation plus a minimal safe fallback.
+- Exercised the new --scan-jobs CLI against a safe/unsafe fixture.
 ```
 
 ### PR body
 
 ## Summary
 
-- Make `cron-job` discoverable for creating, updating, repairing, and diagnosing scheduled jobs, and define it as the Cron workflow source of truth.
-- Block preparation when a stored payload invokes `openclaw message send` or uses `sessions_send` as a persistent-session relay.
+- Make cron-job discoverable for creating, updating, repairing, and diagnosing scheduled jobs, and define it as the Cron workflow source of truth.
+- Block preparation when a stored payload invokes openclaw message send or uses sessions_send as a persistent-session relay.
 - Add a read-only stored-job scan that reports stable hazard codes without emitting raw payload text.
 - Preserve explicit provider-consistency checks and require confirmation instead of guessing when routing is ambiguous.
-- Document the routing decision order and the residual risk that direct production Cron mutations can still bypass the workflow until a runtime guard exists.
 
 ## Root cause
 
-The messaging CLI bypasses the in-process `message` tool's routing policy and produces no `messageToolSentTo` evidence. The incident jobs previously appeared healthy only while their orchestration content used that CLI path. A later repair attempted `sessions_send`, which cannot relay from an isolated Cron into an unrelated persistent session under `tools.sessions.visibility=tree`.
-
-Detailed Cron behavior also needs one authoritative home. Agent-level policies now state when to invoke this skill and provide only a minimal fallback when it is unavailable.
+The messaging CLI bypasses the in-process message tool's routing policy and produces no messageToolSentTo evidence. A later repair attempted sessions_send, which cannot relay from an isolated Cron into an unrelated persistent session under tools.sessions.visibility=tree.
 
 ## Impact
 
-Unsafe messaging paths are rejected before scheduler mutation and can be flagged in read-only job snapshots. Provider/account mismatches and ambiguous routes stop for confirmation, and session-tree isolation is not relaxed.
-
-This PR adds procedural workflow enforcement only; it does not claim to prevent direct in-process Cron tool bypasses at runtime.
+Unsafe messaging paths are rejected before scheduler mutation and can be flagged in read-only job snapshots. Provider/account mismatches and ambiguous routes stop for confirmation, and session-tree isolation is not relaxed. This PR adds procedural workflow enforcement only; it does not claim to prevent direct in-process Cron tool bypasses at runtime.
 
 ## Validation
 
-- `python3 -m py_compile cron-job/scripts/cron_workflow.py`
-- `python3 cron-job/scripts/cron_workflow.py --self-test` — 139 assertions passed
-- `uv run --with pyyaml python3 .github/scripts/lint_skills.py` — passed with 15 pre-existing warnings
-- Exercised the new `--scan-jobs` CLI against a safe/unsafe fixture.
-- `git diff --check`
+- python3 -m py_compile cron-job/scripts/cron_workflow.py
+- python3 cron-job/scripts/cron_workflow.py --self-test - 139 assertions passed
+- Exercised the new --scan-jobs CLI against a safe/unsafe fixture.
 
 ## Companion changes
 
-Companion PRs reduce `openclaw-docker` and `ecap-agent-pack` policies to skill delegation plus a minimal safe fallback.
-
+Companion PRs reduce openclaw-docker and ecap-agent-pack policies to skill delegation plus a minimal safe fallback.
