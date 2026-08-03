@@ -2,6 +2,7 @@
 title: "Council 多模型专家研讨功能上线（Beta）：一个问题，多位 AI 专家协同产出深度报告"
 type: "新功能上线"
 priority: "高"
+外部: "A"
 date: "2026-07-29"
 status: "待审核"
 channels: ""
