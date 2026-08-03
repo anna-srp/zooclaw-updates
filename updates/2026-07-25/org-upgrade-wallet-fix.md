@@ -2,6 +2,7 @@
 title: "修复组织升级时的钱包重复配置问题"
 type: "Bug Fix"
 priority: "中"
+外部: "B"
 date: "2026-07-25"
 status: "待审核"
 channels: ""
