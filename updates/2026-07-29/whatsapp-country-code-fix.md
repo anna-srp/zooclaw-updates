@@ -2,6 +2,7 @@
 title: "修复 WhatsApp 部分海外号码被误加 +86 导致无法接入的问题"
 type: "Bug Fix"
 priority: "中"
+外部: "B"
 date: "2026-07-29"
 status: "待审核"
 channels: ""
