@@ -2,6 +2,7 @@
 title: 新增 cron-job Skill：一条命令可靠地创建/更新定时任务
 type: Skill 上架/更新
 priority: 高
+外部: "B"
 date: 2026-07-27
 status: 待审核
 channels: ""
