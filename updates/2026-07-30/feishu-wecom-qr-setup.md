@@ -2,6 +2,7 @@
 title: "飞书/企业微信一键扫码接入（引导式配置）"
 type: "新功能上线"
 priority: "高"
+外部: "B"
 date: "2026-07-30"
 status: "待审核"
 channels: ""
