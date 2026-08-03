@@ -2,6 +2,7 @@
 title: 修复结账/支付偶发 500 错误
 type: Bug Fix
 priority: 高
+外部: "B"
 date: 2026-07-27
 status: 待审核
 channels: ""
