@@ -2,6 +2,7 @@
 title: "Council 新增 Deep Research 深度研究模式"
 type: "新功能上线"
 priority: "高"
+外部: "A"
 date: "2026-07-31"
 status: "待审核"
 channels: ""
