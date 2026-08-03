@@ -2,6 +2,7 @@
 title: 定时任务（cron-job）技能升级 v2.3：飞书定时消息校验更可靠、更新提示不再误伤权限
 type: Skill 上架/更新
 priority: 中
+外部: "B"
 date: 2026-07-28
 status: 待审核
 channels: ""
