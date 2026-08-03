@@ -2,6 +2,7 @@
 title: "知识库支持压缩包上传：拖入 .zip/.tar 一次性导入整包文件，界面按树状展开"
 type: "新功能上线"
 priority: "高"
+外部: "B"
 date: "2026-07-29"
 status: "待审核"
 channels: ""
