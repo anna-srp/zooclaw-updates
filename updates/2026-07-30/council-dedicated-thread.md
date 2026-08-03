@@ -2,6 +2,7 @@
 title: "Council 调研：每次运行独立线程，审批/取消更稳定"
 type: "新功能上线"
 priority: "中"
+外部: "B"
 date: "2026-07-30"
 status: "待审核"
 channels: ""
