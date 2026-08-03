@@ -1,1 +1,0 @@
-This file is obsolete and safe to delete. It was a one-off encoding probe. Not part of the updates dataset.
