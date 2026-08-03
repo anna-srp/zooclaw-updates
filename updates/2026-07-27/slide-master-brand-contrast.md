@@ -2,6 +2,7 @@
 title: slide-master 幻灯片 Agent：品牌配色自动守护可读性
 type: Agent 上架/更新
 priority: 中
+外部: "B"
 date: 2026-07-27
 status: 待审核
 channels: ""
