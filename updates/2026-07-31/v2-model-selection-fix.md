@@ -2,6 +2,7 @@
 title: "修复 v2 Agent 模型选择显示不正确"
 type: "Bug Fix"
 priority: "中"
+外部: "B"
 date: "2026-07-31"
 status: "待审核"
 channels: ""
