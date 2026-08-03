@@ -2,6 +2,7 @@
 title: "Council 研讨技能升级：议题自动消歧、引用更完整、盲点排查、专家分工更合理"
 type: "Skill 上架/更新"
 priority: "高"
+外部: "A"
 date: "2026-07-29"
 status: "待审核"
 channels: ""
