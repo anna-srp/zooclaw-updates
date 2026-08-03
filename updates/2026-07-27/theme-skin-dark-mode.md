@@ -2,6 +2,7 @@
 title: 主题皮肤适配深色模式（新增 Warm Ember / Mono OLED 深色）
 type: 体验优化
 priority: 中
+外部: "B"
 date: 2026-07-27
 status: 待审核
 channels: ""
