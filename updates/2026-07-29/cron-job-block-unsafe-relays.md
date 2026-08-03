@@ -2,6 +2,7 @@
 title: "cron-job 技能安全加固：拦截把定时任务当作消息中继的不安全用法"
 type: "Skill 上架/更新"
 priority: "高"
+外部: "A"
 date: "2026-07-29"
 status: "待审核"
 channels: ""
