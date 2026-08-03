@@ -2,6 +2,7 @@
 title: 知识库协作者可浏览共享库文件，“编辑者”更名为“协作者”
 type: 产品基础功能更新
 priority: 中
+外部: "B"
 date: 2026-07-28
 status: 待审核
 channels: ""
