@@ -2,6 +2,7 @@
 title: "工作区文件与产出物（Artifacts）新增网页浏览、预览与下载"
 type: 产品基础功能更新
 priority: 中
+外部: "B"
 date: 2026-08-01
 status: 待审核
 channels: ""
