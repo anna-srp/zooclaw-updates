@@ -2,6 +2,7 @@
 title: "Engine 版 Agent 接入 Slack 也有完整向导了：一步步照做即可，不再面对空白密钥框"
 type: "体验优化"
 priority: "中"
+外部: "B"
 date: "2026-07-29"
 status: "待审核"
 channels: ""
