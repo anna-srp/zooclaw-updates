@@ -2,6 +2,7 @@
 title: "Agent Builder v2 上线：由全新引擎驱动，搭建 Agent 更强更稳"
 type: "新功能上线"
 priority: "高"
+外部: "B"
 date: "2026-07-29"
 status: "待审核"
 channels: ""
