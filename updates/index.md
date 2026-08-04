@@ -1,5 +1,15 @@
 # Updates Index
 
+## 2026-08-03
+- [聊天消息流与布局体验优化](2026-08-03/chat-transcript-layout-ux.md) — 体验优化 / 外部B
+- [知识库工作区改版](2026-08-03/knowledge-base-workspace-redesign.md) — 体验优化 / 外部B
+- [IM 频道接入体验改版](2026-08-03/im-channel-setup-redesign.md) — 体验优化 / 外部B
+- [会话标题与重命名交互优化](2026-08-03/chat-title-rename-ux.md) — 体验优化 / 外部B
+- [官网营销页统一浅色模式](2026-08-03/landing-light-mode-fix.md) — 体验优化 / 外部B
+- [官网多语言文案补全](2026-08-03/landing-localized-copy.md) — 体验优化 / 外部B
+- [修复 Agent Builder v1 Pack 测试预览](2026-08-03/agent-builder-v1-preview-fix.md) — Bug Fix / 外部B
+- [修复 Agent Builder 工作区状态误报](2026-08-03/agent-builder-workspace-access-fix.md) — Bug Fix / 外部B
+
 ## 2026-08-01
 - [工作区文件与产出物（Artifacts）新增网页浏览、预览与下载](2026-08-01/artifacts-v2-web-ui.md) — 产品基础功能更新 / 外部B
 
