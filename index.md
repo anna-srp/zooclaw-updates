@@ -1,5 +1,17 @@
 # Updates Index
 
+## 2026-08-04
+
+- [WhatsApp 新用户绑定即送 500 积分 7 天试用](updates/2026-08-04/whatsapp-starter-trial.md)（新功能上线）
+- [Agent 公开分享页上线：无需登录即可查看并一键雇佣](updates/2026-08-04/agent-public-share-page.md)（新功能上线）
+- [Council 圆桌支持上传文件附件，深度/档位新增直观说明](updates/2026-08-04/council-attachments-tips.md)（新功能上线）
+- [安装自定义专家不再误报「Bot 必须在运行中」](updates/2026-08-04/install-no-bot-required.md)（Bug Fix）
+- [Agent 市场「My Custom Specialists」入口恢复](updates/2026-08-04/restore-custom-specialists-entry.md)（Bug Fix）
+- [Agent Builder 连接状态显示错误与 Pack Test 预览无法连接修复](updates/2026-08-04/agent-builder-v1-connection-fix.md)（Bug Fix）
+- [安装 Agent 后不再自动发送「Hi」打招呼消息](updates/2026-08-04/remove-auto-hi-greeting.md)（体验优化）
+- [Agent Studio 支持 Pack 声明的 Python/二进制依赖自动装配](updates/2026-08-04/agent-studio-runtime-projection.md)（产品基础功能更新）
+
+
 ## 2026-08-01
 
 - [工作区文件与产出物（Artifacts）新增网页浏览、预览与下载](updates/2026-08-01/artifacts-v2-web-ui.md) — 产品基础功能更新 / 外部B
