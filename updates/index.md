@@ -1,5 +1,28 @@
 # Updates Index
 
+## 2026-08-05
+
+- [Council 报告体裁跟随委托类型](2026-08-05/ecap-skills-pr254.md) — Skill 上架/更新
+- [Council 开放经济档位，低成本也能跑](2026-08-05/ecap-skills-pr253.md) — Skill 上架/更新
+- [新增 Card 银行卡支付通道（分阶段开放）](2026-08-05/ecap-workspace-pr3265.md) — 新功能上线
+- [修复企业账号迁移后权益丢失](2026-08-05/ecap-workspace-pr3251.md) — Bug Fix
+- [修复生成中「停止」按钮提前消失](2026-08-05/ecap-workspace-pr3261.md) — Bug Fix
+- [会话回复等待时立即显示「停止」](2026-08-05/ecap-workspace-pr3259.md) — Bug Fix
+- [修复会话页「停止」按钮点击无效](2026-08-05/ecap-workspace-pr3256.md) — Bug Fix
+- [修复弹窗遮罩只盖住半个页面](2026-08-05/ecap-workspace-pr3257.md) — Bug Fix
+- [侧边栏历史会话显示更准确](2026-08-05/ecap-workspace-pr3253.md) — Bug Fix
+- [统一聊天中的用户头像显示](2026-08-05/ecap-workspace-pr3247.md) — Bug Fix
+- [聊天输入框统一，Connectors 改为弹窗打开](2026-08-05/ecap-workspace-pr3226.md) — 体验优化
+- [修复 Agent 卡片误跳转与聊天入口空白](2026-08-05/ecap-workspace-pr3244.md) — Bug Fix
+- [Agent Builder 自动恢复，模型选择更准确](2026-08-05/ecap-workspace-pr3254.md) — Bug Fix
+- [修复 Agent 测试会话残留旧上下文](2026-08-05/ecap-workspace-pr3250.md) — Bug Fix
+- [修复 Agent Builder 误报「工作区被占用」](2026-08-05/ecap-workspace-pr3243.md) — Bug Fix
+- [Agent Builder 模型列表补全与运行时对齐](2026-08-05/ecap-workspace-pr3239.md) — Bug Fix
+- [Agent Builder 测试布局更稳定](2026-08-05/ecap-workspace-pr3230.md) — 体验优化
+- [Council 最终报告可在页面内直接阅读](2026-08-05/ecap-workspace-pr3255.md) — 体验优化
+- [Council 报告预览浮层与运行进度提示](2026-08-05/ecap-workspace-pr3248.md) — 体验优化
+- [新版运行时用户也能自动安装行业套装](2026-08-05/ecap-workspace-pr3241.md) — 产品基础功能更新
+
 ## 2026-08-03
 - [聊天消息流与布局体验优化](2026-08-03/chat-transcript-layout-ux.md) — 体验优化 / 外部B
 - [知识库工作区改版](2026-08-03/knowledge-base-workspace-redesign.md) — 体验优化 / 外部B
@@ -97,7 +120,6 @@
 - [Agent Studio 新建/Fork 时按目录模型策略配置（含折扣模型）](2026-07-15/2879-agent-studio-model-policy.md) — 产品基础功能更新 / 外部B
 - [修复 Agent Builder 共享输入框在无文件预览时崩溃](2026-07-15/2888-agent-builder-file-preview-fix.md) — Bug Fix / 外部B
 
-
 ## 2026-07-14
 - [Agent Builder 支持自定义默认模型](2026-07-14/agent-builder-default-model.md) — 产品基础功能更新 / 外部A
 - [对话默认升级到 Claude Sonnet 5](2026-07-14/default-sonnet-5.md) — 体验优化 / 外部A
@@ -109,7 +131,6 @@
 - [交互卡片未处理时隐藏输入框](2026-07-14/web-hide-composer-cards.md) — 体验优化 / 外部B
 - [Agent Builder 无对话时保留（禁用）分享入口](2026-07-14/agent-builder-share-entry.md) — 体验优化 / 外部B
 - [修复移除知识库编辑者时的授权校验](2026-07-14/kb-editor-revoke-fix.md) — Bug Fix / 外部B
-
 
 ## 2026-07-13
 - [PPT 生成技能重构：接入原生图片搜索，稳定性大幅提升](./2026-07-13/228-Skill上架更新.md) — Skill 上架/更新 / 外部A
@@ -197,7 +218,6 @@
 
 - [Agent 安装激活稳定性提升](2026-05-23/01-Agent-安装激活稳定性提升.md)
 - [HTML 制品支持「下载为 PDF」功能](2026-05-23/02-HTML-制品支持-下载为-PDF-功能.md)
-
 
 ## 2026-04-28
 
