@@ -1,5 +1,21 @@
 # Updates Index
 
+## 2026-08-06
+
+- [Auto 智能模型路由上线：让系统自动为每次对话挑最合适的模型](./2026-08-06/auto-model-router.md) — 新功能上线 / 高
+- [修复微信扫码绑定 100% 失败的问题](./2026-08-06/weixin-qr-bind-fix.md) — Bug Fix / 高
+- [一次性定时任务全流程打通：能建、能留存、能看结果](./2026-08-06/schedules-v2-one-shot.md) — 产品基础功能更新 / 高
+- [Card 订阅现在支持降级](./2026-08-06/card-subscription-downgrade.md) — 产品基础功能更新 / 高
+- [修复 Card 订阅升级付款成功但套餐未切换的问题](./2026-08-06/creem-upgrade-handoff-fix.md) — Bug Fix / 高
+- [修复交互式 HTML 预览白屏/半屏问题](./2026-08-06/html-preview-same-origin.md) — Bug Fix / 高
+- [修正 Starter 年付价格显示](./2026-08-06/starter-annual-price-display.md) — Bug Fix / 中
+- [会话线程中的生成文件自动打开预览](./2026-08-06/session-thread-auto-preview.md) — 体验优化 / 中
+- [修复模型显示为「不可用」及 Agent 列表超出屏幕](./2026-08-06/chat-model-fallback-agent-picker.md) — Bug Fix / 中
+- [修复 Council 讨论档位设置不生效](./2026-08-06/council-dispatch-hints.md) — Bug Fix / 中
+- [连接器目录卡片视觉优化](./2026-08-06/connector-catalog-polish.md) — 体验优化 / 中
+- [新增退款政策与 DMCA 政策页面](./2026-08-06/legal-policy-pages.md) — 产品基础功能更新 / 中
+- [V2 用户界面清理：不再显示已失效的旧版 Claw 控件](./2026-08-06/hide-legacy-claw-ui-v2.md) — 体验优化 / 中
+
 ## 2026-08-05
 
 - [Council 报告体裁跟随委托类型](2026-08-05/ecap-skills-pr254.md) — Skill 上架/更新

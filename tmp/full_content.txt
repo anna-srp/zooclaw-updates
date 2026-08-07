@@ -1,0 +1,479 @@
+##########PR 240 sha 1bacc229629b6c2d0f850070c49d31da840b3720
+---MSG---
+feat(cron-job): add cron-job skill with safe create/update workflow driver (#240)
+
+## What
+
+New `cron-job` skill: a single deterministic driver that turns a small
+agent-authored request into a reliably created or updated OpenClaw cron
+job. Driven by the 2026-07-20 production cron audit (536 bots / 153
+jobs): vague keepalive payloads, jobs failing silently for weeks with no
+failure alert, and "success" runs whose declared outcome never
+materialized.
+
+This is the v2 architecture: earlier revisions of this branch shipped a
+7-script pipeline with a large fixture corpus; it has been deliberately
+collapsed into one workflow driver plus one thin gateway adapter (6
+files, ~1.2k lines) so the agent surface is a single command.
+
+## How it works
+
+The agent copies `assets/cron-request.template.json`, fills in `task`
+(goal, `command` or `agentMessage`, schedule, observable `outcomes`,
+delivery, optional matching `controls`), and runs exactly one driver:
+
+```bash
+python3 {baseDir}/scripts/cron_workflow.py <request> --output <result>
+```
+
+`cron_workflow.py` owns the safety sequence:
+
+1. **Diagnose** — validates the request and separates genuinely
+user-owned gaps (goal, timezone, one-shot time, recipient, failure
+owner) into a `needs_user` question list from agent-fixable issues
+(`needs_agent`). No scheduler write happens on either.
+2. **Controls** — for matching/classification commands, runs
+independently authored positive and split-record negative fixtures
+natively and requires exact expected output.
+3. **Isolated test** — through `cron_gateway.mjs` (loopback-only Gateway
+adapter, env-inherited `GATEWAY_TOKEN`, never in argv), adds a uniquely
+named disabled copy, force-runs it once, waits for the terminal run
+record, and always removes the copy (cleanup failures are reported
+alongside the primary error, never masking it).
+4. **Verify** — checks every declared outcome assertion (`equals` /
+`contains` / `arrayValues` / `exists`) against the produced files, and
+verifies delivery: announce via run history, webhook via a correlated
+receipt read on the caller's declared same-origin receiver (with the
+mandatory `ecap-skill/1.0` User-Agent).
+5. **Apply** — only after all checks pass: `cron.add` for new jobs
+(duplicate-name guarded) or `cron.update` for `existingJobId` (guarded
+by `updatedAtMs` optimistic concurrency), then re-reads and
+field-compares the live job.
+
+Activation is one-way: `activateAfterValidation:true` enables after a
+verified test; `false`/omitted creates new jobs disabled and **preserves
+an existing job's enabled state** on update — an update can never
+silently disable a live cron.
+
+## Testing
+
+- `python3 cron-job/scripts/cron_workflow.py --self-test` → 15
+assertions (schedule diagnosis, outcome assertions, vague-goal gating,
+enabled-state preservation).
+- `node cron-job/scripts/cron_gateway.mjs --self-test` → arg parsing,
+job canonicalization, runtime resolution (requires installed openclaw).
+- `python3 .github/scripts/lint_skills.py` → pass, zero warnings for
+this skill.
+- CodeQL: clean (0 open alerts on this branch).
+
+## Notes
+
+- Not added to `PUBLISHED_SKILLS` — distribution is a separate decision.
+- `requires`: `bins: [python3, node, openclaw]`, `env: [GATEWAY_TOKEN]`;
+`.env.example` documents the platform-injected variables.
+- `references/openclaw-cron-model.md` records the 2026.6.11 runtime
+facts the driver depends on (disabled force-run, webhook delivery not
+proven by run history, agent-facing cron tool limitations).
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+https://claude.ai/code/session_01RpfzyjiWr4oYrU8DddnmzH
+
+---------
+
+Co-authored-by: Claude Fable 5 <noreply@anthropic.com>
+---PRBODY---
+## What
+
+New `cron-job` skill: a single deterministic driver that turns a small agent-authored request into a reliably created or updated OpenClaw cron job. Driven by the 2026-07-20 production cron audit (536 bots / 153 jobs): vague keepalive payloads, jobs failing silently for weeks with no failure alert, and "success" runs whose declared outcome never materialized.
+
+This is the v2 architecture: earlier revisions of this branch shipped a 7-script pipeline with a large fixture corpus; it has been deliberately collapsed into one workflow driver plus one thin gateway adapter (6 files, ~1.2k lines) so the agent surface is a single command.
+
+## How it works
+
+The agent copies `assets/cron-request.template.json`, fills in `task` (goal, `command` or `agentMessage`, schedule, observable `outcomes`, delivery, optional matching `controls`), and runs exactly one driver:
+
+```bash
+python3 {baseDir}/scripts/cron_workflow.py <request> --output <result>
+```
+
+`cron_workflow.py` owns the safety sequence:
+
+1. **Diagnose** — validates the request and separates genuinely user-owned gaps (goal, timezone, one-shot time, recipient, failure owner) into a `needs_user` question list from agent-fixable issues (`needs_agent`). No scheduler write happens on either.
+2. **Controls** — for matching/classification commands, runs independently authored positive and split-record negative fixtures natively and requires exact expected output.
+3. **Isolated test** — through `cron_gateway.mjs` (loopback-only Gateway adapter, env-inherited `GATEWAY_TOKEN`, never in argv), adds a uniquely named disabled copy, force-runs it once, waits for the terminal run record, and always removes the copy (cleanup failures are reported alongside the primary error, never masking it).
+4. **Verify** — checks every declared outcome assertion (`equals` / `contains` / `arrayValues` / `exists`) against the produced files, and verifies delivery: announce via run history, webhook via a correlated receipt read on the caller's declared same-origin receiver (with the mandatory `ecap-skill/1.0` User-Agent).
+5. **Apply** — only after all checks pass: `cron.add` for new jobs (duplicate-name guarded) or `cron.update` for `existingJobId` (guarded by `updatedAtMs` optimistic concurrency), then re-reads and field-compares the live job.
+
+Activation is one-way: `activateAfterValidation:true` enables after a verified test; `false`/omitted creates new jobs disabled and **preserves an existing job's enabled state** on update — an update can never silently disable a live cron.
+
+## Testing
+
+- `python3 cron-job/scripts/cron_workflow.py --self-test` → 15 assertions (schedule diagnosis, outcome assertions, vague-goal gating, enabled-state preservation).
+- `node cron-job/scripts/cron_gateway.mjs --self-test` → arg parsing, job canonicalization, runtime resolution (requires installed openclaw).
+- `python3 .github/scripts/lint_skills.py` → pass, zero warnings for this skill.
+- CodeQL: clean (0 open alerts on this branch).
+
+## Notes
+
+- Not added to `PUBLISHED_SKILLS` — distribution is a separate decision.
+- `requires`: `bins: [python3, node, openclaw]`, `env: [GATEWAY_TOKEN]`; `.env.example` documents the platform-injected variables.
+- `references/openclaw-cron-model.md` records the 2026.6.11 runtime facts the driver depends on (disabled force-run, webhook delivery not proven by run history, agent-facing cron tool limitations).
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+https://claude.ai/code/session_01RpfzyjiWr4oYrU8DddnmzH
+
+===END===
+##########PR 241 sha 17865b0107ad673d9cafc39a704503b98551daf0
+---MSG---
+fix(cron-job): validate outbound message routing (#241)
+
+## Stacked PR
+
+- Base: #240 (`feat/cron-job-skill`)
+- This PR intentionally contains only the outbound-routing follow-up.
+- Merge #240 before this PR.
+
+## Why
+
+An isolated Cron agent can have an explicit delivery context even when
+`delivery.mode` is
+`none`. That context becomes the current channel/account for the
+`message` tool. Without an
+explicit design-time decision, a task can therefore be bound to one
+provider while attempting to
+send through another and be rejected by OpenClaw's cross-context policy.
+
+## What changed
+
+- Add a structured `messageRouting` contract for execution context,
+business recipients, test
+  sinks, completion delivery, and cross-provider consent.
+- Require user confirmation of every recipient route before scheduler
+mutation.
+- Render complete `messageRoute` placeholders into separate live and
+test Agent payloads.
+- Pin `delivery.mode:none` jobs to the declared execution context.
+- Replace every recipient and execution target with synthetic sinks for
+the disposable run and
+  disable its production failure alert.
+- Verify the run-log `messageToolSentTo` multiset exactly matches the
+declared test routes before
+  applying the live job.
+- Reject hidden literal recipients, unknown/repeated placeholders,
+incompatible webhook or
+  announce contexts, and unapproved cross-provider routing.
+- Document when multiple recipients can share a Cron and when
+provider-aligned jobs should be
+  split.
+
+All documentation examples and regression fixtures are synthetic. No
+production prompt,
+recipient, account name, bot ID, or user message is included.
+
+## Validation
+
+- `python3 cron-job/scripts/cron_workflow.py --self-test` (43
+assertions)
+- `node cron-job/scripts/cron_gateway.mjs --self-test` (4 assertions)
+- Python compile and Node syntax checks
+- `git diff --check`
+- `uv run --with pyyaml python3 .github/scripts/lint_skills.py` (passes;
+15 pre-existing
+  repository warnings)
+---PRBODY---
+## Stacked PR
+
+- Base: #240 (`feat/cron-job-skill`)
+- This PR intentionally contains only the outbound-routing follow-up.
+- Merge #240 before this PR.
+
+## Why
+
+An isolated Cron agent can have an explicit delivery context even when `delivery.mode` is
+`none`. That context becomes the current channel/account for the `message` tool. Without an
+explicit design-time decision, a task can therefore be bound to one provider while attempting to
+send through another and be rejected by OpenClaw's cross-context policy.
+
+## What changed
+
+- Add a structured `messageRouting` contract for execution context, business recipients, test
+  sinks, completion delivery, and cross-provider consent.
+- Require user confirmation of every recipient route before scheduler mutation.
+- Render complete `messageRoute` placeholders into separate live and test Agent payloads.
+- Pin `delivery.mode:none` jobs to the declared execution context.
+- Replace every recipient and execution target with synthetic sinks for the disposable run and
+  disable its production failure alert.
+- Verify the run-log `messageToolSentTo` multiset exactly matches the declared test routes before
+  applying the live job.
+- Reject hidden literal recipients, unknown/repeated placeholders, incompatible webhook or
+  announce contexts, and unapproved cross-provider routing.
+- Document when multiple recipients can share a Cron and when provider-aligned jobs should be
+  split.
+
+All documentation examples and regression fixtures are synthetic. No production prompt,
+recipient, account name, bot ID, or user message is included.
+
+## Validation
+
+- `python3 cron-job/scripts/cron_workflow.py --self-test` (43 assertions)
+- `node cron-job/scripts/cron_gateway.mjs --self-test` (4 assertions)
+- Python compile and Node syntax checks
+- `git diff --check`
+- `uv run --with pyyaml python3 .github/scripts/lint_skills.py` (passes; 15 pre-existing
+  repository warnings)
+
+===END===
+##########PR 242 sha 1bc7a28336ba4a3e77eb0fb581817a1b8a8d66d9
+---MSG---
+refactor(cron-job): use the built-in cron workflow (#242)
+
+## What changed
+
+- Route scheduler reads and writes through OpenClaw's built-in `cron`
+tool.
+- Generate only `agentTurn` jobs from the skill workflow.
+- Keep deterministic preparation, test evidence, and final verification
+in the local driver.
+- Bind disposable test evidence to job and run identities, isolate test
+alerts, and verify updates against a fresh scheduler snapshot.
+
+## Why
+
+Keep cron orchestration on the runtime's supported agent-facing path
+while reducing the skill's operational surface area.
+
+## Validation
+
+- `python3 cron-job/scripts/cron_workflow.py --self-test` — 93
+assertions passed
+- `python3 -m py_compile cron-job/scripts/cron_workflow.py`
+- `uv run --with pyyaml python .github/scripts/lint_skills.py`
+- `git diff --check`
+- Fresh stagingbot + A102 devcontainer E2E
+(`cron-pr242-staging-e2e-20260727T122717Z`) — PASS across environment
+validity, workflow completion, 93/93 runtime QA, and business acceptance
+---PRBODY---
+## What changed
+
+- Route scheduler reads and writes through OpenClaw's built-in `cron` tool.
+- Generate only `agentTurn` jobs from the skill workflow.
+- Keep deterministic preparation, test evidence, and final verification in the local driver.
+- Bind disposable test evidence to job and run identities, isolate test alerts, and verify updates against a fresh scheduler snapshot.
+
+## Why
+
+Keep cron orchestration on the runtime's supported agent-facing path while reducing the skill's operational surface area.
+
+## Validation
+
+- `python3 cron-job/scripts/cron_workflow.py --self-test` — 93 assertions passed
+- `python3 -m py_compile cron-job/scripts/cron_workflow.py`
+- `uv run --with pyyaml python .github/scripts/lint_skills.py`
+- `git diff --check`
+- Fresh stagingbot + A102 devcontainer E2E (`cron-pr242-staging-e2e-20260727T122717Z`) — PASS across environment validity, workflow completion, 93/93 runtime QA, and business acceptance
+
+===END===
+##########PR 3081 sha 03e7052eae01623f0cbbb4b60cda3db9e51d02f6
+---MSG---
+fix(theme): align custom skin dark modes (#3081)
+
+## Summary
+
+- allow theme skin selection in light, dark, and system appearance modes
+- add distinct Warm Ember and Mono OLED dark treatments for the two
+selectable skins
+- preserve each skin's light-mode icon, button, hover, and focus colors
+in dark mode
+- fix dark backgrounds on AI Specialists pages
+- keep the page header status pill and settings navigation fixed when
+switching skins
+
+## Testing
+
+- `PATH=/opt/homebrew/opt/node@24/bin:$PATH bash scripts/verify-web.sh
+src/components/settings/GeneralTab.tsx
+src/components/settings/SettingsLayout.tsx
+src/theme/brand-theme-tokens.css
+tests/unit/components/settings/GeneralTab.unit.spec.tsx
+tests/unit/theme/brand-themes.unit.spec.ts`
+- browser-verified light and dark switching for ZooClaw Editorial and
+Productivity Flat
+- browser-verified AI Specialists backgrounds and primary controls for
+both skins
+- browser-measured identical header and settings-nav coordinates across
+all skins
+
+---------
+
+Co-authored-by: shiyang <shiyang@shiyangdeMacBook-Pro.local>
+---PRBODY---
+## Summary
+
+- allow theme skin selection in light, dark, and system appearance modes
+- add distinct Warm Ember and Mono OLED dark treatments for the two selectable skins
+- preserve each skin's light-mode icon, button, hover, and focus colors in dark mode
+- fix dark backgrounds on AI Specialists pages
+- keep the page header status pill and settings navigation fixed when switching skins
+
+## Testing
+
+- `PATH=/opt/homebrew/opt/node@24/bin:$PATH bash scripts/verify-web.sh src/components/settings/GeneralTab.tsx src/components/settings/SettingsLayout.tsx src/theme/brand-theme-tokens.css tests/unit/components/settings/GeneralTab.unit.spec.tsx tests/unit/theme/brand-themes.unit.spec.ts`
+- browser-verified light and dark switching for ZooClaw Editorial and Productivity Flat
+- browser-verified AI Specialists backgrounds and primary controls for both skins
+- browser-measured identical header and settings-nav coordinates across all skins
+
+===END===
+##########PR 3071 sha 287855c6e4f5fb209f6ac5716d0d8f529bfc59bd
+---MSG---
+feat(claw-interface): register pack skills into engine and pin on hire (#3071)
+
+## 背景
+
+Agent pack 自带 skills（`.agents/skills/*`）在 v2 迁移里被烤进 E2B
+environment（`/opt/zooclaw/environment/pack/`），但**从未注册进 zooclaw-engine
+registry**，所以引擎的 `renderSkills()` 从不把它们写进 agent 系统提示——模型看不到、永不触发。根因：走了
+environment lane，而只有 skills-render lane 才喂 context。
+
+本 PR 是 claw-interface 侧（跨仓 Part B），把 pack skills 改走规范 registry
+lane。**配套引擎
+PR**：[zooclaw-engine#435](https://github.com/SerendipityOneInc/zooclaw-engine/pull/435)（开
+pack 注册写入口 `PUT /admin/v1/skills/pack/{pack_id}/{name}/versions`）。
+
+## 改动
+
+- **翻译**（`engine_pack_translation.py`）：`repack_workspace_zip` 把
+`.agents/skills/**` 整棵子树排除出 environment 归档；新增 `extract_pack_skills` 抽出每个
+skill（文件 + SKILL.md frontmatter，`yaml.safe_load`）。
+- **引擎客户端**（`engine_client`）：新增 `admin_upsert_pack_skill_version` → `PUT
+/admin/v1/skills/pack/{pack_id}/{name}/versions`（inline base64 files，复用
+`/admin/v1` 同一 service token）；`create_agent`/`update_agent` 加可选 `skills`
+参数。
+- **approval
+注册**（`pack_environment_service.run_post_approval`）：best-effort 注册每个
+skill（单个失败告警跳过、不阻断 env build），把 `{skill_id, version}` 快照存进新的
+submission-scoped repo（镜像 `pack_persona_docs`）。
+- **装配**（`engine_agent_install_service`）：`_resolve_pack_skills` 读快照（缺失时
+archive fallback 重新注册、幂等；与 persona 共用一次缓存的 translation），按与
+`environment_id` 相同的可见性闸（`pack.org_id in (ZOOCLAW_ORG_ID, org_id)`）把
+`skills=[{skill_id, version}]` pin 到 create + update 两条路径。
+
+## 存储
+
+新增 `ecap-pack-skill-versions` 集合 +
+`pack_skill_versions_repo`（`upsert`/`get_by_submission`，唯一键
+`pack_id+submission_id`），与 `pack_persona_docs` 同构；import-linter 三处清单同步。
+
+## 测试
+
+`tests/unit/` 扩展 4 个模块共 11 个新用例：translation 排除/抽取、client admin 路由 +
+base64 body、approval 注册 + 快照、install 传 `skills=` + 快照缺失走 fallback。子代理本地跑
+**135 passed** + ruff 全绿（用主 checkout 空 venv 无法联网装私有 `favie-common`，以公有
+PyPI + `favie_common` stub 跑通；真实依赖集由本仓 CI 校验）。
+
+## 边界 / 后续
+
+- pack skill 受众当前恒 global（引擎 schema CHECK 禁止 pack 行带
+org/owner；org/private pack 分树待引擎放宽）。
+- 文档（Cloudflare managed-agents-site）已随引擎 PR #435 更新。
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+https://claude.ai/code/session_012dJLqQhKkq4eZaQYDZg1Pm
+---PRBODY---
+## 背景
+
+Agent pack 自带 skills（`.agents/skills/*`）在 v2 迁移里被烤进 E2B environment（`/opt/zooclaw/environment/pack/`），但**从未注册进 zooclaw-engine registry**，所以引擎的 `renderSkills()` 从不把它们写进 agent 系统提示——模型看不到、永不触发。根因：走了 environment lane，而只有 skills-render lane 才喂 context。
+
+本 PR 是 claw-interface 侧（跨仓 Part B），把 pack skills 改走规范 registry lane。**配套引擎 PR**：[zooclaw-engine#435](https://github.com/SerendipityOneInc/zooclaw-engine/pull/435)（开 pack 注册写入口 `PUT /admin/v1/skills/pack/{pack_id}/{name}/versions`）。
+
+## 改动
+
+- **翻译**（`engine_pack_translation.py`）：`repack_workspace_zip` 把 `.agents/skills/**` 整棵子树排除出 environment 归档；新增 `extract_pack_skills` 抽出每个 skill（文件 + SKILL.md frontmatter，`yaml.safe_load`）。
+- **引擎客户端**（`engine_client`）：新增 `admin_upsert_pack_skill_version` → `PUT /admin/v1/skills/pack/{pack_id}/{name}/versions`（inline base64 files，复用 `/admin/v1` 同一 service token）；`create_agent`/`update_agent` 加可选 `skills` 参数。
+- **approval 注册**（`pack_environment_service.run_post_approval`）：best-effort 注册每个 skill（单个失败告警跳过、不阻断 env build），把 `{skill_id, version}` 快照存进新的 submission-scoped repo（镜像 `pack_persona_docs`）。
+- **装配**（`engine_agent_install_service`）：`_resolve_pack_skills` 读快照（缺失时 archive fallback 重新注册、幂等；与 persona 共用一次缓存的 translation），按与 `environment_id` 相同的可见性闸（`pack.org_id in (ZOOCLAW_ORG_ID, org_id)`）把 `skills=[{skill_id, version}]` pin 到 create + update 两条路径。
+
+## 存储
+
+新增 `ecap-pack-skill-versions` 集合 + `pack_skill_versions_repo`（`upsert`/`get_by_submission`，唯一键 `pack_id+submission_id`），与 `pack_persona_docs` 同构；import-linter 三处清单同步。
+
+## 测试
+
+`tests/unit/` 扩展 4 个模块共 11 个新用例：translation 排除/抽取、client admin 路由 + base64 body、approval 注册 + 快照、install 传 `skills=` + 快照缺失走 fallback。子代理本地跑 **135 passed** + ruff 全绿（用主 checkout 空 venv 无法联网装私有 `favie-common`，以公有 PyPI + `favie_common` stub 跑通；真实依赖集由本仓 CI 校验）。
+
+## 边界 / 后续
+
+- pack skill 受众当前恒 global（引擎 schema CHECK 禁止 pack 行带 org/owner；org/private pack 分树待引擎放宽）。
+- 文档（Cloudflare managed-agents-site）已随引擎 PR #435 更新。
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+https://claude.ai/code/session_012dJLqQhKkq4eZaQYDZg1Pm
+
+===END===
+##########PR 3073 sha 55b7fdf05596aadc0765c42984c8e867d55c508d
+---MSG---
+fix(billing): make checkout lease CSFLE-safe (#3073)
+
+## Summary
+
+- replace the CSFLE-incompatible checkout lease aggregation pipeline
+with classic atomic compare-and-set updates
+- preserve stable lease timestamps for same-order retries and exclusion
+for competing orders
+- add focused regression coverage for fresh claims, idempotent retries,
+release races, and active-owner conflicts
+
+## Root cause
+
+The subscription checkout lease used an aggregation-pipeline
+`find_one_and_update`. Production `crypt_shared 8.2.1` rejects that
+update shape with MongoDB error `31146` before the Antom provider call,
+causing `/antom/create-payment` to return HTTP 500.
+
+## Validation
+
+- `pytest -q tests/unit/test_user_repo.py
+tests/unit/test_billing_v2_order_requests.py
+tests/unit/test_antom_billing_v2_checkout.py` — 80 passed
+- `bash scripts/verify-local.sh --py-static` — Ruff, format, Pyright,
+and import-linter passed
+- pre-commit and pre-push repository gates passed
+- staging Mongo/CSFLE probe reproduced `31146` with the old pipeline and
+confirmed the classic update succeeds
+- staging race probe confirmed two concurrent owners produce exactly one
+winner
+- all temporary staging test accounts were removed
+
+## Scope
+
+Only the checkout lease repository implementation and its unit tests are
+changed. No payment-provider calls, plan rules, frontend behavior,
+indexes, or other collections are modified.
+---PRBODY---
+## Summary
+
+- replace the CSFLE-incompatible checkout lease aggregation pipeline with classic atomic compare-and-set updates
+- preserve stable lease timestamps for same-order retries and exclusion for competing orders
+- add focused regression coverage for fresh claims, idempotent retries, release races, and active-owner conflicts
+
+## Root cause
+
+The subscription checkout lease used an aggregation-pipeline `find_one_and_update`. Production `crypt_shared 8.2.1` rejects that update shape with MongoDB error `31146` before the Antom provider call, causing `/antom/create-payment` to return HTTP 500.
+
+## Validation
+
+- `pytest -q tests/unit/test_user_repo.py tests/unit/test_billing_v2_order_requests.py tests/unit/test_antom_billing_v2_checkout.py` — 80 passed
+- `bash scripts/verify-local.sh --py-static` — Ruff, format, Pyright, and import-linter passed
+- pre-commit and pre-push repository gates passed
+- staging Mongo/CSFLE probe reproduced `31146` with the old pipeline and confirmed the classic update succeeds
+- staging race probe confirmed two concurrent owners produce exactly one winner
+- all temporary staging test accounts were removed
+
+## Scope
+
+Only the checkout lease repository implementation and its unit tests are changed. No payment-provider calls, plan rules, frontend behavior, indexes, or other collections are modified.
+
+===END===
