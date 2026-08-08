@@ -1,5 +1,18 @@
 # Updates Index
 
+## 2026-08-07
+
+- [深度研究技能提速省钱：标准模式砍掉一轮修订](2026-08-07/council-deep-research-cost.md) — Skill 上架/更新 / 高
+- [已发布技能在新运行时的兼容与凭据安全修复](2026-08-07/skills-v1v2-dual-runtime-fix.md) — Bug Fix / 高
+- [模型选择器 TTS 名称显示修复](2026-08-07/model-tts-display-name.md) — Bug Fix / 低
+- [渠道卡片界面优化](2026-08-07/channel-card-refine.md) — 体验优化 / 中
+- [新增退款政策与 DMCA 入口](2026-08-07/refund-dmca-entry.md) — 产品基础功能更新 / 中
+- [侧边栏主助手改由接口驱动](2026-08-07/sidebar-main-agent-api.md) — 产品基础功能更新 / 中
+- [技能商店改版：统一官方目录 + 按 Agent 分组](2026-08-07/skill-store-official-catalog.md) — 体验优化 / 中
+- [修复微信凭据与 Slack 会话异常](2026-08-07/wechat-slack-channel-fix.md) — Bug Fix / 高
+- [新引擎用户自动获得默认助手](2026-08-07/v2-default-main-agent.md) — 产品基础功能更新 / 高
+- [定时任务支持私聊消息推送](2026-08-07/schedule-verified-dm.md) — 新功能上线 / 高
+
 ## 2026-08-06
 
 - [Auto 智能模型路由上线：让系统自动为每次对话挑最合适的模型](./2026-08-06/auto-model-router.md) — 新功能上线 / 高
