@@ -1,5 +1,10 @@
 # Updates Index
 
+## 2026-08-08
+
+- [深度研究技能报告可读性升级：更紧凑、更贴题、更听话](2026-08-08/deep-research-readability.md) — Skill 上架/更新 / 中
+- [修复老用户助手列表出现重复「Assistant」的问题](2026-08-08/duplicate-main-agent-fix.md) — Bug Fix / 中
+
 ## 2026-08-07
 
 - [深度研究技能提速省钱：标准模式砍掉一轮修订](2026-08-07/council-deep-research-cost.md) — Skill 上架/更新 / 高
