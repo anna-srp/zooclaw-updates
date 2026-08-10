@@ -1,5 +1,9 @@
 # Updates Index
 
+## 2026-08-09
+
+- [圆桌研究报告更紧凑更贴题：先说结论、不跑题、不啰嗦](2026-08-09/council-composer-readability.md) — Skill 上架/更新 / 中
+
 ## 2026-08-08
 
 - [深度研究技能报告可读性升级：更紧凑、更贴题、更听话](2026-08-08/deep-research-readability.md) — Skill 上架/更新 / 中
