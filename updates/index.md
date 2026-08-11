@@ -1,5 +1,21 @@
 # Updates Index
 
+## 2026-08-10
+
+- [Chameleon 视频技能升级：支持 Seedance 2.5，最长 30 秒视频](2026-08-10/chameleon-seedance-2-5.md) — Skill 上架/更新 / 外部 A
+- [修复：信用卡免费试用开通后未到账 Starter 额度](2026-08-10/creem-trial-paid-fix.md) — Bug Fix / 外部 B
+- [修复：Agent Builder 偶发卡死 / 工作区被长期占用，并支持测试时切换模型](2026-08-10/agent-builder-v2-guard.md) — Bug Fix / 外部 B
+- [个人账号可直接加入企业组织](2026-08-10/personal-join-enterprise.md) — 新功能上线 / 外部 A
+- [信用卡免费试用改由 Creem 承接，不再预扣 1 美元](2026-08-10/creem-card-free-trial.md) — 体验优化 / 外部 B
+- [Agent 分享页展示作者、版本与快捷指令](2026-08-10/public-shared-pack-meta.md) — 体验优化 / 外部 B
+- [修复：未购企业套餐的团队无法充值 Credits](2026-08-10/free-org-credit-topup.md) — Bug Fix / 外部 B
+- [企业管理后台：用量页可直接编辑成员 AI 额度](2026-08-10/ea-usage-quota-edit.md) — 体验优化 / 外部 B
+- [企业管理后台新增「用量」页，成员 Credits 消耗一目了然](2026-08-10/ea-org-usage-page.md) — 新功能上线 / 外部 A
+- [设置页新增 API Keys：自助创建与轮换服务令牌](2026-08-10/settings-api-keys-tab.md) — 新功能上线 / 外部 A
+- [修复：WhatsApp 每次回复后多出一条 NO_REPLY 消息](2026-08-10/whatsapp-sentinel-filter.md) — Bug Fix / 外部 B
+- [修复：WhatsApp 只收到半截回复；新增「正在输入」提示](2026-08-10/whatsapp-final-reply-typing.md) — Bug Fix / 外部 B
+- [Agent Builder 全新对话式界面与发布流程](2026-08-10/agent-builder-home-publish.md) — 产品基础功能更新 / 外部 B
+
 ## 2026-08-09
 
 - [圆桌研究报告更紧凑更贴题：先说结论、不跑题、不啰嗦](2026-08-09/council-composer-readability.md) — Skill 上架/更新 / 中
