@@ -1,5 +1,14 @@
 # Updates Index
 
+## 2026-08-11
+
+- [对话框模型选择新增 Auto 自动选型](updates/2026-08-11/auto-model-composer.md) — 新功能上线 / 外部A
+- [信用卡试用期内可直接升级到 Pro / Ultra](updates/2026-08-11/card-trial-upgrade.md) — 新功能上线 / 外部A
+- [全新 Paper Focus 全局主题上线](updates/2026-08-11/paper-focus-theme.md) — 新功能上线 / 外部B
+- [Skill 菜单更好找、更好翻](updates/2026-08-11/skill-menu-polish.md) — 体验优化 / 外部B
+- [弹窗视觉与关闭方式统一](updates/2026-08-11/dialog-unify.md) — 体验优化 / 外部B
+- [自定义专家详情页可一键复制 Agent ID](updates/2026-08-11/publish-agent-id.md) — 体验优化 / 外部B
+
 ## 2026-08-04
 
 - [WhatsApp 新用户绑定即送 500 积分 7 天试用](updates/2026-08-04/whatsapp-starter-trial.md)（新功能上线）
