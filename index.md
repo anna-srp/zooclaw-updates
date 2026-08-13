@@ -1,5 +1,19 @@
 # Updates Index
 
+## 2026-08-12
+
+- [信用卡支付正式上线：可用 Card 订阅 ZooClaw](2026-08-12/card-checkout-production.md) — 新功能上线 / 外部 A
+- [修复：信用卡免费试用的赠送额度按试用标准发放](2026-08-12/creem-trial-credit-cap.md) — Bug Fix / 外部 B
+- [修复：部分信用卡订单长期卡在处理中／人工审核，导致无法重新下单](2026-08-12/creem-stuck-order-recovery.md) — Bug Fix / 外部 B
+- [修复：信用卡支付成功后页面误报失败](2026-08-12/creem-trial-callback-race.md) — Bug Fix / 外部 B
+- [试用转正式订阅更稳：额度保留、状态不再错乱](2026-08-12/creem-trial-upgrade-hardening.md) — Bug Fix / 外部 B
+- [修复：用户菜单里看不到订阅续费／到期日期](2026-08-12/user-menu-subscription-period.md) — Bug Fix / 外部 B
+- [Agent 详情页展示技能说明、支持语言与版本更新日志](2026-08-12/pack-manifest-metadata.md) — 产品基础功能更新 / 外部 B
+- [Agent Builder 聊天页支持直接改名](2026-08-12/agent-builder-inline-rename.md) — 体验优化 / 外部 B
+- [Agent Builder v2 稳定性修复：预览可刷新、测试回复完整、创建不再卡住](2026-08-12/agent-builder-v2-stability.md) — Bug Fix / 外部 B
+- [修复：Agent Builder v1 项目里永远选不动的模型下拉](2026-08-12/agent-builder-v1-model-picker.md) — Bug Fix / 外部 B
+- [修复：WhatsApp 消息因会话字段不兼容而无法送达](2026-08-12/whatsapp-session-fields-fix.md) — Bug Fix / 外部 B
+
 ## 2026-08-11
 
 - [对话框模型选择新增 Auto 自动选型](updates/2026-08-11/auto-model-composer.md) — 新功能上线 / 外部A
