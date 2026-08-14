@@ -1,5 +1,16 @@
 # Updates Index
 
+## 2026-08-13
+
+- [新 Skill 上架：browser-ops，让 Agent 更稳地自己开浏览器办事](2026-08-13/browser-ops-skill.md) — Skill 上架/更新
+- [Agent Builder：可从现有 Agent 一键复制创建，测试对话支持传附件](2026-08-13/agent-builder-fork-attachments.md) — 新功能上线
+- [餐饮 AI 团队套餐支持信用卡下单](2026-08-13/creem-vertical-pack-checkout.md) — 新功能上线
+- [信用卡充值加油包换新支付通道，付完立即到账](2026-08-13/card-topup-creem.md) — 产品基础功能更新
+- [信用卡用户可自助管理支付方式和账单记录](2026-08-13/creem-customer-portal.md) — 产品基础功能更新
+- [微信通道掉线可一键重新授权，频道权限设置更明确](2026-08-13/weixin-reauth-channels.md) — 体验优化
+- [修复：企业管理后台用信用卡结算时报错打不开](2026-08-13/enterprise-admin-checkout-502.md) — Bug Fix
+- [已有账号也能接受企业邀请并切换到企业组织](2026-08-13/enterprise-org-switching.md) — 新功能上线
+
 ## 2026-08-10
 
 - [Chameleon 视频技能升级：支持 Seedance 2.5，最长 30 秒视频](2026-08-10/chameleon-seedance-2-5.md) — Skill 上架/更新 / 外部 A
