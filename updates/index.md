@@ -1,5 +1,19 @@
 # Updates Index
 
+## 2026-08-14
+
+- [WhatsApp 版 Oura 健康助手「Ora」正式接入](2026-08-14/whatsapp-oura-ora-agent.md) — Agent 上架/更新 / 优先级高
+- [Motion Video 更新 0.2.3：视频制作能力随包内置，装完即可用](2026-08-14/motion-video-pack-0-2-3.md) — Agent 上架/更新 / 优先级高
+- [API 密钥管理页重做：创建、一次性查看、轮换、吊销一站搞定](2026-08-14/api-key-management-redesign.md) — 产品基础功能更新 / 优先级中
+- [Agent Builder 与预览窗口共用同一套输入框](2026-08-14/agent-builder-unified-composer.md) — 体验优化 / 优先级中
+- [Agent Builder 首页排版与操作全面优化](2026-08-14/agent-builder-home-responsive.md) — 体验优化 / 优先级中
+- [资产库精简：直接进入作品视图](2026-08-14/asset-library-hide-uploads.md) — 体验优化 / 优先级中
+- [API 密钥页面说明改写，一句话讲清用途和权限](2026-08-14/api-key-copy-clarify.md) — 体验优化 / 优先级中
+- [修复 Agent Builder 一直提示「项目忙碌中」无法继续的问题](2026-08-14/agent-builder-preview-slot-recovery.md) — Bug Fix / 优先级高
+- [预览校验失败不再误报成功，问题直接显示出来](2026-08-14/agent-builder-preview-validation-feedback.md) — Bug Fix / 优先级中
+- [修复已订阅企业邀请成员时被误判为「未开通计费」](2026-08-14/enterprise-invite-handoff-fix.md) — Bug Fix / 优先级高
+- [修复通过 API 调用 Agent 动作接口返回 404 的问题](2026-08-14/service-token-agent-action-proxy-fix.md) — Bug Fix / 优先级中
+
 ## 2026-08-13
 
 - [新 Skill 上架：browser-ops，让 Agent 更稳地自己开浏览器办事](2026-08-13/browser-ops-skill.md) — Skill 上架/更新
