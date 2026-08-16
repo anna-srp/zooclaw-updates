@@ -1,0 +1,11 @@
+[
+  {
+    "sha": "a153ebb00be62823f3874cf07c05622eda85d825",
+    "author": "Chris@ZooClaw",
+    "date": "2026-08-15T13:51:46Z",
+    "title": "feat(agents): publish delegation metadata (#3403)",
+    "message": "feat(agents): publish delegation metadata (#3403)\n\n## Summary\n\n- publish Agent directory `description` and `delegation.enabled` on\nEngine Agent create/update\n- prefer pack `short_bio`, falling back to `bio`, while keeping hidden,\npack-test, and Agent Builder runtimes non-delegatable\n- add a dry-run-by-default, paginated, resumable metadata backfill for\nretained Engine Agent workspaces\n- parse directory metadata from Engine Agent reads for idempotent repair\n\n## Rollout\n\nDeploy the Engine contract first with owner-scoped delegation disabled,\nthen deploy this change, run the backfill in dry-run and write modes,\nand finally enable owner-scoped delegation in Engine.\n\nEngine counterpart:\nhttps://github.com/SerendipityOneInc/zooclaw-engine/pull/774\n\n## Testing\n\n- `bash scripts/verify-py.sh`\n- 239 targeted unit tests covering the Engine client,\ninstall/update/main/test runtimes, repository pagination, and backfill\nbehavior",
+    "pr_number": "3403",
+    "pr_body": "## Summary\n\n- publish Agent directory `description` and `delegation.enabled` on Engine Agent create/update\n- prefer pack `short_bio`, falling back to `bio`, while keeping hidden, pack-test, and Agent Builder runtimes non-delegatable\n- add a dry-run-by-default, paginated, resumable metadata backfill for retained Engine Agent workspaces\n- parse directory metadata from Engine Agent reads for idempotent repair\n\n## Rollout\n\nDeploy the Engine contract first with owner-scoped delegation disabled, then deploy this change, run the backfill in dry-run and write modes, and finally enable owner-scoped delegation in Engine.\n\nEngine counterpart: https://github.com/SerendipityOneInc/zooclaw-engine/pull/774\n\n## Testing\n\n- `bash scripts/verify-py.sh`\n- 239 targeted unit tests covering the Engine client, install/update/main/test runtimes, repository pagination, and backfill behavior\n"
+  }
+]

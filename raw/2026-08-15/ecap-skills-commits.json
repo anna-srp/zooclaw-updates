@@ -1,0 +1,11 @@
+[
+  {
+    "sha": "9f5c63d7d45474c0ef7422d4bbfd9db90a9513af",
+    "author": "Chris@ZooClaw",
+    "date": "2026-08-15T16:48:40Z",
+    "title": "docs: clarify V1/V2 skills publishing contract (#267)",
+    "message": "docs: clarify V1/V2 skills publishing contract (#267)\n\n## Summary\n\n- distinguish the V1 S3/JuiceFS allowlist from the curated V2 registry\nallowlist\n- document the rendered-config, runtime materialization, eligibility,\nand model-visibility boundaries\n- align the environment matrix with the workflow: staging always syncs\nV2, production is gated, and dev remains S3-only\n- keep Skill lifecycle and propagation to existing immutable Agent\nconfigs owned by zooclaw-engine#739\n\n## Validation\n\n- `PUBLISH_BASE_URL=http://example.invalid PUBLISH_TOKEN=validation-only\nnode .github/scripts/sync-v2-registry.mjs --validate`\n- `python3 .github/scripts/lint_skills.py` (passes with 12 pre-existing\nwarnings)\n- `git diff --check`\n\nCloses SerendipityOneInc/zooclaw-engine#719",
+    "pr_number": "267",
+    "pr_body": "## Summary\n\n- distinguish the V1 S3/JuiceFS allowlist from the curated V2 registry allowlist\n- document the rendered-config, runtime materialization, eligibility, and model-visibility boundaries\n- align the environment matrix with the workflow: staging always syncs V2, production is gated, and dev remains S3-only\n- keep Skill lifecycle and propagation to existing immutable Agent configs owned by zooclaw-engine#739\n\n## Validation\n\n- `PUBLISH_BASE_URL=http://example.invalid PUBLISH_TOKEN=validation-only node .github/scripts/sync-v2-registry.mjs --validate`\n- `python3 .github/scripts/lint_skills.py` (passes with 12 pre-existing warnings)\n- `git diff --check`\n\nCloses SerendipityOneInc/zooclaw-engine#719\n"
+  }
+]
