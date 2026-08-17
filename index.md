@@ -1,5 +1,9 @@
 # Updates Index
 
+## 2026-08-16
+
+- [订阅支付页关掉也能回去付：新增「重新打开支付页面」按钮](2026-08-16/subscription-resume-checkout.md) — 体验优化 / 外部 A
+
 ## 2026-08-12
 
 - [信用卡支付正式上线：可用 Card 订阅 ZooClaw](2026-08-12/card-checkout-production.md) — 新功能上线 / 外部 A
