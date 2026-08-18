@@ -1,5 +1,14 @@
 # Updates Index
 
+## 2026-08-17
+
+- [Agent 市场分成「公开 / 共享给我 / 我的 Agent」三个目录](2026-08-17/agent-marketplace-scoped-catalogs.md) — 产品基础功能更新 / 外部 B
+- [修复：新注册用户的默认主 Agent 现在会自动启动](2026-08-17/default-main-agent-autostart.md) — Bug Fix / 外部 B
+- [修复：加入企业版时个人订阅会正确释放，不再重复占用](2026-08-17/enterprise-handoff-personal-agreement.md) — Bug Fix / 外部 B
+- [Agent Builder 创建弹窗改用统一输入框，并可直接选模型](2026-08-17/agent-builder-create-dialog-composer.md) — 体验优化 / 外部 B
+- [Agent Builder 首页加载动画更顺眼](2026-08-17/agent-builder-home-skeleton.md) — 体验优化 / 外部 B
+- [网页端侧边栏 Logo 更新，展开收起动画更顺滑](2026-08-17/sidebar-logo-refresh.md) — 体验优化 / 外部 B
+
 ## 2026-08-16
 
 - [订阅支付页关掉也能回去付：新增「重新打开支付页面」按钮](2026-08-16/subscription-resume-checkout.md) — 体验优化 / 外部 A
