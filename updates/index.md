@@ -1,5 +1,13 @@
 # Updates Index
 
+## 2026-08-18
+
+- [信用卡订阅全面切换至 Airwallex 通道，升级套餐余额自动结转](2026-08-18/ea-billing-airwallex-switch.md) — 产品基础功能更新 / 优先级高
+- [企业管理后台「用量」页升级：趋势图表、日期区间筛选、批量配额管理](2026-08-18/ea-enterprise-admin-usage-dashboard.md) — 产品基础功能更新 / 优先级高
+- [修复：新用户首次订阅 Starter 试用被误判「上一笔支付审核中」](2026-08-18/ea-billing-airwallex-first-checkout-fix.md) — Bug Fix / 优先级高
+- [聊天里你自己发的消息更醒目，能力受限提示文案更清晰](2026-08-18/ea-chat-user-message-emphasis.md) — 体验优化 / 优先级中
+- [频道页「添加频道」按钮统一样式，全局加载动画换新](2026-08-18/ea-web-channel-action-loading.md) — 体验优化 / 优先级中
+
 ## 2026-08-14
 
 - [WhatsApp 版 Oura 健康助手「Ora」正式接入](2026-08-14/whatsapp-oura-ora-agent.md) — Agent 上架/更新 / 优先级高
