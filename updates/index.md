@@ -1,5 +1,16 @@
 # Updates Index
 
+## 2026-08-19
+
+- [聊天界面新增 Codex 风格「Agent 活动时间线」，AI 每一步都看得见](2026-08-19/chat-agent-activity-timeline.md) — 新功能上线 / 优先级高
+- [个人 MCP 管理上线：一段 JSON 接入任意远程 MCP 服务器](2026-08-19/personal-mcp-management-ui.md) — 新功能上线 / 优先级高
+- [修复：信用卡支付成功后订单卡住、免费试用额度不到账、升级后旧订阅未取消](2026-08-19/billing-airwallex-payment-stuck-fixes.md) — Bug Fix / 优先级高
+- [所有聊天界面统一显示 AI 当前状态：正在思考 / 正在执行任务 / 正在组织回复](2026-08-19/chat-v2-activity-status-labels.md) — 体验优化 / 优先级中
+- [修复：账户额度显示不一致，侧边栏把总额当成了剩余额度](2026-08-19/billing-credit-balance-display-fix.md) — Bug Fix / 优先级中
+- [定价页与账户用量页的沙箱配置更正为真实规格](2026-08-19/sandbox-spec-display-correction.md) — 产品基础功能更新 / 优先级中
+- [修复：Agent Builder 初始化卡住不再无限等待，超时后可一键重试](2026-08-19/agent-builder-setup-recovery.md) — Bug Fix / 优先级高
+- [官网定价页排版焕新，多语言文案补齐](2026-08-19/marketing-pricing-page-polish.md) — 体验优化 / 优先级中
+
 ## 2026-08-18
 
 - [信用卡订阅全面切换至 Airwallex 通道，升级套餐余额自动结转](2026-08-18/ea-billing-airwallex-switch.md) — 产品基础功能更新 / 优先级高
