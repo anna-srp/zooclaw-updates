@@ -1,5 +1,17 @@
 # Updates Index
 
+## 2026-08-20
+
+- [修复：信用卡免费试用不再被立即扣费](2026-08-20/billing-airwallex-trial-immediate-charge.md) — Bug Fix / 外部 A
+- [信用卡充值切换到 Airwallex 通道，卡单问题一并修复](2026-08-20/billing-card-topup-airwallex.md) — 产品基础功能更新 / 外部 B
+- [修复：取消订阅改为周期末生效，不再立即失效](2026-08-20/billing-airwallex-cancel-at-period-end.md) — Bug Fix / 外部 B
+- [修复：支付未成功后改选套餐可以重新下单](2026-08-20/billing-replace-stale-checkout.md) — Bug Fix / 外部 B
+- [修复：免费试用订单的额度发放状态显示正确](2026-08-20/billing-trial-entitlement-grant-stamp.md) — Bug Fix / 外部 B
+- [修复：部分新用户注册后环境未创建，导致安装一直等待](2026-08-20/auth-signup-computer-provisioning.md) — Bug Fix / 外部 A
+- [修复：迁移后的主 Agent 头像恢复为官方形象](2026-08-20/web-migrated-main-agent-avatar.md) — Bug Fix / 外部 B
+- [新增「联系销售」页面](2026-08-20/marketing-contact-sales-page.md) — 新功能上线 / 外部 B
+- [会议纪要 Skill 重大升级：托管说话人识别 + 音视频一键成稿](2026-08-20/skill-meeting-notes-managed-speaker.md) — Skill 上架/更新 / 外部 A
+
 ## 2026-08-17
 
 - [Agent 市场分成「公开 / 共享给我 / 我的 Agent」三个目录](2026-08-17/agent-marketplace-scoped-catalogs.md) — 产品基础功能更新 / 外部 B
