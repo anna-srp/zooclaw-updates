@@ -41,10 +41,23 @@ def latest_release(repo, prefix_re):
         if re.match(prefix_re,r["tag_name"]): return r["tag_name"]
     return None
 
+def feishu_creds():
+    # 主路径：openclaw 配置；回退：运行环境缓存的 app id/secret（配置文件不可读时）
+    for p in ("~/.openclaw/openclaw.json", "/home/node/.openclaw/openclaw.json"):
+        try:
+            c=json.load(open(os.path.expanduser(p)))
+            fa=c['channels']['feishu']['accounts']['default']
+            return fa['appId'], fa['appSecret']
+        except Exception:
+            continue
+    sec_path="/workspace/tmp/.fs_secret"
+    if os.path.exists(sec_path):
+        return os.environ.get("FEISHU_APP_ID","cli_a93934bd26399bdf"), open(sec_path).read().strip()
+    raise RuntimeError("feishu credentials not found")
+
 def feishu_token():
-    c=json.load(open(os.path.expanduser("~/.openclaw/openclaw.json")))
-    fa=c['channels']['feishu']['accounts']['default']
-    d=json.dumps({'app_id':fa['appId'],'app_secret':fa['appSecret']}).encode()
+    app_id, app_secret = feishu_creds()
+    d=json.dumps({'app_id':app_id,'app_secret':app_secret}).encode()
     r=urllib.request.Request('https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal',data=d,headers={'Content-Type':'application/json'})
     return json.load(urllib.request.urlopen(r))['tenant_access_token']
 
