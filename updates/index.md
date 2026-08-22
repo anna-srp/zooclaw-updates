@@ -1,5 +1,13 @@
 # Updates Index
 
+## 2026-08-21
+
+- [个人空间升级为团队时增加拦截校验，避免已购额度作废](2026-08-21/org-upgrade-to-team-guards.md) — Bug Fix / 优先级高
+- [修复：工具已执行结束，界面上的计时器却还在跑](2026-08-21/chat-tool-status-timer-fix.md) — Bug Fix / 优先级中
+- [修复：Agent Builder 测试环境构建中时预览接口报错](2026-08-21/agent-builder-preview-timestamp-fix.md) — Bug Fix / 优先级中
+- [聊天输入框「添加」菜单完成中文本地化](2026-08-21/chat-composer-add-menu-i18n.md) — 体验优化 / 优先级中
+- [修正断线/启动中时输入框的误导性提示文案](2026-08-21/chat-disconnected-composer-copy.md) — 体验优化 / 优先级中
+
 ## 2026-08-19
 
 - [聊天界面新增 Codex 风格「Agent 活动时间线」，AI 每一步都看得见](2026-08-19/chat-agent-activity-timeline.md) — 新功能上线 / 优先级高
