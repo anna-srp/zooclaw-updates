@@ -102,7 +102,8 @@ def main():
             repo,tag="skills",None
         else:
             repo,tag="SerendipityOneInc/ecap-workspace",WS
-        prs=re.findall(r'#(\d+)',raw)
+        # 只认 commit 标题结尾的 "(#123)" —— 正文里的 "CodeQL #617"/"alert #617" 等引用会误判
+        prs=re.findall(r'\(#(\d+)\)',raw) or re.findall(r'(?:^|\n)- PR: #(\d+)',raw)
         newst="未知/需确认"; note=""
         if repo=="skills":
             note="Skill 走 ClawHub 独立分发，需 openclaw skills verify 单独确认"
