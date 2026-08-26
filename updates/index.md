@@ -1,5 +1,16 @@
 # Updates Index
 
+## 2026-08-25
+
+- [BossClaw 注册改为邀请码准入：老账号手机/邮箱验证码直接登录，新用户先验邀请码](2026-08-25/bossclaw-invite-registration.md) — 产品基础功能更新 / 外部 B
+- [修复：BossClaw 登录时把已注册用户误判为「未注册」，逼着老用户去要邀请码](2026-08-25/bossclaw-account-status-fix.md) — Bug Fix / 外部 B
+- [修复：Agent Builder 首次建项目时显示的模型和实际跑的模型对不上](2026-08-25/agent-builder-v2-model-before-first-project.md) — Bug Fix / 外部 B
+- [修复：升级到新版 Agent 后，聊天输入框里的 Skills 菜单一直报「无法加载 Skills」](2026-08-25/composer-skills-engine-runtime.md) — Bug Fix / 外部 A
+- [网页端换新默认外观 Paper Focus，原来的玻璃拟态改为可选皮肤](2026-08-25/theme-paper-focus-default.md) — 体验优化 / 外部 B
+- [安全加固：一次性修掉 58 条依赖安全告警，后端 Web 框架同步升级](2026-08-25/deps-security-dependabot-fixes.md) — Bug Fix / 外部 B
+- [全新 ZooWork 官网首页上线，支持 10 种语言（含阿拉伯语从右至左排版）](2026-08-25/marketing-zoowork-homepage.md) — 新功能上线 / 外部 B
+- [素材库改版：「我的上传」和「AI 生成」分开成两个标签页，支持搜索和多维筛选](2026-08-25/assets-library-redesign.md) — 产品基础功能更新 / 外部 B
+
 ## 2026-08-21
 
 - [个人空间升级为团队时增加拦截校验，避免已购额度作废](2026-08-21/org-upgrade-to-team-guards.md) — Bug Fix / 优先级高
