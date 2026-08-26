@@ -1,16 +1,5 @@
 # Updates Index
 
-## 2026-08-24
-
-- [Agent 管理页新增「快速编辑 Pack 技能」，改技能不用再开 Agent Builder](2026-08-24/agents-fast-pack-skill-editor.md) — 新功能上线 / 外部 A
-- [网页聊天支持多选交互卡片，一次可勾选多个选项再提交](2026-08-24/chat-multiselect-interactive-cards.md) — 新功能上线 / 外部 B
-- [修复：订阅续费后 v2 Agent 不会自动恢复，仍处于停用状态](2026-08-24/runtime-restore-v2-agents-after-renewal.md) — Bug Fix / 外部 B
-- [修复：下载图片/视频时文件名变成一串时间戳，原始文件名丢失](2026-08-24/web-preserve-media-download-filenames.md) — Bug Fix / 外部 B
-- [修复：Team Plan 成员在个人订阅过期后被挡在 OpenClaw 门外](2026-08-24/openclaw-team-plan-access.md) — Bug Fix / 外部 B
-- [素材库新增「已发布产物」区，可直接查看并引用 Agent 产出的文件](2026-08-24/assets-published-artifacts-engine-agents.md) — 产品基础功能更新 / 外部 B
-- [网页端安全加固：随机数、手机验证态存储与 DOM XSS 隐患修复](2026-08-24/web-codeql-security-fixes.md) — Bug Fix / 外部 B
-- [安全修复：下载代理堵住可绕过域名白名单的 SSRF 风险](2026-08-24/api-download-proxy-ssrf-fix.md) — Bug Fix / 外部 B
-
 ## 2026-08-20
 
 - [修复：信用卡免费试用不再被立即扣费](2026-08-20/billing-airwallex-trial-immediate-charge.md) — Bug Fix / 外部 A
