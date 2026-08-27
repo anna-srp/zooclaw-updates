@@ -1,13 +1,13 @@
-# SerendipityOneInc/ecap-workspace — commits 2026-08-26
+# SerendipityOneInc/ecap-workspace commits - 2026-08-26
 
 ## fix(billing): tolerate Airwallex period correction on scheduled cancellation (#3538)
+- sha: `c699341914c4dddc02233de390644c92b1dcd08e`
+- 作者: tim-srp <tim@srp.one>
+- 日期: 2026-08-26T14:45:28Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/c699341914c4dddc02233de390644c92b1dcd08e
+- 改动文件: services/claw-interface/app/services/airwallex/subscription_changes.py, services/claw-interface/app/services/billing_v2/subscription_agreement_upsert.py, services/claw-interface/tests/unit/test_airwallex_subscription_changes.py, services/claw-interface/tests/unit/test_billing_v2_subscription_agreements.py
 
-- **SHA**: `c699341914c4dddc02233de390644c92b1dcd08e`
-- **作者**: tim-srp
-- **日期**: 2026-08-26T14:45:28Z
-- **PR**: #3538
-
-### Commit Message
+### 完整 commit message
 
 ```
 fix(billing): tolerate Airwallex period correction on scheduled cancellation (#3538)
@@ -50,7 +50,7 @@ provider 返回的 period 做严格相等校验 → 对 trial 订阅必然失败
 Co-authored-by: Claude <noreply@anthropic.com>
 ```
 
-### PR Body
+### PR #3538: fix(billing): tolerate Airwallex period correction on scheduled cancellation
 
 ## Summary
 
@@ -76,13 +76,13 @@ Airwallex 对 trial 订阅,`current_period_ends_at` 定义为「当前已开票�
 ---
 
 ## fix(invitation): restore BossClaw registration route (#3536)
+- sha: `dbdc4ab5ca4ba9e787404e4dc8ffbcfaf1d8080d`
+- 作者: tim-srp <tim@srp.one>
+- 日期: 2026-08-26T14:14:09Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/dbdc4ab5ca4ba9e787404e4dc8ffbcfaf1d8080d
+- 改动文件: web/app/src/app/[locale]/bossclaw/BossclawClient.tsx, web/app/src/app/[locale]/bossclaw/agent-install.ts, web/app/src/app/[locale]/bossclaw/bossclaw.module.css, web/app/src/app/[locale]/bossclaw/components/CapabilitiesStep.tsx, web/app/src/app/[locale]/bossclaw/components/DoneStep.tsx, web/app/src/app/[locale]/bossclaw/components/IntroHeroStep.tsx, web/app/src/app/[locale]/bossclaw/components/LoginStep.tsx, web/app/src/app/[locale]/bossclaw/components/PhoneLoginStep.tsx, web/app/src/app/[locale]/bossclaw/components/Preloader.tsx, web/app/src/app/[locale]/bossclaw/components/RedeemStep.tsx, web/app/src/app/[locale]/bossclaw/components/WechatBindStep.tsx, web/app/src/app/[locale]/bossclaw/legacy-redirect.ts, web/app/src/app/[locale]/bossclaw/login/page.tsx, web/app/src/app/[locale]/bossclaw/page.tsx, web/app/src/app/[locale]/bossclaw/wizard-state.ts, web/app/src/app/[locale]/invitation/login/BossclawLoginClient.tsx, web/app/src/app/[locale]/invitation/login/useBossclawLoginFlow.ts, web/app/src/app/[locale]/invitation/page.tsx, web/app/tests/unit/bossclaw/agent-install.unit.spec.ts, web/app/tests/unit/bossclaw/bossclaw-client-intro.unit.spec.tsx, web/app/tests/unit/bossclaw/bossclaw-client.unit.spec.tsx, web/app/tests/unit/bossclaw/bossclaw-layout-css.unit.spec.ts, web/app/tests/unit/bossclaw/bossclaw-login-flow.unit.spec.ts, web/app/tests/unit/bossclaw/done-step.unit.spec.tsx, web/app/tests/unit/bossclaw/legacy-redirects.unit.spec.ts, web/app/tests/unit/bossclaw/login-client.unit.spec.tsx, web/app/tests/unit/bossclaw/login-step.unit.spec.tsx, web/app/tests/unit/bossclaw/page.unit.spec.tsx, web/app/tests/unit/bossclaw/phone-login-step.unit.spec.tsx, web/app/tests/unit/bossclaw/redeem-step.unit.spec.tsx, web/app/tests/unit/bossclaw/wechat-bind-step.unit.spec.tsx, web/app/tests/unit/bossclaw/wizard-steps.unit.spec.ts
 
-- **SHA**: `dbdc4ab5ca4ba9e787404e4dc8ffbcfaf1d8080d`
-- **作者**: tim-srp
-- **日期**: 2026-08-26T14:14:09Z
-- **PR**: #3536
-
-### Commit Message
+### 完整 commit message
 
 ```
 fix(invitation): restore BossClaw registration route (#3536)
@@ -101,7 +101,7 @@ URL structure.
 - `pnpm --dir web/app exec vitest run tests/unit/bossclaw` (96 passed)
 ```
 
-### PR Body
+### PR #3536: fix(invitation): restore BossClaw registration route
 
 ## Summary
 
@@ -118,13 +118,13 @@ URL structure.
 ---
 
 ## fix(r2): update allowed origin to zoowork.ai (#3535)
+- sha: `8940bf7d236ca1d64b59e96264753347ea8b68cd`
+- 作者: tim-srp <tim@srp.one>
+- 日期: 2026-08-26T13:55:23Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/8940bf7d236ca1d64b59e96264753347ea8b68cd
+- 改动文件: services/r2-access-worker/src/__tests__/copy.test.ts, services/r2-access-worker/src/__tests__/index.test.ts, services/r2-access-worker/src/__tests__/upload-service-token.test.ts, services/r2-access-worker/wrangler.toml
 
-- **SHA**: `8940bf7d236ca1d64b59e96264753347ea8b68cd`
-- **作者**: tim-srp
-- **日期**: 2026-08-26T13:55:23Z
-- **PR**: #3535
-
-### Commit Message
+### 完整 commit message
 
 ```
 fix(r2): update allowed origin to zoowork.ai (#3535)
@@ -142,7 +142,7 @@ fix(r2): update allowed origin to zoowork.ai (#3535)
 no installed `node_modules`.
 ```
 
-### PR Body
+### PR #3535: fix(r2): update allowed origin to zoowork.ai
 
 ## Summary
 
@@ -158,13 +158,13 @@ no installed `node_modules`.
 ---
 
 ## fix(web): hide unsupported session delete action (#3534)
+- sha: `fdcd34db3ff42415400000f173021415039f3c04`
+- 作者: sharplee-srp <sharplee@srp.one>
+- 日期: 2026-08-26T13:42:03Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/fdcd34db3ff42415400000f173021415039f3c04
+- 改动文件: web/app/src/components/sidenav/SideNavSessionRow.tsx, web/app/tests/unit/components/sidenav/SideNavSessionRow.unit.spec.tsx
 
-- **SHA**: `fdcd34db3ff42415400000f173021415039f3c04`
-- **作者**: sharplee-srp
-- **日期**: 2026-08-26T13:42:03Z
-- **PR**: #3534
-
-### Commit Message
+### 完整 commit message
 
 ```
 fix(web): hide unsupported session delete action (#3534)
@@ -194,7 +194,7 @@ tests)
 scripts/verify-changed.sh`)
 ```
 
-### PR Body
+### PR #3534: fix(web): hide unsupported session delete action
 
 ## Summary
 - Hide the unsupported Delete action from the session overflow menu until its dependencies are implemented.
@@ -214,13 +214,13 @@ The session menu rendered a disabled Delete item even though no frontend mutatio
 ---
 
 ## feat(settings): tell users what to do with an API key (#3533)
+- sha: `2f5ff75cc502e7eb31507d7569de82ed872b5047`
+- 作者: finn-srp <finn@srp.one>
+- 日期: 2026-08-26T13:36:07Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/2f5ff75cc502e7eb31507d7569de82ed872b5047
+- 改动文件: web/app/src/app/[locale]/(app)/claw-settings/components/ApiKeysGuidance.tsx, web/app/src/app/[locale]/(app)/claw-settings/components/ApiKeysTab.tsx, web/app/src/app/[locale]/(app)/claw-settings/components/useApiKeysController.ts, web/app/src/locales/en.ts, web/app/src/locales/zh.ts, web/app/tests/unit/app/claw-settings/ApiKeysTab.unit.spec.tsx
 
-- **SHA**: `2f5ff75cc502e7eb31507d7569de82ed872b5047`
-- **作者**: finn-srp
-- **日期**: 2026-08-26T13:36:07Z
-- **PR**: #3533
-
-### Commit Message
+### 完整 commit message
 
 ```
 feat(settings): tell users what to do with an API key (#3533)
@@ -306,7 +306,7 @@ Co-authored-by: wangfulong <wfllike@gmail.com>
 Co-authored-by: Claude Opus 5 <noreply@anthropic.com>
 ```
 
-### PR Body
+### PR #3533: feat(settings): tell users what to do with an API key
 
 ## Linear
 <!-- 无关联 issue -->
@@ -366,13 +366,13 @@ API Keys tab 发得出密钥，但从不说这密钥能干什么。三个触点�
 ---
 
 ## fix(registration): skip warm pool and V1 app creation for V2-eligible users (#3532)
+- sha: `466df714fcb9757f996ff55f07a39e57e87f957c`
+- 作者: tim-srp <tim@srp.one>
+- 日期: 2026-08-26T11:27:29Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/466df714fcb9757f996ff55f07a39e57e87f957c
+- 改动文件: docs/plans/2026-08-21-bossclaw-v2-migration-summary.md, docs/superpowers/specs/2026-08-26-v2-registration-drop-v1-app-dependency.md, services/claw-interface/app/services/user/account_service.py, services/claw-interface/tests/unit/test_account_service.py
 
-- **SHA**: `466df714fcb9757f996ff55f07a39e57e87f957c`
-- **作者**: tim-srp
-- **日期**: 2026-08-26T11:27:29Z
-- **PR**: #3532
-
-### Commit Message
+### 完整 commit message
 
 ```
 fix(registration): skip warm pool and V1 app creation for V2-eligible users (#3532)
@@ -431,7 +431,7 @@ Design spec:
 Co-authored-by: Claude <noreply@anthropic.com>
 ```
 
-### PR Body
+### PR #3532: fix(registration): skip warm pool and V1 app creation for V2-eligible users
 
 ## Problem
 
@@ -467,13 +467,13 @@ Design spec: `docs/superpowers/specs/2026-08-26-v2-registration-drop-v1-app-depe
 ---
 
 ## fix(models): preserve models without regional overrides (#3531)
+- sha: `b8ff412af9d6913c4dda511221714f27f695ab8e`
+- 作者: sam-srp <sam@srp.one>
+- 日期: 2026-08-26T11:23:06Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/b8ff412af9d6913c4dda511221714f27f695ab8e
+- 改动文件: services/claw-interface/app/services/agent_builder_engine_model_service.py, services/claw-interface/app/services/agent_builder_model_service.py, services/claw-interface/app/services/agent_builder_model_visibility.py, services/claw-interface/app/services/model_catalog.py, services/claw-interface/app/services/regional_model_display.py, services/claw-interface/tests/unit/test_agent_builder_model_service.py, services/claw-interface/tests/unit/test_model_catalog.py, services/claw-interface/tests/unit/test_regional_model_display.py
 
-- **SHA**: `b8ff412af9d6913c4dda511221714f27f695ab8e`
-- **作者**: sam-srp
-- **日期**: 2026-08-26T11:23:06Z
-- **PR**: #3531
-
-### Commit Message
+### 完整 commit message
 
 ```
 fix(models): preserve models without regional overrides (#3531)
@@ -494,7 +494,7 @@ configuration is unavailable
 - 61 related claw-interface unit tests passed
 ```
 
-### PR Body
+### PR #3531: fix(models): preserve models without regional overrides
 
 ## Summary
 - resolve model display overrides from any active team organization region_code instead of hardcoding CN
@@ -510,13 +510,13 @@ configuration is unavailable
 ---
 
 ## fix(web): preserve app on transient account refresh errors (#3527)
+- sha: `2b17d0f8ec7522cfea9e2176c6c21c18acd8bd90`
+- 作者: sharplee-srp <sharplee@srp.one>
+- 日期: 2026-08-26T09:25:29Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/2b17d0f8ec7522cfea9e2176c6c21c18acd8bd90
+- 改动文件: web/app/src/components/AccountSessionGate.tsx, web/app/tests/unit/components/AccountSessionGate.unit.spec.tsx
 
-- **SHA**: `2b17d0f8ec7522cfea9e2176c6c21c18acd8bd90`
-- **作者**: sharplee-srp
-- **日期**: 2026-08-26T09:25:29Z
-- **PR**: #3527
-
-### Commit Message
+### 完整 commit message
 
 ```
 fix(web): preserve app on transient account refresh errors (#3527)
@@ -552,7 +552,7 @@ web/app/tests/unit/components/AccountSessionGate.unit.spec.tsx`
 - [x] `bash scripts/verify-changed.sh`
 ```
 
-### PR Body
+### PR #3527: fix(web): preserve app on transient account refresh errors
 
 ## Summary
 - Keep the current app mounted when `/account/me` has a transient non-auth failure and a local or cached session is already usable.
@@ -573,13 +573,13 @@ The fix only changes those non-auth paths: a pending `TypeError` retry or anothe
 ---
 
 ## feat: add phase-one mainland web compliance (#3508)
+- sha: `ca35c19935e6bf3facc4f77cf7d1ae328cdfd25a`
+- 作者: sam-srp <sam@srp.one>
+- 日期: 2026-08-26T08:38:24Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/ca35c19935e6bf3facc4f77cf7d1ae328cdfd25a
+- 改动文件: .env.example, .github/workflows/deploy.yml, docs/superpowers/specs/2026-08-25-web-cn-compliance-phase1.md, services/claw-interface/app/auth/domestic_access.py, services/claw-interface/app/create_app.py, services/claw-interface/app/database/account_org_repo.py, services/claw-interface/app/database/model_display_override_repo.py, services/claw-interface/app/database/org_repo.py, services/claw-interface/app/database/user_repo.py, services/claw-interface/app/routes/domestic_access.py, services/claw-interface/app/routes/internal/orgs.py, services/claw-interface/app/routes/internal/users.py, services/claw-interface/app/schema/account_api.py, services/claw-interface/app/schema/domestic_access.py, services/claw-interface/app/schema/model_catalog.py, services/claw-interface/app/schema/model_display_override.py, services/claw-interface/app/schema/org.py, services/claw-interface/app/services/agent_builder_engine_model_service.py, services/claw-interface/app/services/agent_builder_model_service.py, services/claw-interface/app/services/agent_builder_model_visibility.py, services/claw-interface/app/services/domestic_access.py, services/claw-interface/app/services/model_catalog.py, services/claw-interface/app/services/org/region_service.py, services/claw-interface/app/services/regional_model_display.py, services/claw-interface/app/services/user/list_service.py, services/claw-interface/app/settings.py, services/claw-interface/pyproject.toml, services/claw-interface/tests/unit/test_agent_builder_model_service.py, services/claw-interface/tests/unit/test_domestic_access.py, services/claw-interface/tests/unit/test_domestic_access_deployment_wiring.py, services/claw-interface/tests/unit/test_domestic_access_routes.py, services/claw-interface/tests/unit/test_internal_users_routes.py, services/claw-interface/tests/unit/test_model_catalog.py, services/claw-interface/tests/unit/test_model_display_override_repo.py, services/claw-interface/tests/unit/test_org_region_service.py, services/claw-interface/tests/unit/test_org_repo.py, services/claw-interface/tests/unit/test_regional_model_display.py, services/claw-interface/tests/unit/test_routes_internal_orgs.py, services/claw-interface/tests/unit/test_schema_org.py, services/claw-interface/tests/unit/test_user_repo.py, web/app/src/app/[locale]/(app)/(chat)/agent-builder/AgentBuilderCreateDialog.tsx, web/app/src/app/[locale]/(marketing)/MarketingChrome.tsx, web/app/src/app/api/auth/email-otp/send/route.ts, web/app/src/components/DomesticAccessRestrictedDialog.tsx, web/app/src/components/LoginForm.tsx, web/app/src/components/chat/unified-chat-composer/UnifiedChatComposer.tsx, web/app/src/components/chat/unified-chat-composer/composer-model-presentations.ts, web/app/src/components/chat/unified-chat-composer/useComposerModelState.ts, web/app/src/hooks/queries/models/useChatModelCatalogQuery.ts, web/app/src/lib/auth/domestic-access-bff.ts, web/app/src/lib/auth/errors.ts, web/app/src/lib/logger.ts, web/app/src/locales/en.ts, web/app/src/locales/zh.ts, web/app/src/models/model-catalog.ts, web/app/tests/unit/app/api/auth-routes.unit.spec.ts, web/app/tests/unit/app/marketing-chrome.unit.spec.tsx, web/app/tests/unit/components/LoginForm.unit.spec.tsx, web/app/tests/unit/components/chat/unified-chat-composer/UnifiedChatComposer.unit.spec.tsx, web/app/tests/unit/components/chat/unified-chat-composer/composer-model-presentations.unit.spec.ts
 
-- **SHA**: `ca35c19935e6bf3facc4f77cf7d1ae328cdfd25a`
-- **作者**: sam-srp
-- **日期**: 2026-08-26T08:38:24Z
-- **PR**: #3508
-
-### Commit Message
+### 完整 commit message
 
 ```
 feat: add phase-one mainland web compliance (#3508)
@@ -656,7 +656,7 @@ validation
 - local end-to-end QA completed for CN and non-CN entry paths
 ```
 
-### PR Body
+### PR #3508: feat: add phase-one mainland web compliance
 
 ## Summary
 
@@ -706,13 +706,13 @@ Phase one is Web-only. It does not add iOS enforcement, session enforcement for 
 ---
 
 ## fix(invitation): rename BossClaw route (#3528)
+- sha: `9847266732c86719dc3ee8559f045266b67e68a0`
+- 作者: tim-srp <tim@srp.one>
+- 日期: 2026-08-26T08:21:30Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/9847266732c86719dc3ee8559f045266b67e68a0
+- 改动文件: web/app/src/app/[locale]/bossclaw/legacy-redirect.ts, web/app/src/app/[locale]/bossclaw/login/page.tsx, web/app/src/app/[locale]/bossclaw/page.tsx, web/app/src/app/[locale]/invitation/BossclawClient.tsx, web/app/src/app/[locale]/invitation/agent-install.ts, web/app/src/app/[locale]/invitation/bossclaw.module.css, web/app/src/app/[locale]/invitation/components/CapabilitiesStep.tsx, web/app/src/app/[locale]/invitation/components/DoneStep.tsx, web/app/src/app/[locale]/invitation/components/IntroHeroStep.tsx, web/app/src/app/[locale]/invitation/components/LoginStep.tsx, web/app/src/app/[locale]/invitation/components/PhoneLoginStep.tsx, web/app/src/app/[locale]/invitation/components/Preloader.tsx, web/app/src/app/[locale]/invitation/components/RedeemStep.tsx, web/app/src/app/[locale]/invitation/components/WechatBindStep.tsx, web/app/src/app/[locale]/invitation/login/BossclawLoginClient.tsx, web/app/src/app/[locale]/invitation/login/page.tsx, web/app/src/app/[locale]/invitation/login/useBossclawLoginFlow.ts, web/app/src/app/[locale]/invitation/page.tsx, web/app/src/app/[locale]/invitation/wizard-state.ts, web/app/tests/unit/bossclaw/agent-install.unit.spec.ts, web/app/tests/unit/bossclaw/bossclaw-client-intro.unit.spec.tsx, web/app/tests/unit/bossclaw/bossclaw-client.unit.spec.tsx, web/app/tests/unit/bossclaw/bossclaw-layout-css.unit.spec.ts, web/app/tests/unit/bossclaw/bossclaw-login-flow.unit.spec.ts, web/app/tests/unit/bossclaw/done-step.unit.spec.tsx, web/app/tests/unit/bossclaw/legacy-redirects.unit.spec.ts, web/app/tests/unit/bossclaw/login-client.unit.spec.tsx, web/app/tests/unit/bossclaw/login-step.unit.spec.tsx, web/app/tests/unit/bossclaw/page.unit.spec.tsx, web/app/tests/unit/bossclaw/phone-login-step.unit.spec.tsx, web/app/tests/unit/bossclaw/redeem-step.unit.spec.tsx, web/app/tests/unit/bossclaw/wechat-bind-step.unit.spec.tsx, web/app/tests/unit/bossclaw/wizard-steps.unit.spec.ts
 
-- **SHA**: `9847266732c86719dc3ee8559f045266b67e68a0`
-- **作者**: tim-srp
-- **日期**: 2026-08-26T08:21:30Z
-- **PR**: #3528
-
-### Commit Message
+### 完整 commit message
 
 ```
 fix(invitation): rename BossClaw route (#3528)
@@ -740,7 +740,7 @@ changed.
 PR.
 ```
 
-### PR Body
+### PR #3528: fix(invitation): rename BossClaw route
 
 ## Summary
 
@@ -762,13 +762,13 @@ PR.
 ---
 
 ## fix(agent-builder): recover ready test archives (#3529)
+- sha: `c441a41913625d472d3861e35e483230e790ba2e`
+- 作者: kaka-srp <kaka@srp.one>
+- 日期: 2026-08-26T08:11:25Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/c441a41913625d472d3861e35e483230e790ba2e
+- 改动文件: docs/superpowers/specs/2026-08-11-agent-builder-v1-project-recovery-design.md, services/claw-interface/app/database/agent_builder_iteration_repo.py, services/claw-interface/app/schema/agent_builder.py, services/claw-interface/app/services/agent_builder_recovery_source_service.py, services/claw-interface/tests/unit/test_agent_builder_project_repo.py, services/claw-interface/tests/unit/test_agent_builder_recovery_source_service.py, web/app/src/models/agent-builder.ts
 
-- **SHA**: `c441a41913625d472d3861e35e483230e790ba2e`
-- **作者**: kaka-srp
-- **日期**: 2026-08-26T08:11:25Z
-- **PR**: #3529
-
-### Commit Message
+### 完整 commit message
 
 ```
 fix(agent-builder): recover ready test archives (#3529)
@@ -811,7 +811,7 @@ no-node worktree: unrelated TypeScript package-contract errors appeared
 and 33 Vitest workers timed out; clean-install CI remains authoritative
 ```
 
-### PR Body
+### PR #3529: fix(agent-builder): recover ready test archives
 
 ## Summary
 - recover archive-bearing iterations already in `ready_to_test`, `testing`, `reviewing_test`, or `accepted`
@@ -838,13 +838,13 @@ The recovery fallback only queried `accepted` and `reviewing_test` iterations. A
 ---
 
 ## feat(agents): make v2 the default runtime (#3525)
+- sha: `dec93c8767a18760a4015d98ea12f250d7aa3d2c`
+- 作者: kaka-srp <kaka@srp.one>
+- 日期: 2026-08-26T06:44:05Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/dec93c8767a18760a4015d98ea12f250d7aa3d2c
+- 改动文件: .env.example, .github/workflows/deploy.yml, services/claw-interface/app/services/agents/agents_v2_access.py, services/claw-interface/app/settings.py, services/claw-interface/tests/unit/test_agents_v2_access.py, services/claw-interface/tests/unit/test_agents_v2_deployment_wiring.py, web/app/scripts/mock-backend.mjs, web/app/scripts/mock-backend/scenarios.mjs, web/app/tests/unit/scripts/mock-backend-agent-builder.unit.spec.ts, web/app/tests/unit/scripts/mock-backend-agent-schedules.unit.spec.ts, web/app/tests/unit/scripts/mock-backend-agents.unit.spec.ts
 
-- **SHA**: `dec93c8767a18760a4015d98ea12f250d7aa3d2c`
-- **作者**: kaka-srp
-- **日期**: 2026-08-26T06:44:05Z
-- **PR**: #3525
-
-### Commit Message
+### 完整 commit message
 
 ```
 feat(agents): make v2 the default runtime (#3525)
@@ -870,7 +870,7 @@ main-agent behavior, and builder runtime services
 the expected five-entry set; values were not exposed or committed
 ```
 
-### PR Body
+### PR #3525: feat(agents): make v2 the default runtime
 
 ## Summary
 
@@ -891,13 +891,13 @@ the expected five-entry set; values were not exposed or committed
 ---
 
 ## fix(agent-builder): recover reviewing test archives (#3520)
+- sha: `0823428d09979db01d8df8ab0dc941378a51dc8f`
+- 作者: kaka-srp <kaka@srp.one>
+- 日期: 2026-08-26T06:12:13Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/0823428d09979db01d8df8ab0dc941378a51dc8f
+- 改动文件: docs/superpowers/specs/2026-08-11-agent-builder-v1-project-recovery-design.md, services/claw-interface/app/database/agent_builder_iteration_repo.py, services/claw-interface/app/schema/agent_builder.py, services/claw-interface/app/services/agent_builder_recovery_source_service.py, services/claw-interface/tests/unit/test_agent_builder_project_repo.py, services/claw-interface/tests/unit/test_agent_builder_recovery_source_service.py, web/app/src/models/agent-builder.ts
 
-- **SHA**: `0823428d09979db01d8df8ab0dc941378a51dc8f`
-- **作者**: kaka-srp
-- **日期**: 2026-08-26T06:12:13Z
-- **PR**: #3520
-
-### Commit Message
+### 完整 commit message
 
 ```
 fix(agent-builder): recover reviewing test archives (#3520)
@@ -937,7 +937,7 @@ errors on `origin/main` in `tests/unit/_route_helpers.py`,
 in this PR
 ```
 
-### PR Body
+### PR #3520: fix(agent-builder): recover reviewing test archives
 
 ## Summary
 - allow Agent Builder v1 recovery to use archived `reviewing_test` iterations as well as `accepted` iterations
@@ -960,13 +960,13 @@ When live v1 workspace export was unavailable, the fallback queried only iterati
 ---
 
 ## fix(billing): exclude historical orders from checkout alerts (#3523)
+- sha: `35533904395128fcc1c6c4ba8ef7dff41e41514b`
+- 作者: sharplee-srp <sharplee@srp.one>
+- 日期: 2026-08-26T06:06:26Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/35533904395128fcc1c6c4ba8ef7dff41e41514b
+- 改动文件: services/claw-interface/app/cron/orphaned_entitlements.py, services/claw-interface/app/database/card_checkout_order_repo.py, services/claw-interface/docs/cron-triggers.md, services/claw-interface/tests/unit/test_billing_v2_repos.py
 
-- **SHA**: `35533904395128fcc1c6c4ba8ef7dff41e41514b`
-- **作者**: sharplee-srp
-- **日期**: 2026-08-26T06:06:26Z
-- **PR**: #3523
-
-### Commit Message
+### 完整 commit message
 
 ```
 fix(billing): exclude historical orders from checkout alerts (#3523)
@@ -997,7 +997,7 @@ import-linter passed
 - [x] pre-push changed-surface verification passed
 ```
 
-### PR Body
+### PR #3523: fix(billing): exclude historical orders from checkout alerts
 
 ## Summary
 - scope the subscription manual-review PagerDuty queue to provider-started checkouts that do not already have an entitlement
@@ -1018,13 +1018,13 @@ A read-only production check confirmed that the sole alerting row had no checkou
 ---
 
 ## fix(billing): normalize historical creem channels (#3521)
+- sha: `8650ee79a15ffdfde7b3cb903d21ebe74bcabdb7`
+- 作者: tim-srp <tim@srp.one>
+- 日期: 2026-08-26T05:34:33Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/8650ee79a15ffdfde7b3cb903d21ebe74bcabdb7
+- 改动文件: services/claw-interface/app/schema/account_api.py, services/claw-interface/tests/unit/test_billing_v2_user_public_response.py
 
-- **SHA**: `8650ee79a15ffdfde7b3cb903d21ebe74bcabdb7`
-- **作者**: tim-srp
-- **日期**: 2026-08-26T05:34:33Z
-- **PR**: #3521
-
-### Commit Message
+### 完整 commit message
 
 ```
 fix(billing): normalize historical creem channels (#3521)
@@ -1050,7 +1050,7 @@ services/claw-interface/tests/unit/test_billing_v2_user_public_response.py
 - [x] `bash scripts/verify-py.sh`
 ```
 
-### PR Body
+### PR #3521: fix(billing): normalize historical creem channels
 
 ## Summary
 - Normalize historical account `payment_channel=creem` values to public `card` responses, preventing `/account/me` validation failures.
@@ -1069,13 +1069,13 @@ Creem was removed from the public response literal while active historical subsc
 ---
 
 ## fix(landing): link business entry to enterprise login (#3519)
+- sha: `af55006818ddbfccfa58b599d1ae1b4485fc7859`
+- 作者: tim-srp <tim@srp.one>
+- 日期: 2026-08-26T03:39:46Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/af55006818ddbfccfa58b599d1ae1b4485fc7859
+- 改动文件: web/app/src/lib/landing-content.ts
 
-- **SHA**: `af55006818ddbfccfa58b599d1ae1b4485fc7859`
-- **作者**: tim-srp
-- **日期**: 2026-08-26T03:39:46Z
-- **PR**: #3519
-
-### Commit Message
+### 完整 commit message
 
 ```
 fix(landing): link business entry to enterprise login (#3519)
@@ -1095,7 +1095,7 @@ destination.
 because this worktree has no frontend tool binaries)
 ```
 
-### PR Body
+### PR #3519: fix(landing): link business entry to enterprise login
 
 ## Summary
 
@@ -1111,13 +1111,13 @@ because this worktree has no frontend tool binaries)
 ---
 
 ## chore(config): remove deprecated dupe gateway setting (#3518)
+- sha: `7f23fd55850f4b65a4555d0d54be909e29397e47`
+- 作者: tim-srp <tim@srp.one>
+- 日期: 2026-08-26T03:34:21Z
+- 链接: https://github.com/SerendipityOneInc/ecap-workspace/commit/7f23fd55850f4b65a4555d0d54be909e29397e47
+- 改动文件: .env.example, services/claw-interface/app/settings.py
 
-- **SHA**: `7f23fd55850f4b65a4555d0d54be909e29397e47`
-- **作者**: tim-srp
-- **日期**: 2026-08-26T03:34:21Z
-- **PR**: #3518
-
-### Commit Message
+### 完整 commit message
 
 ```
 chore(config): remove deprecated dupe gateway setting (#3518)
@@ -1142,7 +1142,7 @@ stores is a separate operational step.
 of scope because they still have active consumers.
 ```
 
-### PR Body
+### PR #3518: chore(config): remove deprecated dupe gateway setting
 
 ## Summary
 
