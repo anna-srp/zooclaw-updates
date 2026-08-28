@@ -1,5 +1,27 @@
 # Updates Index
 
+## 2026-08-27
+
+- [iOS App 全面切换到新版 Agent 运行时（V2），手机上终于能连上你的 Agent 聊天](2026-08-27/ios-v2-engine-cutover.md) — 产品基础功能更新 / 外部 A
+- [修复：iOS App 聊天界面一直转圈连不上，实际账号里有可用 Agent](2026-08-27/ios-chat-readiness-fix.md) — Bug Fix / 外部 B
+- [Agent Builder 新建项目不再干等半分钟，点完立刻进入项目页](2026-08-27/agent-builder-fast-project-creation.md) — 体验优化 / 外部 A
+- [修复：解雇 Agent 后，它占用的聊天频道连接没有真正断开](2026-08-27/agents-fire-channel-soft-delete.md) — Bug Fix / 外部 B
+- [修复：Agent Builder 发布慢一点就报错，重试还会重复提交一次](2026-08-27/agent-builder-publish-timeout-recovery.md) — Bug Fix / 外部 B
+- [修复：Agent Builder 初始化失败后被困在同一个项目里，怎么点都退不出去](2026-08-27/agent-builder-exit-failed-init.md) — Bug Fix / 外部 B
+- [修复：Agent Builder「仅自己可见」发布后 Agent 没被启动，装好了却用不了](2026-08-27/agent-builder-only-me-start-engine.md) — Bug Fix / 外部 B
+- [修复：Agent Builder 预览里 Agent 干完活却不「收尾」，一直显示进行中](2026-08-27/agent-builder-empty-engine-turns.md) — Bug Fix / 外部 B
+- [修复：Apple 渠道续费扣款成功，但会员权益没有恢复](2026-08-27/billing-apple-renewal-recovery.md) — Bug Fix / 外部 B
+- [修复：银行卡试用期显示剩余 300 多天，实际只有 7 天](2026-08-27/billing-card-trial-end.md) — Bug Fix / 外部 B
+- [修复：历史 Creem 渠道订阅在账单页点取消/管理会走错流程](2026-08-27/legacy-creem-billing-support.md) — Bug Fix / 外部 B
+- [邀请制登录改版：邀请码改为弹窗前置，不再让人干等一条永远不会到的短信](2026-08-27/invitation-login-dialog-gate.md) — 产品基础功能更新 / 外部 B
+- [邀请登录成功页新增 4 步进度清单，注册时不再对着静止页面猜进度](2026-08-27/invitation-login-progress-checklist.md) — 体验优化 / 外部 B
+- [模型显示名称改为按你当前所在组织的区域解析，个人账号也生效](2026-08-27/models-regional-display-org.md) — 体验优化 / 外部 B
+- [API Keys 页面重新排版：内容不再溢出，密钥弹窗和空状态更清爽](2026-08-27/api-keys-page-layout.md) — 体验优化 / 外部 B
+- [修复：侧边栏账户套餐卡片里的「管理」按钮被挤成两行](2026-08-27/user-menu-plan-card-layout.md) — 体验优化 / 外部 B
+- [侧边栏选中态改为纯色块，去掉左侧指示条和多余描边](2026-08-27/sidenav-selected-state.md) — 体验优化 / 外部 B
+- [关掉了那些内容已经过期的引导弹窗和功能发布弹窗](2026-08-27/hide-stale-popups.md) — 体验优化 / 外部 B
+- [官网首页恢复到已验收的版本，动效和交互细节全部回归](2026-08-27/marketing-homepage-restore.md) — 体验优化 / 外部 B
+
 ## 2026-08-26
 
 - [新版 Agent 运行时（V2）正式成为所有账号的默认运行环境](2026-08-26/agents-v2-default-runtime.md) — 产品基础功能更新 / 外部 A
