@@ -1,5 +1,15 @@
 # Updates Index
 
+## 2026-08-28
+
+- [Agent Builder 改为「项目」制，新增 My Agent 页面，Marketplace 只留公开市场](updates/2026-08-28/agent-builder-projects-my-agent.md) — 产品基础功能更新 / 外部 A
+- [聊天页可以单独更新某个 Agent，侧边栏交互重做并支持会话归档](updates/2026-08-28/chat-agent-update-session-sidebar.md) — 产品基础功能更新 / 外部 A
+- [聊天里的工具执行过程显示更准：失败就是失败，不会被后到的事件抹掉](updates/2026-08-28/chat-tool-activity-outcomes.md) — 体验优化 / 外部 B
+- [修复：Agent Builder 连点「刷新预览」会跑出两份，卡住还得人工修数据](updates/2026-08-28/agent-builder-duplicate-preview-refresh.md) — Bug Fix / 外部 B
+- [修复：Agent 刚发布就装「仅自己可见」会失败，其实只是运行环境还没建好](updates/2026-08-28/agent-builder-install-retry-env-building.md) — Bug Fix / 外部 B
+- [Agent Builder 项目列表整行可点，操作列不再挤成一团](updates/2026-08-28/agent-builder-project-list-interaction.md) — 体验优化 / 外部 B
+- [官网 About 页面改版：三平台并列换成一条完整的 ZooWork 故事线](updates/2026-08-28/marketing-about-page-refresh.md) — 体验优化 / 外部 B
+
 ## 2026-08-20
 
 - [修复：信用卡免费试用不再被立即扣费](2026-08-20/billing-airwallex-trial-immediate-charge.md) — Bug Fix / 外部 A
