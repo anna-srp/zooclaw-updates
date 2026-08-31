@@ -1,5 +1,9 @@
 # ZooClaw Changelog
 
+## 2026-08-30
+
+（今日无任何提交与用户可感知更新；ecap-skills 与 ecap-workspace 在 2026-08-30 (UTC) 均无 commit——ecap-workspace 最后一次提交停在 2026-08-29 09:53 UTC，ecap-skills 停在 2026-08-24。无 Agent Pack 上架/更新，pack_diff 扫描 10 个 active pack，updated_count = 0。当日为周日，符合无发版预期。以上已记入 raw。）
+
 ## 2026-08-29
 
 （今日无用户可感知更新；ecap-workspace 10 个 commit 中，7 个为 Agent Pack 跨环境迁移基建——导出为可移植 bundle、通过服务令牌通道导入、bootstrap/runtime-asset 通道支持可选 org_id、tar.gz 转 zip 兼容、CI 在生产集群内执行导出与私有依赖鉴权、staging 运行时资产网关配置回滚——均为内部工具与 CI/配置改动，用户无感；另 2 个为 dependabot 依赖升级（ruff、openai）。ecap-skills 今日无提交。无 Agent Pack 上架/更新，pack_diff 扫描 10 个 active pack，updated_count = 0。以上均已记入 raw 与飞书「后端功能」。）
