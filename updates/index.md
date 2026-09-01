@@ -1,5 +1,15 @@
 # Updates Index
 
+## 2026-08-31
+
+- [个人 MCP 支持「托管身份」接入：不用再自己贴 Token，凭证也不落库](2026-08-31/mcp-managed-identity-personal.md) — 产品基础功能更新 / 外部 A
+- [Engine 工作区可以选「Auto」模型了：按任务难度自动在模型梯队里挑](2026-08-31/agents-auto-model-routing-ladder.md) — 产品基础功能更新 / 外部 A
+- [官网首页头图改版：新文案、新视觉素材，页脚 tagline 一并更新](2026-08-31/landing-homepage-hero-refresh.md) — 体验优化 / 外部 B
+- [设置里的主题皮肤：默认皮肤 Paper Focus 排到第一位，也可以主动选回来](2026-08-31/settings-default-theme-skin-first.md) — 体验优化 / 外部 B
+- [修复：Agent Builder 里一步工具失败，整个活动就被标成「失败」并卡住计时](2026-08-31/agent-builder-recoverable-step-status.md) — Bug Fix / 外部 B
+- [修复：Agent 详情弹窗里的长分享链接会撑破弹窗边界](2026-08-31/agent-builder-share-link-overflow.md) — Bug Fix / 外部 B
+- [修复：企业管理后台的账号菜单里不显示头像](2026-08-31/enterprise-admin-account-avatar.md) — Bug Fix / 外部 B
+
 ## 2026-08-28
 
 - [Agent Builder 改为「项目」制，新增 My Agent 页面，Marketplace 只留公开市场](2026-08-28/agent-builder-projects-my-agent.md) — 产品基础功能更新 / 外部 A
