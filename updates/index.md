@@ -1,5 +1,17 @@
 # Updates Index
 
+## 2026-09-01
+
+- [产品正式更名 ZooWork：全站用户可见文案、图标与分享信息统一切换](2026-09-01/brand-zoowork-user-facing-rebrand.md) — 产品基础功能更新 / 外部 A
+- [Agent Builder 取消项目数量上限：项目随用随建，闲置自动回收、归档才彻底清理](2026-09-01/agent-builder-project-lifecycle.md) — 产品基础功能更新 / 外部 A
+- [Agent Pack 可以自带专属新手引导：装完 Agent 跑的是 Pack 作者写的开场流程](2026-09-01/agents-pack-owned-onboarding.md) — 产品基础功能更新 / 外部 B
+- [iOS App 引导流程换新：ZooWork 品牌视觉与欢迎页改版](2026-09-01/ios-zoowork-onboarding-branding.md) — 体验优化 / 外部 B
+- [修复：设成深色主题后一刷新就变回浅色](2026-09-01/web-dark-theme-persist-refresh.md) — Bug Fix / 外部 B
+- [修复：订阅还有大半年到期，侧边栏就一直挂着红色到期警告](2026-09-01/billing-sidebar-expiry-warning-window.md) — Bug Fix / 外部 B
+- [修复：老价格档位的订阅在升级/续费/降级时被拦下来](2026-09-01/billing-historical-airwallex-price-ids.md) — Bug Fix / 外部 B
+- [修复：关掉「显示工具执行过程」后，助手回复的头像会消失](2026-09-01/chat-avatar-hidden-tool-steps.md) — Bug Fix / 外部 B
+- [修复：额度用尽后新版图片模型没有降级路线，生图直接失败](2026-09-01/billing-image-model-degradation-mapping.md) — Bug Fix / 外部 B
+
 ## 2026-08-31
 
 - [个人 MCP 支持「托管身份」接入：不用再自己贴 Token，凭证也不落库](2026-08-31/mcp-managed-identity-personal.md) — 产品基础功能更新 / 外部 A
