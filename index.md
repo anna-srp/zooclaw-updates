@@ -1,5 +1,30 @@
 # Updates Index
 
+## 2026-09-02
+
+- [飞书渠道升级：Agent 能直接读写飞书云文档、云盘和知识库](updates/2026-09-02/channels-feishu-document-capabilities.md) — 产品基础功能更新 / 外部 A
+- [钉钉可以接入 Engine Agent 了：扫码绑定，几步接完](updates/2026-09-02/channels-dingtalk-engine-agents.md) — 产品基础功能更新 / 外部 A
+- [Council Skill 大幅提速：V2 环境下从 8 分钟卡顿降回半分钟量级](updates/2026-09-02/skill-council-v2-council-performance.md) — Skill 上架/更新 / 外部 B
+- [iOS 侧边栏改版：交互重做、草稿会话不再乱窜，展开会话也不再压住下一行](updates/2026-09-02/ios-sidebar-draft-conversation.md) — 体验优化 / 外部 B
+- [聊天输入框：粘贴的链接完整可点，非图片附件改成卡片显示](updates/2026-09-02/chat-pasted-links-and-upload-cards.md) — 体验优化 / 外部 B
+- [官网 URL 体系统一：多语言地址、跳转与站点地图有了唯一事实来源](updates/2026-09-02/seo-zoowork-url-sitemap-contract.md) — 体验优化 / 外部 B
+- [修复：iPhone 上切换账号后，推送还会串到上一个账号](updates/2026-09-02/ios-apns-push-account-isolation.md) — Bug Fix / 外部 B
+- [修复：企业版「无限额度」成员的用量页永远显示 0](updates/2026-09-02/billing-business-member-llm-usage-tracking.md) — Bug Fix / 外部 B
+- [修复：垂直行业套餐里的 Agent 有新版本也不提示更新](updates/2026-09-02/agents-vertical-pack-update-prompt.md) — Bug Fix / 外部 B
+- [修复：Agent Pack 测试预览有时读不到技能内容](updates/2026-09-02/pack-test-preview-sandbox-readiness.md) — Bug Fix / 外部 B
+
+## 2026-09-01
+
+- [产品正式更名 ZooWork：全站用户可见文案、图标与分享信息统一切换](updates/2026-09-01/brand-zoowork-user-facing-rebrand.md) — 产品基础功能更新 / 外部 A
+- [Agent Builder 取消项目数量上限：项目随用随建，闲置自动回收、归档才彻底清理](updates/2026-09-01/agent-builder-project-lifecycle.md) — 产品基础功能更新 / 外部 A
+- [Agent Pack 可以自带专属新手引导：装完 Agent 跑的是 Pack 作者写的开场流程](updates/2026-09-01/agents-pack-owned-onboarding.md) — 产品基础功能更新 / 外部 B
+- [iOS App 引导流程换新：ZooWork 品牌视觉与欢迎页改版](updates/2026-09-01/ios-zoowork-onboarding-branding.md) — 体验优化 / 外部 B
+- [修复：设成深色主题后一刷新就变回浅色](updates/2026-09-01/web-dark-theme-persist-refresh.md) — Bug Fix / 外部 B
+- [修复：订阅还有大半年到期，侧边栏就一直挂着红色到期警告](updates/2026-09-01/billing-sidebar-expiry-warning-window.md) — Bug Fix / 外部 B
+- [修复：老价格档位的订阅在升级/续费/降级时被拦下来](updates/2026-09-01/billing-historical-airwallex-price-ids.md) — Bug Fix / 外部 B
+- [修复：关掉「显示工具执行过程」后，助手回复的头像会消失](updates/2026-09-01/chat-avatar-hidden-tool-steps.md) — Bug Fix / 外部 B
+- [修复：额度用尽后新版图片模型没有降级路线，生图直接失败](updates/2026-09-01/billing-image-model-degradation-mapping.md) — Bug Fix / 外部 B
+
 ## 2026-08-31
 
 - [个人 MCP 支持「托管身份」接入：不用再自己贴 Token，凭证也不落库](updates/2026-08-31/mcp-managed-identity-personal.md) — 产品基础功能更新 / 外部 A

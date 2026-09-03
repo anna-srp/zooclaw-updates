@@ -1,5 +1,18 @@
 # Updates Index
 
+## 2026-09-02
+
+- [飞书渠道升级：Agent 能直接读写飞书云文档、云盘和知识库](2026-09-02/channels-feishu-document-capabilities.md) — 产品基础功能更新 / 外部 A
+- [钉钉可以接入 Engine Agent 了：扫码绑定，几步接完](2026-09-02/channels-dingtalk-engine-agents.md) — 产品基础功能更新 / 外部 A
+- [Council Skill 大幅提速：V2 环境下从 8 分钟卡顿降回半分钟量级](2026-09-02/skill-council-v2-council-performance.md) — Skill 上架/更新 / 外部 B
+- [iOS 侧边栏改版：交互重做、草稿会话不再乱窜，展开会话也不再压住下一行](2026-09-02/ios-sidebar-draft-conversation.md) — 体验优化 / 外部 B
+- [聊天输入框：粘贴的链接完整可点，非图片附件改成卡片显示](2026-09-02/chat-pasted-links-and-upload-cards.md) — 体验优化 / 外部 B
+- [官网 URL 体系统一：多语言地址、跳转与站点地图有了唯一事实来源](2026-09-02/seo-zoowork-url-sitemap-contract.md) — 体验优化 / 外部 B
+- [修复：iPhone 上切换账号后，推送还会串到上一个账号](2026-09-02/ios-apns-push-account-isolation.md) — Bug Fix / 外部 B
+- [修复：企业版「无限额度」成员的用量页永远显示 0](2026-09-02/billing-business-member-llm-usage-tracking.md) — Bug Fix / 外部 B
+- [修复：垂直行业套餐里的 Agent 有新版本也不提示更新](2026-09-02/agents-vertical-pack-update-prompt.md) — Bug Fix / 外部 B
+- [修复：Agent Pack 测试预览有时读不到技能内容](2026-09-02/pack-test-preview-sandbox-readiness.md) — Bug Fix / 外部 B
+
 ## 2026-09-01
 
 - [产品正式更名 ZooWork：全站用户可见文案、图标与分享信息统一切换](2026-09-01/brand-zoowork-user-facing-rebrand.md) — 产品基础功能更新 / 外部 A
