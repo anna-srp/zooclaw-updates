@@ -1,0 +1,92 @@
+{
+  "first_run": false,
+  "total_packs": 10,
+  "updated_count": 1,
+  "updated": [
+    {
+      "display_id": "bossclaw",
+      "pack_name": "BossClaw · 老板专属幕僚长",
+      "category": "productivity",
+      "requires_payment": false,
+      "latest_version": "0.1.30",
+      "total_versions": 25,
+      "is_new_pack": false,
+      "has_update": true,
+      "diff": {
+        "versions": 25,
+        "from": "0.1.29",
+        "to": "0.1.30",
+        "added": [],
+        "removed": [],
+        "modified": [
+          "./.agents/skills/boss-detail-page/SKILL.md",
+          "./.agents/skills/boss-meeting/SKILL.md",
+          "./.agents/skills/boss-profile/SKILL.md",
+          "./.agents/skills/boss-radar/SKILL.md",
+          "./.agents/skills/boss-radar/scripts/monitor_backup.py",
+          "./.agents/skills/boss-radar/scripts/wechat_mp.py",
+          "./.agents/skills/boss-reply/SKILL.md",
+          "./.agents/skills/boss-triage/SKILL.md",
+          "./.agents/skills/boss-video/SKILL.md",
+          "./.agents/skills/boss-voice/SKILL.md",
+          "./.agents/skills/video-subtitle/SKILL.md",
+          "./AGENTS.md",
+          "./agent-pack.yaml"
+        ],
+        "_dir": "/tmp/pk-Lcxhwd"
+      }
+    }
+  ],
+  "all": [
+    {
+      "display_id": "bossclaw",
+      "latest_version": "0.1.30",
+      "total_versions": 25
+    },
+    {
+      "display_id": "motion-video",
+      "latest_version": "0.2.3",
+      "total_versions": 3
+    },
+    {
+      "display_id": "zoodance_vibe_drama",
+      "latest_version": "1.0.12",
+      "total_versions": 2
+    },
+    {
+      "display_id": "slide-master",
+      "latest_version": "0.4.3",
+      "total_versions": 10
+    },
+    {
+      "display_id": "video-duplicate",
+      "latest_version": "1.9.7",
+      "total_versions": 2
+    },
+    {
+      "display_id": "pptx_master",
+      "latest_version": "2.0.9",
+      "total_versions": 1
+    },
+    {
+      "display_id": "soulmate",
+      "latest_version": "1.0.1",
+      "total_versions": 1
+    },
+    {
+      "display_id": "deco",
+      "latest_version": "0.3.1",
+      "total_versions": 1
+    },
+    {
+      "display_id": "amazon-analyst",
+      "latest_version": "1.0.0",
+      "total_versions": 1
+    },
+    {
+      "display_id": "oura_ring",
+      "latest_version": "1.0.0",
+      "total_versions": 1
+    }
+  ]
+}

@@ -1,5 +1,14 @@
 # Updates Index
 
+## 2026-09-03
+
+- [聊天里能看到「Agent 派给子任务的活干到哪了」](updates/2026-09-03/chat-delegated-work-progress.md) — 产品基础功能更新 / 外部 A
+- [BossClaw 更新至 0.1.30：公众号监控改按原始ID 抓取，技能触发更准](updates/2026-09-03/pack-bossclaw-0-1-30.md) — Skill 上架/更新 / 外部 B
+- [侧边栏「休眠 Asleep」改成更明确的「已暂停 Paused」](updates/2026-09-03/sidenav-paused-state-copy.md) — 体验优化 / 外部 B
+- [模型降级提示条恢复中性配色，不再像报错](updates/2026-09-03/chat-degradation-banner-restyle.md) — 体验优化 / 外部 B
+- [修复：个人版用户在境外用邮箱登录会被区域校验挡住](updates/2026-09-03/auth-personal-org-region-email-login.md) — Bug Fix / 外部 B
+- [修复：企业套餐付款链接过期后重复拿到同一条打不开的链接](updates/2026-09-03/billing-airwallex-checkout-link-refresh.md) — Bug Fix / 外部 B
+
 ## 2026-09-02
 
 - [飞书渠道升级：Agent 能直接读写飞书云文档、云盘和知识库](updates/2026-09-02/channels-feishu-document-capabilities.md) — 产品基础功能更新 / 外部 A
