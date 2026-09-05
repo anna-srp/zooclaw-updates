@@ -1,5 +1,15 @@
 # Updates Index
 
+## 2026-09-04
+
+- [Agent 主人可以「收权」了：给自家 Agent 关掉不想让它碰的工具和技能](updates/2026-09-04/agents-harden-tool-skill-surface.md) — 产品基础功能更新 / 外部 A
+- [账单页可以直接下载发票了：Stripe 跳托管发票页，Airwallex 直接给 PDF](updates/2026-09-04/billing-provider-invoice-downloads.md) — 产品基础功能更新 / 外部 A
+- [修复：换套餐或换支付方式后，付款页还停在旧的那一单](updates/2026-09-04/billing-checkout-intent-switch.md) — Bug Fix / 外部 B
+- [新增飞书多维表格 Skill：Agent 能直接读你贴过来的 Bitable 链接](updates/2026-09-04/skill-feishu-bitable-managed.md) — Skill 上架/更新 / 外部 B
+- [修复：更新从旧版迁移来的 Agent 前，会先问你一句「这会暂停同机的其他 Agent」](updates/2026-09-04/agents-shared-computer-update-confirmation.md) — Bug Fix / 外部 B
+- [修复：新建的个人组织被默默打上「中国区」标记，导致境外邮箱登录被挡](updates/2026-09-04/auth-org-implicit-cn-region.md) — Bug Fix / 外部 B
+- [iOS App 名字正式改成 ZooWork](updates/2026-09-04/ios-app-display-name-zoowork.md) — 体验优化 / 外部 B
+
 ## 2026-09-03
 
 - [聊天里能看到「Agent 派给子任务的活干到哪了」](updates/2026-09-03/chat-delegated-work-progress.md) — 产品基础功能更新 / 外部 A
