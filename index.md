@@ -1,5 +1,11 @@
 # Updates Index
 
+## 2026-09-05
+
+- [修复：从旧版迁移过来的账号装不了垂直行业 Agent 包](updates/2026-09-05/vertical-pack-install-runtime-delegation.md) — Bug Fix / 外部 B
+- [官网首页：已登录用户点 Get Started 时会显示「正在跳转」，不再像是没点上](updates/2026-09-05/landing-redirect-progress-feedback.md) — 体验优化 / 外部 B
+- [修复：升级套餐面板标题偏心、月付价格末尾的 0 被裁掉](updates/2026-09-05/billing-upgrade-panel-title-price-clipping.md) — Bug Fix / 外部 B
+
 ## 2026-09-04
 
 - [Agent 主人可以「收权」了：给自家 Agent 关掉不想让它碰的工具和技能](updates/2026-09-04/agents-harden-tool-skill-surface.md) — 产品基础功能更新 / 外部 A
