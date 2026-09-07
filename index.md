@@ -1,5 +1,9 @@
 # Updates Index
 
+## 2026-09-06
+
+- 本日无用户可感知更新（ecap-skills / ecap-workspace 均无 commit）。
+
 ## 2026-09-05
 
 - [修复：从旧版迁移过来的账号装不了垂直行业 Agent 包](updates/2026-09-05/vertical-pack-install-runtime-delegation.md) — Bug Fix / 外部 B
