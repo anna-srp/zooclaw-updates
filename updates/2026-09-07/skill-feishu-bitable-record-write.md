@@ -61,4 +61,4 @@ configuration, and run a one-record create/read/update/read E2E before productio
 
 ## 备注
 
-发布状态：已合并待发版。Skill 走 ClawHub 独立分发，且本次依赖 Engine 侧改动先部署；PR 自述的 rollout 要求先上 staging 跑通「建一条 → 读 → 改 → 再读」的 E2E 才推生产。
+发布状态：未知/需确认（回扫脚本判定）。Skill 走 ClawHub 独立分发，仓库 release tag 不适用，且本次依赖 Engine 侧改动先部署；PR 自述的 rollout 要求先上 staging 跑通「建一条 → 读 → 改 → 再读」的 E2E 才推生产。
