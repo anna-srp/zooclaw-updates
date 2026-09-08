@@ -1,5 +1,12 @@
 # Updates Index
 
+## 2026-09-07
+
+- [修复：雇 BossClaw 一直卡在「Agent 环境仍在构建中」](updates/2026-09-07/agents-fontconfig-package-mapping.md) — Bug Fix / 外部 B
+- [飞书多维表格 Skill 升级 1.1：Agent 不只能读表，现在能写记录了](updates/2026-09-07/skill-feishu-bitable-record-write.md) — Skill 上架/更新 / 外部 B
+- [修复：聊天记录里那条永远转圈的「routing decision」不见了](updates/2026-09-07/chat-hide-routing-decision-progress.md) — Bug Fix / 外部 B
+- [BossClaw 更新至 0.1.31：九个技能的触发描述恢复完整版，少认错活](updates/2026-09-07/pack-bossclaw-0-1-31.md) — Skill 上架/更新 / 外部 B
+
 ## 2026-09-06
 
 - 本日无用户可感知更新（ecap-skills / ecap-workspace 均无 commit）。

@@ -1,0 +1,11 @@
+[
+  {
+    "sha": "8a5aac4e1955a07435e200537d91c943f8891140",
+    "author": "sharplee-srp",
+    "date": "2026-09-07T02:51:27Z",
+    "title": "feat(feishu): enable Bitable record-write guidance (#277)",
+    "message": "feat(feishu): enable Bitable record-write guidance (#277)\n\n## Summary\n\n- update the `feishu-bitable` skill to version 1.1 for native record\nwrites\n- document `create_record` and `update_record` as the current write\nsurface\n- keep app and field creation explicitly marked as a later phase\n- add field-shape, pagination, write verification, and unknown-outcome\nsafety guidance\n\n## Context\n\nThis is the skill-layer companion to\n`SerendipityOneInc/zooclaw-engine#1245`. The ACS executor dependency is\nalready merged in `SerendipityOneInc/agent-channel-service#107`.\n\n## Validation\n\n- `python3 .github/scripts/lint_skills.py` — passed with 12 unrelated\nexisting warnings\n- `git diff --check origin/main...HEAD`\n\n## Rollout\n\nPublish to staging after the Engine change is deployed, refresh the test\nAgent configuration, and run a one-record create/read/update/read E2E\nbefore production promotion.",
+    "pr_number": "277",
+    "pr_body": "## Summary\n\n- update the `feishu-bitable` skill to version 1.1 for native record writes\n- document `create_record` and `update_record` as the current write surface\n- keep app and field creation explicitly marked as a later phase\n- add field-shape, pagination, write verification, and unknown-outcome safety guidance\n\n## Context\n\nThis is the skill-layer companion to `SerendipityOneInc/zooclaw-engine#1245`. The ACS executor dependency is already merged in `SerendipityOneInc/agent-channel-service#107`.\n\n## Validation\n\n- `python3 .github/scripts/lint_skills.py` — passed with 12 unrelated existing warnings\n- `git diff --check origin/main...HEAD`\n\n## Rollout\n\nPublish to staging after the Engine change is deployed, refresh the test Agent configuration, and run a one-record create/read/update/read E2E before production promotion.\n"
+  }
+]
