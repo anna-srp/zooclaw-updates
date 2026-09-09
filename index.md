@@ -1,5 +1,12 @@
 # Updates Index
 
+## 2026-09-08
+
+- [ZooClaw Desktop 能接远程 V2 Agent 了，也能挂本地 Codex / Claude Code](updates/2026-09-08/desktop-dsh-acp-remote-local-agents.md) — 产品基础功能更新 / 外部 S
+- [上线企业官网页 /business：十种语言、动效架构图、Book a demo 一键回到表单](updates/2026-09-08/business-enterprise-landing-page.md) — 产品基础功能更新 / 外部 S
+- [BossClaw 更新至 0.1.32：砍掉每小时保活轮询，改成「每天回我一句就不会断」](updates/2026-09-08/pack-bossclaw-0-1-32.md) — Skill 上架/更新 / 外部 B
+- [组织里别人上传的 Agent 包，现在每个成员都能在「我的 Agent」里看到并安装了](updates/2026-09-08/agents-org-published-packs-visibility.md) — Bug Fix / 外部 B
+
 ## 2026-09-07
 
 - [修复：雇 BossClaw 一直卡在「Agent 环境仍在构建中」](updates/2026-09-07/agents-fontconfig-package-mapping.md) — Bug Fix / 外部 B
