@@ -1,5 +1,34 @@
 # ZooClaw Changelog
 
+## 2026-09-09
+
+### ✨ 产品功能
+
+**自进化 Agent 上线：在同一个任务工作区里边聊边改，Agent 自己升级自己**
+
+Agent Builder 换了范式：你创建的不再是一份「待构建的配置」，而是一个当场就能跑的真 Agent；之后想改它，就在 Build 里跟它对话，它通过源码 Revision 升级自己——没有 Pack 打包流水线，没有 archive 构建，也没有另外那个「负责帮你造 Agent 的 Agent」。Build 用的就是正常聊天界面，消息、历史、附件走现有 ACS/Engine 通道，Build 有独立会话；普通任务线程会在你下一次开口时自动用上最新配置。改动自动提交并生效，Preview / Activate / My Team 发布整套流程从这个功能里移除。Agent 成了导航的一级对象，名下直接挂着任务、Build、产物、定时任务、已连接渠道。能改的东西挺全：源文件、技能、头像都能写；分享链接装进来的是一份独立可编辑的副本；另有 14 天活跃度与会话量的批量快查。老入口退场：全局 marketplace 与旧版 Builder 导航、旧的 project 创建流程一并下线，已有旧 project 仍可从 Agents → Legacy agent projects 继续编辑。这次是「合并 + 全量复审 + 修复」一起落的：三个独立 Agent 分别复审 Web、business/backend、Engine/ACS 三条线，结论逐条对着当前源码与已确认的产品决策裁决后才修。几处收口值得一提——授权对话绑定到当次精确的运行配置（含最新渠道/MCP 凭据），重试与已提交的工具回执保留原快照；共享安装锁下加了持久化配额预留、同键单次执行、失败运行时清理；创建、分享安装、源码提交强制走正常套餐的模型权限；依赖重建冲突会显式告知「已保存但未应用」，不会偷偷打断正在跑的任务。同日跟了三条修复：Artifacts 页对自进化 Agent 报「Agent runtime state could not be verified」已修（改用 `runtime_actor` 解析运行时归属）；创建时填的意图现在会自动作为 Build 的第一句话发出去，不用再手打一遍（同时校验 4,000 字符消息上限，避免创建出首条消息发不出去的 Agent）；分享安装预览报 `Internal Server Error` 也已修（部署环境的 CSFLE 加密客户端在执行前就拒绝跨集合 `$lookup`，改为按 owner/org 限定的有界单集合读取 + 批量关联）。
+
+### 🐛 问题修复
+
+**Desktop 恢复旧会话时报「Invalid MCP bridge credential」、一个大文件把整条连接搞断**
+
+昨天上线的 Desktop 接远程 V2 Agent 暴露了三个问题，一并修掉。其一，接着聊旧会话就报凭据失效：Engine 按 Agent 配置版本持久化 MCP 工具目录，而 Claw Interface 此前每次 prompt 都用随机 bridge ID 生成 Engine 侧服务名和凭据，恢复旧会话时它照着记忆里的老工具名去调，那条临时路由早没了。现在工具名、公开路由和凭据在 DSH 轮换临时 ACP `serverId` 时保持稳定；每个稳定的 Engine MCP server 路由到当前连着的那台 Desktop，重复声明被拒绝，冲突的个人 MCP 配置被保留。其二，一个超大的本地工具返回值能把整条 ACP 连接干掉：中继此前把任何超过 1 MiB 传输上限的响应当致命错误，现在改成返回有界的 JSON-RPC 错误、连接不断，混在同一批里的响应与通知都能保留，桥接拆除后 MCP SSE 流干净收尾。其三，旧的 FastClaw Desktop node 自动连接是无条件启动的，可现在可用的 Desktop Agent 目标走 Mattermost 或 DSH，于是它持续重试 `/openclaw/settings/desktop-pair`、还重复了 MCP-over-ACP 已提供的本地工具路径；这次把它与对应的渲染进程 IPC 面一起停用，Desktop 工作目录控制保留。不需要新环境变量，稳定路由凭据是从既有 `SECRET_KEY` 派生的按域分隔 HMAC。
+
+**企业后台明明是团队管理员，买垂直行业 Pack 却被拦「仅企业账号可购买」**
+
+有客户报障：两个 Business 账号在生产环境都是团队管理员，后端也确实接受了结账（当天两次 purchase 请求均返回 201），但页面就是弹「只有企业账号才能购买」——那这个判断只能是拿另一个身份算出来的。根因两条一起收掉。一是身份来源有两个还会打架：Business 与主站共用会话 Cookie，但它此前还会读遗留的 localStorage 账号 token，而 BFF 转发时优先用 `Authorization` 头，于是浏览器里一个过期旧 token 反而能盖掉正确的 Cookie 身份；现在身份和全部 `/api/claw/*`、`/api/auth/me`、`/api/r2/*` 调用只认 `zc_session` Cookie，遗留 key 在下次身份加载时被清除。二是身份过期不刷新：身份查询用了 `staleTime: Infinity`，在别的标签页换了账号、Cookie 变了，这个页面还拿着旧组织在用；现在切回标签页/网络重连时刷新身份，进入垂直行业 Pack 结账页时也刷，身份请求与 `/api/auth/me` 响应一律禁用 HTTP 缓存，退出登录改成等服务端确认删掉 Cookie 之后才清客户端查询并跳转，失败给本地化提示。另外结账页现在直接显示购买人——头像、姓名、邮箱、组织、Business/Personal 标签，付款状态与拦截状态都显示，付款状态下还加了「不是你？切换账号」；以前客户截图过来谁也看不出那一刻用的是哪个账号。共用 Cookie 名与域、遗留 token 兼容性、后端购买授权逻辑均未改动。
+
+### 💫 体验优化
+
+**用量账单里的「Unknown」终于说清楚了：运行环境计算独立成一类**
+
+看用量明细时有一块积分一直归到 Unknown 里，谁也说不清那是什么钱。原因很实在：沙箱运行环境的计费事件带 `usage_type` 但没有模型字段，而用量看板按模型分组，没模型的就全掉进「未知」。现在读取 Lago 事件时会识别 `usage_type=sandbox_compute`，在主站和企业后台都显示为 Compute / 运行环境计算，图表悬浮提示里也一样，存量事件直接受益，不需要重写或重新上报任何计费数据。顺带把文案理顺：标题、空状态、汇总从只说「模型」改成「模型与服务」；事件数改称 usage records / 计费记录数——一条 compute 事件代表一段已完成的执行，叫「记录数」比「调用次数」准确；另修了主站汇总的一处 fallback bug，金额带小数时会把中文翻译丢掉。没变的部分：API 字段、积分计算方式、事件计数、时间分桶、模型显示名 fallback，以及那些真正未知的用量——后者仍照实显示为未知，不会被硬塞进 Compute。需部署 claw-interface、web/app、web/enterprise-admin 三者才能拿到完整显示效果。
+
+**新建 Bot 的默认模型统一切到 GPT-5.6 Terra**
+
+新建 Bot 的默认模型换成 GPT-5.6 Terra。之前的改动只覆盖 V1 套餐默认值，而「模型目录里哪个标为默认」和「V2 创建入口用哪个」各有一套独立配置，同一个产品里冒出三个不一样的默认答案，这次对齐成一个：四个套餐加未知套餐的 fallback 都用 `gpt-5.6-terra`，V1 创建与配置缺失回填派生为 `openai/gpt-5.6-terra`；模型目录即使把 Claude 列在前面，标为默认的是 Terra，并保留「默认模型不可用时自动选第一个有权限的模型」这个既有行为；V2 主 Agent 以及解析不出默认模型的 Pack 安装会显式传入 `litellm/gpt-5.6-terra`；`.env.example` 同步了两个设置，防止示例里的 Claude 或空字符串盖掉新的代码默认值。不影响现有东西：已建好的 V1/V2 Agent、会话里已固定的模型、Pack 里显式指定且可用的模型全部保持原值。这不是强制迁移，也没有全局隐藏 Claude——只是「你什么都不选时给你哪个」变了。
+
+
 ## 2026-09-08
 
 ### ✨ 产品功能

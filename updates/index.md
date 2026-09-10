@@ -1,5 +1,13 @@
 # Updates Index
 
+## 2026-09-09
+
+- [自进化 Agent 上线：在同一个任务工作区里边聊边改，Agent 自己升级自己](2026-09-09/agents-self-evolving-unified-task-workspace.md) — 产品基础功能更新 / 外部 S
+- [修复：Desktop 恢复旧会话时报「Invalid MCP bridge credential」、一个大文件把整条连接搞断](2026-09-09/desktop-acp-mcp-session-stability.md) — Bug Fix / 外部 A
+- [修复：企业后台明明是团队管理员，买垂直行业 Pack 却被拦「仅企业账号可购买」](2026-09-09/business-identity-and-checkout-purchaser.md) — Bug Fix / 外部 B
+- [用量账单里的「Unknown」终于说清楚了：运行环境计算独立成一类](2026-09-09/billing-compute-usage-classification.md) — 体验优化 / 外部 B
+- [新建 Bot 的默认模型统一切到 GPT-5.6 Terra](2026-09-09/chat-default-model-gpt-56-terra.md) — 体验优化 / 外部 B
+
 ## 2026-09-05
 
 - [修复：从旧版迁移过来的账号装不了垂直行业 Agent 包](2026-09-05/vertical-pack-install-runtime-delegation.md) — Bug Fix / 外部 B
