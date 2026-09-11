@@ -1,5 +1,15 @@
 # Updates Index
 
+## 2026-09-10
+
+- [Agents 导航大统一：一个 Agent 名下直接挂任务、Build、产物、定时任务和渠道，旧版 project 也能继续用](updates/2026-09-10/agents-unified-navigation-legacy-access.md) — 产品基础功能更新 / 外部 S
+- [付费套餐的 Agent 安装上限大幅放开：Starter / Pro / Ultra 提到 20 / 40 / 100](updates/2026-09-10/agents-paid-plan-install-limits.md) — 产品基础功能更新 / 外部 A
+- [企业官网的联系表单终于真的能收到线索了：提交落库 + 飞书机器人实时通知](updates/2026-09-10/business-contact-submission-and-feishu-notify.md) — 产品基础功能更新 / 外部 A
+- [修复：跨组织分享的 Agent 包装过来后技能缺依赖环境、Fire 按钮在 Engine 断连时误禁用](updates/2026-09-10/agents-shared-pack-environment-and-permissions.md) — Bug Fix / 外部 A
+- [修复：Agent 配了 MCP 的「直连」模式，被一次无关的同步悄悄改回「延迟」；部分 Agent 整体读取失败](updates/2026-09-10/mcp-exposure-preserved-through-sync.md) — Bug Fix / 外部 B
+- [修复：子任务失败重试成功后，活动摘要还一直挂着「Delegated work · needs attention」](updates/2026-09-10/chat-subagent-activity-summary.md) — Bug Fix / 外部 B
+- [API 快速入门链接直接指向 ZooWork 域名，不再先闪一下旧地址](updates/2026-09-10/settings-api-quickstart-zoowork-domain.md) — 体验优化 / 外部 B
+
 ## 2026-09-09
 
 - [自进化 Agent 上线：在同一个任务工作区里边聊边改，Agent 自己升级自己](updates/2026-09-09/agents-self-evolving-unified-task-workspace.md) — 产品基础功能更新 / 外部 S

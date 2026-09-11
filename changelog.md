@@ -1,5 +1,42 @@
 # ZooClaw Changelog
 
+## 2026-09-10
+
+### ✨ 产品功能
+
+**Agents 导航大统一：一个 Agent 名下直接挂任务、Build、产物、定时任务和渠道，旧版 project 也能继续用**
+
+昨天上线的「自进化 Agent」把 Agent 变成了导航的一级对象，今天把这套导航正式铺满：全局 Agents 导航与 V2 工作区合并成一套，不再有两个平行入口。导航结构收敛为五个分页的 Agent 快捷入口 + 固定的 Main 入口，外加 Connector / MCP / Skills / Knowledge Base 直达链接；Main 仍保持不可构建，已有的运行时 ID、任务、渠道和定时任务全部原样保留。旧版 Agent 不用先迁移也能继续干活——没有可编辑基线的遗留 Agent 照样能用任务、历史、产物、定时任务和渠道，只有 Build、Agent Settings、Share、Rename 需要基线，Delete 沿用原有确认与生命周期、Main 依旧受保护。基线是从「你实际装的那份源」原地准备的，persona 文件、私有/全局 skill 归属、运行时配置和 environment pin 都保留，本版无 Engine/ACS 改动、无数据库迁移。全局 New Task 现在可以直接挑 Agent：自建的、别人分享的、遗留的都能选，走现有会话/对话通道；底部「Hire more Agents」页脚移除。这次合并同样带了三路独立复审（前端、business API、基线/运行时源行为），提交前修掉的问题包括补回丢失的固定 Main 入口（但不让 Main 变成可编辑）、模型选择器改用 Revision 提交而不是那个会拒绝定义编辑的遗留接口。
+
+**付费套餐的 Agent 安装上限大幅放开：Starter / Pro / Ultra 提到 20 / 40 / 100**
+
+付费套餐能装的 Agent 数量翻了四到五倍：Starter 从 5 提到 20，Pro 从 10 提到 40，Ultra 从 20 提到 100。之前的问题挺尴尬——付费订阅还在用最早那套很低的上限，Starter 用户建到第 6 个 Agent 定义就会直接撞上 `agent.limit_exceeded`，花了钱却和免费版几乎一样紧。这次放开的是后端共享策略，所以四个入口一起生效：Agent 定义创建、Engine 安装、Computer 安装、批量安装。边界不变：免费版和已过期订阅仍然是 5 个上限，已有的垂直行业 Pack 豁免规则保持不变，未知套餐仍 fallback 到 Starter 策略——现在也就是 20。仅需后端部署，无数据库迁移、无前端部署。
+
+**企业官网的联系表单终于真的能收到线索了：提交落库 + 飞书机器人实时通知**
+
+9 月 8 日上线的企业官网页 `/business` 有个相当致命的问题：联系表单提交后显示成功，但线索根本没送出去。今天两条 PR 一起把链路补齐。第一步，提交真的走后端了：表单改为提交到免鉴权的 `POST /business/contact`，只有后端确认收到才显示成功，pending / error 状态也都如实呈现；邮箱做 Pydantic 显式校验，service 字段接受自由文本（直接用现有下拉框文案，不引入枚举和映射层），被接受的提交以单行 JSON 记到 `business_contact_submitted` 日志；前端 auth 中间件只放通这一个匹配的 POST，仍复用现有 claw 代理。第二步，有人提交会立刻在飞书里响：记完日志后可选地向飞书机器人发一条可读消息，带上来源 `zoowork-business`、邮箱和咨询服务，走 `aiohttp` 后台任务、5 秒超时，通知失败不会导致提交失败，也不会把 webhook 打进日志。配置上新增环境变量 `BUSINESS_CONTACT_FEISHU_WEBHOOK_URL`，默认空、不配则跳过通知；生产需在 Vault KV `srp/ecap/claw-interface/env` 配置并滚动后端加载。部署顺序：先后端，再前端。注意联系人信息目前只记录在应用日志里，没有进 CRM 或数据库表。
+
+### 🐛 问题修复
+
+**跨组织分享的 Agent 包装过来后技能缺依赖环境、Fire 按钮在 Engine 断连时误禁用**
+
+分享安装链路上的两个问题一起修掉。其一，共享 Pack 现在会带上它自己那份精确的 Environment：此前安装器对非官方 Pack、跨组织分享的情况会丢弃 Environment pin，技能装过来了但依赖的那套环境没跟着，而作者自己预览时用的却是专门构建的环境——于是「在作者那儿好好的，装到我这儿就跑不起来」。现在在原有 Pack 访问校验之后，安装和更新都会先为接收方组织授权那份与已批准运行时 archive 匹配的 Environment build，再创建/更新 Agent。存量也一并照顾：更新时即使 archive SHA 没变也会比对实际的 Environment pin，所以之前那些已装好但回退到基础环境的实例，可以通过正常的更新/重试路径自行恢复，绑定本来就正确的保持 no-op（根因另一半就是同 SHA 的提前 return 把存量修复也跳过了）。其二，共享 Agent 卡片上的 Fire / Update 不再乱禁用：共享卡片此前用的是全局连接锁，可 Engine 侧卸载并不需要那条 OpenClaw WebSocket 连接，结果入口按钮和它后面用运行时感知资格判断的确认流程互相矛盾；现在两者统一从现有的工作区资格函数派生，Computer 连接要求和更新/同步锁照旧保留。
+
+**Agent 配了 MCP 的「直连」模式，被一次无关的同步悄悄改回「延迟」；部分 Agent 整体读取失败**
+
+一个典型的「上游加字段、下游 schema 太严」引发的连锁故障。Engine 侧（engine #1216，自 `v0.1.28-release` 起在生产）给 managed agents API 的 `resource.mcp[]` 加了可选字段 `exposure: "deferred" | "direct"`，而 claw-interface 里的 `EngineMcpServer` 是 `extra="forbid"` 且没有这个字段，于是带该字段的 Agent 遭遇两类问题：一是读不出来——逐条 `model_validate` 直接抛 ValidationError，导致 `get_agent` / `get_agent_status` 的 20 多个调用点（agent builder、activation / apply / change_set / revision、`service_api`）对这个 Agent 全部失败；二是配置被静默回退——MCP 同步与 ACP 两条路径都是「读回整个数组 → 保留不归自己管的条目 → 整体 PUT 回去」，回写用的 `model_dump(exclude_none=True)` 会把 schema 不认识的键丢掉，于是一次完全无关的同步就把用户配好的 `direct` 悄悄改回 `deferred`。修复显式声明了 `exposure: Literal["deferred", "direct"] | None = None`（缺省 `None` 表示「未声明」，不替调用方发它没要求的值），并把 `extra` 从 `forbid` 改成 `allow`——这个 schema 本质是 Engine 所拥有契约的投影，本服务只是读回、保留、原样写回，Engine 之后再加字段（计划中还有 `permission` / `tools` / `context`）不该让整体读取失败，也不该在回写时被静默丢弃；构造侧的拼写保护仍由 pyright 的字段签名提供。
+
+**子任务失败重试成功后，活动摘要还一直挂着「Delegated work · needs attention」**
+
+9 月 3 日上线的「聊天里能看到 Agent 派给子任务的活干到哪了」有个让人误判的显示问题：子任务第一次创建失败、后来重试成功了，活动摘要却还停在 `Delegated work · needs attention`，看上去像是活没干成。现在终态的尝试回归普通的活动摘要规则，失败的那次尝试仍保留在可展开的明细行里；正在运行或等待授权的子任务被拆到独立的 delegated-work 分组，带自己的状态和已耗时，不会再反过来覆盖普通活动摘要。根因是 delegated-work 摘要此前只要存在任何 `sessions_spawn` 步骤就绕过普通活动规则——历史上的 spawn 报错会把整组一直钉在失败并展开状态，反过来一个已完成的子任务也可能把仍在运行的普通工具遮住。改动范围仅限共享的 `ToolGroup` 组件及其渲染测试。
+
+### 💫 体验优化
+
+**API 快速入门链接直接指向 ZooWork 域名，不再先闪一下旧地址**
+
+API Keys 页以及创建密钥后那段引导里的 API Quickstart 链接，现在直接指向 `https://zoowork.ai/docs/en/get-started/quickstart`。之前共享的 Quickstart 地址还留着旧域名，旧地址返回 301 跳到 ZooWork，于是点开文档时地址栏会先出现 `zooclaw.ai` 再切成 `zoowork.ai`，多一次请求还有一下视觉闪现。顺手删掉了「文档迁移前保留旧域名」那条已经过期的注释，文档路径和英文语言设置没变。
+
+
 ## 2026-09-09
 
 ### ✨ 产品功能
