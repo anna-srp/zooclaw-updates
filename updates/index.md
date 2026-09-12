@@ -1,5 +1,15 @@
 # Updates Index
 
+## 2026-09-11
+
+- [ZooWork 2.0 界面统一：输入框、导航、空状态插画和默认头像全套升级](2026-09-11/ui-zoowork-2-unified-interface-avatars.md) — 新功能上线 / 外部 A
+- [企业官网视觉大改：会议纪要示例、深色数据治理动效、英文文案统一](2026-09-11/business-enterprise-site-visual-refresh.md) — 新功能上线 / 外部 B
+- [修复：通过分享链接创建 Agent 时提示「链接无效」](2026-09-11/fix-agents-share-token-create-from-link.md) — Bug Fix / 外部 A
+- [修复：Assistant 历史对话打不开、改完渠道配置状态不刷新](2026-09-11/fix-agents-assistant-history-channel-status.md) — Bug Fix / 外部 A
+- [修复：礼品码兑换弹窗一点输入框就消失，输完还得先按回车才能兑换](2026-09-11/fix-billing-gift-code-modal-dismiss.md) — Bug Fix / 外部 B
+- [修复：安装失败的 Agent 残留占位符污染列表，现在可以删掉了](2026-09-11/fix-agents-failed-installs-cleanup.md) — Bug Fix / 外部 B
+- [账单用量记录不再显示一串模型 ID，改成和模型选择器一样的友好名称](2026-09-11/billing-friendly-model-names-usage.md) — 体验优化 / 外部 B
+
 ## 2026-09-10
 
 - [Agents 导航大统一：一个 Agent 名下直接挂任务、Build、产物、定时任务和渠道，旧版 project 也能继续用](2026-09-10/agents-unified-navigation-legacy-access.md) — 产品基础功能更新 / 外部 S
