@@ -1,5 +1,13 @@
 # ZooClaw Changelog
 
+## 2026-09-12
+
+### ✨ 产品功能
+
+**Desktop 远程会话与 Web 打通：统一会话列表、历史记录和模型选择**
+
+Desktop 的 Remote V2 之前是一套"平行世界"——它会自己创建互不相干的 Engine session，导致桌面端看到的会话列表、历史记录和 Web 端对不上。这次把它接回了 Web/Mattermost 那条规范链路：会话列表和历史记录以 Web 为准，ACP 提示词通过 Mattermost/ACS 发送，不再另起 Engine session。体验也向 Web 对齐——乐观发送反馈、表情回应 UI、模型选择和 Agent 筛选都复用 Web 的实现，模型目录 34 条和选择器菜单与 Web 完全一致；本地 ACP Agent 行为保持原样，暂不支持的附件仍是禁用状态。跨端现在是真的通了：Web 能显示 Desktop 发出的消息和回答，在 Web 里追问，回复也会实时出现在 Desktop 上。另外新增了带版本号的 Desktop 来源元数据（配合 ACS #121），但明确只用于上下文标注、不作为授权或设备路由凭证：Claw Interface 会校验字段、版本、client 名称以及一段非空、无 NUL、合法 UTF-8 且不超过 4096 字节的上下文，校验不过直接返回 invalid-params，没有来源上下文时不发送来源属性，ACS 也不注入兜底文案，来源上下文不会渲染进消息正文。打包侧通过 Git LFS 更新了 DSH 运行时、暴露 Desktop 工具命名并修复了打包 web staging manifest。需要注意本功能依赖 ACS #121 与重新打包的 Desktop App，部署顺序为 ACS → Claw Interface → Desktop，未部署齐全时用户侧不可感知；PR 正文另外记录了两个尚未闭环的前端时序问题（并发提问时较早消息被误标为无可见回复、迟到的 preview 消息可能产生重复回答），作者说明真实 Engine 历史与 Mattermost 均有最终结果，属于展示顺序问题。
+
 ## 2026-09-11
 
 ### ✨ 产品功能

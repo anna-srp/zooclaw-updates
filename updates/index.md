@@ -1,5 +1,13 @@
 # Updates Index
 
+## 2026-09-13
+
+无用户可感知更新（两仓当日无 commit）。
+
+## 2026-09-12
+
+- [Desktop 远程会话与 Web 打通：统一会话列表、历史记录和模型选择](2026-09-12/desktop-remote-v2-unified-web-sessions.md) — 新功能上线 / 外部 B
+
 ## 2026-09-11
 
 - [ZooWork 2.0 界面统一：输入框、导航、空状态插画和默认头像全套升级](2026-09-11/ui-zoowork-2-unified-interface-avatars.md) — 新功能上线 / 外部 A
