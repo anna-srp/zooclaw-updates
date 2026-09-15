@@ -1,5 +1,14 @@
 # Updates Index
 
+## 2026-09-14
+
+- [修复：Agent 历史会话列表只剩三条，大量 Web 老对话读不出来](updates/2026-09-14/fix-agents-unindexed-web-history.md) — Bug Fix / 外部 A
+- [修复：迁移过来的 Web 会话在「最近会话」里查无此人](updates/2026-09-14/fix-agents-migrated-conversations-recent.md) — Bug Fix / 外部 A
+- [修复：a.zoowork.ai 上的产物链接不出预览](updates/2026-09-14/fix-chat-artifact-preview-zoowork-host.md) — Bug Fix / 外部 A
+- [Agent 安装数量上限彻底放开：Free / Starter / Pro / Ultra 全部提到 100 万](updates/2026-09-14/agents-plan-install-limits-raised.md) — 产品基础功能更新 / 外部 B
+- [Desktop 云端会话终于有名字了，还能重命名；桌面端 ZooWork 品牌切换完成](updates/2026-09-14/desktop-cloud-conversation-titles-rename-branding.md) — 新功能上线 / 外部 B
+- [修复：最近会话侧栏被长标题撑爆，Show more 按钮被挤到看不见的地方](updates/2026-09-14/fix-agents-recent-sidebar-overflow.md) — Bug Fix / 外部 B
+
 ## 2026-09-11
 
 - [ZooWork 2.0 界面统一：输入框、导航、空状态插画和默认头像全套升级](updates/2026-09-11/ui-zoowork-2-unified-interface-avatars.md) — 新功能上线 / 外部 A
