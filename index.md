@@ -1,129 +1,17 @@
 # Updates Index
 
-## 2026-09-14
+## 2026-09-15
 
-- [修复：Agent 历史会话列表只剩三条，大量 Web 老对话读不出来](updates/2026-09-14/fix-agents-unindexed-web-history.md) — Bug Fix / 外部 A
-- [修复：迁移过来的 Web 会话在「最近会话」里查无此人](updates/2026-09-14/fix-agents-migrated-conversations-recent.md) — Bug Fix / 外部 A
-- [修复：a.zoowork.ai 上的产物链接不出预览](updates/2026-09-14/fix-chat-artifact-preview-zoowork-host.md) — Bug Fix / 外部 A
-- [Agent 安装数量上限彻底放开：Free / Starter / Pro / Ultra 全部提到 100 万](updates/2026-09-14/agents-plan-install-limits-raised.md) — 产品基础功能更新 / 外部 B
-- [Desktop 云端会话终于有名字了，还能重命名；桌面端 ZooWork 品牌切换完成](updates/2026-09-14/desktop-cloud-conversation-titles-rename-branding.md) — 新功能上线 / 外部 B
-- [修复：最近会话侧栏被长标题撑爆，Show more 按钮被挤到看不见的地方](updates/2026-09-14/fix-agents-recent-sidebar-overflow.md) — Bug Fix / 外部 B
-
-## 2026-09-11
-
-- [ZooWork 2.0 界面统一：输入框、导航、空状态插画和默认头像全套升级](updates/2026-09-11/ui-zoowork-2-unified-interface-avatars.md) — 新功能上线 / 外部 A
-- [企业官网视觉大改：会议纪要示例、深色数据治理动效、英文文案统一](updates/2026-09-11/business-enterprise-site-visual-refresh.md) — 新功能上线 / 外部 B
-- [修复：通过分享链接创建 Agent 时提示「链接无效」](updates/2026-09-11/fix-agents-share-token-create-from-link.md) — Bug Fix / 外部 A
-- [修复：Assistant 历史对话打不开、改完渠道配置状态不刷新](updates/2026-09-11/fix-agents-assistant-history-channel-status.md) — Bug Fix / 外部 A
-- [修复：礼品码兑换弹窗一点输入框就消失，输完还得先按回车才能兑换](updates/2026-09-11/fix-billing-gift-code-modal-dismiss.md) — Bug Fix / 外部 B
-- [修复：安装失败的 Agent 残留占位符污染列表，现在可以删掉了](updates/2026-09-11/fix-agents-failed-installs-cleanup.md) — Bug Fix / 外部 B
-- [账单用量记录不再显示一串模型 ID，改成和模型选择器一样的友好名称](updates/2026-09-11/billing-friendly-model-names-usage.md) — 体验优化 / 外部 B
-
-## 2026-09-10
-
-- [Agents 导航大统一：一个 Agent 名下直接挂任务、Build、产物、定时任务和渠道，旧版 project 也能继续用](updates/2026-09-10/agents-unified-navigation-legacy-access.md) — 产品基础功能更新 / 外部 S
-- [付费套餐的 Agent 安装上限大幅放开：Starter / Pro / Ultra 提到 20 / 40 / 100](updates/2026-09-10/agents-paid-plan-install-limits.md) — 产品基础功能更新 / 外部 A
-- [企业官网的联系表单终于真的能收到线索了：提交落库 + 飞书机器人实时通知](updates/2026-09-10/business-contact-submission-and-feishu-notify.md) — 产品基础功能更新 / 外部 A
-- [修复：跨组织分享的 Agent 包装过来后技能缺依赖环境、Fire 按钮在 Engine 断连时误禁用](updates/2026-09-10/agents-shared-pack-environment-and-permissions.md) — Bug Fix / 外部 A
-- [修复：Agent 配了 MCP 的「直连」模式，被一次无关的同步悄悄改回「延迟」；部分 Agent 整体读取失败](updates/2026-09-10/mcp-exposure-preserved-through-sync.md) — Bug Fix / 外部 B
-- [修复：子任务失败重试成功后，活动摘要还一直挂着「Delegated work · needs attention」](updates/2026-09-10/chat-subagent-activity-summary.md) — Bug Fix / 外部 B
-- [API 快速入门链接直接指向 ZooWork 域名，不再先闪一下旧地址](updates/2026-09-10/settings-api-quickstart-zoowork-domain.md) — 体验优化 / 外部 B
-
-## 2026-09-09
-
-- [自进化 Agent 上线：在同一个任务工作区里边聊边改，Agent 自己升级自己](updates/2026-09-09/agents-self-evolving-unified-task-workspace.md) — 产品基础功能更新 / 外部 S
-- [修复：Desktop 恢复旧会话时报「Invalid MCP bridge credential」、一个大文件把整条连接搞断](updates/2026-09-09/desktop-acp-mcp-session-stability.md) — Bug Fix / 外部 A
-- [修复：企业后台明明是团队管理员，买垂直行业 Pack 却被拦「仅企业账号可购买」](updates/2026-09-09/business-identity-and-checkout-purchaser.md) — Bug Fix / 外部 B
-- [用量账单里的「Unknown」终于说清楚了：运行环境计算独立成一类](updates/2026-09-09/billing-compute-usage-classification.md) — 体验优化 / 外部 B
-- [新建 Bot 的默认模型统一切到 GPT-5.6 Terra](updates/2026-09-09/chat-default-model-gpt-56-terra.md) — 体验优化 / 外部 B
-
-## 2026-09-08
-
-- [ZooClaw Desktop 能接远程 V2 Agent 了，也能挂本地 Codex / Claude Code](updates/2026-09-08/desktop-dsh-acp-remote-local-agents.md) — 产品基础功能更新 / 外部 A
-- [上线企业官网页 /business：十种语言、动效架构图、Book a demo 一键回到表单](updates/2026-09-08/business-enterprise-landing-page.md) — 产品基础功能更新 / 外部 A
-- [BossClaw 更新至 0.1.32：砍掉每小时保活轮询，改成「每天回我一句就不会断」](updates/2026-09-08/pack-bossclaw-0-1-32.md) — Skill 上架/更新 / 外部 B
-- [组织里别人上传的 Agent 包，现在每个成员都能在「我的 Agent」里看到并安装了](updates/2026-09-08/agents-org-published-packs-visibility.md) — Bug Fix / 外部 B
-
-## 2026-09-07
-
-- [修复：雇 BossClaw 一直卡在「Agent 环境仍在构建中」](updates/2026-09-07/agents-fontconfig-package-mapping.md) — Bug Fix / 外部 B
-- [飞书多维表格 Skill 升级 1.1：Agent 不只能读表，现在能写记录了](updates/2026-09-07/skill-feishu-bitable-record-write.md) — Skill 上架/更新 / 外部 B
-- [修复：聊天记录里那条永远转圈的「routing decision」不见了](updates/2026-09-07/chat-hide-routing-decision-progress.md) — Bug Fix / 外部 B
-- [BossClaw 更新至 0.1.31：九个技能的触发描述恢复完整版，少认错活](updates/2026-09-07/pack-bossclaw-0-1-31.md) — Skill 上架/更新 / 外部 B
-
-## 2026-09-06
-
-- 本日无用户可感知更新（ecap-skills / ecap-workspace 均无 commit）。
-
-## 2026-09-05
-
-- [修复：从旧版迁移过来的账号装不了垂直行业 Agent 包](updates/2026-09-05/vertical-pack-install-runtime-delegation.md) — Bug Fix / 外部 B
-- [官网首页：已登录用户点 Get Started 时会显示「正在跳转」，不再像是没点上](updates/2026-09-05/landing-redirect-progress-feedback.md) — 体验优化 / 外部 B
-- [修复：升级套餐面板标题偏心、月付价格末尾的 0 被裁掉](updates/2026-09-05/billing-upgrade-panel-title-price-clipping.md) — Bug Fix / 外部 B
-
-## 2026-09-04
-
-- [Agent 主人可以「收权」了：给自家 Agent 关掉不想让它碰的工具和技能](updates/2026-09-04/agents-harden-tool-skill-surface.md) — 产品基础功能更新 / 外部 A
-- [账单页可以直接下载发票了：Stripe 跳托管发票页，Airwallex 直接给 PDF](updates/2026-09-04/billing-provider-invoice-downloads.md) — 产品基础功能更新 / 外部 A
-- [修复：换套餐或换支付方式后，付款页还停在旧的那一单](updates/2026-09-04/billing-checkout-intent-switch.md) — Bug Fix / 外部 B
-- [新增飞书多维表格 Skill：Agent 能直接读你贴过来的 Bitable 链接](updates/2026-09-04/skill-feishu-bitable-managed.md) — Skill 上架/更新 / 外部 B
-- [修复：更新从旧版迁移来的 Agent 前，会先问你一句「这会暂停同机的其他 Agent」](updates/2026-09-04/agents-shared-computer-update-confirmation.md) — Bug Fix / 外部 B
-- [修复：新建的个人组织被默默打上「中国区」标记，导致境外邮箱登录被挡](updates/2026-09-04/auth-org-implicit-cn-region.md) — Bug Fix / 外部 B
-- [iOS App 名字正式改成 ZooWork](updates/2026-09-04/ios-app-display-name-zoowork.md) — 体验优化 / 外部 B
-
-## 2026-09-03
-
-- [聊天里能看到「Agent 派给子任务的活干到哪了」](updates/2026-09-03/chat-delegated-work-progress.md) — 产品基础功能更新 / 外部 A
-- [BossClaw 更新至 0.1.30：公众号监控改按原始ID 抓取，技能触发更准](updates/2026-09-03/pack-bossclaw-0-1-30.md) — Skill 上架/更新 / 外部 B
-- [侧边栏「休眠 Asleep」改成更明确的「已暂停 Paused」](updates/2026-09-03/sidenav-paused-state-copy.md) — 体验优化 / 外部 B
-- [模型降级提示条恢复中性配色，不再像报错](updates/2026-09-03/chat-degradation-banner-restyle.md) — 体验优化 / 外部 B
-- [修复：个人版用户在境外用邮箱登录会被区域校验挡住](updates/2026-09-03/auth-personal-org-region-email-login.md) — Bug Fix / 外部 B
-- [修复：企业套餐付款链接过期后重复拿到同一条打不开的链接](updates/2026-09-03/billing-airwallex-checkout-link-refresh.md) — Bug Fix / 外部 B
-
-## 2026-09-02
-
-- [飞书渠道升级：Agent 能直接读写飞书云文档、云盘和知识库](updates/2026-09-02/channels-feishu-document-capabilities.md) — 产品基础功能更新 / 外部 A
-- [钉钉可以接入 Engine Agent 了：扫码绑定，几步接完](updates/2026-09-02/channels-dingtalk-engine-agents.md) — 产品基础功能更新 / 外部 A
-- [Council Skill 大幅提速：V2 环境下从 8 分钟卡顿降回半分钟量级](updates/2026-09-02/skill-council-v2-council-performance.md) — Skill 上架/更新 / 外部 B
-- [iOS 侧边栏改版：交互重做、草稿会话不再乱窜，展开会话也不再压住下一行](updates/2026-09-02/ios-sidebar-draft-conversation.md) — 体验优化 / 外部 B
-- [聊天输入框：粘贴的链接完整可点，非图片附件改成卡片显示](updates/2026-09-02/chat-pasted-links-and-upload-cards.md) — 体验优化 / 外部 B
-- [官网 URL 体系统一：多语言地址、跳转与站点地图有了唯一事实来源](updates/2026-09-02/seo-zoowork-url-sitemap-contract.md) — 体验优化 / 外部 B
-- [修复：iPhone 上切换账号后，推送还会串到上一个账号](updates/2026-09-02/ios-apns-push-account-isolation.md) — Bug Fix / 外部 B
-- [修复：企业版「无限额度」成员的用量页永远显示 0](updates/2026-09-02/billing-business-member-llm-usage-tracking.md) — Bug Fix / 外部 B
-- [修复：垂直行业套餐里的 Agent 有新版本也不提示更新](updates/2026-09-02/agents-vertical-pack-update-prompt.md) — Bug Fix / 外部 B
-- [修复：Agent Pack 测试预览有时读不到技能内容](updates/2026-09-02/pack-test-preview-sandbox-readiness.md) — Bug Fix / 外部 B
-
-## 2026-09-01
-
-- [产品正式更名 ZooWork：全站用户可见文案、图标与分享信息统一切换](updates/2026-09-01/brand-zoowork-user-facing-rebrand.md) — 产品基础功能更新 / 外部 A
-- [Agent Builder 取消项目数量上限：项目随用随建，闲置自动回收、归档才彻底清理](updates/2026-09-01/agent-builder-project-lifecycle.md) — 产品基础功能更新 / 外部 A
-- [Agent Pack 可以自带专属新手引导：装完 Agent 跑的是 Pack 作者写的开场流程](updates/2026-09-01/agents-pack-owned-onboarding.md) — 产品基础功能更新 / 外部 B
-- [iOS App 引导流程换新：ZooWork 品牌视觉与欢迎页改版](updates/2026-09-01/ios-zoowork-onboarding-branding.md) — 体验优化 / 外部 B
-- [修复：设成深色主题后一刷新就变回浅色](updates/2026-09-01/web-dark-theme-persist-refresh.md) — Bug Fix / 外部 B
-- [修复：订阅还有大半年到期，侧边栏就一直挂着红色到期警告](updates/2026-09-01/billing-sidebar-expiry-warning-window.md) — Bug Fix / 外部 B
-- [修复：老价格档位的订阅在升级/续费/降级时被拦下来](updates/2026-09-01/billing-historical-airwallex-price-ids.md) — Bug Fix / 外部 B
-- [修复：关掉「显示工具执行过程」后，助手回复的头像会消失](updates/2026-09-01/chat-avatar-hidden-tool-steps.md) — Bug Fix / 外部 B
-- [修复：额度用尽后新版图片模型没有降级路线，生图直接失败](updates/2026-09-01/billing-image-model-degradation-mapping.md) — Bug Fix / 外部 B
-
-## 2026-08-31
-
-- [个人 MCP 支持「托管身份」接入：不用再自己贴 Token，凭证也不落库](updates/2026-08-31/mcp-managed-identity-personal.md) — 产品基础功能更新 / 外部 A
-- [Engine 工作区可以选「Auto」模型了：按任务难度自动在模型梯队里挑](updates/2026-08-31/agents-auto-model-routing-ladder.md) — 产品基础功能更新 / 外部 A
-- [官网首页头图改版：新文案、新视觉素材，页脚 tagline 一并更新](updates/2026-08-31/landing-homepage-hero-refresh.md) — 体验优化 / 外部 B
-- [设置里的主题皮肤：默认皮肤 Paper Focus 排到第一位，也可以主动选回来](updates/2026-08-31/settings-default-theme-skin-first.md) — 体验优化 / 外部 B
-- [修复：Agent Builder 里一步工具失败，整个活动就被标成「失败」并卡住计时](updates/2026-08-31/agent-builder-recoverable-step-status.md) — Bug Fix / 外部 B
-- [修复：Agent 详情弹窗里的长分享链接会撑破弹窗边界](updates/2026-08-31/agent-builder-share-link-overflow.md) — Bug Fix / 外部 B
-- [修复：企业管理后台的账号菜单里不显示头像](updates/2026-08-31/enterprise-admin-account-avatar.md) — Bug Fix / 外部 B
-
-## 2026-08-28
-
-- [Agent Builder 改为「项目」制，新增 My Agent 页面，Marketplace 只留公开市场](updates/2026-08-28/agent-builder-projects-my-agent.md) — 产品基础功能更新 / 外部 A
-- [聊天页可以单独更新某个 Agent，侧边栏交互重做并支持会话归档](updates/2026-08-28/chat-agent-update-session-sidebar.md) — 产品基础功能更新 / 外部 A
-- [聊天里的工具执行过程显示更准：失败就是失败，不会被后到的事件抹掉](updates/2026-08-28/chat-tool-activity-outcomes.md) — 体验优化 / 外部 B
-- [修复：Agent Builder 连点「刷新预览」会跑出两份，卡住还得人工修数据](updates/2026-08-28/agent-builder-duplicate-preview-refresh.md) — Bug Fix / 外部 B
-- [修复：Agent 刚发布就装「仅自己可见」会失败，其实只是运行环境还没建好](updates/2026-08-28/agent-builder-install-retry-env-building.md) — Bug Fix / 外部 B
-- [Agent Builder 项目列表整行可点，操作列不再挤成一团](updates/2026-08-28/agent-builder-project-list-interaction.md) — 体验优化 / 外部 B
-- [官网 About 页面改版：三平台并列换成一条完整的 ZooWork 故事线](updates/2026-08-28/marketing-about-page-refresh.md) — 体验优化 / 外部 B
+- [feat(billing): add Session and API key usage views (#3723)](2026-09-15/add-session-and-api-key-usage-views-3723.md) — 新功能上线 / 外部 B
+- [feat(council): members verify the report file before returning a digest (#280)](2026-09-15/members-verify-the-report-file-before-returning-a-.md) — 新功能上线 / 外部 B
+- [feat(settings): migrate Business organization management into Settings (#3715)](2026-09-15/migrate-business-organization-management-into-sett.md) — 新功能上线 / 外部 B
+- [feat(web): rename business marketing routes to enterprise (#3726)](2026-09-15/rename-business-marketing-routes-to-enterprise-3.md) — 新功能上线 / 外部 C
+- [fix(chat): restore Agent workspace replay sharing controls (#3735)](2026-09-15/restore-agent-workspace-replay-sharing-controls-.md) — Bug Fix / 外部 A
+- [fix(billing): round credits at API response boundaries (#3743)](2026-09-15/round-credits-at-api-response-boundaries-3743.md) — Bug Fix / 外部 A
+- [fix(landing): stabilize Safari scrolling and pause hidden demos (#3744)](2026-09-15/stabilize-safari-scrolling-and-pause-hidden-demos-.md) — Bug Fix / 外部 B
+- [feat(web): 优化导航、任务预览与智能体详情交互 (#3724)](2026-09-15/优化导航任务预览与智能体详情交互 -3724.md) — 新功能上线 / 外部 A
+- [fix(chat): 修复 Agent 工作区引用回复无响应 (#3731)](2026-09-15/修复-agent-工作区引用回复无响应 -3731.md) — Bug Fix / 外部 A
+- [feat(tasks): 接入真实任务历史、执行状态和积分用量 (#3737)](2026-09-15/接入真实任务历史执行状态和积分用量 -3737.md) — 新功能上线 / 外部 A
 
 ## 2026-08-20
 
