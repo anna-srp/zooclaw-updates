@@ -2,18 +2,6 @@
 
 ## 2026-09-16
 
-- [fix(billing): allow card checkout without account email (#3756)](2026-09-16/allow-card-checkout-without-account-email-3756.md) — Bug Fix / 外部 A
-- [feat(agents): 优化Agent Settings 设置面板 (#3748)](2026-09-16/优化-agent-settings-设置面板-3748.md) — 新功能上线 / 外部 A
-- [feat(assets): preview generated files in chat artifact sidebar (#3751)](2026-09-16/preview-generated-files-in-chat-artifact-sidebar-3751.md) — 新功能上线 / 外部 A
-- [feat(web): 完善首页 Agent 入口、卡片滚动与侧边栏体验 (#3736)](2026-09-16/完善首页-agent-入口卡片滚动与侧边栏体验-3736.md) — 新功能上线 / 外部 A
-- [fix(web): 移除全站悬浮反馈入口，避免遮挡页面操作 (#3752)](2026-09-16/移除全站悬浮反馈入口-3752.md) — Bug Fix / 外部 B
-- [fix(organization): replace enterprise admin URL with app frontend (#3746)](2026-09-16/replace-enterprise-admin-url-with-app-frontend-3746.md) — Bug Fix / 外部 B
-- [fix(agent-builder): 新建 Agent 默认命名为 Untitled Agent (#3753)](2026-09-16/新建-agent-默认命名为-untitled-agent-3753.md) — Bug Fix / 外部 C
-- [fix(web): show wrong-account invite error (#3749)](2026-09-16/show-wrong-account-invite-error-3749.md) — Bug Fix / 外部 C
-- [fix(agent-development): expose skill authoring guidance and receipts (#3747)](2026-09-16/expose-skill-authoring-guidance-and-receipts-3747.md) — Bug Fix / 外部 C
-
-## 2026-09-16
-
 - [fix(billing): allow card checkout without account email (#3756)](updates/2026-09-16/allow-card-checkout-without-account-email-3756.md) — Bug Fix / 外部 A
 - [feat(agents): 优化Agent Settings 设置面板 (#3748)](updates/2026-09-16/optimize-agent-settings-panel-3748.md) — 新功能上线 / 外部 A
 - [feat(assets): preview generated files in chat artifact sidebar (#3751)](updates/2026-09-16/preview-generated-files-in-chat-artifact-sidebar-3751.md) — 新功能上线 / 外部 A
@@ -23,18 +11,6 @@
 - [fix(web): show wrong-account invite error (#3749)](updates/2026-09-16/show-wrong-account-invite-error-3749.md) — Bug Fix / 外部 B
 - [fix(organization): replace enterprise admin URL with app frontend (#3746)](updates/2026-09-16/organization-invite-link-app-frontend-3746.md) — Bug Fix / 外部 B
 - [fix(agent-development): expose skill authoring guidance and receipts (#3747)](updates/2026-09-16/expose-skill-authoring-guidance-and-receipts-3747.md) — 产品基础功能更新 / 外部 C
-
-## 2026-09-16
-
-- [feat(agents): 优化Agent Settings 设置面板 (#3748)](2026-09-16/优化agent-settings-设置面板-3748.md) — 新功能上线 / 外部 A
-- [feat(assets): preview generated files in chat artifact sidebar (#3751)](2026-09-16/preview-generated-files-in-chat-artifact-sidebar-3.md) — 新功能上线 / 外部 A
-- [feat(web): 完善首页 Agent 入口、卡片滚动与侧边栏体验 (#3736)](2026-09-16/完善首页-agent-入口-卡片滚动与侧边栏体验-3736.md) — 新功能上线 / 外部 A
-- [fix(agent-builder): 新建 Agent 默认命名为 Untitled Agent (#3753)](2026-09-16/新建-agent-默认命名为-untitled-agent-3753.md) — 体验优化 / 外部 B
-- [fix(agent-development): expose skill authoring guidance and receipts (#3747)](2026-09-16/expose-skill-authoring-guidance-and-receipts-3747.md) — Bug Fix / 外部 C
-- [fix(billing): allow card checkout without account email (#3756)](2026-09-16/allow-card-checkout-without-account-email-3756.md) — Bug Fix / 外部 A
-- [fix(organization): replace enterprise admin URL with app frontend (#3746)](2026-09-16/replace-enterprise-admin-url-with-app-frontend-374.md) — Bug Fix / 外部 B
-- [fix(web): show wrong-account invite error (#3749)](2026-09-16/show-wrong-account-invite-error-3749.md) — Bug Fix / 外部 C
-- [fix(web): 移除全站悬浮反馈入口，避免遮挡页面操作 (#3752)](2026-09-16/移除全站悬浮反馈入口-避免遮挡页面操作-3752.md) — Bug Fix / 外部 B
 
 ## 2026-09-15
 
