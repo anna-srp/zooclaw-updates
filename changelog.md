@@ -4,6 +4,48 @@
 
 ### 🆕 新功能
 
+**feat(agents): 优化Agent Settings 设置面板 (#3748)**
+
+Agent 编辑页的设置从弹窗改为默认展开的右侧面板，拆分 Settings / Profile 两个 tab，统一布局与交互。
+
+**feat(assets): preview generated files in chat artifact sidebar (#3751)**
+
+点击 Artifacts 中的 AI 生成文件不再新开标签页触发下载，改为在聊天产物侧栏内预览，支持切换、缩放、刷新与下载。
+
+**feat(web): 完善首页 Agent 入口、卡片滚动与侧边栏体验 (#3736)**
+
+首页默认用 Agent Builder 创建 Agent，也可切换已有 Agent 发起独立任务；恢复 Home / Agents 导航，优化卡片横向滚动与渐变遮罩。
+
+### 🐛 Bug 修复
+
+**fix(billing): allow card checkout without account email (#3756)**
+
+手机号登录账号现在可以完成订阅、试用、升级和充值的信用卡支付，缺少邮箱时由托管收银台收集，不再被拦住。
+
+**fix(web): 移除全站悬浮反馈入口，避免遮挡页面操作 (#3752)**
+
+移除右下角悬浮反馈按钮，手机端和桌面端都不再遮挡聊天输入框的发送按钮；崩溃反馈弹窗与错误上报保留。
+
+**fix(organization): replace enterprise admin URL with app frontend (#3746)**
+
+组织邀请链接改为指向主站 Web 应用的 /join 页面，不再落到企业管理域名。
+
+**fix(agent-builder): 新建 Agent 默认命名为 Untitled Agent (#3753)**
+
+新建 Agent 统一显示 Untitled Agent，不再把整段需求文本当作名称。
+
+**fix(web): show wrong-account invite error (#3749)**
+
+用错账号点开邀请链接时，会明确提示用收到邀请的邮箱登录，同时不暴露被邀请邮箱。
+
+**fix(agent-development): expose skill authoring guidance and receipts (#3747)**
+
+Build 现在会给出 skill 源码目录结构和可用模板，并在校验、提交时返回实际产物变更与注册的 skill 版本。
+
+## 2026-09-16
+
+### 🆕 新功能
+
 **feat(web): 完善首页 Agent 入口、卡片滚动与侧边栏体验 (#3736)**
 
 首页与侧边栏的 Agent 入口全面升级：默认走 Agent Builder 创建 Agent，也可切换已有 Agent 直接发起独立任务，输入文字、附件和失败重试都会保留。恢复独立 Home / Agents 导航，Agent 列表单独滚动，Connector、MCP、Skills、Knowledge Base 始终可见；首页卡片头像放大、横向滚动更顺滑。
