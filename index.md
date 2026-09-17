@@ -84,7 +84,6 @@
 - [安装 Agent 后不再自动发送「Hi」打招呼消息](updates/2026-08-04/remove-auto-hi-greeting.md)（体验优化）
 - [Agent Studio 支持 Pack 声明的 Python/二进制依赖自动装配](updates/2026-08-04/agent-studio-runtime-projection.md)（产品基础功能更新）
 
-
 ## 2026-08-01
 
 - [工作区文件与产出物（Artifacts）新增网页浏览、预览与下载](updates/2026-08-01/artifacts-v2-web-ui.md) — 产品基础功能更新 / 外部B
@@ -273,7 +272,6 @@
 - [已登录用户跳过新手引导，并新增管理后台入口](updates/2026-06-16/05-fix-web-skip-web-onboarding-and-add-admi.md) — 体验优化 / 低
 - [PPT Master 套用模板时封面图直接作为对话附件送达](updates/2026-06-16/06-feat-landing-context-deliver-ppt-master-.md) — 体验优化 / 中
 
-
 ## 2026-06-12
 
 - [修复新版机器人网页聊天连不上、报「Something went wrong」](updates/2026-06-12/01-ecap-workspace-fix-openclaw-ws-protocol-v4-2409.md)
@@ -310,10 +308,7 @@
 - [PPT 大师配色一致性强化（v2.2.1）](2026-06-08/04-PPT-大师配色一致性强化-v2-2-1.md)
 - [创始人 IP 工作室安全依赖升级](2026-06-08/05-创始人-IP-工作室安全依赖升级.md)
 
-
-
 ## 2026-06-06
-
 
 ## 2026-06-05
 - docs(web): set zustand/motion/react-query/usehooks-ts as default frontend libs (
@@ -322,8 +317,6 @@
 - fix(openclaw): read bot state from v2 computers (#2220)
 - fix(claw-interface): close Redis client on shutdown (#2222)
 - fix(stripe): ignore stale terminal subscription webhooks (#2223)
-
-
 
 ## 2026-06-07
 
@@ -348,7 +341,6 @@
 - [Agent Studio 上线 Connectors 功能：支持连接第三方服务](updates/2026-06-04/cf9efae8-agent-studio-上线-connectors-功能-支持连接第三方服务.md)
 - [Agent Studio 支持一键导入已发布 Pack，快速恢复历史配置](updates/2026-06-04/1ae626d6-agent-studio-支持一键导入已发布-pack-快速恢复历史配置.md)
 
-
 ## 2026-06-01
 
 - [8376b38-2143.md](updates/2026-06-01/8376b38-2143.md) — Apple 订阅支付渠道修复：确保 iOS 订阅在不同环境下正常处理
@@ -360,12 +352,10 @@
 
 - [Apple 订阅激活保护修复](updates/2026-05-31/pr-2134.md)
 
-
 ## 2026-05-30
 
 - [文件下载与 PPTX 解析稳定性修复](updates/2026-05-30/fix-web-download-pptx-leaks.md) — Bug Fix
 - [Founder IP Studio 2.0 上线](updates/2026-05-30/feat-founder-ip-studio-2.0.md) — Agent 上架/更新
-
 
 ## 2026-05-29
 - [route connectors through integrations](updates/2026-05-29/3b1fc39-route-connectors-through-integ.md) - 新功能上线
@@ -394,7 +384,6 @@
 - [企业邀请入驻流程修复](updates/2026-05-26/04-enterprise-invite-onboarding-fix.md) — Bug Fix / 高
 - [聊天窗口长字符串显示修复](updates/2026-05-26/05-chat-long-string-wrap-fix.md) — Bug Fix / 中
 - [Video Duplicate Agent 升级至 v1.9.2](updates/2026-05-26/06-video-duplicate-v1.9.2.md) — Agent 上架/更新 / 高
-
 
 ## 2026-05-25
 
@@ -446,7 +435,6 @@
 - [修复 Artifact 内容更新后仍显示旧版本的问题](updates/2026-05-21/10-artifact-cache-bust.md) — Bug Fix
 - [Agent Studio 安全加固：禁止静默删除文件](updates/2026-05-21/11-agent-studio-rm-safety.md) — 产品基础功能更新
 
-
 ## 2026-05-20
 
 - [企业管理后台新增 Packs 模块（浏览、审核、详情）](updates/2026-05-20/89d49731-企业管理后台新增-packs-模块-浏览-审核-详情.md)
@@ -471,8 +459,6 @@
 - [企业管理控制台上线（Bootstrap 阶段）](updates/2026-05-20/05f9ccf9-企业管理控制台上线-bootstrap-阶段.md)
 - [修复 Agent Studio 打包输出路径错误](updates/2026-05-20/8c36cfa2-修复-agent-studio-打包输出路径错误.md)
 - [Agent Studio 分享/打包时展示 --archive 参数提示](updates/2026-05-20/3b9362f6-agent-studio-分享-打包时展示-archiv.md)
-
-
 
 ## 2026-05-19
 
@@ -567,7 +553,6 @@
 
 - [Agent Studio 成本大幅优化，运行费用降至原来 1/10](updates/2026-05-08/agent-studio-sonnet-cost-optimization.md)
 
-
 ## 2026-05-07
 
 - [企业微信（WeCom）渠道正式上线](updates/2026-05-07/wecom-channel-launch.md)
@@ -592,7 +577,6 @@
 - [iOS 1.6.0 — 图片/视频保存相册、Lightbox 全屏预览、对话体验优化](updates/2026-05-06/a02700fe.md)
 - [Agent Studio 安装与分享流程说明优化](updates/2026-05-06/b9b9783f.md)
 - [修复 Oura Ring / Podcast Pal 定时推送路由错误](updates/2026-05-06/ee81b696.md)
-
 
 ## 2026-05-05
 
@@ -622,13 +606,9 @@
 |-----|------|------|------|--------|
 | fa5dbed0 | ecap-workspace | 修复：Mattermost 连接时顶栏状态异常显示已断开 | Bug Fix | 中 |
 
-
 ## 2026-06-06
 
 > ⚠️ 今日无用户可感知更新（GitHub API SAML SSO 授权过期）
-
-
-
 
 ## 2026-05-27
 
@@ -645,7 +625,6 @@
 - [PPT Master Agent 正式发布 v2.0.7（原 SlideForge 更名）](updates/2026-05-27/ecap-agent-pack-34e7189b.md) — Agent 上架/更新
 - [ZooDance Vibe Drama：新增 10 首短剧专属 BGM](updates/2026-05-27/ecap-agent-pack-3ecc06d5.md) — Agent 上架/更新
 - [企业版支持 Team Wallet 个人组织自动初始化](updates/2026-05-27/ecap-workspace-89399973.md) — 产品基础功能更新
-
 
 ## 2026-05-24
 
@@ -697,7 +676,6 @@
 - [Artifact 预览修复与 React 生命周期优化](updates/2026-04-25/16-artifacts-preview-fix.md)
 - [结账性能优化：减少重复数据库查询](updates/2026-04-25/17-perf-checkout-cache.md)
 - [资产面板 & 支持工单界面组件化完成](updates/2026-04-25/18-components-assets-support-ticket.md)
-
 
 > 自动生成，勿手动编辑
 
