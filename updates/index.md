@@ -1,5 +1,17 @@
 # Updates Index
 
+## 2026-09-16
+
+- [fix(billing): allow card checkout without account email (#3756)](2026-09-16/allow-card-checkout-without-account-email-3756.md) — Bug Fix / 外部 A
+- [feat(agents): 优化Agent Settings 设置面板 (#3748)](2026-09-16/optimize-agent-settings-panel-3748.md) — 新功能上线 / 外部 A
+- [feat(assets): preview generated files in chat artifact sidebar (#3751)](2026-09-16/preview-generated-files-in-chat-artifact-sidebar-3751.md) — 新功能上线 / 外部 A
+- [feat(web): 完善首页 Agent 入口、卡片滚动与侧边栏体验 (#3736)](2026-09-16/improve-home-agent-entry-and-sidebar-3736.md) — 新功能上线 / 外部 A
+- [fix(agent-builder): 新建 Agent 默认命名为 Untitled Agent (#3753)](2026-09-16/default-agent-name-untitled-agent-3753.md) — Bug Fix / 外部 B
+- [fix(web): 移除全站悬浮反馈入口，避免遮挡页面操作 (#3752)](2026-09-16/remove-global-floating-feedback-entry-3752.md) — Bug Fix / 外部 B
+- [fix(web): show wrong-account invite error (#3749)](2026-09-16/show-wrong-account-invite-error-3749.md) — Bug Fix / 外部 B
+- [fix(organization): replace enterprise admin URL with app frontend (#3746)](2026-09-16/organization-invite-link-app-frontend-3746.md) — Bug Fix / 外部 B
+- [fix(agent-development): expose skill authoring guidance and receipts (#3747)](2026-09-16/expose-skill-authoring-guidance-and-receipts-3747.md) — 产品基础功能更新 / 外部 C
+
 ## 2026-09-14
 
 - [修复：Agent 历史会话列表只剩三条，大量 Web 老对话读不出来](2026-09-14/fix-agents-unindexed-web-history.md) — Bug Fix / 外部 A

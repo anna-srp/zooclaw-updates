@@ -1,17 +1,41 @@
 # Updates Index
 
+## 2026-09-16
+
+- [fix(billing): allow card checkout without account email (#3756)](updates/2026-09-16/allow-card-checkout-without-account-email-3756.md) — Bug Fix / 外部 A
+- [feat(agents): 优化Agent Settings 设置面板 (#3748)](updates/2026-09-16/optimize-agent-settings-panel-3748.md) — 新功能上线 / 外部 A
+- [feat(assets): preview generated files in chat artifact sidebar (#3751)](updates/2026-09-16/preview-generated-files-in-chat-artifact-sidebar-3751.md) — 新功能上线 / 外部 A
+- [feat(web): 完善首页 Agent 入口、卡片滚动与侧边栏体验 (#3736)](updates/2026-09-16/improve-home-agent-entry-and-sidebar-3736.md) — 新功能上线 / 外部 A
+- [fix(agent-builder): 新建 Agent 默认命名为 Untitled Agent (#3753)](updates/2026-09-16/default-agent-name-untitled-agent-3753.md) — Bug Fix / 外部 B
+- [fix(web): 移除全站悬浮反馈入口，避免遮挡页面操作 (#3752)](updates/2026-09-16/remove-global-floating-feedback-entry-3752.md) — Bug Fix / 外部 B
+- [fix(web): show wrong-account invite error (#3749)](updates/2026-09-16/show-wrong-account-invite-error-3749.md) — Bug Fix / 外部 B
+- [fix(organization): replace enterprise admin URL with app frontend (#3746)](updates/2026-09-16/organization-invite-link-app-frontend-3746.md) — Bug Fix / 外部 B
+- [fix(agent-development): expose skill authoring guidance and receipts (#3747)](updates/2026-09-16/expose-skill-authoring-guidance-and-receipts-3747.md) — 产品基础功能更新 / 外部 C
+
+## 2026-09-16
+
+- [feat(agents): 优化Agent Settings 设置面板 (#3748)](2026-09-16/优化agent-settings-设置面板-3748.md) — 新功能上线 / 外部 A
+- [feat(assets): preview generated files in chat artifact sidebar (#3751)](2026-09-16/preview-generated-files-in-chat-artifact-sidebar-3.md) — 新功能上线 / 外部 A
+- [feat(web): 完善首页 Agent 入口、卡片滚动与侧边栏体验 (#3736)](2026-09-16/完善首页-agent-入口-卡片滚动与侧边栏体验-3736.md) — 新功能上线 / 外部 A
+- [fix(agent-builder): 新建 Agent 默认命名为 Untitled Agent (#3753)](2026-09-16/新建-agent-默认命名为-untitled-agent-3753.md) — 体验优化 / 外部 B
+- [fix(agent-development): expose skill authoring guidance and receipts (#3747)](2026-09-16/expose-skill-authoring-guidance-and-receipts-3747.md) — Bug Fix / 外部 C
+- [fix(billing): allow card checkout without account email (#3756)](2026-09-16/allow-card-checkout-without-account-email-3756.md) — Bug Fix / 外部 A
+- [fix(organization): replace enterprise admin URL with app frontend (#3746)](2026-09-16/replace-enterprise-admin-url-with-app-frontend-374.md) — Bug Fix / 外部 B
+- [fix(web): show wrong-account invite error (#3749)](2026-09-16/show-wrong-account-invite-error-3749.md) — Bug Fix / 外部 C
+- [fix(web): 移除全站悬浮反馈入口，避免遮挡页面操作 (#3752)](2026-09-16/移除全站悬浮反馈入口-避免遮挡页面操作-3752.md) — Bug Fix / 外部 B
+
 ## 2026-09-15
 
-- [feat(billing): add Session and API key usage views (#3723)](2026-09-15/add-session-and-api-key-usage-views-3723.md) — 新功能上线 / 外部 B
-- [feat(council): members verify the report file before returning a digest (#280)](2026-09-15/members-verify-the-report-file-before-returning-a-.md) — 新功能上线 / 外部 B
-- [feat(settings): migrate Business organization management into Settings (#3715)](2026-09-15/migrate-business-organization-management-into-sett.md) — 新功能上线 / 外部 B
-- [feat(web): rename business marketing routes to enterprise (#3726)](2026-09-15/rename-business-marketing-routes-to-enterprise-3.md) — 新功能上线 / 外部 C
-- [fix(chat): restore Agent workspace replay sharing controls (#3735)](2026-09-15/restore-agent-workspace-replay-sharing-controls-.md) — Bug Fix / 外部 A
-- [fix(billing): round credits at API response boundaries (#3743)](2026-09-15/round-credits-at-api-response-boundaries-3743.md) — Bug Fix / 外部 A
-- [fix(landing): stabilize Safari scrolling and pause hidden demos (#3744)](2026-09-15/stabilize-safari-scrolling-and-pause-hidden-demos-.md) — Bug Fix / 外部 B
-- [feat(web): 优化导航、任务预览与智能体详情交互 (#3724)](2026-09-15/优化导航任务预览与智能体详情交互 -3724.md) — 新功能上线 / 外部 A
-- [fix(chat): 修复 Agent 工作区引用回复无响应 (#3731)](2026-09-15/修复-agent-工作区引用回复无响应 -3731.md) — Bug Fix / 外部 A
-- [feat(tasks): 接入真实任务历史、执行状态和积分用量 (#3737)](2026-09-15/接入真实任务历史执行状态和积分用量 -3737.md) — 新功能上线 / 外部 A
+- [feat(billing): add Session and API key usage views (#3723)](updates/2026-09-15/add-session-and-api-key-usage-views-3723.md) — 新功能上线 / 外部 B
+- [feat(council): members verify the report file before returning a digest (#280)](updates/2026-09-15/members-verify-the-report-file-before-returning-a-.md) — 新功能上线 / 外部 B
+- [feat(settings): migrate Business organization management into Settings (#3715)](updates/2026-09-15/migrate-business-organization-management-into-sett.md) — 新功能上线 / 外部 B
+- [feat(web): rename business marketing routes to enterprise (#3726)](updates/2026-09-15/rename-business-marketing-routes-to-enterprise-3.md) — 新功能上线 / 外部 C
+- [fix(chat): restore Agent workspace replay sharing controls (#3735)](updates/2026-09-15/restore-agent-workspace-replay-sharing-controls-.md) — Bug Fix / 外部 A
+- [fix(billing): round credits at API response boundaries (#3743)](updates/2026-09-15/round-credits-at-api-response-boundaries-3743.md) — Bug Fix / 外部 A
+- [fix(landing): stabilize Safari scrolling and pause hidden demos (#3744)](updates/2026-09-15/stabilize-safari-scrolling-and-pause-hidden-demos-.md) — Bug Fix / 外部 B
+- [feat(web): 优化导航、任务预览与智能体详情交互 (#3724)](updates/2026-09-15/优化导航任务预览与智能体详情交互 -3724.md) — 新功能上线 / 外部 A
+- [fix(chat): 修复 Agent 工作区引用回复无响应 (#3731)](updates/2026-09-15/修复-agent-工作区引用回复无响应 -3731.md) — Bug Fix / 外部 A
+- [feat(tasks): 接入真实任务历史、执行状态和积分用量 (#3737)](updates/2026-09-15/接入真实任务历史执行状态和积分用量 -3737.md) — 新功能上线 / 外部 A
 
 ## 2026-08-20
 
