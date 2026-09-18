@@ -1,5 +1,21 @@
 # Updates Index
 
+## 2026-09-17
+
+- [fix(agents): pin effective global skills as inherited refs on first skill declaration (#3764)](2026-09-17/agents-pin-global-skills-inherited-3764.md) — Bug Fix / 外部 A
+- [feat(agents): publish shared agents with manual updates and independent copies (#3773)](2026-09-17/agents-publish-shared-agents-3773.md) — 新功能上线 / 外部 A
+- [feat(plugins): 接入 Skills 能力并统一侧边栏资源页面体验 (#3757)](2026-09-17/plugins-skills-resource-pages-3757.md) — 新功能上线 / 外部 A
+- [feat(marketing): add Agent Gallery to Solutions and navigation (#3738)](2026-09-17/marketing-agent-gallery-3738.md) — 新功能上线 / 外部 A
+- [feat(kb): wire share-link installs into the kb grant domain (spec L0-L18) (#3779)](2026-09-17/kb-share-link-grants-3779.md) — 新功能上线 / 外部 B
+- [fix(workspace): 修复 R2 工作台交互并统一资源页面样式 (#3781)](2026-09-17/workspace-r2-fixes-resource-pages-3781.md) — Bug Fix / 外部 B
+- [fix(agents): 优化设计面板、编辑入口和头像保存体验 (#3774)](2026-09-17/agents-design-panel-avatar-save-3774.md) — Bug Fix / 外部 B
+- [fix(agents): 修复头像保存同步、首页路径与全局输入框高度 (#3768)](2026-09-17/agents-avatar-save-home-path-input-3768.md) — Bug Fix / 外部 B
+- [fix(docx): preserve revision outputs when LibreOffice fails (#282)](2026-09-17/docx-preserve-revision-outputs-282.md) — Bug Fix / 外部 B
+- [fix(docx): write LibreOffice conversion output locally before copying to NFS (#281)](2026-09-17/docx-libreoffice-local-conversion-281.md) — Bug Fix / 外部 B
+- [fix(agents): persist exact environment pins in revisions (#3782)](2026-09-17/agents-persist-environment-pins-3782.md) — 产品基础功能更新 / 外部 C
+- [fix(chat): render model provider icons locally (#3770)](2026-09-17/chat-local-model-provider-icons-3770.md) — Bug Fix / 外部 C
+- [fix(web): 优化首页 Agent 卡片布局、选择面板与日程文案 (#3758)](2026-09-17/web-home-agent-card-layout-3758.md) — Bug Fix / 外部 C
+
 ## 2026-09-16
 
 - [fix(billing): allow card checkout without account email (#3756)](2026-09-16/allow-card-checkout-without-account-email-3756.md) — Bug Fix / 外部 A

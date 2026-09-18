@@ -1,5 +1,65 @@
 # ZooClaw Changelog
 
+## 2026-09-17
+
+### 🆕 新功能
+
+**feat(agents): publish shared agents with manual updates and independent copies (#3773)**
+
+分享 Agent 从「复制一份就断联」升级为正式发布机制：作者决定什么时候发版，拿到的人是只读实例并自己决定什么时候更新，也可以随时另存为独立副本。
+
+**feat(plugins): 接入 Skills 能力并统一侧边栏资源页面体验 (#3757)**
+
+侧边栏 Skills 页面真正接上了 Skill Registry：能看官方与个人技能的完整目录、搜索、上传个人 Skill ZIP、更新版本和删除，Connector / MCP / Knowledge 四个资源页面的交互和视觉也统一了。
+
+**feat(kb): wire share-link installs into the kb grant domain (spec L0-L18) (#3779)**
+
+分享链接安装 Agent 时会一并带上知识库授权，收到链接的人装完就能直接用作者挂的知识库，不用再手动补权限。
+
+**feat(marketing): add Agent Gallery to Solutions and navigation (#3738)**
+
+官网 Solutions 上新 Agent Gallery：导航拆成 Agent Gallery 和 Industry 两组，页脚也加了 Gallery 入口，中英文站点都能直接逛现成 Agent。
+
+### 🐛 Bug 修复
+
+**fix(agents): pin effective global skills as inherited refs on first skill declaration (#3764)**
+
+修复自进化 Agent 首次声明自建技能后，22 个平台全局技能（含知识库）全部静默消失的问题：全局技能会以继承引用的方式固定下来，不会再被顶掉。
+
+**fix(agents): 修复头像保存同步、首页路径与全局输入框高度 (#3768)**
+
+修复手动上传头像后 Save 失败、新建 Agent 名称被塞成整段需求的问题，首页路径统一到 /home，全局输入框高度也收敛了。
+
+**fix(agents): 优化设计面板、编辑入口和头像保存体验 (#3774)**
+
+从首页点进 Agent 直接打开 Edit Agent 和设置面板，指令可以在面板里直接编辑，长内容不再跑出可视区；上传头像保存后也会留在 Profile 页。
+
+**fix(docx): write LibreOffice conversion output locally before copying to NFS (#281)**
+
+Word 转换不再因为直接往 NFS 工作区写文件而卡住：转换先落本地 /tmp 再拷回工作区，doc 转 docx 稳定多了。
+
+**fix(docx): preserve revision outputs when LibreOffice fails (#282)**
+
+docx 技能接受修订时，LibreOffice 卡死或超时不再把已有成品文档覆盖成未处理的原稿，失败会明确报错而不是假装成功。
+
+**fix(workspace): 修复 R2 工作台交互并统一资源页面样式 (#3781)**
+
+修好了首页、Agent 工作区和资源页面的一批交互问题：再次进入 Agent 会恢复上次停留的编辑页或任务，Skills 入口与侧边栏目录统一，空任务不再占位。
+
+**fix(chat): render model provider icons locally (#3770)**
+
+聊天里的模型厂商图标改为本地内置 SVG，不再依赖后端或 CDN 图片，加载更快也不会出现空白方块。
+
+**fix(web): 优化首页 Agent 卡片布局、选择面板与日程文案 (#3758)**
+
+首页 Agent 卡片改为头像在上、名称描述在下的左对齐布局，横向列表加了左右箭头；Agent 选择面板去掉系统 Assistant，定时任务区文案统一为 Schedule。
+
+### 🔧 产品基础功能更新
+
+**fix(agents): persist exact environment pins in revisions (#3782)**
+
+Agent 版本会记住当时实际使用的运行环境版本，后续复用、预览、发布都锁定同一版本，不再被悄悄升级到最新环境。
+
 ## 2026-09-16
 
 ### 🆕 新功能
