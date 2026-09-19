@@ -1,5 +1,59 @@
 # ZooClaw Changelog
 
+## 2026-09-18
+
+### 🆕 新功能
+
+**feat(agents): configure per-Agent connectors, MCP and knowledge bases (#3802)**
+
+每个 Agent 现在都能在 Settings 页里单独勾选自己要用的 Connector、个人 MCP 服务和知识库，不再是全账号资源一锅端。新建的 Agent 默认不挂任何资源，老 Agent 在你第一次编辑某类资源之前保持原来的自动继承行为，不会被静默改掉。保存和撤销沿用设置页原有的 Save/Undo，失败重试和撤销都会先确认 Engine 的真实结果再收尾，不会出现"界面显示成功、实际没生效"。注意本次需要前端、Proxy 和 Engine 一起发布才完整生效；Main Agent 默认值和 Agent Pack 安装支持留到下一阶段。
+
+**feat(agents): route v2 Auto through GPT-5.6 tiers (#3765)**
+
+Auto 模式的模型路由全面升级到 GPT-5.6：简单问题走 gpt-5.6-luna，中等复杂度走 gpt-5.6-sol，高复杂和超高复杂的任务继续交给 Agent 主模型（默认 gpt-5.6-terra）。用户不用改任何设置，Auto 会自动在快和强之间选，简单任务更快更省，难任务照样上强模型。已经渲染好路由配置的老 Agent 要等下一次更新才切换。
+
+**feat(agents): group recent conversations by channel (#3792)**
+
+最近会话现在会把外部渠道的对话按渠道图标和名称归组，只显示已经加载到会话的渠道，每个分组默认折叠、可以各自展开。Web 和 Mattermost 的会话仍然不分组、排在渠道分组上面，保留原来的八行 Show more。weixin 和 openclaw-weixin 合并成一个微信分组，未知渠道有兜底图标。点开某个会话时分组的展开状态不会丢，切换 Agent 会重置。
+
+### 🐛 Bug 修复
+
+**fix(workspace): 整合 R3 首页、日程与设置导航交互改进 (#3783)**
+
+这一版把首页、Agent 编辑面板、日程和设置导航一起理顺了。首页 Agent 卡片不会再因为聊天统计异步返回或重新排序就自己横移，第一张卡片始终可见，手动滑动和左右翻页都保留。日程页的月份、星期、今天、空状态和运行状态全部跟随语言，Cron 改成自然语言展示并标明时区，原表达式仍能在编辑器里看到；计划时间按任务自己的时区算再转到日历时区，跨天和夏令时都覆盖到了。每个任务每天只显示一行，计划时间和真实运行结果分开，只有真正跑成功的一次性任务才打完成标记，不会再"时间过了就算成功"。新建/编辑日程表单加了必填校验，名称自动聚焦、拒绝纯空格，保存取消固定在顶部。设置页换成独立二级侧栏，图标和返回入口补齐，侧栏与正文独立滚动，窄屏外观选项不再溢出。
+
+**fix(chat): surface recoverable credit failures outside history (#3795)**
+
+此前托管 Agent 因为额度不足在输出任何文字之前就失败时，Builder 和聊天会一直停在 Thinking，既没有提示也没法继续发消息。现在终止状态会正确结束 Thinking 并恢复发送，旧轮次的迟到事件不会误清掉新轮次；额度/订阅相关的失败会在输入框上方显示本地化提示，并带一个直接进充值面板的入口。提示完全根据 error_code 判断，不依赖服务端文案。
+
+**fix(artifacts): include self-evolving agents in global library (#3805)**
+
+全局 Artifacts 之前会漏掉自进化 Agent（包括在 Build 页管理的那些 Agent）发布的文件，找东西时要一个个进工作区翻。现在枚举工作区时带上了 definitions，这些文件会正常收进全局库。无需数据库迁移或重新上传，已有文件会直接出现。
+
+**fix(web): link directly to default-English Agent Gallery (#3791)**
+
+Agent Gallery 已经迁到默认英文地址，但官网导航、Solutions 推荐卡片和页脚还在用旧链接，各语言站点点进去会绕路。现在统一指向 https://zoowork.ai/agent-gallery，根站点地图也同步改成 /agent-gallery/sitemap.xml，浏览器正常跳转不受影响。
+
+**fix(web): support browsers without AbortSignal.any (#3803)**
+
+部分浏览器没有 AbortSignal.any()，导致带取消信号的请求直接报错，模型列表等共用接口拉不出来。现在后端请求、Claw 请求和流式请求包装器共用一个轻量兜底实现，浏览器原生支持时仍优先用原生，不引入依赖也不打全局 polyfill。调用方的取消和超时行为保持不变，普通请求结束后会清理监听，流式读取过程中也仍然能取消。
+
+### ✨ 体验优化
+
+**style(chat): apply warm B2 billing notice design (#3807)**
+
+输入框上方原来那条红色报错式的额度横幅换成了选定的 B2 设计：奶油底色卡片、暖色额度图标、标题和说明分行，充值按钮改成描边样式，深色主题有配套配色，窄容器下会自动换行。行为和 #3795 一致：点充值打开原有订阅面板，余额恢复后提示自动消失，历史对话里的报错仍然保留。
+
+**style(agents): refine channel cards and connected state (#3775)**
+
+Channel 页面原来的控件偏大、已连接的渠道还单独用一条横条显示。现在统一成紧凑卡片，已连接的排在列表最前面，卡片上直接显示平台 Logo、连接状态、绑定 Agent 的头像和名称，以及设置/断开按钮；策略编辑移到设置弹窗里。未连接状态改成居中的 Not Linked，Add Channel 用黑底白字。已连接卡片会显示具体渠道账号，断开确认里同时显示平台和账号，同一个 Agent 下挂多个同平台账号时不会再搞混。飞书权限提示、微信重新授权和断开审计信息都保留。
+
+### 🔧 基础能力
+
+**fix(designer): add concise image IP restrictions (#286)**
+
+Designer 的 Rules 里加了两条明确约束：拒绝复现可识别的第三方角色、吉祥物、Logo 和有品牌特征的场景（包括基于参考图的改图和高度相似的仿作），也不允许通过改名字或换工具/模型绕过，遇到这类需求会主动给出原创替代方案。只改了 designer/SKILL.md，属于模型侧指引而不是服务端审核网关，没有全局系统提示词或脚本改动。
+
 ## 2026-09-17
 
 ### 🆕 新功能

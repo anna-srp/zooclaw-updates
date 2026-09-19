@@ -1,5 +1,19 @@
 # Updates Index
 
+## 2026-09-18
+
+- [feat(agents): configure per-Agent connectors, MCP and knowledge bases (#3802)](2026-09-18/agents-per-agent-resource-bindings-3802.md) — 新功能上线 / 外部 A
+- [feat(agents): route v2 Auto through GPT-5.6 tiers (#3765)](2026-09-18/agents-v2-auto-gpt56-tiers-3765.md) — 新功能上线 / 外部 A
+- [fix(workspace): 整合 R3 首页、日程与设置导航交互改进 (#3783)](2026-09-18/workspace-r3-home-schedule-settings-3783.md) — Bug Fix / 外部 B
+- [fix(chat): surface recoverable credit failures outside history (#3795)](2026-09-18/chat-recoverable-credit-failures-3795.md) — Bug Fix / 外部 B
+- [fix(artifacts): include self-evolving agents in global library (#3805)](2026-09-18/artifacts-self-evolving-agents-global-library-3805.md) — Bug Fix / 外部 B
+- [feat(agents): group recent conversations by channel (#3792)](2026-09-18/agents-group-recents-by-channel-3792.md) — 新功能上线 / 外部 B
+- [style(chat): apply warm B2 billing notice design (#3807)](2026-09-18/chat-warm-b2-billing-notice-3807.md) — 体验优化 / 外部 C
+- [style(agents): refine channel cards and connected state (#3775)](2026-09-18/agents-channel-cards-connected-state-3775.md) — 体验优化 / 外部 C
+- [fix(web): link directly to default-English Agent Gallery (#3791)](2026-09-18/web-agent-gallery-default-english-link-3791.md) — Bug Fix / 外部 C
+- [fix(web): support browsers without AbortSignal.any (#3803)](2026-09-18/web-abortsignal-any-fallback-3803.md) — Bug Fix / 外部 C
+- [fix(designer): add concise image IP restrictions (#286)](2026-09-18/designer-image-ip-restrictions-286.md) — 产品基础功能更新 / 外部 C
+
 ## 2026-09-17
 
 - [fix(agents): pin effective global skills as inherited refs on first skill declaration (#3764)](2026-09-17/agents-pin-global-skills-inherited-3764.md) — Bug Fix / 外部 A

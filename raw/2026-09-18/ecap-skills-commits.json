@@ -1,0 +1,11 @@
+[
+  {
+    "sha": "d0eb9299a82c5065f9642f4124f59348014b5d51",
+    "author": "tim-srp",
+    "date": "2026-09-18T10:11:09Z",
+    "title": "fix(designer): add concise image IP restrictions (#286)",
+    "message": "fix(designer): add concise image IP restrictions (#286)\n\n## Summary\nAdd two short sentences to Designer's existing Rules section: refuse\nrecognizable third-party character, mascot, logo, and branded-setting\nreproductions, including reference-image edits and lookalikes; do not\nbypass via renamed subjects or alternate tools/models; offer an original\nalternative.\n\nOnly designer/SKILL.md changes. This is model guidance, not a\nserver-side moderation gate. No global system prompt or script changes,\nand no deployment.\n\nCompanion engine tool guidance:\nhttps://github.com/SerendipityOneInc/zooclaw-engine/pull/1517\n\n## Validation\nSkill linter passed (12 existing warnings in other skills). Reviewed the\nrule against existing generation/editing instructions.",
+    "pr_number": "286",
+    "pr_body": "## Summary\nAdd two short sentences to Designer's existing Rules section: refuse recognizable third-party character, mascot, logo, and branded-setting reproductions, including reference-image edits and lookalikes; do not bypass via renamed subjects or alternate tools/models; offer an original alternative.\n\nOnly designer/SKILL.md changes. This is model guidance, not a server-side moderation gate. No global system prompt or script changes, and no deployment.\n\nCompanion engine tool guidance: https://github.com/SerendipityOneInc/zooclaw-engine/pull/1517\n\n## Validation\nSkill linter passed (12 existing warnings in other skills). Reviewed the rule against existing generation/editing instructions.\n"
+  }
+]
