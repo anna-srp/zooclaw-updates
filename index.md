@@ -1,5 +1,9 @@
 # Updates Index
 
+## 2026-09-19
+
+- [fix(invitation): redirect completed sign-in to home (#3799)](updates/2026-09-19/invitation-redirect-completed-signin-home-3799.md) — Bug Fix / 外部 B
+
 ## 2026-09-18
 
 - [feat(agents): configure per-Agent connectors, MCP and knowledge bases (#3802)](updates/2026-09-18/agents-per-agent-resource-bindings-3802.md) — 新功能上线 / 外部 A

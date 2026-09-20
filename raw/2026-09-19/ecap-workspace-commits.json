@@ -1,0 +1,11 @@
+[
+  {
+    "sha": "140a3590ddb94ef7be880d3d3d8124d936273f45",
+    "author": "tim-srp",
+    "date": "2026-09-19T09:31:20Z",
+    "title": "fix(invitation): redirect completed sign-in to home (#3799)",
+    "message": "fix(invitation): redirect completed sign-in to home (#3799)",
+    "pr_number": "3799",
+    "pr_body": "> Draft for a later main backport. Do not merge yet. Production hotfix is tracked in #3800, based on `ecap-v0.19.15-release`, and published as `ecap-v0.19.16-release` from `ef6d5fb9d`.\n\n## Summary\n- Route invitation registration completion and existing-user sign-in without a return target to the locale-aware Home page instead of Chat.\n- Preserve existing-user explicit `return_to` navigation and the existing registration success delay.\n\n## Root cause\nThe invitation flow defaulted to `/chat`, sending users directly into chat initialization instead of the intended `/home` entry point.\n\n## Test plan\n- [x] `bash scripts/verify-web.sh 'src/app/[locale]/invitation/login/useBossclawLoginFlow.ts' tests/unit/bossclaw/bossclaw-login-flow.unit.spec.ts`\n- [x] All 20 login-flow tests pass, including new-user completion, existing-user sign-in, and explicit return targets.\n- [x] TypeScript, ESLint, and frontend governance checks pass.\n\n## Review assessment\nThe automated review flags new-user completion ignoring `return_to`. The base implementation already unconditionally navigated new users to `/${locale}/chat`; this PR only changes that destination to `/${locale}/home`, as requested. New-user return-target semantics are pre-existing and remain outside this narrow redirect change. Existing-user explicit return targets remain unchanged and covered by tests.\n"
+  }
+]
