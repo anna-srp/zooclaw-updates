@@ -1,5 +1,26 @@
 # Updates Index
 
+## 2026-09-20
+
+- [订阅与积分充值改版：Stripe 月订阅 + $1 = 200 积分独立充值](2026-09-20/billing-subscription-credit-topup-redesign-3811.md) — 新功能 / 外部 S
+- [开发者平台第一阶段：项目与 API Key 管理](2026-09-20/platform-project-api-key-phase-one-3812.md) — 新功能 / 外部 A
+- [个人工作区可以自助升级为 Team](2026-09-20/settings-personal-workspace-convert-to-team-3762.md) — 新功能 / 外部 A
+- [Platform 支持组织成员与邀请管理](2026-09-20/platform-organization-member-management-3824.md) — 新功能 / 外部 B
+- [Agent 模型不可用时会提示你换一个，而不是直接失败](2026-09-20/chat-prompt-replace-unavailable-agent-models-3819.md) — 新功能 / 外部 B
+- [Agent 创建与更新会同步用户时区](2026-09-20/agents-sync-user-timezone-to-engine-3813.md) — 新功能 / 外部 B
+- [Agents 页空状态改成带介绍和创建引导](2026-09-20/agents-empty-state-intro-create-guide-3821.md) — 新功能 / 外部 B
+- [独立登录页上线，官网首页不再被登录状态自动带走](2026-09-20/web-standalone-login-pages-platform-menu-3720.md) — 新功能 / 外部 B
+- [修复：Stripe 里预约取消的订阅会被正确识别](2026-09-20/billing-stripe-scheduled-cancellation-3828.md) — Bug Fix / 外部 B
+- [修复：地区限制只作用于邮箱新注册，老用户不再被拦在门外](2026-09-20/auth-restrict-region-checks-new-email-signups-3815.md) — Bug Fix / 外部 A
+- [修复：Agent 固定的资源快照与运行时人格不会再被重置](2026-09-20/agents-preserve-pinned-resource-snapshots-persona-3814.md) — Bug Fix / 外部 B
+- [修复：积分不足时显示友好提示，而不是原始报错](2026-09-20/chat-friendly-insufficient-credits-copy-3822.md) — Bug Fix / 外部 B
+- [修复：优化会话状态、消息操作与输入框布局](2026-09-20/chat-session-state-message-actions-input-layout-3793.md) — Bug Fix / 外部 B
+- [修复：恢复 R4 工作区的会话操作并统一交互样式](2026-09-20/workspace-restore-r4-session-actions-styles-3804.md) — Bug Fix / 外部 B
+- [修复：英文营销页 URL 统一，去掉 /en 前缀](2026-09-20/seo-unify-public-marketing-english-urls-3806.md) — Bug Fix / 外部 B
+- [修复：Agent 修订投影时保留技能的原始名称](2026-09-20/agents-preserve-logical-skill-names-revision-projection.md) — Bug Fix / 外部 C
+- [修复：Council 会按 cast 指定的模型派发子会话](2026-09-20/council-explicit-cast-model-dispatch-287.md) — Bug Fix / 外部 C
+- [修复：非 Team 账号不再显示多余的按月计费说明](2026-09-20/billing-hide-default-personal-plan-caption-3826.md) — Bug Fix / 外部 C
+
 ## 2026-09-19
 
 - [fix(invitation): redirect completed sign-in to home (#3799)](2026-09-19/invitation-redirect-completed-signin-home-3799.md) — Bug Fix / 外部 B

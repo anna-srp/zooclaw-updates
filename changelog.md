@@ -1,5 +1,83 @@
 # ZooClaw Changelog
 
+## 2026-09-20
+
+### 🆕 新功能
+
+**feat(billing): integrate subscription and credit top-up redesign (#3811)**
+
+订阅和积分购买整体改版上线：Pro 按月 Stripe 订阅，积分可以独立购买（$1 = 200 积分，且为永久积分，不随账期清零），老订阅会迁移到新体系。Pro/Enterprise 定价页、Manage plan 面板、积分购买入口和 onboarding 展示全部换成新版；Stripe 充值发票可以直接下载。Team 用户保留 Manage 入口，但隐藏个人充值与取消操作、禁用个人订阅，Contact Sales 直接跳企业页。同时补齐了支付/积分的诊断能力，钱包变更和余额查询沿用原有链路，未完成的 Stripe Checkout 会话也能恢复。（已合并，待随下一个 release 发版）
+
+**feat(platform): deliver phase one project and API key management (#3812)**
+
+Developer Platform 第一期作为一个跨层功能整体交付：独立的 Platform User / Organization / Project / API Key 数据结构，通过 Clerk 会话校验并自动初始化组织与默认项目，Project 和 API Key 的管理接口通过 claw-interface 暴露，Platform 前端已接到真实接口。计费、用量统计、SDK 机器认证和 Work key 迁移留给后续阶段，第三期相关界面暂时置灰。（已合并，待随下一个 release 发版）
+
+**feat(settings): support personal workspace conversion to Team (#3762)**
+
+个人工作区的所有者现在可以在 Settings > Organization > Convert to Team 里把现有工作区转成 Team：组织、成员关系、Agent 和数据全部保留，不需要重建。转换本身不购买付费套餐、也不发放 Team 钱包额度。只有拥有有效管理员成员身份的 owner 能操作；如果个人订阅还处于非终态（包括「到期后取消」），转换会被拦截。界面上加了确认弹窗和 Team 名称输入，成功后自动刷新账号缓存并切到 Team 导航。
+
+**feat(platform): add organization member management (#3824)**
+
+Platform 账号菜单新增 Organization 设置入口，点进去直接打开 Clerk 自带的组织资料页，用来管理成员和邀请。成员关系与邀请仍然以 Clerk 为准，没有新增 Platform 侧的表或接口，也就不存在两套数据不一致的问题。（已合并，待随下一个 release 发版）
+
+**feat(chat): prompt to replace unavailable agent models (#3819)**
+
+已安装的 Agent 可能还挂着你账号里已经不再提供的模型。现在打开这类 Agent 的会话，会在模型列表加载完成后弹出一个紧凑的替换弹窗让你挑新模型：按目录原始顺序展示、默认预选 is_default，带供应商图标、消耗倍率、详情、搜索和滚动。关掉弹窗不会丢会话和草稿，尝试发送会重新弹出而不提交、也不清空已输入内容和附件。模型目录为空时视为无法判断，不弹窗也不阻止发送；保存失败会保留你的选择，保存成功沿用原有的运行时重启流程。Auto 配置仍然有效，托管/只读 Agent 不在范围内。（已合并，待随下一个 release 发版）
+
+**feat(agents): sync user timezone to engine Agents (#3813)**
+
+所有 Agent 创建入口（默认主 Agent、Pack 安装、Agent Builder 的 Pack 测试预览、v2 Agent 开发流程）现在都会读取账号 locale 里的时区，并传给 Engine；更新 Agent 时也会带上。对用户的实际意义是：定时任务、日程和时间相关的表达会按你自己的时区来算，不再默认按 UTC 处理。（已合并，待随下一个 release 发版）
+
+**feat(agents): 优化Agents页空状态介绍与创建引导 (#3821)**
+
+新用户完成 onboarding 进入 Agents，或者删掉最后一个 Agent 之后，页面不再只有一张插图加一句提示。现在「全部 / 我的」列表为空时会展示 Agents 简介、16:9 视频占位，以及「专属工具与知识、按计划自动执行、在对话中完善」三栏说明，并给出直接打开创建弹窗的「创建 Agent」按钮。布局会根据窗口高度调整视频区域，保证常见笔记本屏幕上创建入口在首屏就能看到；中英文文案补齐，浅色深色样式沿用设计系统。（已合并，待随下一个 release 发版）
+
+**feat(web): add standalone login pages and disabled Platform menu (#3720)**
+
+公开首页现在不管你有没有登录、也不管其他标签页里登录状态怎么变，都会保持在首页，不会自动把你弹进应用里。点菜单里的 ZooWork 仍然在新标签打开 /login，已登录跳转和 Agent/Specialist 参数交接照旧。营销页的 Get Started 菜单新增独立的 ZooWork 登录入口，以及一个置灰的 API Platform 入口（暫不可点，对应的 /platform/login 页面目前只是预览）。
+
+### 🐛 Bug 修复
+
+**fix(billing): recognize Stripe scheduled cancellation dates (#3828)**
+
+在 Stripe 的 Customer Portal 里预约取消时，可能只设置了 cancel_at 而 cancel_at_period_end 仍然是 false。之前这类订阅即使 webhook 已经处理成功，系统仍然当成会继续续费，用户在账单页看到的状态是错的。现在会识别 cancel_at 这种预约取消日期，订阅状态和到期时间显示与 Stripe 一致。（已合并，待随下一个 release 发版）
+
+**fix(auth): restrict region checks to new email signups (#3815)**
+
+国家/地区限制现在只在「用邮箱 OTP 新注册」时生效。已存在、处于活跃状态且为默认角色的邮箱用户，不管在哪个国家都能正常登录，不会再因为出差或换网络被挡下来。CF-IPCountry 在 Web 边界校验，注册检查在 OTP 发送和验证两个路由都会执行；如果 Web 临时连到不支持新策略版本的旧后端，会保留改动前的放行行为。日志里不会记录邮箱地址和 OTP 值。Google 登录和手机号登录行为不变。（已合并，待随下一个 release 发版）
+
+**fix(agents): preserve pinned resource snapshots and runtime persona (#3814)**
+
+Agent 调用资源时必须用它 pinned 配置选定的那份绑定，包括保留的 Build 预览。这次把运行时投影与来源/绑定的对应关系以不可变形式存到业务库，Save/Undo、恢复、分享和来源 Revision 身份都保留，Engine 转发通用上下文、Proxy 读到的是真正生效的那条关联。资源初始化改为注册已有配置键，而不是拿过期的 declared.persona 新建并激活配置——这修掉了一个已复现的回归：编辑过的 AGENTS.md 被重置、onboarding 创建的 USER.md 被删除。已有 Agent 保留继承的选择，新建的 Builder Agent 从明确的空选择开始。
+
+**fix(chat): show friendly insufficient credits error copy (#3822)**
+
+当一条助手错误消息与某个 state 为 error、errorCode 为 insufficient_credits 的用户轮次属于同一个 run 时，聊天里会显示本地化的友好文案（中文「积分不足」一类提示），不再把带供应商前缀的原始错误正文摔给用户。判断完全基于 error_code，不依赖服务端返回的文案。（已合并，待随下一个 release 发版）
+
+**fix(chat): 优化会话状态、消息操作与输入框布局 (#3793)**
+
+同一轮回复里的图片、文字和工具过程现在共享一个头像，操作栏和时间只在这一轮最后一个答案片段下显示一次，重复信息和空白都少了。连续的 Agent 片段共用头像，兼容图片缺失 runId 和异步续跑换 runId 的情况；用户消息和真实的 session 分隔会重新开始分组。复制和 Reply 会包含该轮全部回答文字（排除执行过程），较早片段不再留一整行占位。（已合并，待随下一个 release 发版）
+
+**fix(workspace): 恢复 R4 会话操作并优化交互样式 (#3804)**
+
+R4 Agent 工作区缺失的会话操作和附件入口回来了：会话侧边栏的重命名、归档，以及聊天顶部的标题编辑都可用，详情页浏览器标签会显示 Agent 名称，新建 Agent 接入了与首页一致的附件上传，外部渠道卡片显示真实的 Agent 头像。同时接入 V5 默认头像（白色图形保留，配各不相同的浅色渐变背景与浅灰圆形描边），Update 按钮精简为名称后的紫色圆形上箭头表示有新版本，列表、导航和弹窗的交互样式统一。
+
+**fix(seo): unify public marketing English URLs (#3806)**
+
+英文版 About、Pricing、Solutions、Enterprise 四个公开页移到 /about、/pricing、/solutions、/enterprise，老的 /en/... 链接返回 301 跳转并保留原有查询参数，非英文公开页保持各自的一级语言前缀。导航、语言切换、middleware 和内部 rewrite 都改用精确的营销页白名单，通用 locale 工具、后端 URL 生成、登录、订阅、结算、API 和附件链接行为不变。canonical、语言 alternates、Enterprise 元数据和 65 条主 sitemap 已对齐，另外补齐了八个语言包里缺失的 Solutions 文案，这些语言的公开页不会再回落成英文。
+
+**fix(agents): preserve logical skill names across revision projections (#3816)**
+
+创建、预览、提交、应用和共享更新的整个链路里，Engine 绑定都会保留技能的来源名称，不会重命名注册表 ID、版本或已存储的内容。之前修订绑定虽然留着来源名，但配置投影会把它丢掉，Engine 于是暴露了内部防冲突名，用户在 Agent 里看到的技能名和自己写的不一致。新投影/幂等键做了隔离，升级前的 R0 创建仍能按原键重放；新引入的名称（包括重命名目标）会做校验，历史遗留名称和已接受的草稿操作仍可读可编辑并给出警告。（已合并，待随下一个 release 发版）
+
+**fix(council): explicitly dispatch cast models to subagents (#287)**
+
+此前在 DeepSeek 下，Council 可能在不带 model 的情况下创建所有子会话，导致每个席位都继承了驱动模型，即使 cast.json 和 ledger 里写的是不同模型——也就是说你以为开了一场多模型圆桌，实际上是同一个模型自说自话。现在成员、composer、修订者和重试都必须在 sessions_spawn.model 里带上确切的 cast 模型；派发前检查 spawn 回执、保留完整 session key，模型不匹配的子会话会直接暴露为派发失败，而不是顶着别人的名字被采纳。不匹配的席位会记录请求/实际模型证据并失败，同时跳过计价用量统计。（已合并，待随下一个 release 发版）
+
+**fix(billing): hide default personal plan billing caption (#3826)**
+
+Pro 订阅按钮下方的「Billed monthly. Cancel anytime.」以及它占的空白，在非 Team 账号上会被隐藏；Team 账号仍然保留「Contact Sales to manage your team plan.」。这是默认个人套餐场景下的一处文案冗余，属于纯展示层修正。（已合并，待随下一个 release 发版）
+
 ## 2026-09-19
 
 ### 🐛 Bug 修复
