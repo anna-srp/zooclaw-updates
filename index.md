@@ -1,5 +1,42 @@
 # Updates Index
 
+## 2026-09-21
+
+- [feat(agents): make build guidance clear and support necessary onboarding (#3837)](updates/2026-09-21/agents-build-guidance-necessary-onboarding-3837.md) — 新功能上线 / 外部 A
+- [fix(billing): show Add Credits for all eligible personal users (#3835)](updates/2026-09-21/billing-show-add-credits-eligible-personal-users-3835.md) — Bug Fix / 外部 A
+- [fix(billing): unblock subscriptions with legacy pending orders (#3832)](updates/2026-09-21/billing-unblock-legacy-pending-orders-3832.md) — Bug Fix / 外部 A
+- [feat(mcp): require confirmation for Feishu approval writes (#3801)](updates/2026-09-21/mcp-feishu-approval-writes-require-confirmation-3801.md) — 新功能上线 / 外部 A
+- [fix(models): guide users without access to billing (#3839)](updates/2026-09-21/models-guide-users-without-billing-access-3839.md) — Bug Fix / 外部 A
+- [fix(billing): remove credit expiration promises from UI copy (#3836)](updates/2026-09-21/billing-remove-credit-expiration-copy-3836.md) — 体验优化 / 外部 B
+- [fix(landing): improve responsive layout and unify signup menus (#3820)](updates/2026-09-21/landing-responsive-layout-unify-signup-menus-3820.md) — Bug Fix / 外部 B
+- [fix(platform): preserve selected project after refresh (#3825)](updates/2026-09-21/platform-preserve-selected-project-after-refresh-3825.md) — Bug Fix / 外部 B
+- [feat(platform): add project API key authentication (#3838)](updates/2026-09-21/platform-project-api-key-authentication-3838.md) — 新功能上线 / 外部 B
+- [feat(platform): refine organization and project settings (#3847)](updates/2026-09-21/platform-refine-organization-project-settings-3847.md) — 新功能上线 / 外部 B
+- [feat(platform): separate project and organization settings (#3830)](updates/2026-09-21/platform-separate-project-organization-settings-3830.md) — 新功能上线 / 外部 B
+- [fix(billing): remove unused Airwallex pricing and report payment failures (#3831)](updates/2026-09-21/billing-remove-airwallex-pricing-report-payment-failures-3831.md) — 产品基础功能更新 / 外部 C
+- [fix(schedule): translate dispatched / awaiting_approval / unknown engine run statuses (#3829)](updates/2026-09-21/schedule-translate-engine-run-statuses-3829.md) — Bug Fix / 外部 C
+
+## 2026-09-20
+
+- [fix(auth): restrict region checks to new email signups (#3815)](updates/2026-09-20/auth-restrict-region-checks-new-email-signups-3815.md) — Bug Fix / 外部 A
+- [feat(platform): deliver phase one project and API key management (#3812)](updates/2026-09-20/platform-project-api-key-phase-one-3812.md) — 新功能上线 / 外部 A
+- [feat(settings): support personal workspace conversion to Team (#3762)](updates/2026-09-20/settings-personal-workspace-convert-to-team-3762.md) — 新功能上线 / 外部 A
+- [feat(agents): 优化Agents页空状态介绍与创建引导 (#3821)](updates/2026-09-20/agents-empty-state-intro-create-guide-3821.md) — 新功能上线 / 外部 B
+- [fix(agents): preserve pinned resource snapshots and runtime persona (#3814)](updates/2026-09-20/agents-preserve-pinned-resource-snapshots-persona-3814.md) — Bug Fix / 外部 B
+- [feat(agents): sync user timezone to engine Agents (#3813)](updates/2026-09-20/agents-sync-user-timezone-to-engine-3813.md) — 新功能上线 / 外部 B
+- [fix(billing): recognize Stripe scheduled cancellation dates (#3828)](updates/2026-09-20/billing-stripe-scheduled-cancellation-3828.md) — Bug Fix / 外部 B
+- [fix(chat): show friendly insufficient credits error copy (#3822)](updates/2026-09-20/chat-friendly-insufficient-credits-copy-3822.md) — Bug Fix / 外部 B
+- [feat(chat): prompt to replace unavailable agent models (#3819)](updates/2026-09-20/chat-prompt-replace-unavailable-agent-models-3819.md) — 新功能上线 / 外部 B
+- [fix(chat): 优化会话状态、消息操作与输入框布局 (#3793)](updates/2026-09-20/chat-session-state-message-actions-input-layout-3793.md) — Bug Fix / 外部 B
+- [feat(platform): add organization member management (#3824)](updates/2026-09-20/platform-organization-member-management-3824.md) — 新功能上线 / 外部 B
+- [fix(seo): unify public marketing English URLs (#3806)](updates/2026-09-20/seo-unify-public-marketing-english-urls-3806.md) — Bug Fix / 外部 B
+- [feat(web): add standalone login pages and disabled Platform menu (#3720)](updates/2026-09-20/web-standalone-login-pages-platform-menu-3720.md) — 新功能上线 / 外部 B
+- [fix(workspace): 恢复 R4 会话操作并优化交互样式 (#3804)](updates/2026-09-20/workspace-restore-r4-session-actions-styles-3804.md) — Bug Fix / 外部 B
+- [fix(agents): preserve logical skill names across revision projections (#3816)](updates/2026-09-20/agents-preserve-logical-skill-names-revision-projection.md) — Bug Fix / 外部 C
+- [fix(billing): hide default personal plan billing caption (#3826)](updates/2026-09-20/billing-hide-default-personal-plan-caption-3826.md) — Bug Fix / 外部 C
+- [fix(council): explicitly dispatch cast models to subagents (#287)](updates/2026-09-20/council-explicit-cast-model-dispatch-287.md) — Bug Fix / 外部 C
+- [feat(billing): integrate subscription and credit top-up redesign (#3811)](updates/2026-09-20/billing-subscription-credit-topup-redesign-3811.md) — 新功能上线 / 外部 S
+
 ## 2026-09-19
 
 - [fix(invitation): redirect completed sign-in to home (#3799)](updates/2026-09-19/invitation-redirect-completed-signin-home-3799.md) — Bug Fix / 外部 B

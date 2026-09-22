@@ -1,5 +1,67 @@
 # ZooClaw Changelog
 
+## 2026-09-21
+
+### 🆕 新功能
+
+**feat(agents): make build guidance clear and support necessary onboarding (#3837)**
+
+Agent Build（构建）流程这次补了两块能力。第一块是可信的 Product Action：Build 在需要时按需读取页面入口、执行路径、前置条件和完成标志，并且明确区分「账号级资源连接」和「当前 Agent 的绑定」，所以它给出的操作指引不再靠猜，而是对得上真实产品形态。第二块是必要的一次性 onboarding：Build 可以根据 Agent 实际功能声明启动前必须补齐的信息，同时复用实例里已有的资料，只补真正缺的那几项——可选偏好和每次任务才需要的输入不会被抬成初始化门槛。配套还补齐了 onboarding 的源码校验、创建/修订应用以及提交失败后的重试恢复，已经完成的 onboarding 不会被重复触发。需要注意部署顺序：Engine 的 onboarding lifecycle 接口先上，claw-interface 再上，完整体验要两边都生效。本次没有前端页面改动、没有数据库迁移，也不会批量改写存量 Agent。（已合并，待随下一个 release 发版）
+
+**feat(platform): refine organization and project settings (#3847)**
+
+开发者平台把个人资料和组织设置统一收进同一个设置入口，Clerk 的账号资料管理仍然可见。组织下新增 People 和 Projects 的预览流程，但暂时不开放邀请成员和修改项目成员关系。项目管理留在主项目外壳里：侧边栏有 Settings，页面内分 General、Members、Limits 三个标签。项目列表简化成一个 Manage 操作，并且在设置页之间来回切换时会保持当前选中的项目。（已合并，待随下一个 release 发版）
+
+**feat(platform): separate project and organization settings (#3830)**
+
+平台设置现在把项目范围的导航和组织设置拆开了。从账号菜单进去是一个独立的设置外壳，含 General 和 Organization 两页；Members 和 Billing 仍然显示但置灰，等对应产品模型实现后再开放。主侧边栏给组织积分余额留了位置，但不会先填一个假数字；用量统计保持在项目维度，老的 Billing 路由会重定向到组织 Billing。
+
+**feat(platform): add project API key authentication (#3838)**
+
+此前平台已经能创建和吊销项目 API Key，但 claw-interface 还不认这些 Key，没法把它当成机器身份。这次在 claw-interface 里加上了项目级 API Key 鉴权：一个有效 Key 能解析出组织、项目和 Key 本身的标识。不过平台身份到 Interface 边界就会被拦住，返回 503 platform.engine_access_not_ready，不会真的往 Engine 发请求——因为平台到 Engine 的边界还没设计完，先不复用 Work 的归属假设。实现上统一了平台密钥的生成、校验和 SHA-256 哈希，只认活跃组织下的活跃 Key，最后使用时间异步更新且 60 秒节流，并新增 legacy / platform / disabled 三种服务鉴权模式（默认仍是 legacy、不做回退）。失效、已吊销、信息不全、被禁用、存储不可用等情况都有覆盖，且不会泄露具体是哪一层关系没通过。（已合并，待随下一个 release 发版）
+
+**feat(mcp): require confirmation for Feishu approval writes (#3801)**
+
+官方 staging / 生产的飞书审批 MCP 端点改成固定策略：查询类的抄送列表、待办列表、已办列表和审批详情继续自动执行；但写操作——审批评论和审批同意/拒绝——每次调用都必须经过确认。这个策略在能力发现之前就声明好，用户的权限覆盖设置、能力元数据或历史上的单工具选择都无法绕过它，只有「允许一次」和「拒绝」两种回答有效，普通的放行规则和此前会话里给过的授权都不管用。需要注意生效范围：部署顺序是 Engine worker → controld → ECAP，覆盖新建 Agent 以及存量 Agent 下一次成功保存设置或 MCP 新建/编辑/启停/测试同步之后的状态。已经处于同步正常状态的连接不会自动排队更新，也就是说——光部署并不会立刻保护所有存量 Agent。（已合并，待随下一个 release 发版）
+
+### 🐛 Bug 修复
+
+**fix(models): guide users without access to billing (#3839)**
+
+以前账号既没有有效订阅、也没有积分时，模型列表接口会直接抛 500，用户看到的是一个原始服务端错误，完全不知道下一步该干什么。现在这种「确认无权限」的情况会返回 402 和明确的错误码，前端识别后不再做无意义的重试和错误上报，而是展示「解锁模型 / 查看方案」入口，点击在新标签打开账号计费页，不再弹结账弹窗。关键是原来的输入框不会被卸载：New Task、Agent Builder 和会话里已经输入的内容、待上传文件和模型选择都保留，回到标签页时只刷新模型目录、不会自动帮你发送。另外做了个重要的安全边界——如果计费网关本身查不通，返回的是可重试的 502，而不是当成「有权限」或者「该买了」，避免把服务异常误判成用户没付费。（已合并，待随下一个 release 发版）
+
+**fix(billing): show Add Credits for all eligible personal users (#3835)**
+
+积分本来就支持不订阅单独买，但订阅已过期的个人账号在计费卡片上只能看到「激活」按钮，根本找不到充值入口。现在「充值积分」的显示不再跟订阅状态绑定，只按既有的个人计费资格判断。Team 用户保持现有的只有 Manage 的行为，加载和错误状态的保护逻辑也没变。没有后端、配置或支付处理层的改动。
+
+**fix(billing): unblock subscriptions with legacy pending orders (#3832)**
+
+有些用户在 Antom、Airwallex、Creem 这些已经下线的支付渠道里留了未完成的订阅订单，结果即使旧订阅早就结束，也买不了当前的 Stripe Pro 套餐。现在做购买资格检查时会忽略这三个已退役渠道的未完成订单，同时保留「已有有效订阅」和「订单处于已创建/人工审核中」这两类保护。Stripe 自己的未完成订单规则不变：过期的 Checkout 会话不再阻塞，当前套餐的未关闭会话可以继续付，已完成或状态不确定的会话仍需先处理完才能再买。历史订单不删也不改写，不需要环境变量或数据迁移。
+
+**fix(platform): preserve selected project after refresh (#3825)**
+
+此前当前项目只存在前端组件状态里，整页刷新后 provider 重建、选中项丢失，于是每次都退回到引导阶段的默认项目。现在选中的项目会被持久化，并且按 Clerk 用户和当前组织分别隔离保存；恢复时直接按 ID 读取，不再翻遍分页列表。为此后端新增了一个组织范围内的单项目读取接口，缺失的项目和跨组织访问返回同样的 404 契约；如果保存的项目已经 404，则回退到默认项目。游标分页只留给项目选择器浏览用。刷新恢复、直接读取、失效选中项和跨组织隔离都补了回归测试。
+
+**fix(landing): improve responsive layout and unify signup menus (#3820)**
+
+首页标题和行动按钮在某些宽度下会重叠，原因是 hero 区用了固定网格宽度、文案不换行再加上定位偏移。现在改成流式网格、文案可换行，并调整了移动端间距；移动端点击区域加大，Agent 卡片在 iPhone 宽度下内容也能看清。餐厅 Agent 的截图换成了提供方给的 2087×1398 PNG，按字节原样拷入，没有 AI 重绘、没有缩放和有损重编码，显示宽度限制在 1043 CSS 像素、居中画布 1252 像素，保证桌面 2 倍屏够清晰；加载占位图和 10 种语言的 alt 文案一起更新。另外页头、hero 和页脚现在复用同一个注册下拉菜单和「Managed Agent API」标签，页脚不再绕过共享菜单，但三处的来源埋点仍然区分开。移动端轮播标题会按当前语言预留最高的那个角色名高度，轮播过程中不再跳动。
+
+**fix(schedule): translate dispatched / awaiting_approval / unknown engine run statuses (#3829)**
+
+Engine 现在会给日程运行记录的每一行返回显式状态，其中 dispatched、awaiting_approval、unknown 三个值前端没有对应翻译，于是直接以灰色原始字符串显示。这次给运行状态徽章补上这三个映射，中英文各加三条文案（已派发 / 等待审批 / 未知），其余 8 种语言按约定回退英文；等待审批沿用和「运行中」一样的信息色。
+
+### ✨ 体验优化
+
+**fix(billing): remove credit expiration promises from UI copy (#3836)**
+
+计费界面里关于积分有效期的表述做了清理，避免和实际规则打架。账号卡片现在只说明充值积分可以在没有订阅的情况下使用，10 种语言全部同步；购买成功页去掉了「永不过期」那条以及相关翻译键，老版 Stripe 购买组件里同类说法也一并移除。About Credits 里互相矛盾的「一年有效」和「过期积分可恢复」措辞也清理掉了，月订阅积分按期重置的说明保留。钱包过期逻辑、积分发放和所有支付行为本身都没有改动——这次只改文案。
+
+### 🔧 产品基础功能更新
+
+**fix(billing): remove unused Airwallex pricing and report payment failures (#3831)**
+
+新购买已经全部走 Stripe，但后端还强制要求配置两项没用的 Airwallex USD30 设置，这次删掉，同时移除未使用的渠道价格查询和结账校验器，恢复原有的历史价格映射。另一半是可观测性：前端的目录、订单、结账、门户、订阅管理和发票失败现在都会带上操作名、用户标识以及可得的订单/会话/渠道标识上报；后端则对 webhook 处理、积分发放、订阅操作、对账和退款重试开启白名单内的支付事件上报。上报会剥掉任意渠道载荷和凭据，嵌套异常和前端重复事件都会去重，并且监控本身失败不会影响原来的支付结果、错误和重试。历史 Airwallex USD20 的首付、续费、试用结算和预约降级取消继续支持，支付与订阅业务规则没有变化。
+
 ## 2026-09-20
 
 ### 🆕 新功能
