@@ -1,5 +1,21 @@
 # Updates Index
 
+## 2026-09-22
+
+- [新增「从精选模板创建 Agent」：一键得到带技能与配置的专属 Agent (#3857)](updates/2026-09-22/agents-create-from-curated-templates-3857.md) — 新功能上线 / 外部 S
+- [Agent 编辑页改版：文件预览并入右侧设置面板，聊天与面板可拖拽调宽 (#3863)](updates/2026-09-22/agents-merge-preview-into-settings-resizable-3863.md) — 新功能上线 / 外部 A
+- [Agent 构建完成后自动补全名称、描述与头像，并给出「用它新建任务」的直达入口 (#3846)](updates/2026-09-22/agents-usable-build-outcomes-clear-handoffs-3846.md) — 新功能上线 / 外部 A
+- [修复：新用户须先完成欢迎引导再进入 Agents，老用户刷新不再闪现引导页 (#3858)](updates/2026-09-22/onboarding-require-new-user-setup-no-flash-3858.md) — Bug Fix / 外部 B
+- [修复：更新 Agent Pack 时不再覆盖你自己选的模型 (#3851)](updates/2026-09-22/agents-keep-owner-model-on-pack-update-3851.md) — Bug Fix / 外部 B
+- [套餐与充值页面改版，充值预设金额调整为 25 / 100 / 250 / 500 美元 (#3840)](updates/2026-09-22/billing-plan-ui-topup-presets-3840.md) — 体验优化 / 外部 B
+- [ZooWork 登录页改版：双栏布局、新 Logo 与循环播放的品牌视频 (#3843)](updates/2026-09-22/auth-redesign-login-page-3843.md) — 体验优化 / 外部 B
+- [Agent Instructions 改为按文件编辑，聊天滚动条自动隐藏，加载动效更新 (#3842)](updates/2026-09-22/web-r5-interaction-polish-instruction-files-3842.md) — 体验优化 / 外部 B
+- [Agent 设置面板优化：Skills / 知识源 / Connectors / MCP 样式统一，添加弹窗交互更稳 (#3844)](updates/2026-09-22/agents-settings-resource-rows-add-dialogs-3844.md) — 体验优化 / 外部 C
+- [Agents 欢迎页新增产品介绍视频，替换原「敬请期待」占位 (#3862)](updates/2026-09-22/agents-welcome-introduction-video-3862.md) — 新功能上线 / 外部 C
+- [官网首屏视觉调整：主标题与右侧文案按钮底边对齐，宽屏留白更均衡 (#3852)](updates/2026-09-22/web-homepage-hero-spacing-artwork-3852.md) — 体验优化 / 外部 C
+- [修复：通过 SDK / Service API 创建的 Agent 不再因缺少工作区而拿不到凭证 (#3850)](updates/2026-09-22/service-api-seed-credentials-without-workspace-3850.md) — Bug Fix / 外部 C
+- [修复：企业咨询表单邮箱输入框字号与服务选择器不一致 (#3841)](updates/2026-09-22/enterprise-contact-form-font-sizes-3841.md) — Bug Fix / 外部 C
+
 ## 2026-09-21
 
 - [feat(agents): make build guidance clear and support necessary onboarding (#3837)](updates/2026-09-21/agents-build-guidance-necessary-onboarding-3837.md) — 新功能上线 / 外部 A
