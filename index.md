@@ -1,5 +1,20 @@
 # Updates Index
 
+## 2026-09-23
+
+- [修复：任务里工具等待审批时，可以直接点「确认」或「取消」了 (#3870)](updates/2026-09-23/chat-task-tool-approvals-actionable-3870.md) — Bug Fix / 外部 A
+- [修复：历史上取消过的 Stripe 授权不再挡住新订阅和结账 (#3873)](updates/2026-09-23/billing-recover-stripe-checkout-eligibility-3873.md) — Bug Fix / 外部 A
+- [被团队邀请的成员可以跳过地区限制完成注册 (#3884)](updates/2026-09-23/auth-team-invitees-region-checks-3884.md) — 新功能上线 / 外部 B
+- [聊天里的图片不再挤在文字气泡里，上传中也能看到缩略图和进度 (#3880)](updates/2026-09-23/web-chat-image-attachments-agent-card-size-3880.md) — 体验优化 / 外部 B
+- [Agent 运行状态提示保留到任务真正结束，外部渠道改为层级式导航 (#3864)](updates/2026-09-23/agents-r6-running-status-external-channels-nav-3864.md) — 体验优化 / 外部 B
+- [修复：在 Agent Build 对话里输入 /new 不再把当前会话切走 (#3875)](updates/2026-09-23/agents-prevent-session-rotation-in-build-3875.md) — Bug Fix / 外部 B
+- [MCP 工具支持按服务端推荐的默认开关状态初始化 (#3876)](updates/2026-09-23/mcp-honor-tool-default-enabled-metadata-3876.md) — 新功能上线 / 外部 B
+- [修复：从模板创建 Agent 的选择弹窗，交互和视觉更统一了 (#3879)](updates/2026-09-23/agents-create-from-template-interaction-visuals-3879.md) — 体验优化 / 外部 C
+- [Agents 欢迎视频换新，PRO 角标与 Kimi 图标素材更新 (#3883)](updates/2026-09-23/web-agent-video-brand-badges-3883.md) — 体验优化 / 外部 C
+- [官网首页模型区的 GLM 图标更新为黑色 Z 标识 (#3881)](updates/2026-09-23/landing-update-glm-model-logo-3881.md) — 体验优化 / 外部 C
+- [注册页文案、视频与排版更新：主标题改为 Deploy your expertise (#3877)](updates/2026-09-23/auth-signup-copy-video-typography-3877.md) — 体验优化 / 外部 C
+- [官网 ZooData 卡片文案重写，10 个语言版本同步对齐 (#3868)](updates/2026-09-23/landing-zoodata-copy-all-locales-3868.md) — 体验优化 / 外部 C
+
 ## 2026-09-22
 
 - [新增「从精选模板创建 Agent」：一键得到带技能与配置的专属 Agent (#3857)](updates/2026-09-22/agents-create-from-curated-templates-3857.md) — 新功能上线 / 外部 S
