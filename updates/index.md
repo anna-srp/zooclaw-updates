@@ -1,5 +1,16 @@
 # Updates Index
 
+## 2026-09-24
+
+- [修复：个人订阅到期后，旧 Agent 的历史聊天、成果和文件重新可以访问](2026-09-24/billing-unblock-legacy-agent-data-models-after-expiry-3894.md)
+- [Pro 订阅结账支持 Stripe 优惠码，折扣后（含 0 元）也照样开通完整权益](2026-09-24/billing-stripe-promotion-codes-pro-3891.md)
+- [修复：编辑 Agent 时选到不可用模型会提示更换，聊天列表不再因消息移除而崩](2026-09-24/chat-revision-model-warning-stale-message-3898.md)
+- [手机号登录的国家列表移除中国大陆 +86，其他国家短信登录保持不变](2026-09-24/auth-remove-china-86-keep-sms-3892.md)
+- [模板弹窗底部加渐隐、侧栏改为 Recent tasks，首页去掉重复的 Agent 模块](2026-09-24/web-template-modal-task-copy-home-files-3903.md)
+- [Agent 提示卡片样式统一，点一下先填进输入框可再编辑](2026-09-24/agents-prompt-cards-prefill-scrollbar-loading-3887.md)
+- [修复：高负载下登录校验、订阅状态与 Builder 轮询的重复请求大幅减少](2026-09-24/perf-cut-cpu-load-amplification-3885.md)
+- [修复：官网跳转行业解决方案页时保留当前语言，不再跳到语言不定的页面](2026-09-24/marketing-preserve-language-industry-links-3899.md)
+
 ## 2026-09-23
 
 - [修复：任务里工具等待审批时，可以直接点「确认」或「取消」了](2026-09-23/chat-task-tool-approvals-actionable-3870.md)
