@@ -1,5 +1,14 @@
 # Updates Index
 
+## 2026-09-27
+
+- [修复：任务标题改为首轮对话自动生成，不再显示截断的原始 Markdown (#3906)](updates/2026-09-27/tasks-persistent-titles-first-turn-3906.md) — Bug Fix / 外部 B
+- [修复：切换 Agent 模型时聊天和输入框不再被清空，未发送的草稿也能保留 (#3905)](updates/2026-09-27/agents-preserve-chat-switching-models-3905.md) — Bug Fix / 外部 B
+
+## 2026-09-26
+
+- 当日无新提交，无用户可感知更新（[说明](updates/2026-09-26/_no-updates.md)）
+
 ## 2026-09-25
 
 - 当日无新提交，无用户可感知更新（[说明](updates/2026-09-25/_no-updates.md)）
