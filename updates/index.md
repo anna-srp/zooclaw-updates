@@ -1,5 +1,19 @@
 # Updates Index
 
+## 2026-09-28
+
+- [开发者平台新增组织账单：按组织查看余额与消费流水，并支持 Stripe 充值](2026-09-28/platform-organization-billing-stripe-topups-3907.md)
+- [开放接口新增托管 Agent Webhook 管理：可用服务令牌创建、更新和删除 Webhook](2026-09-28/claw-interface-managed-agent-webhooks-3900.md)
+- [打开或刷新工作区更快了：去掉多出来的一屏订阅检查，首屏立刻播 Logo 加载动画](2026-09-28/onboarding-streamline-admission-first-paint-loading-3916.md)
+- [开发者平台换新登录与账单界面：支持 Google 和邮箱验证码登录，余额入口改为 Credits 并可直接充值](2026-09-28/platform-sign-in-billing-interface-3913.md)
+- [用量与任务消耗统计改走聚合接口：不再超时或只显示被截断的总额](2026-09-28/credits-scoped-bg-aggregation-task-usage-3908.md)
+- [修复：同一 Agent 多个会话并行跑技能时，临时文件不再互相覆盖导致产物出错](2026-09-28/skills-per-run-mktemp-scratch-289.md)
+- [修复：受邀加入团队的管理员不再卡在「继续 → 失败 → 重试」死循环，有权益的团队成员直接跳过个人付费](2026-09-28/onboarding-team-checkout-verified-admission-3902.md)
+- [修复：打开 Stripe 结账窗口不再直接算作完成引导，必须确认到订阅权益才放行进入工作区](2026-09-28/onboarding-gate-workspace-entry-confirmed-checkout-3901.md)
+- [修复：多模型会审（council）标准档不再卡满 20 分钟超时，第三席换成更快的模型](2026-09-28/council-standard-tier-deepseek-flash-288.md)
+- [修复：加入企业团队时运行环境归属判断错误，导致个人续费已取消但资源清理失败](2026-09-28/agents-runtime-ownership-cleanup-recovery-3910.md)
+- [修复：开发者平台账单页在并发请求下返回 500，钱包与流水读取恢复正常](2026-09-28/platform-billing-http-client-lifecycle-3911.md)
+
 ## 2026-09-27
 
 - [修复：任务标题改为首轮对话自动生成，不再显示截断的原始 Markdown](2026-09-27/tasks-persistent-titles-first-turn-3906.md)
