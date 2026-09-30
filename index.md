@@ -1,5 +1,34 @@
 # Updates Index
 
+## 2026-09-29
+
+- [Credits 充值支持 Stripe 优惠码：折扣只影响实付金额，到账 credits 照原数给足 (#3931)](updates/2026-09-29/billing-stripe-promotion-codes-credits-topups-3931.md) — 新功能 / 外部 A
+- [定价页改版：Pro 与 Enterprise 连续对比、限时 7 折高亮，每月 6000 credits 额外赠送 14000 (#3934)](updates/2026-09-29/pricing-plan-comparison-limited-offer-3934.md) — 体验优化 / 外部 A
+- [用模板创建 Agent 快了很多：实测从 25 秒以上降到 3 到 6 秒 (#3925)](updates/2026-09-29/agents-prepare-template-runtime-offline-3925.md) — 体验优化 / 外部 A
+- [修复：从 Stripe 返回后校验失败不再整页报错，套餐和「继续结账」保留在原处可重试 (#3936)](updates/2026-09-29/onboarding-preserve-checkout-verification-failures-3936.md) — Bug Fix / 外部 A
+- [修复：用兑换码、人工调整或试用拿到 Pro 的用户不再被要求再走一次 Stripe 付款 (#3924)](updates/2026-09-29/onboarding-admit-all-effective-pro-entitlements-3924.md) — Bug Fix / 外部 A
+- [修复：订阅取消或到期后可以重新购买了，不再被历史周期结束日期挡住 (#3921)](updates/2026-09-29/billing-allow-repurchase-after-terminal-subscriptions-3921.md) — Bug Fix / 外部 A
+- [开发者平台登录切换到 ZooWork 账号：邮箱验证码与 Google 登录，每个账号自带一个个人组织隔离项目和 API Key (#3937)](updates/2026-09-29/platform-migrate-login-zoowork-account-3937.md) — 新功能 / 外部 B
+- [开发者平台的项目改由引擎统一管理：支持命名项目的创建与归档，默认项目不可归档 (#3920)](updates/2026-09-29/platform-manage-projects-through-engine-3920.md) — 新功能 / 外部 B
+- [Agent Builder 改文件更省事了：小范围修改不再要求整份源文件重传 (#3919)](updates/2026-09-29/agents-revision-checked-build-source-edits-3919.md) — 体验优化 / 外部 B
+- [用量页面改版为三列概览，订阅管理与取消入口在用量页和账单页都补齐 (#3895)](updates/2026-09-29/billing-usage-page-subscription-management-3895.md) — 体验优化 / 外部 B
+- [官网 Resources 菜单改为点击展开，入口精简为 Blog、Docs、ZooData (#3929)](updates/2026-09-29/web-resources-menu-interaction-3929.md) — 体验优化 / 外部 C
+- [官网英文版首页、Solutions 和 About 页更新 SEO 标题与描述 (#3932)](updates/2026-09-29/web-english-tdk-homepage-solutions-about-3932.md) — 体验优化 / 外部 C
+
+## 2026-09-28
+
+- [开发者平台新增组织账单：按组织查看余额与消费流水，并支持 Stripe 充值 (#3907)](updates/2026-09-28/platform-organization-billing-stripe-topups-3907.md) — 新功能 / 外部 A
+- [开放接口新增托管 Agent Webhook 管理：可用服务令牌创建、更新和删除 Webhook (#3900)](updates/2026-09-28/claw-interface-managed-agent-webhooks-3900.md) — 新功能 / 外部 B
+- [打开或刷新工作区更快了：去掉多出来的一屏订阅检查，首屏立刻播 Logo 加载动画 (#3916)](updates/2026-09-28/onboarding-streamline-admission-first-paint-loading-3916.md) — 体验优化 / 外部 B
+- [开发者平台换新登录与账单界面：支持 Google 和邮箱验证码登录，余额入口改为 Credits 并可直接充值 (#3913)](updates/2026-09-28/platform-sign-in-billing-interface-3913.md) — 体验优化 / 外部 B
+- [用量与任务消耗统计改走聚合接口：不再超时或只显示被截断的总额 (#3908)](updates/2026-09-28/credits-scoped-bg-aggregation-task-usage-3908.md) — 体验优化 / 外部 B
+- [修复：同一 Agent 多个会话并行跑技能时，临时文件不再互相覆盖导致产物出错 (#289)](updates/2026-09-28/skills-per-run-mktemp-scratch-289.md) — Bug Fix / 外部 B
+- [修复：受邀加入团队的管理员不再卡在「继续 → 失败 → 重试」死循环，有权益的团队成员直接跳过个人付费 (#3902)](updates/2026-09-28/onboarding-team-checkout-verified-admission-3902.md) — Bug Fix / 外部 B
+- [修复：打开 Stripe 结账窗口不再直接算作完成引导，必须确认到订阅权益才放行进入工作区 (#3901)](updates/2026-09-28/onboarding-gate-workspace-entry-confirmed-checkout-3901.md) — Bug Fix / 外部 B
+- [修复：多模型会审（council）标准档不再卡满 20 分钟超时，第三席换成更快的模型 (#288)](updates/2026-09-28/council-standard-tier-deepseek-flash-288.md) — Bug Fix / 外部 C
+- [修复：加入企业团队时运行环境归属判断错误，导致个人续费已取消但资源清理失败 (#3910)](updates/2026-09-28/agents-runtime-ownership-cleanup-recovery-3910.md) — Bug Fix / 外部 C
+- [修复：开发者平台账单页在并发请求下返回 500，钱包与流水读取恢复正常 (#3911)](updates/2026-09-28/platform-billing-http-client-lifecycle-3911.md) — Bug Fix / 外部 C
+
 ## 2026-09-27
 
 - [修复：任务标题改为首轮对话自动生成，不再显示截断的原始 Markdown (#3906)](updates/2026-09-27/tasks-persistent-titles-first-turn-3906.md) — Bug Fix / 外部 B

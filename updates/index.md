@@ -1,5 +1,20 @@
 # Updates Index
 
+## 2026-09-29
+
+- [Credits 充值支持 Stripe 优惠码：折扣只影响实付金额，到账 credits 照原数给足](2026-09-29/billing-stripe-promotion-codes-credits-topups-3931.md)
+- [定价页改版：Pro 与 Enterprise 连续对比、限时 7 折高亮，每月 6000 credits 额外赠送 14000](2026-09-29/pricing-plan-comparison-limited-offer-3934.md)
+- [用模板创建 Agent 快了很多：实测从 25 秒以上降到 3 到 6 秒](2026-09-29/agents-prepare-template-runtime-offline-3925.md)
+- [修复：从 Stripe 返回后校验失败不再整页报错，套餐和「继续结账」保留在原处可重试](2026-09-29/onboarding-preserve-checkout-verification-failures-3936.md)
+- [修复：用兑换码、人工调整或试用拿到 Pro 的用户不再被要求再走一次 Stripe 付款](2026-09-29/onboarding-admit-all-effective-pro-entitlements-3924.md)
+- [修复：订阅取消或到期后可以重新购买了，不再被历史周期结束日期挡住](2026-09-29/billing-allow-repurchase-after-terminal-subscriptions-3921.md)
+- [开发者平台登录切换到 ZooWork 账号：邮箱验证码与 Google 登录，每个账号自带一个个人组织隔离项目和 API Key](2026-09-29/platform-migrate-login-zoowork-account-3937.md)
+- [开发者平台的项目改由引擎统一管理：支持命名项目的创建与归档，默认项目不可归档](2026-09-29/platform-manage-projects-through-engine-3920.md)
+- [Agent Builder 改文件更省事了：小范围修改不再要求整份源文件重传](2026-09-29/agents-revision-checked-build-source-edits-3919.md)
+- [用量页面改版为三列概览，订阅管理与取消入口在用量页和账单页都补齐](2026-09-29/billing-usage-page-subscription-management-3895.md)
+- [官网 Resources 菜单改为点击展开，入口精简为 Blog、Docs、ZooData](2026-09-29/web-resources-menu-interaction-3929.md)
+- [官网英文版首页、Solutions 和 About 页更新 SEO 标题与描述](2026-09-29/web-english-tdk-homepage-solutions-about-3932.md)
+
 ## 2026-09-28
 
 - [开发者平台新增组织账单：按组织查看余额与消费流水，并支持 Stripe 充值](2026-09-28/platform-organization-billing-stripe-topups-3907.md)
