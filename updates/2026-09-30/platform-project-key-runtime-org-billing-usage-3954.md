@@ -18,7 +18,7 @@ SDK 用的 zwp_live_ Project Key 现在可以直接调用已有的 Agent 和 Ses
 - 内部：P0
 - 外部：A
 - toB 相关：是
-- 发布状态：已合并待发版
+- 发布状态：已随正式 release 上线
 
 ## PR 说明
 
