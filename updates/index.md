@@ -1,5 +1,25 @@
 # Updates Index
 
+## 2026-09-30
+
+- [开发者平台的账单与 Project Key 运行能力正式开启：API Key 现在能跑 Agent 了](2026-09-30/platform-enable-billing-runtime-without-flags-3955.md)
+- [开发者平台 Project Key 打通 Agent/Session 接口：同一组织下所有项目和 Key 共用钱包与用量](2026-09-30/platform-project-key-runtime-org-billing-usage-3954.md)
+- [开发者平台组织充值上线：Billing 页显示真实余额、Add funds 与付款记录，USD 1 = 200 credits](2026-09-30/platform-organization-prepaid-billing-topups-3945.md)
+- [模型选择里新增下线提示：显示下线日期与替代模型，过期选项置灰且不影响正在进行的对话](2026-09-30/models-retirement-notices-revision-migration-3766.md)
+- [邮箱和手机验证码改在登录卡片内完成：不再跳转独立验证页，支持整段粘贴和系统自动填充](2026-09-30/auth-inline-verification-code-login-card-3953.md)
+- [定价页 Pro 按钮点了直接进套餐管理：登录后不再被甩回定价页](2026-09-30/pricing-continue-pro-entry-plan-management-3962.md)
+- [修复：保存 API 模型时不再顺带改动 Agent 的算力规格，环境未就绪也不会让整次保存失败](2026-09-30/claw-isolate-model-changes-from-compute-upgrades-3928.md)
+- [修复：编辑 Pro / Ultra 版 Agent 时运行环境被降级成 Starter，测试和提交报 environment_not_ready](2026-09-30/agents-preserve-runtime-resource-class-builder-3951.md)
+- [个人 Codex 订阅模型在所有改模型的入口都生效：Pack 更新不再把它换回默认模型](2026-09-30/agents-personal-codex-rules-all-model-surfaces-3946.md)
+- [修复：中途收到图片或普通消息后，Thinking 和运行状态不再提前消失](2026-09-30/chat-preserve-thinking-run-state-turn-end-3948.md)
+- [修复：同一账号重复购买不再在 Stripe 里生成多个客户记录，也不会被当成首次购买](2026-09-30/billing-reuse-stripe-customers-checkout-3940.md)
+- [编辑 Agent 时也能选个人 Codex 订阅模型了，和新建任务保持一致](2026-09-30/agents-personal-codex-selection-while-editing-3930.md)
+- [修复：任务跑着的时候离开再回来，「停止」按钮不再消失](2026-09-30/chat-keep-stop-available-after-navigation-3961.md)
+- [Agents 空状态换上新的介绍视频，「Legacy agent projects」入口只对真有旧项目的用户显示](2026-09-30/agents-intro-video-legacy-entry-3949.md)
+- [官网页脚重组为 Product / Use Cases / Resources / Company 四栏，DCMA 错别字改成 DMCA](2026-09-30/landing-marketing-footer-align-nav-3957.md)
+- [开发者平台 Project API Key 建立独立身份：按组织和项目隔离，与 Work 令牌分别校验](2026-09-30/platform-project-key-identity-work-tokens-3939.md)
+- [修复：模型下线迁移对已采用基线的 Agent 误判，中断的迁移现在可以续跑](2026-09-30/models-recover-retirement-revisions-adopted-baselines-3769.md)
+
 ## 2026-09-29
 
 - [Credits 充值支持 Stripe 优惠码：折扣只影响实付金额，到账 credits 照原数给足](2026-09-29/billing-stripe-promotion-codes-credits-topups-3931.md)
