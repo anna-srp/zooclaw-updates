@@ -1,5 +1,33 @@
 # Updates Index
 
+## 2026-10-01
+
+- [开发者平台充值支持新客优惠码：按充值面值到账，全额抵扣也能正常发放额度](2026-10-01/platform-discounted-first-purchase-topups-3967.md)
+- [开发者平台 Console 全面改版：侧栏精简、充值体验优化、登录页与品牌统一](2026-10-01/platform-console-ui-signin-redesign-3978.md)
+- [开发者平台新增组织用量页：按 24 小时 / 7 天 / 30 天查看消费与调用明细](2026-10-01/platform-organization-usage-page-3970.md)
+- [Agent 编辑页打通个人技能上传：选好 ZIP 就能传进个人技能库并挂到当前 Agent](2026-10-01/agents-personal-skill-upload-3966.md)
+- [Managed Agent API 入口全面开放：官网与 WebApp 的 Coming soon 全部解除](2026-10-01/marketing-enable-managed-agent-api-entries-3981.md)
+- [官网新增四个产品入口卡片与 Products 导航，手机端导航和页面对齐全面优化](2026-10-01/landing-product-nav-mobile-3968.md)
+- [开发者平台 Project Key 可用于 Agent Webhook 接口，不再一律返回 404](2026-10-01/platform-project-key-agent-webhooks-3976.md)
+- [开发者平台上线 API Credit Terms 条款页，充值、登录与个人设置都能打开](2026-10-01/platform-terms-page-entries-3988.md)
+- [定价页新增「Building with APIs?」入口，可直接跳转 Managed Agent API 充值](2026-10-01/pricing-managed-agent-api-entry-3994.md)
+- [开发者平台单次充值上限从 500 美元提高到 1,000 美元](2026-10-01/platform-raise-add-funds-limit-3996.md)
+- [开发者平台 API Key 创建与保存弹窗优化：显示所属 Project、名称计数与一次性密钥复制](2026-10-01/platform-api-key-creation-ui-3993.md)
+- [官网导航新增 Developer 文档入口，Pricing 加上 70% OFF 优惠角标](2026-10-01/marketing-nav-developer-offer-badge-3991.md)
+- [用户设置菜单里的 Managed Agent API 改为「Get API keys」双行入口](2026-10-01/web-api-keys-menu-entry-3989.md)
+- [首页产品卡片补上明确的 CTA 与 hover 反馈，不再像静态介绍](2026-10-01/landing-homepage-product-cta-3990.md)
+- [官网首页第三张产品卡改为 Enterprise AI Stack，Get Started 菜单文案同步调整](2026-10-01/marketing-homepage-product-copy-3969.md)
+- [开发者平台登录页更换右侧展示视频与兜底首帧](2026-10-01/platform-signin-video-poster-3982.md)
+- [修复：开发者平台在新标签页或重新打开后不再要求重新登录](2026-10-01/platform-persist-login-across-tabs-3984.md)
+- [修复：网络抖动或刷新被打断时不再把已登录用户踢回登录页](2026-10-01/platform-preserve-session-interrupted-restore-3979.md)
+- [修复：登录后自动初始化组织钱包，创建 API Key 不必先去充值](2026-10-01/platform-initialize-org-billing-after-login-3973.md)
+- [修复：iOS 上的 Google 登录不再失效，Firebase 就绪后才放开按钮](2026-10-01/web-ios-google-signin-3983.md)
+- [修复：手机浏览器打开登录页不再上下跳动、露出黑色背景](2026-10-01/auth-mobile-login-scroll-3985.md)
+- [修复：官网 Talk to Sales 与产品入口跳转错乱](2026-10-01/marketing-website-cta-navigation-3986.md)
+- [修复：非 iOS 设备点手机菜单里的下载入口不再无反应](2026-10-01/marketing-mobile-download-fallback-3987.md)
+- [修复：Usage 汇总金额按美分四舍五入，小额明细不再显示为 $0.00](2026-10-01/platform-usage-round-to-cents-3995.md)
+- [开发者平台浏览器标签页图标改为圆角透明](2026-10-01/platform-rounded-icons-3992.md)
+
 ## 2026-09-30
 
 - [开发者平台的账单与 Project Key 运行能力正式开启：API Key 现在能跑 Agent 了](2026-09-30/platform-enable-billing-runtime-without-flags-3955.md)
