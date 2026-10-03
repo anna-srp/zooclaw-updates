@@ -1,5 +1,33 @@
 # ZooClaw Changelog
 
+## 2026-10-02
+
+### 🆕 新功能
+
+**定价页改版：Agent Builder、Managed Agent API、Enterprise 分开定价，API 侧公开模型与工具单价 (#4002)**
+
+官网 Pricing 从单纯的订阅对比页改成三个产品的统一价格入口：Agent Builder、Managed Agent API、Enterprise，三个下划线 Tab 可以用 ?product=builder|api|enterprise 直接分享，刷新、浏览器返回和键盘切换都保持当前选中项。Agent Builder 侧集中展示 Pro $30/月、原价 $100/月、70% OFF 和每月节省金额，保留月度 credits 与限时赠送说明。Managed Agent API 第一次把价目表完整公开：LLM 覆盖 9 家公司 37 个在售模型（33 个固定公开费率、4 个按实际用量结算），支持搜索、结果计数与费用条件展开；工具分 Images、Video & avatars、Audio、Search & web、Browser、Data & knowledge 六个 Tab；Compute 明确 Pro 4 vCPU / 4 GiB、$0.20 每运行小时。没有确定公开单价的能力（Browser Use、ZooData 等）按实际用量说明并跳转文档，不虚构单价或免费承诺。Enterprise 侧汇总定制 Agent、行业数据与知识、模型网关与 BYOK、后训练与评估、私有化治理、FDE 咨询，继续走现有 Contact Sales 路径。（已合并待发版）
+
+### ✨ 体验优化
+
+**官网导航改用下划线提示 hover 与当前项，页眉 Get Started 按钮留白加大 (#4003)**
+
+官网顶层导航以前靠降低文字不透明度来表示 hover，辨识度偏弱。现在 Products、Solutions、Pricing、Enterprise、Developer、Resources 在 hover 时显示 2px 下划线，键盘焦点和菜单展开态用同一套反馈，并且尊重系统的「减少动态效果」设置。桌面下拉菜单补齐了列表项焦点背景和 Solutions 分组标题的 hover / 焦点背景；手机导航也补上分组标题与 Pricing、Enterprise 等顶层链接的 hover / 焦点背景，禁用项不再误显示高亮。页眉主按钮 Get Started 的左右内边距从 8px 增加到 16px，窄屏下页眉不会横向溢出。（已合并待发版）
+
+### 🐛 Bug 修复
+
+**修复：结账页的优惠码输入框不再被本地首充判断关掉，使用资格统一交给 Stripe 判定 (#4001)**
+
+ZooWork 和开发者平台的充值结账现在始终提供优惠码输入入口，不再由本地逻辑判断你是不是首次充值、以前有没有充值过或用过券。优惠码的首单限制、适用产品、核销次数和有效期全部由 Stripe 决定，订阅结账也是同一套规则。原因是之前的实现把入口绑在本地「首次充值资格」上，历史 Checkout（包括没付成功的尝试）和待完成的资格占用都会把入口关掉，甚至挡住再次充值。Stripe 已确认的优惠支付现在也不再依赖本地首单标记才能到账，订单归属、产品与金额校验、退款处理和防重复到账机制保持不变。充值金额范围、到账额度算法和 Stripe 后台券配置都没有变化；上线后需要从 Add funds 新发起一笔充值来验收，旧的付款链接不会自动补上输入入口。（已合并待发版）
+
+**修复：用 Project Key 创建的 Agent 恢复 Pro 默认规格（4 vCPU / 4 GiB），不再误配成 Starter (#3999)**
+
+通过开发者平台 Project Key 创建 Agent 时，默认运行规格从误用的 Starter 恢复为 Pro（4 vCPU、4 GiB），与原来 API Platform 的产品规则一致。原因是接入 zwp_live_ 这类 Project Key 时新增的分支固定写了 starter，没有沿用旧 API Platform 的 Pro 默认规则；内部计量套餐和沙箱计算规格本来是两套独立配置。新旧 API Platform 路径现在共用同一个默认规格常量，调用方传进来的规格仍然由服务端覆盖。本次只影响之后新创建的 Agent，不开放用户自选规格，也不改存量 Agent。（已合并待发版）
+
+**修复：开发者平台个人设置页去掉 Terms 入口，登录页与充值弹窗的条款链接保持不变 (#4004)**
+
+开发者平台 /settings/profile 页面底部的 Terms 链接和那条分隔线按产品负责人要求移除了，个人设置页现在只剩账号和外观两组设置。登录页、充值弹窗里的 API Credit Terms 链接以及随附协议都没有变化，想查条款仍然可以从这两处打开。原因是此前条款页上线时顺手在个人设置里加了入口，10 月 2 日的产品决定是撤掉它。（已合并待发版）
+
 ## 2026-10-01
 
 ### 🆕 新功能

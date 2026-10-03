@@ -1,5 +1,13 @@
 # Updates Index
 
+## 2026-10-02
+
+- [定价页改版：Agent Builder、Managed Agent API、Enterprise 分开定价，API 侧公开模型与工具单价](2026-10-02/pricing-three-product-plans-4002.md)
+- [修复：结账页的优惠码输入框不再被本地首充判断关掉，使用资格统一交给 Stripe 判定](2026-10-02/billing-stripe-promotion-eligibility-4001.md)
+- [修复：用 Project Key 创建的 Agent 恢复 Pro 默认规格（4 vCPU / 4 GiB），不再误配成 Starter](2026-10-02/platform-project-key-agent-pro-spec-3999.md)
+- [修复：开发者平台个人设置页去掉 Terms 入口，登录页与充值弹窗的条款链接保持不变](2026-10-02/platform-remove-profile-terms-entry-4004.md)
+- [官网导航改用下划线提示 hover 与当前项，页眉 Get Started 按钮留白加大](2026-10-02/marketing-nav-hover-underline-4003.md)
+
 ## 2026-10-01
 
 - [开发者平台充值支持新客优惠码：按充值面值到账，全额抵扣也能正常发放额度](2026-10-01/platform-discounted-first-purchase-topups-3967.md)
