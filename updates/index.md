@@ -1,5 +1,11 @@
 # Updates Index
 
+## 2026-10-03
+
+- [开发者平台 Project Key 现在可以上传和管理自己项目下的 Skill，不再只能绑定平台目录里的现成技能](2026-10-03/platform-project-key-skill-upload-4013.md)
+- [修复：手机 Safari 上第一次点开发者平台的 Google 登录不再被浏览器拦掉弹窗](2026-10-03/platform-google-login-popup-blocked-3974.md)
+- [修复：API 定价页写清模型与工具的实际计费单位，并标明哪些能力当前免费、沙箱怎么算钱](2026-10-03/pricing-api-rates-sandbox-billing-4009.md)
+
 ## 2026-10-02
 
 - [定价页改版：Agent Builder、Managed Agent API、Enterprise 分开定价，API 侧公开模型与工具单价](2026-10-02/pricing-three-product-plans-4002.md)
