@@ -1,5 +1,10 @@
 # Updates Index
 
+## 2026-10-04
+
+- [开发者平台首充赠送 $10 Bonus credits：实付金额大于零即可拿，每个账号和每张卡各一次](2026-10-04/platform-first-purchase-bonus-credits-4018.md)
+- [修复：开发者平台 Usage 页的消费金额统一保留两位小数，明细不再显示一长串小数位](2026-10-04/platform-usage-spend-two-decimals-4016.md)
+
 ## 2026-10-03
 
 - [开发者平台 Project Key 现在可以上传和管理自己项目下的 Skill，不再只能绑定平台目录里的现成技能](2026-10-03/platform-project-key-skill-upload-4013.md)
