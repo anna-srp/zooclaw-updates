@@ -1,5 +1,9 @@
 # Updates Index
 
+## 2026-10-24
+
+- [修复：生成 PDF 时逐页做视觉验收、发布前校验文件哈希，内容不再编造来源里没有的署名和状态](2026-10-24/pdf-per-page-visual-acceptance-301.md)
+
 ## 2026-10-04
 
 - [开发者平台首充赠送 $10 Bonus credits：实付金额大于零即可拿，每个账号和每张卡各一次](2026-10-04/platform-first-purchase-bonus-credits-4018.md)
