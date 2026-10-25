@@ -1,0 +1,11 @@
+[
+  {
+    "sha": "2767df8b076c3716eab8c6ddd1c0d3ed5fc3e2bf",
+    "author": "tim-srp",
+    "date": "2026-10-08T09:47:37Z",
+    "title": "chore(skills): remove retired zooclaw-connectors skill (#292)",
+    "message": "chore(skills): remove retired zooclaw-connectors skill (#292)\n\n## Summary\nRemove the retired Nango-backed `zooclaw-connectors` skill and its CLI.\nIt was removed from publication in #213 and is absent from the current\nV2 allowlist, but its source still advertised the legacy integrations\nworkflow.\n\nRemove stale references in knowledge-base authentication documentation\nand review guidance. The knowledge-base implementation and the 22-skill\npublication allowlist are unchanged. This PR does not uninstall existing\ncopies or change proxy endpoints, environment variables, Composio, or\nspecialist-manager.\n\n## Validation\n- Skill linter passed (11 existing warnings in unrelated skills).\n- Test-selection suite: 3 tests passed.\n- V2 registry dry-run: 22 skills, no validation failures.\n- No remaining zooclaw-connectors or legacy integrations endpoint\nreferences found in the working tree.\n- git diff --check passed.",
+    "pr_number": "292",
+    "pr_body": "## Summary\nRemove the retired Nango-backed `zooclaw-connectors` skill and its CLI. It was removed from publication in #213 and is absent from the current V2 allowlist, but its source still advertised the legacy integrations workflow.\n\nRemove stale references in knowledge-base authentication documentation and review guidance. The knowledge-base implementation and the 22-skill publication allowlist are unchanged. This PR does not uninstall existing copies or change proxy endpoints, environment variables, Composio, or specialist-manager.\n\n## Validation\n- Skill linter passed (11 existing warnings in unrelated skills).\n- Test-selection suite: 3 tests passed.\n- V2 registry dry-run: 22 skills, no validation failures.\n- No remaining zooclaw-connectors or legacy integrations endpoint references found in the working tree.\n- git diff --check passed.\n"
+  }
+]

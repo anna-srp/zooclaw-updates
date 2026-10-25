@@ -1,0 +1,531 @@
+# SerendipityOneInc/ecap-workspace — commits 2026-10-20
+
+## ci(review): adopt organization model profiles with rollback (#4104)
+
+- **SHA**: `a05b9a9a4c4931a38a224eaf36b0d1bef383b0d9`
+- **作者**: tim-srp
+- **日期**: 2026-10-20T12:17:35Z
+- **PR**: #4104
+
+### Commit Message
+
+```
+ci(review): adopt organization model profiles with rollback (#4104)
+
+接入已在ecap-workforce验收的组织stable/canary模型策略，仅影响ecap-workspace。仓库canary选择GPT-6.1
+Sol + Sonnet
+5.5、medium；继续直连Azure和经OpenRouter调用Claude，保留现有凭证、提示词、标签、并发和merge_group处理。
+
+每次运行统一解析model/effort并给两个reviewer消费。配置错误让PR
+gate失败；不会把merge_group中跳过的策略job误判为失败。没有增加订阅路线，也未改应用模型路由。
+
+
+回滚：REVIEW_MODEL_CHANNEL=stable，清理本轮使用的显式override，并通过新提交触发完整双review。八个组织变量值不变，可见仓库仅增加ecap-workspace和zooclaw-engine，不修改ecap-workforce或其他仓库。
+
+
+验证：7项配置、路由、override及CI接线测试通过，Ruff、Pyright和actionlint通过。测试job接入现有code-quality的paths
+filter与fan-in。本PR还需实际双review核对模型执行日志及aggregate gate。
+
+
+复核后补强：策略失败同时显式传给cc_local_result和gpt_local_result，并测试仅启用Claude时仍保留失败信号。已核对srp-actions实际gate实现会先处理本轮明确失败，再处理enabled和历史结果；effort输入也已由实际GPT执行验证。新提交将重新跑完整双review。
+
+实际双review验收（2026-10-20）：最新提交 732633035 的 GPT、Claude、aggregate gate
+均成功。运行：https://github.com/SerendipityOneInc/ecap-workspace/actions/runs/39419181174
+。已逐一打开执行日志核对 GPT CLI 使用 gpt-6.1-sol，Claude 实际响应 model 为
+anthropic/claude-sonnet-5.5，Claude
+effort=medium。首次review覆盖完整PR；修复后GPT按既有策略增量复核并APPROVE，Claude再次实际执行。此前发现已解决；最新相关测试7项通过。标签事件随后产生的skip不作为双review验收证据。
+```
+
+### PR Body
+
+接入已在ecap-workforce验收的组织stable/canary模型策略，仅影响ecap-workspace。仓库canary选择GPT-6.1 Sol + Sonnet 5.5、medium；继续直连Azure和经OpenRouter调用Claude，保留现有凭证、提示词、标签、并发和merge_group处理。
+
+每次运行统一解析model/effort并给两个reviewer消费。配置错误让PR gate失败；不会把merge_group中跳过的策略job误判为失败。没有增加订阅路线，也未改应用模型路由。
+
+回滚：REVIEW_MODEL_CHANNEL=stable，清理本轮使用的显式override，并通过新提交触发完整双review。八个组织变量值不变，可见仓库仅增加ecap-workspace和zooclaw-engine，不修改ecap-workforce或其他仓库。
+
+验证：7项配置、路由、override及CI接线测试通过，Ruff、Pyright和actionlint通过。测试job接入现有code-quality的paths filter与fan-in。本PR还需实际双review核对模型执行日志及aggregate gate。
+
+复核后补强：策略失败同时显式传给cc_local_result和gpt_local_result，并测试仅启用Claude时仍保留失败信号。已核对srp-actions实际gate实现会先处理本轮明确失败，再处理enabled和历史结果；effort输入也已由实际GPT执行验证。新提交将重新跑完整双review。
+
+实际双review验收（2026-10-20）：最新提交 732633035 的 GPT、Claude、aggregate gate 均成功。运行：https://github.com/SerendipityOneInc/ecap-workspace/actions/runs/39419181174 。已逐一打开执行日志核对 GPT CLI 使用 gpt-6.1-sol，Claude 实际响应 model 为 anthropic/claude-sonnet-5.5，Claude effort=medium。首次review覆盖完整PR；修复后GPT按既有策略增量复核并APPROVE，Claude再次实际执行。此前发现已解决；最新相关测试7项通过。标签事件随后产生的skip不作为双review验收证据。
+
+
+---
+
+## feat(agents): configure model fallback in Agent settings (#4102)
+
+- **SHA**: `dba0d9047c8ec38ffc10cf313d094c9ec005fa52`
+- **作者**: kaka-srp
+- **日期**: 2026-10-20T10:05:04Z
+- **PR**: #4102
+
+### Commit Message
+
+```
+feat(agents): configure model fallback in Agent settings (#4102)
+
+## Summary
+
+Adds fallback controls to the existing Agent Settings panel: opt in,
+select up to two ordered backup models, and save through the existing
+Revision/ChangeSet flow. Reads distinguish unsupported/unknown, saved
+source, running state, and personal subscription binding.
+
+The backend validates model access and supported protocols, preserves
+unrelated model fields, and uses the existing configuration/revision CAS
+and idempotency receipts. Runtime drift requires confirmation of each
+affected field; saved resource changes resume their original pending
+operation. Leaving a personal subscription automatically clears
+unavailable backups and disables fallback while preserving the saved
+Revision.
+
+Includes the development-only same-origin Mattermost mock proxy needed
+to validate the Settings UI on localhost:3000. No new table, collection,
+index, migration, deployment flag, or independent model-settings dialog.
+Fallback is not enabled for existing Agents. Requires the Engine
+fallback support already merged in SerendipityOneInc/zooclaw-engine#2047
+and #2048; follows issue SerendipityOneInc/zooclaw-engine#2041.
+
+## Validation
+
+- Independent Astra implementation review and targeted re-review;
+verified findings fixed before submission.
+- Focused frontend/backend regressions, TypeScript/ESLint/governance
+checks, Ruff/format/Pyright/import contracts. Full CI exposed four stale
+test fixtures; these now model the new Settings/rebase/apply contracts
+and authoritative subscription readback (30 frontend and 16 backend
+focused tests passed).
+- Local browser → ECAP API → staging Mongo (CSFLE) → shared local
+Engine/Temporal/PG/Redis validation: 13 real-model execution scenarios
+covering 503/429 failover, two backups, continuation without duplicate
+tools, next-run reset, disabled/fixed models, cancellation,
+post-publication failure and terminal provider errors. Nine additional
+rendered-config boundary checks; these are not scheduler/spawn E2E
+proof.
+- Review fixes have focused automated regressions; the 13 execution
+scenarios preceded those fixes. Real Feishu send/receive was excluded as
+requested. Real personal-provider authorization and full
+share/install/resource-pending browser flows were not exercised end to
+end.
+- Detailed scope, outcomes and cleanup:
+`docs/research/2026-10-20-agent-model-failover-settings-implementation-validation.md`.
+
+Backend and frontend both require deployment; this PR does not publish
+or deploy either surface.
+
+Size exception: 3,315 governed lines after exclusions (including
+regression coverage and review/validation evidence). This keeps the
+frontend and backend contract change together; `size-override` is used
+for this PR.
+```
+
+### PR Body
+
+## Summary
+
+Adds fallback controls to the existing Agent Settings panel: opt in, select up to two ordered backup models, and save through the existing Revision/ChangeSet flow. Reads distinguish unsupported/unknown, saved source, running state, and personal subscription binding.
+
+The backend validates model access and supported protocols, preserves unrelated model fields, and uses the existing configuration/revision CAS and idempotency receipts. Runtime drift requires confirmation of each affected field; saved resource changes resume their original pending operation. Leaving a personal subscription automatically clears unavailable backups and disables fallback while preserving the saved Revision.
+
+Includes the development-only same-origin Mattermost mock proxy needed to validate the Settings UI on localhost:3000. No new table, collection, index, migration, deployment flag, or independent model-settings dialog. Fallback is not enabled for existing Agents. Requires the Engine fallback support already merged in SerendipityOneInc/zooclaw-engine#2047 and #2048; follows issue SerendipityOneInc/zooclaw-engine#2041.
+
+## Validation
+
+- Independent Astra implementation review and targeted re-review; verified findings fixed before submission.
+- Focused frontend/backend regressions, TypeScript/ESLint/governance checks, Ruff/format/Pyright/import contracts. Full CI exposed four stale test fixtures; these now model the new Settings/rebase/apply contracts and authoritative subscription readback (30 frontend and 16 backend focused tests passed).
+- Local browser → ECAP API → staging Mongo (CSFLE) → shared local Engine/Temporal/PG/Redis validation: 13 real-model execution scenarios covering 503/429 failover, two backups, continuation without duplicate tools, next-run reset, disabled/fixed models, cancellation, post-publication failure and terminal provider errors. Nine additional rendered-config boundary checks; these are not scheduler/spawn E2E proof.
+- Review fixes have focused automated regressions; the 13 execution scenarios preceded those fixes. Real Feishu send/receive was excluded as requested. Real personal-provider authorization and full share/install/resource-pending browser flows were not exercised end to end.
+- Detailed scope, outcomes and cleanup: `docs/research/2026-10-20-agent-model-failover-settings-implementation-validation.md`.
+
+Backend and frontend both require deployment; this PR does not publish or deploy either surface.
+
+Size exception: 3,315 governed lines after exclusions (including regression coverage and review/validation evidence). This keeps the frontend and backend contract change together; `size-override` is used for this PR.
+
+
+---
+
+## fix(platform): 统一充值弹窗布局与金额选择交互 (#4092)
+
+- **SHA**: `20f02e2b1b34fd890f68779fefb4f09cf6910937`
+- **作者**: lynn Zhuang
+- **日期**: 2026-10-20T09:52:44Z
+- **PR**: #4092
+
+### Commit Message
+
+```
+fix(platform): 统一充值弹窗布局与金额选择交互 (#4092)
+
+## 问题与修复
+
+充值弹窗通过局部样式放大宽度、标题和金额卡片，和 ZooWork 的紧凑充值模式不一致；自定义金额隐藏在 Other
+后，关闭弹窗后键盘焦点没有回到入口。
+
+本次改为标准 Dialog 分区与共享 `CreditAmountSelector`：金额输入始终可见，快捷金额使用 outline
+单选组件，限额和优惠说明与支付操作分开。短窗口只滚动正文，底部支付按钮保持可见；关闭后焦点回到 Add funds。
+
+## 组件与业务边界
+
+- 使用现有 InputGroup、Label、ToggleGroup、Dialog 和 Button，移除自定义大卡片及无业务依据的推荐文案。
+- 金额上下限、精确整数分、服务端优惠资格、支付请求与幂等重试仍由 Platform 负责；不修改后端支付或审计流程。
+- 同步组件文档、来源与行为测试；对应独立组件库反补到 [Design System PR
+#8](https://github.com/SerendipityOneInc/Zoowork-design-system/pull/8)。
+- 原 Platform PR #4089 已合并，本 PR 是独立后续修复，可单独回退。
+
+## 验证
+
+- [x] Platform 306 项测试、ESLint、TypeScript 与生产构建通过。
+- [x] 共享组件测试通过；组件库完整运行有一次目录本地化测试超时，单独重跑该文件 4 项通过，其余 480 项通过。组件库类型与 lint
+通过。
+- [x] Chrome 实测 1440×1000、375×667、844×390 及深色模式：无横向溢出、固定底部、可滚动正文。
+- [x] 验证输入焦点、快捷项、20.00 归一化、金额边界、Esc 返回焦点、Enter 提交、pending 禁用和失败错误聚焦。
+- [x] 模拟接口确认 $5.25 提交 525 分，同金额重试复用幂等标识，修改金额后使用新标识；没有创建真实支付。
+
+实际截图与浏览器记录已整理到 Obsidian 的 Platform 目录，验收 HTML 使用真实页面截图，不另写一套组件实现。
+```
+
+### PR Body
+
+## 问题与修复
+
+充值弹窗通过局部样式放大宽度、标题和金额卡片，和 ZooWork 的紧凑充值模式不一致；自定义金额隐藏在 Other 后，关闭弹窗后键盘焦点没有回到入口。
+
+本次改为标准 Dialog 分区与共享 `CreditAmountSelector`：金额输入始终可见，快捷金额使用 outline 单选组件，限额和优惠说明与支付操作分开。短窗口只滚动正文，底部支付按钮保持可见；关闭后焦点回到 Add funds。
+
+## 组件与业务边界
+
+- 使用现有 InputGroup、Label、ToggleGroup、Dialog 和 Button，移除自定义大卡片及无业务依据的推荐文案。
+- 金额上下限、精确整数分、服务端优惠资格、支付请求与幂等重试仍由 Platform 负责；不修改后端支付或审计流程。
+- 同步组件文档、来源与行为测试；对应独立组件库反补到 [Design System PR #8](https://github.com/SerendipityOneInc/Zoowork-design-system/pull/8)。
+- 原 Platform PR #4089 已合并，本 PR 是独立后续修复，可单独回退。
+
+## 验证
+
+- [x] Platform 306 项测试、ESLint、TypeScript 与生产构建通过。
+- [x] 共享组件测试通过；组件库完整运行有一次目录本地化测试超时，单独重跑该文件 4 项通过，其余 480 项通过。组件库类型与 lint 通过。
+- [x] Chrome 实测 1440×1000、375×667、844×390 及深色模式：无横向溢出、固定底部、可滚动正文。
+- [x] 验证输入焦点、快捷项、20.00 归一化、金额边界、Esc 返回焦点、Enter 提交、pending 禁用和失败错误聚焦。
+- [x] 模拟接口确认 $5.25 提交 525 分，同金额重试复用幂等标识，修改金额后使用新标识；没有创建真实支付。
+
+实际截图与浏览器记录已整理到 Obsidian 的 Platform 目录，验收 HTML 使用真实页面截图，不另写一套组件实现。
+
+
+---
+
+## fix(claw-interface): keep credits check deterministic for teams without a Lago customer (#4096)
+
+- **SHA**: `eed7906d53863ba39a51b1cb0c14bd024db0d3f8`
+- **作者**: finn-srp
+- **日期**: 2026-10-20T05:13:44Z
+- **PR**: #4096
+
+### Commit Message
+
+```
+fix(claw-interface): keep credits check deterministic for teams without a Lago customer (#4096)
+
+## Summary
+- `check_user_credits_flow` still calls BG `/credits/check` and
+`/credits` concurrently, but now awaits `/credits/check` first. Its 400
+is the only no-subscription signal, so the response no longer depends on
+which concurrent call fails first.
+- When `/credits/check` fails, the `/credits` task is cancelled and
+drained instead of awaited, so a stalled `/credits` cannot delay a known
+answer (Codex review P1).
+- Any other failure still raises, including `/credits` 404 while a
+subscription exists. That case is a real billing data inconsistency and
+stays visible.
+
+## Root cause
+A personal org upgraded to team (self-service since #3762; staff console
+since #3044) keeps its existing billing team id but, by design, gets no
+team plan, so Lago has no customer for that team until a plan is
+purchased. For that customer BG returns `/credits/check` 400 (no active
+subscription) and `/credits` 404 (`customer_not_found`).
+
+The flow used a plain `asyncio.gather`, which raises whichever failure
+finishes first. When the 400 won, the caller got the no-subscription
+response (200); when the 404 won, it fell into the generic handler and
+returned 500. Production on 2026-10-20: one account that upgraded at
+02:45 UTC and stayed on checkout made 143 × 200 and 121 × 500 on `GET
+/users/credits/check` in about 20 minutes, which pushed the
+claw-interface 5xx rate above 2% (Grafana alert
+`zooclaw-claw-interface-error-rate`, PagerDuty #113807). Every account
+with this error since 2026-09-23 performed a self-service upgrade
+beforehand, except one group on 2026-10-13 that came the same day as
+staff-console upgrades.
+
+Not in scope: `GET /users/credits` calls only `/credits` and returns 500
+for these accounts on every call (no such errors in production logs
+since 2026-09-21, the start of log retention); `/users/credits/usage/*`
+returns 503 `usage.unavailable` in the same state.
+
+## Test plan
+- [x] New unit test reproduces the race: with the old code the "404
+finishes first" case fails and the "400 finishes first" case passes;
+both pass with the fix
+- [x] New unit test: `/credits` 404 with an active subscription still
+raises
+- [x] New unit test: a stalled `/credits` does not delay the
+no-subscription answer and is cancelled (times out on the first commit,
+passes with the follow-up)
+- [x] `tests/unit/test_internal_users_credits.py` +
+`tests/unit/test_user_credits.py` (53 passed)
+- [x] BDD `tests/bdd/step_defs/test_user_credits.py` against local
+MongoDB (12 passed)
+- [x] `scripts/verify-py.sh` and `ecap-verify-py-ci` on the final
+rebased commit
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+---------
+
+Co-authored-by: Claude Opus 5.5 <noreply@anthropic.com>
+```
+
+### PR Body
+
+## Summary
+- `check_user_credits_flow` still calls BG `/credits/check` and `/credits` concurrently, but now awaits `/credits/check` first. Its 400 is the only no-subscription signal, so the response no longer depends on which concurrent call fails first.
+- When `/credits/check` fails, the `/credits` task is cancelled and drained instead of awaited, so a stalled `/credits` cannot delay a known answer (Codex review P1).
+- Any other failure still raises, including `/credits` 404 while a subscription exists. That case is a real billing data inconsistency and stays visible.
+
+## Root cause
+A personal org upgraded to team (self-service since #3762; staff console since #3044) keeps its existing billing team id but, by design, gets no team plan, so Lago has no customer for that team until a plan is purchased. For that customer BG returns `/credits/check` 400 (no active subscription) and `/credits` 404 (`customer_not_found`).
+
+The flow used a plain `asyncio.gather`, which raises whichever failure finishes first. When the 400 won, the caller got the no-subscription response (200); when the 404 won, it fell into the generic handler and returned 500. Production on 2026-10-20: one account that upgraded at 02:45 UTC and stayed on checkout made 143 × 200 and 121 × 500 on `GET /users/credits/check` in about 20 minutes, which pushed the claw-interface 5xx rate above 2% (Grafana alert `zooclaw-claw-interface-error-rate`, PagerDuty #113807). Every account with this error since 2026-09-23 performed a self-service upgrade beforehand, except one group on 2026-10-13 that came the same day as staff-console upgrades.
+
+Not in scope: `GET /users/credits` calls only `/credits` and returns 500 for these accounts on every call (no such errors in production logs since 2026-09-21, the start of log retention); `/users/credits/usage/*` returns 503 `usage.unavailable` in the same state.
+
+## Test plan
+- [x] New unit test reproduces the race: with the old code the "404 finishes first" case fails and the "400 finishes first" case passes; both pass with the fix
+- [x] New unit test: `/credits` 404 with an active subscription still raises
+- [x] New unit test: a stalled `/credits` does not delay the no-subscription answer and is cancelled (times out on the first commit, passes with the follow-up)
+- [x] `tests/unit/test_internal_users_credits.py` + `tests/unit/test_user_credits.py` (53 passed)
+- [x] BDD `tests/bdd/step_defs/test_user_credits.py` against local MongoDB (12 passed)
+- [x] `scripts/verify-py.sh` and `ecap-verify-py-ci` on the final rebased commit
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+
+---
+
+## refactor(engine): issue revocable Agent runtime credentials (#4091)
+
+- **SHA**: `4001d98c79dc990e345b4383f7778daca8f58d9d`
+- **作者**: kaka-srp
+- **日期**: 2026-10-20T03:46:01Z
+- **PR**: #4091
+
+### Commit Message
+
+```
+refactor(engine): issue revocable Agent runtime credentials (#4091)
+
+## Summary
+
+新建 Agent 的工具运行时改用绑定 owner/domain/org/project/Agent 的长期可撤销 opaque
+credential，Engine 不再依赖用户登录 JWT。claw-interface 统一签发、权威身份校验、撤销与审计；Platform
+API/SDK 和 ZooWork 的客户端登录凭据、原会话与 payer 保持兼容。
+
+- 单 secret registry、CAS、首发丢响应恢复与终态撤销；显式重新授权产生新 CID，不做周期到期/轮换。
+- 专用只读 introspection，服务鉴权先于 body 解析；无成功缓存或鉴权 fallback。registry/audit
+集合显式 majority+journal，权威读取 linearizable，不改全局 Mongo URI。
+- 可信 Workspace 映射解析业务 owner，与 Engine opaque runtime anchor
+分离；签发、恢复、重装、重新授权与 reconciliation 共用权威主体解析。
+- 独立 NEW 开关默认 false；Engine 持久首次模式，普通重试不改变身份。关闭新建不关闭已有凭据维护。存量迁移单独实施。
+- 只新增共用 introspection TOKEN、CI 固定 MCP URL、CI NEW 开关；复用 ENVIRONMENT，Proxy
+使用现有 K8s Service。
+- CI rollout 使用 preStop5s/grace35s、生产
+maxUnavailable0，保留应用30s退出窗口；不改变鉴权错误契约。
+
+关联 [Engine
+#2039](https://github.com/SerendipityOneInc/zooclaw-engine/pull/2039)、[Engine
+#2050](https://github.com/SerendipityOneInc/zooclaw-engine/pull/2050)、[Proxy
+#216](https://github.com/SerendipityOneInc/ecap-proxy-service/pull/216)。按兼容部署、Browser
+单调索引升级/最小配置、双入口验收、统一开启新建顺序发布，无比例/用户白名单灰度。
+
+## Validation
+
+- Astra 三仓审查、Work 主体/审计/排空修复及合流复审通过，无剩余已确认源码问题。实际完整后端12600 passed、14
+skipped，ruff/format/pyright/import契约与三环境render通过；最终应用源码e8dc54fb完整PR
+CI39360505611通过。
+- 最终 staging CI `service-v0.18.40-beta.runtimecredentials.3` /
+e8dc54fb，实际digest
+`sha256:9ea885090ba6535edeb085b6be63c22d8d1a354ec925e3a1b1becf7430b6c4c5`。合入4个main前端PR后，后端/部署目录无变化，与此前.2为相同应用digest；文档收尾提交2e08f2a0e3未改应用树，最新[CI39364488974](https://github.com/SerendipityOneInc/ecap-workspace/actions/runs/39364488974)及两项自动复审也已通过。
+- Engine main3e601c52 / v0.2.37-beta.3 的
+[最终完整smoke39361991638](https://github.com/SerendipityOneInc/zooclaw-engine/actions/runs/39361991638)
+**37/37成功**，含存活健康runtime fixture的credential
+preflight；独立diagnosticsd新版正常CI的credential-audit零finding、精确Agent
+tool-policy-audit零failure/unevaluated。
+- 实际CI CSFLE/KMS、majority+journal/linearizable、内部K8s
+RPC，两域旧key/原Task/原Session跨部署连续模型回复、两域新runtime、伪造身份拒绝、真实模型经固定broker调用MCP均通过。历史同digest深测包含Brave/Firecrawl、Browser
+HTTP/签名/活动及空闲WS撤销、Named Project隔离及561次零错滚动；不等同生产容量或长期观察。
+- 全部专用业务资源正常删除并404；测试key撤销后401；两个runtime
+CID终态及操作者/原因/关联ID审计独立回读，真实校验拒绝。临时公共datasource恢复，6Job/6CM按UID/终态清理；NEW=false（Vault148）。原授权$10赠额订单和审计保留，最终余额$9.67，本轮无新增赠额或账务调整。
+
+
+[最终验收报告（固定四组件源码/digest、证据与边界）](https://github.com/SerendipityOneInc/ecap-workspace/blob/feature/engine-runtime-credentials/docs/staging-validation/2026-10-20-engine-runtime-credential-final-acceptance.md)
+·
+[生产执行计划](https://github.com/SerendipityOneInc/ecap-workspace/blob/feature/engine-runtime-credentials/docs/superpowers/plans/2026-10-19-engine-runtime-credential-rollout.md)
+
+
+staging验收PASS，可进入上线步骤；生产尚未操作。生产仍须完成CI/Proxy合并、正常发布门禁、实际源码树比对和固定来源发布；不开存量迁移。Browser索引/KEK/服务key与审计须保留，开启runtime后只回兼容镜像。已使用仓库支持的size-override保留完整跨仓协议与恢复回归，其他检查不豁免。review裁决见现有评论。
+```
+
+### PR Body
+
+## Summary
+
+新建 Agent 的工具运行时改用绑定 owner/domain/org/project/Agent 的长期可撤销 opaque credential，Engine 不再依赖用户登录 JWT。claw-interface 统一签发、权威身份校验、撤销与审计；Platform API/SDK 和 ZooWork 的客户端登录凭据、原会话与 payer 保持兼容。
+
+- 单 secret registry、CAS、首发丢响应恢复与终态撤销；显式重新授权产生新 CID，不做周期到期/轮换。
+- 专用只读 introspection，服务鉴权先于 body 解析；无成功缓存或鉴权 fallback。registry/audit 集合显式 majority+journal，权威读取 linearizable，不改全局 Mongo URI。
+- 可信 Workspace 映射解析业务 owner，与 Engine opaque runtime anchor 分离；签发、恢复、重装、重新授权与 reconciliation 共用权威主体解析。
+- 独立 NEW 开关默认 false；Engine 持久首次模式，普通重试不改变身份。关闭新建不关闭已有凭据维护。存量迁移单独实施。
+- 只新增共用 introspection TOKEN、CI 固定 MCP URL、CI NEW 开关；复用 ENVIRONMENT，Proxy 使用现有 K8s Service。
+- CI rollout 使用 preStop5s/grace35s、生产 maxUnavailable0，保留应用30s退出窗口；不改变鉴权错误契约。
+
+关联 [Engine #2039](https://github.com/SerendipityOneInc/zooclaw-engine/pull/2039)、[Engine #2050](https://github.com/SerendipityOneInc/zooclaw-engine/pull/2050)、[Proxy #216](https://github.com/SerendipityOneInc/ecap-proxy-service/pull/216)。按兼容部署、Browser 单调索引升级/最小配置、双入口验收、统一开启新建顺序发布，无比例/用户白名单灰度。
+
+## Validation
+
+- Astra 三仓审查、Work 主体/审计/排空修复及合流复审通过，无剩余已确认源码问题。实际完整后端12600 passed、14 skipped，ruff/format/pyright/import契约与三环境render通过；最终应用源码e8dc54fb完整PR CI39360505611通过。
+- 最终 staging CI `service-v0.18.40-beta.runtimecredentials.3` / e8dc54fb，实际digest `sha256:9ea885090ba6535edeb085b6be63c22d8d1a354ec925e3a1b1becf7430b6c4c5`。合入4个main前端PR后，后端/部署目录无变化，与此前.2为相同应用digest；文档收尾提交2e08f2a0e3未改应用树，最新[CI39364488974](https://github.com/SerendipityOneInc/ecap-workspace/actions/runs/39364488974)及两项自动复审也已通过。
+- Engine main3e601c52 / v0.2.37-beta.3 的 [最终完整smoke39361991638](https://github.com/SerendipityOneInc/zooclaw-engine/actions/runs/39361991638) **37/37成功**，含存活健康runtime fixture的credential preflight；独立diagnosticsd新版正常CI的credential-audit零finding、精确Agent tool-policy-audit零failure/unevaluated。
+- 实际CI CSFLE/KMS、majority+journal/linearizable、内部K8s RPC，两域旧key/原Task/原Session跨部署连续模型回复、两域新runtime、伪造身份拒绝、真实模型经固定broker调用MCP均通过。历史同digest深测包含Brave/Firecrawl、Browser HTTP/签名/活动及空闲WS撤销、Named Project隔离及561次零错滚动；不等同生产容量或长期观察。
+- 全部专用业务资源正常删除并404；测试key撤销后401；两个runtime CID终态及操作者/原因/关联ID审计独立回读，真实校验拒绝。临时公共datasource恢复，6Job/6CM按UID/终态清理；NEW=false（Vault148）。原授权$10赠额订单和审计保留，最终余额$9.67，本轮无新增赠额或账务调整。
+
+[最终验收报告（固定四组件源码/digest、证据与边界）](https://github.com/SerendipityOneInc/ecap-workspace/blob/feature/engine-runtime-credentials/docs/staging-validation/2026-10-20-engine-runtime-credential-final-acceptance.md) · [生产执行计划](https://github.com/SerendipityOneInc/ecap-workspace/blob/feature/engine-runtime-credentials/docs/superpowers/plans/2026-10-19-engine-runtime-credential-rollout.md)
+
+staging验收PASS，可进入上线步骤；生产尚未操作。生产仍须完成CI/Proxy合并、正常发布门禁、实际源码树比对和固定来源发布；不开存量迁移。Browser索引/KEK/服务key与审计须保留，开启runtime后只回兼容镜像。已使用仓库支持的size-override保留完整跨仓协议与恢复回归，其他检查不豁免。review裁决见现有评论。
+
+
+---
+
+## fix(chat): navigate while agent conversations initialize (#4093)
+
+- **SHA**: `ea2682be24e4f359bc03f70bfe8e2b470f9a8a96`
+- **作者**: Nemo Feng
+- **日期**: 2026-10-20T00:06:55Z
+- **PR**: #4093
+
+### Commit Message
+
+```
+fix(chat): navigate while agent conversations initialize (#4093)
+
+## Summary
+Sending from Home/New Task or Create Agent now opens the destination as
+soon as the existing API returns its task/session or Agent workspace.
+The submitted text and attachment names remain visible while
+conversation setup, uploads, and delivery finish. Failures retain the
+existing creation identity and uploaded files. Before delivery or after
+a definitive rejection, the destination lets users edit text, remove
+attachments, retry, or discard the draft. Uncertain sends keep the
+original payload locked for reconciliation.
+
+Agent lists refresh in the background as soon as creation succeeds, so
+the new Agent remains discoverable if first-message delivery fails and
+the draft is discarded. List refresh does not delay navigation.
+
+## Root cause
+Navigation previously awaited the full first-message pipeline, and the
+destination could repeat conversation binding. Agent creation also
+awaited list refreshes. This frontend change keeps the operation alive
+across navigation, shares successful setup through React Query, and
+pauses competing destination initialization until delivery completes.
+Retrying an uncertain task message checks thread history and reuses a
+stable pending-post ID.
+
+Launches are isolated by destination. An explicit new submission from
+Home remains a new task/Agent; the change does not globally serialize
+users’ work. Retry on the existing destination retains that launch’s
+identity. A delivered launch is released on a history-load error so the
+normal error surface replaces progress without resending.
+
+Backend endpoints, provisioning, authorization, the awaited billing
+gate, and model/upload/send ordering are unchanged. Agent creation still
+waits for the existing synchronous provisioning API before it has a
+workspace to open. In-flight drafts are memory-only; a full browser
+reload does not automatically resend.
+
+Known Mattermost limits are validated before task creation/handoff.
+Editing a first Build message resumes in the existing workspace without
+changing its original creation input. Discard releases only the local
+draft and restores normal chat; it does not resend or delete the
+destination.
+
+## Test plan
+- [x] Frontend governance guards, TypeScript, and ESLint
+(`scripts/verify-web.sh --no-test` on changed files).
+- [x] 794 relevant tests across New Chat, Agent workspaces, Agent query
+hooks, launch lifecycle, and auth cleanup; additional attachment-only,
+rendered pending/retry, delivered-history-failure, and retired-runtime
+handoff regression checks passed. Handoff tests use the supported Engine
+runtime.
+- [x] Local Playwright with ready-user mock: held conversation setup
+pending and saw the task page in ~1.1 seconds, with its submitted
+message visible. Injected a 503, retried on the same task URL, and
+observed one message send and no duplicate destination binding.
+- [x] Local Playwright: held build-session setup pending and saw the
+newly created Agent workspace in ~1.0 second; releasing it completed
+delivery and rendered normal chat.
+
+- [x] Permanent-error recovery: 234 focused tests passed, including
+over-limit Home drafts retaining files, edited retries after source
+unmount, retained upload IDs, Build creation identity, uncertain-send
+editing guards, and discarded callback safety. Frontend governance,
+TypeScript, and ESLint passed.
+- [x] Local Playwright recovery checks: a 4,001-character task stayed on
+Home with zero task-create requests; removing a rejected attachment and
+editing the draft sent once on the same task URL without re-uploading
+the retained file; a rejected Build message was edited in the same
+workspace with one creation request; mobile Discard restored the
+composer without another POST. Console errors were the intentionally
+injected 400/413 responses.
+
+- [x] Creation/list-refresh follow-up: 64 focused tests passed,
+including an active sidebar observer with delayed refresh, upload/post
+failure followed by discard, scoped list invalidation, and no resend or
+duplicate creation. TypeScript, governance guards, and ESLint passed.
+
+Mock timings demonstrate navigation no longer waits for downstream
+setup; they are not production latency estimates. Local tests use UTC,
+matching CI, because an unrelated existing date-display test assumes
+UTC.
+```
+
+### PR Body
+
+## Summary
+Sending from Home/New Task or Create Agent now opens the destination as soon as the existing API returns its task/session or Agent workspace. The submitted text and attachment names remain visible while conversation setup, uploads, and delivery finish. Failures retain the existing creation identity and uploaded files. Before delivery or after a definitive rejection, the destination lets users edit text, remove attachments, retry, or discard the draft. Uncertain sends keep the original payload locked for reconciliation.
+
+Agent lists refresh in the background as soon as creation succeeds, so the new Agent remains discoverable if first-message delivery fails and the draft is discarded. List refresh does not delay navigation.
+
+## Root cause
+Navigation previously awaited the full first-message pipeline, and the destination could repeat conversation binding. Agent creation also awaited list refreshes. This frontend change keeps the operation alive across navigation, shares successful setup through React Query, and pauses competing destination initialization until delivery completes. Retrying an uncertain task message checks thread history and reuses a stable pending-post ID.
+
+Launches are isolated by destination. An explicit new submission from Home remains a new task/Agent; the change does not globally serialize users’ work. Retry on the existing destination retains that launch’s identity. A delivered launch is released on a history-load error so the normal error surface replaces progress without resending.
+
+Backend endpoints, provisioning, authorization, the awaited billing gate, and model/upload/send ordering are unchanged. Agent creation still waits for the existing synchronous provisioning API before it has a workspace to open. In-flight drafts are memory-only; a full browser reload does not automatically resend.
+
+Known Mattermost limits are validated before task creation/handoff. Editing a first Build message resumes in the existing workspace without changing its original creation input. Discard releases only the local draft and restores normal chat; it does not resend or delete the destination.
+
+## Test plan
+- [x] Frontend governance guards, TypeScript, and ESLint (`scripts/verify-web.sh --no-test` on changed files).
+- [x] 794 relevant tests across New Chat, Agent workspaces, Agent query hooks, launch lifecycle, and auth cleanup; additional attachment-only, rendered pending/retry, delivered-history-failure, and retired-runtime handoff regression checks passed. Handoff tests use the supported Engine runtime.
+- [x] Local Playwright with ready-user mock: held conversation setup pending and saw the task page in ~1.1 seconds, with its submitted message visible. Injected a 503, retried on the same task URL, and observed one message send and no duplicate destination binding.
+- [x] Local Playwright: held build-session setup pending and saw the newly created Agent workspace in ~1.0 second; releasing it completed delivery and rendered normal chat.
+
+- [x] Permanent-error recovery: 234 focused tests passed, including over-limit Home drafts retaining files, edited retries after source unmount, retained upload IDs, Build creation identity, uncertain-send editing guards, and discarded callback safety. Frontend governance, TypeScript, and ESLint passed.
+- [x] Local Playwright recovery checks: a 4,001-character task stayed on Home with zero task-create requests; removing a rejected attachment and editing the draft sent once on the same task URL without re-uploading the retained file; a rejected Build message was edited in the same workspace with one creation request; mobile Discard restored the composer without another POST. Console errors were the intentionally injected 400/413 responses.
+
+- [x] Creation/list-refresh follow-up: 64 focused tests passed, including an active sidebar observer with delayed refresh, upload/post failure followed by discard, scoped list invalidation, and no resend or duplicate creation. TypeScript, governance guards, and ESLint passed.
+
+Mock timings demonstrate navigation no longer waits for downstream setup; they are not production latency estimates. Local tests use UTC, matching CI, because an unrelated existing date-display test assumes UTC.
+
+
+
+---

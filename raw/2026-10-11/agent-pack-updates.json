@@ -1,0 +1,9 @@
+{
+ "backfilled": true,
+ "detected": false,
+ "reason": "historical backfill on 2026-10-25; pack API exposes current versions only, and USER_INTERNAL_TOKEN has returned 401 since 2026-10-05",
+ "total_packs": null,
+ "updated_count": null,
+ "updated": [],
+ "all": []
+}

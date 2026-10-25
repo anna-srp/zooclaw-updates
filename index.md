@@ -1,5 +1,138 @@
 # Updates Index
 
+## 2026-10-23
+
+- [Word 技能新增逐页视觉验收，杜绝交付未经检查的文件 (#302)](updates/2026-10-23/docx-per-page-visual-acceptance-302.md) — Skill 上架/更新 / 外部 A
+- [修复：PDF 技能复用环境预装浏览器，不再报依赖缺失或偷装东西 (#299)](updates/2026-10-23/pdf-reuse-preinstalled-browser-299.md) — Skill 上架/更新 / 外部 B
+- [用量页改按本地时区展示，并支持手动选择时区 (#4127)](updates/2026-10-23/usage-display-time-zone-4127.md) — 体验优化 / 外部 A
+- [修复：会话串里发出的截图 Agent 看不到，现已作为真实附件上传 (#4132)](updates/2026-10-23/session-thread-upload-as-files-4132.md) — Bug Fix / 外部 A
+- [企业咨询表单支持补充业务信息，并拦截个人/临时邮箱 (#4130)](updates/2026-10-23/qualify-business-contact-submissions-4130.md) — 产品基础功能更新 / 外部 B
+- [Work 托管 Agent 密钥也能直连模型网关，按本人账户计费 (#4129)](updates/2026-10-23/work-service-token-llm-gateway-4129.md) — 新功能上线 / 外部 B
+- [修复：项目列表加载失败后仍会自动重试一次 (#4125)](updates/2026-10-23/project-list-stop-auto-retry-4125.md) — Bug Fix / 外部 C
+- [修复：运行时凭据下资产清点技能拿不到归属者与账号信息 (#4118)](updates/2026-10-23/runtime-owner-inventory-metadata-4118.md) — Bug Fix / 外部 B
+- [修复：官网定价页分类栏被组件库样式覆盖，紫色选中态失效 (#4126)](updates/2026-10-23/pricing-tabs-brand-style-fix-4126.md) — Bug Fix / 外部 C
+- [上线 OpenAI 兼容模型网关：用登录态或平台 API key 就能直接调模型 (#4128)](updates/2026-10-23/openai-compatible-llm-gateway-4128.md) — 新功能上线 / 外部 S
+- [官网 Agent 指南重写：改用 Platform Starter，照着做不再卡住 (#4123)](updates/2026-10-23/agent-guide-platform-starter-4123.md) — 其他公告 / 外部 B
+
+## 2026-10-22
+
+- [修复：Build 预览测试还在跑时不再误报超时，可继续观察同一次执行 (#4121)](updates/2026-10-22/build-preview-running-test-receipts-4121.md) — Bug Fix / 外部 B
+- [Platform 接入前端错误监控，页面崩溃能被及时发现 (#4122)](updates/2026-10-22/platform-sentry-browser-monitoring-4122.md) — 后端功能 / 外部 C
+- [修复：登录后重复跳转会清空充值弹窗里已填的金额 (#4120)](updates/2026-10-22/login-redirect-resets-add-funds-4120.md) — Bug Fix / 外部 B
+- [国内访问时模型名称、简介和图标改用中文元数据 (#4119)](updates/2026-10-22/model-cn-metadata-from-litellm-4119.md) — 体验优化 / 外部 B
+- [开发者平台各类 ID 加上一键复制按钮 (#4115)](updates/2026-10-22/platform-copy-buttons-for-ids-4115.md) — 体验优化 / 外部 B
+- [充值弹窗改为原地打开，不再被强行跳到 Billing 页 (#4114)](updates/2026-10-22/add-funds-dialog-in-place-4114.md) — 体验优化 / 外部 B
+- [修复：换用运行时凭据后，旧版技能读不到自己的 Agent 与日程 (#4117)](updates/2026-10-22/legacy-work-runtime-owner-reads-4117.md) — Bug Fix / 外部 B
+- [修复：预发环境官网入口会跳到生产版开发者平台 (#4111)](updates/2026-10-22/platform-url-per-environment-4111.md) — Bug Fix / 外部 C
+
+## 2026-10-21
+
+- [PPT 技能提速：直接写数据生成，并能锁定页数、杜绝表格溢出 (#300)](updates/2026-10-21/pptx-skill-authoring-and-qa-300.md) — Skill 上架/更新 / 外部 B
+- [修复：头像菜单进设置只剩 General，现已恢复完整设置导航 (#4094)](updates/2026-10-21/settings-entry-full-navigation-4094.md) — Bug Fix / 外部 A
+- [官网活动页补上 10 月两场活动回顾，卡片封面统一 (#4088)](updates/2026-10-21/events-page-october-recaps-4088.md) — 其他公告 / 外部 C
+- [修复：新建 Agent 不再默认挂上无权使用的知识库技能 (#4103)](updates/2026-10-21/agent-defaults-require-identity-4103.md) — Bug Fix / 外部 B
+
+## 2026-10-20
+
+- [Agent 设置支持配置备用模型，主模型不可用时自动兜底 (#4102)](updates/2026-10-20/agent-model-fallback-settings-4102.md) — 新功能上线 / 外部 A
+- [充值弹窗改版：自定义金额常驻可见，窄屏也不再丢失支付按钮 (#4092)](updates/2026-10-20/recharge-dialog-layout-unify-4092.md) — 体验优化 / 外部 B
+- [修复：团队尚未购买套餐时额度检查结果不再随机摇摆 (#4096)](updates/2026-10-20/team-credits-check-deterministic-4096.md) — Bug Fix / 外部 B
+- [发起对话/创建 Agent 后立即进入页面，不用再等首条消息发完 (#4093)](updates/2026-10-20/chat-navigate-during-init-4093.md) — 体验优化 / 外部 A
+
+## 2026-10-19
+
+- [体验优化：输入框改成「先选模型、再调思考强度」两层面板，Max 档位带动效 (#4083)](updates/2026-10-19/two-step-model-and-thinking-slider-4083.md) — 体验优化 / 外部 B
+- [开发者平台空状态换成插画，投递历史区分「还没有记录」和「筛选没结果」 (#4089)](updates/2026-10-19/platform-empty-state-illustrations-4089.md) — 体验优化 / 外部 C
+- [登录后的 Cookie 设置入口收进「设置 → 管理 Cookie」，侧栏不再被长链接占位 (#4090)](updates/2026-10-19/cookie-entry-moved-to-settings-4090.md) — 体验优化 / 外部 C
+- [开发者平台全面接入 ZooWork 设计系统，导航、页面结构和移动端深色模式统一重做 (#4084)](updates/2026-10-19/platform-design-system-unification-4084.md) — 体验优化 / 外部 A
+
+## 2026-10-18
+
+- [新功能：主站、Blog、Tips 上线 Cookie 同意横条，按地区决定统计和广告默认开关 (#4046)](updates/2026-10-18/cookie-consent-banner-region-rules-4046.md) — 新功能上线 / 外部 A
+- [全站客服邮箱统一改为 support@zoowork.ai (#4078)](updates/2026-10-18/support-email-to-zoowork-domain-4078.md) — 体验优化 / 外部 C
+
+## 2026-10-17
+
+- 当日无用户可感知更新
+
+## 2026-10-16
+
+- [后端：语音转写接口支持短期专用令牌，录音客户端不再携带长期会话凭证 (#4082)](updates/2026-10-16/asr-audience-bound-resource-token-4082.md) — 后端功能 / 外部 C
+- [修复：模型选择器和消息状态行的字母下半部分被切掉 (#4076)](updates/2026-10-16/fix-clipped-descenders-model-picker-status-4076.md) — Bug Fix / 外部 C
+- [官网首页首屏按设计稿重排，页脚社交链接换成官方账号 (#4038)](updates/2026-10-16/landing-hero-layout-and-social-links-4038.md) — 体验优化 / 外部 C
+
+## 2026-10-15
+
+- [Skill 更新：图片/视频技能先确认需求再动手，被安全拦截后不再自作主张换方案 (#295)](updates/2026-10-15/media-skill-request-review-and-refusal-stop-295.md) — Skill 上架/更新 / 外部 B
+- [修复：企业版/垂类包重复下单不再产生多笔待支付订单，工作区加载失败会直接显示原因 (#4081)](updates/2026-10-15/enterprise-checkout-reuse-and-workspace-errors-4081.md) — Bug Fix / 外部 A
+- [修复：Agent 删除中途失败后可以安全重试，不会卡在「卸载中」动不了 (#4080)](updates/2026-10-15/agent-definition-deletion-retryable-4080.md) — Bug Fix / 外部 B
+- [体验优化：输入框里模型和思考强度合成一个选择器，少点一次菜单 (#4079)](updates/2026-10-15/composer-model-and-effort-single-control-4079.md) — 体验优化 / 外部 B
+- [新功能：思考强度现在跟着模型一起保存，Agent 与 Task 可以各自固定「模型+强度」组合 (#4075)](updates/2026-10-15/model-bound-thinking-effort-agent-task-4075.md) — 新功能上线 / 外部 A
+
+## 2026-10-14
+
+- [图像与视频技能收紧「不点名但拼特征」的角色请求拦截 (#294)](updates/2026-10-14/media-skills-character-restriction-hardening-294.md) — Skill 上架/更新 / 外部 B
+- [分享安装的 Agent 现在会带上作者自定义环境里的软件，不再缺东西 (#4074)](updates/2026-10-14/shared-agent-environment-binding-4074.md) — 新功能上线 / 外部 A
+- [开发者平台的组织终于可以改名，不再被锁死为 Personal (#4066)](updates/2026-10-14/platform-rename-organization-4066.md) — 新功能上线 / 外部 A
+- [旧版 Agent 项目页新增下线提示：已创建的 Agent 仍可正常使用 (#4070)](updates/2026-10-14/legacy-agent-projects-sunset-banner-4070.md) — 其他公告 / 外部 B
+- [企业咨询表单新增公司名必填，并拦截个人邮箱提交 (#4044)](updates/2026-10-14/enterprise-contact-require-company-work-email-4044.md) — 体验优化 / 外部 C
+- [官网活动页上线纽约 Fashion and Finance 黑客松，可直接跳转报名 (#4062)](updates/2026-10-14/nyc-hackathon-event-listing-4062.md) — 其他公告 / 外部 B
+
+## 2026-10-13
+
+- [垂直套餐结账接入 Stripe 托管支付并支持优惠码，支付方式更多但会加收价外税 (#4069)](updates/2026-10-13/vertical-packs-managed-payments-promo-4069.md) — 后端功能 / 外部 A
+- [修复：鼠标关闭 Agent 切换菜单后按钮残留深色焦点边框 (#4058)](updates/2026-10-13/button-mouse-focus-ring-fix-4058.md) — Bug Fix / 外部 C
+- [体验优化：员工 Console 计费页统一英文文案，整行可点进详情并新增 ID 复制按钮 (#4067)](updates/2026-10-13/console-billing-english-row-nav-4067.md) — 体验优化 / 外部 C
+- [体验优化：官网活动页改用 ZooWork 品牌视觉，无活动时自动隐藏「即将举行」 (#4063)](updates/2026-10-13/events-page-branding-polish-4063.md) — 体验优化 / 外部 C
+
+## 2026-10-12
+
+- [垂直行业套餐统一改走 Stripe 结账，按账单周期自动给团队钱包发积分 (#4061)](updates/2026-10-12/vertical-packs-stripe-settlement-4061.md) — 新功能上线 / 外部 A
+- [线下合同付款的 Platform 组织，现在可由员工在 Console 手动充值并留痕 (#4059)](updates/2026-10-12/platform-manual-org-topups-4059.md) — 新功能上线 / 外部 B
+- [修复：卸载或删除 Engine Agent 时会回收其占用的团队席位，不再白白占名额 (#4025)](updates/2026-10-12/release-mattermost-seat-on-uninstall-4025.md) — Bug Fix / 外部 B
+- [修复：网页端创建的定时任务会携带所有者校验标记，Engine 可区分本人操作与服务调用 (#4055)](updates/2026-10-12/web-cron-owner-driven-attestation-4055.md) — 后端功能 / 外部 C
+- [修复：Windows 上点聊天附件的文件类型下拉会卡死 Edge，现在改为直接「所有文件」 (#4051)](updates/2026-10-12/windows-file-picker-hang-fix-4051.md) — Bug Fix / 外部 A
+
+## 2026-10-11
+
+- [团队管理员现在也能单独查看自己的用量明细，不再只能看全组织 (#4052)](updates/2026-10-11/usage-records-self-scope-4052.md) — 后端功能 / 外部 B
+
+## 2026-10-10
+
+- [官网上线 Agent 发布指南页，中英双语可直接访问 (#4049)](updates/2026-10-10/official-agent-publishing-guide-4049.md) — 其他公告 / 外部 B
+- [企业组织新增按 uid 直接拉人入团队的管理接口，用量计入企业共享钱包 (#4050)](updates/2026-10-10/add-team-org-member-by-uid-4050.md) — 后端功能 / 外部 C
+- [官网上线活动页 /events，可查看 ZooWork 线下与社区活动 (#4045)](updates/2026-10-10/official-events-page-4045.md) — 其他公告 / 外部 B
+- [官网 robots.txt 开放博客站点地图，并允许 Gemini 抓取公开页面 (#4041)](updates/2026-10-10/robots-blog-sitemap-google-extended-4041.md) — 其他公告 / 外部 C
+- [体验优化：Agent 安装链接弹窗去掉重复的「关闭」按钮 (#4048)](updates/2026-10-10/agent-install-link-dialog-close-cleanup-4048.md) — 体验优化 / 外部 C
+- [新增面向企业团队钱包的后台积分发放接口，重复提交不会重复到账 (#4047)](updates/2026-10-10/admin-org-credit-grants-4047.md) — 后端功能 / 外部 C
+- [新产品线接入改为配置项，不再需要改代码才能登录和计费 (#4043)](updates/2026-10-10/configurable-extra-account-businesses-4043.md) — 后端功能 / 外部 C
+
+## 2026-10-09
+
+- [项目 Webhook 管理正式上线：可自助创建、测试、轮换密钥并重发历史事件 (#4034)](updates/2026-10-09/project-webhook-management-4034.md) — 新功能上线 / 外部 S
+- [任务内可单独换模型：只影响当前这条任务，不改 Agent 默认设置 (#4039)](updates/2026-10-09/task-scoped-model-selection-4039.md) — 新功能上线 / 外部 A
+- [官网首页与页脚新增 Product Hunt「每日第一」徽章 (#4031)](updates/2026-10-09/product-hunt-award-badge-4031.md) — 其他公告 / 外部 C
+- [模型选择器分层展示：常用 8 个直接可选，其余收进「更多模型」，下线模型会给替代项 (#4037)](updates/2026-10-09/model-picker-tiers-and-retirement-4037.md) — 体验优化 / 外部 A
+
+## 2026-10-08
+
+- [修复：用 Link 银行卡支付也能拿到首充赠金，失败尝试不再占掉唯一领取资格 (#4036)](updates/2026-10-08/first-purchase-bonus-link-card-and-retry-4036.md) — Bug Fix / 外部 A
+- [修复：首充赠金规则改为「每张卡可领一次」，历史普通消费不再误伤新账号 (#4024)](updates/2026-10-08/first-purchase-bonus-rule-per-card-4024.md) — Bug Fix / 外部 A
+- [修复：页面切换加载时深色模式不再闪回浅色 (#4033)](updates/2026-10-08/dark-theme-loading-boundary-fix-4033.md) — Bug Fix / 外部 B
+- [修复：Pro / Ultra 版 Agent 应用自进化版本时不再报环境构建 404 (#4032)](updates/2026-10-08/agent-revision-env-resource-class-4032.md) — Bug Fix / 外部 A
+
+## 2026-10-07
+
+- 当日无用户可感知更新
+
+## 2026-10-06
+
+- 当日无用户可感知更新
+
+## 2026-10-05
+
+- [优化：充值到账期间不再重复提醒余额不足，首充卡片按钮样式统一 (#4023)](updates/2026-10-05/credit-reminder-and-first-purchase-card-4023.md) — 体验优化 / 外部 B
+
 ## 2026-09-29
 
 - [Credits 充值支持 Stripe 优惠码：折扣只影响实付金额，到账 credits 照原数给足 (#3931)](updates/2026-09-29/billing-stripe-promotion-codes-credits-topups-3931.md) — 新功能 / 外部 A

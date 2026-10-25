@@ -1,0 +1,451 @@
+# SerendipityOneInc/ecap-workspace — commits 2026-10-21
+
+## fix(settings): 恢复 Settings 入口的完整导航 (#4094)
+
+- **SHA**: `35a811e9d3c3731b2447ddd21992ed1c42d57628`
+- **作者**: shana-srp
+- **日期**: 2026-10-21T08:31:03Z
+- **PR**: #4094
+
+### Commit Message
+
+```
+fix(settings): 恢复 Settings 入口的完整导航 (#4094)
+
+## Summary
+- 修复 #4090 引入的设置入口回归：头像菜单 Settings 从 `/profile` 恢复进入完整的 `/identity`
+设置页，并统一折叠侧栏点击头像的目标地址。
+- 恢复 General、Usage、Billing，以及按权限显示的 API Keys 和组织设置导航。完整设置页复用同一个
+GeneralTab，因此上一版接通的 Cookie 管理功能仍然可用。
+- 新增桌面、移动端和折叠侧栏端到端回归，从实际入口进入 Settings 后检查完整导航，并实际打开和关闭 Cookie 管理弹窗。
+
+## Root cause
+`/profile` 是只包含 General 的旧单页设置视图。#4090 为接入 Cookie 管理改用了这个地址，导致 Settings
+入口失去其他设置导航。原有 `/identity` 页面已经复用 GeneralTab，恢复正确入口即可同时保留完整导航和 Cookie
+管理。审查中同时确认折叠侧栏的头像入口也独立指向 `/profile`，一并统一到完整设置页。
+
+## Test plan
+- [x] 前端治理规则、TypeScript 检查和改动文件 ESLint 通过。
+- [x] 11 个测试文件、336 条相关单测通过，覆盖设置入口、个人账号 / 团队管理员 / 成员导航权限和 Cookie 管理。
+- [x] 7 条完整本地端到端回归通过（team-admin 模拟账号）：覆盖 1440px / 390px /
+折叠侧栏实际入口、完整导航、Cookie 弹窗焦点恢复、组织资料保存、成员管理、配额持久化和手机导航。统一为本地设置测试准备有效的 Cookie
+偏好，避免首次访问提示遮挡操作。
+- [x] 逐个点击 General、Usage、Billing、API Keys 验证实际页面内容，并通过本地截图核对完整导航。
+- [x] 最新提交 GitHub Actions 完整构建、全量测试及覆盖率、质量检查和两轮自动审查通过；PR 代码扫描无告警。
+
+仅需 Web 前端发布。
+
+---------
+
+Co-authored-by: shana-srp <shana-maker@users.noreply.github.com>
+```
+
+### PR Body
+
+## Summary
+- 修复 #4090 引入的设置入口回归：头像菜单 Settings 从 `/profile` 恢复进入完整的 `/identity` 设置页，并统一折叠侧栏点击头像的目标地址。
+- 恢复 General、Usage、Billing，以及按权限显示的 API Keys 和组织设置导航。完整设置页复用同一个 GeneralTab，因此上一版接通的 Cookie 管理功能仍然可用。
+- 新增桌面、移动端和折叠侧栏端到端回归，从实际入口进入 Settings 后检查完整导航，并实际打开和关闭 Cookie 管理弹窗。
+
+## Root cause
+`/profile` 是只包含 General 的旧单页设置视图。#4090 为接入 Cookie 管理改用了这个地址，导致 Settings 入口失去其他设置导航。原有 `/identity` 页面已经复用 GeneralTab，恢复正确入口即可同时保留完整导航和 Cookie 管理。审查中同时确认折叠侧栏的头像入口也独立指向 `/profile`，一并统一到完整设置页。
+
+## Test plan
+- [x] 前端治理规则、TypeScript 检查和改动文件 ESLint 通过。
+- [x] 11 个测试文件、336 条相关单测通过，覆盖设置入口、个人账号 / 团队管理员 / 成员导航权限和 Cookie 管理。
+- [x] 7 条完整本地端到端回归通过（team-admin 模拟账号）：覆盖 1440px / 390px / 折叠侧栏实际入口、完整导航、Cookie 弹窗焦点恢复、组织资料保存、成员管理、配额持久化和手机导航。统一为本地设置测试准备有效的 Cookie 偏好，避免首次访问提示遮挡操作。
+- [x] 逐个点击 General、Usage、Billing、API Keys 验证实际页面内容，并通过本地截图核对完整导航。
+- [x] 最新提交 GitHub Actions 完整构建、全量测试及覆盖率、质量检查和两轮自动审查通过；PR 代码扫描无告警。
+
+仅需 Web 前端发布。
+
+
+---
+
+## fix(web): unblock OpenNext build after Next.js 15 end of support (#4105)
+
+- **SHA**: `be8c6a362789325008d2cf23556749569af960a5`
+- **作者**: allenz-srp
+- **日期**: 2026-10-21T04:15:21Z
+- **PR**: #4105
+
+### Commit Message
+
+```
+fix(web): unblock OpenNext build after Next.js 15 end of support (#4105)
+
+> [!WARNING]
+> **这是临时方案（stopgap）**：本 PR 只是让 Next.js 15 构建继续通过，**不解决** Next 15
+已停止官方支持（不再有安全补丁）的问题。彻底方案是把 `web/app` 升级到 Next.js 16（见下文"彻底方案"），完成后需要删除本
+PR 加的 flag。
+
+## Summary
+- 给 `web/app` 的 `opennextjs-cloudflare build` 加上
+`--dangerouslyUseUnsupportedNextVersion`：`deploy.yml` 的 staging /
+production 两处，以及 `package.json` 的 `deploy` / `deploy:staging` /
+`preview` 脚本。
+- 这个 flag 只是把 OpenNext 的版本检查从报错降级为警告，**构建产物不变**。
+- `enterprise-admin` 已经在 Next 16.3.3 上，本 PR 不改动它。
+
+## Root cause
+失败的
+run：https://github.com/SerendipityOneInc/ecap-workspace/actions/runs/39536707354/job/119014951961
+
+```
+ERROR Next.js version 15.5.25 is not supported by the Next.js team.
+If you want to proceed anyway, use the --dangerouslyUseUnsupportedNextVersion flag.
+```
+
+`@opennextjs/aws`（`dist/build/helper.js` 的
+`isNextVersionSupported`）里硬编码了 Next 各大版本的发布日期表，一旦 `now > 发布日 + 2 年`
+就让构建失败。Next 15 发布于 2024-10-21，所以从 2026-10-21 起，无论 15.x 的补丁版本和 lockfile
+怎么写，`web/app` 的每次构建都会失败。这是**按日期触发的故障**，与代码变更无关。
+
+以下做法都没用：
+- 在 15.x 范围内升级 `next`：仍是 15，照样不过。
+- 升级 `@opennextjs/cloudflare` 到 1.20.x：检查逻辑相同。
+
+## Test plan
+- [ ] 合并后 `Deploy ECAP (Staging)` 的 OpenNext 构建步骤通过，日志里出现 "Continuing
+build due to --dangerouslyUseUnsupportedNextVersion flag"。注意 PR CI 只跑
+`next build`，跑不到这一步，所以只能在合并后验证。
+- [ ] 部署后做一次 staging smoke
+
+---
+
+## 彻底方案：`web/app` 升级 Next.js 16（follow-up PR）
+
+### 目标版本
+| 包 | 当前 | 目标 | 原因 |
+|---|---|---|---|
+| `next` | ^15.5.24（锁定 15.5.25） | `^16.4.2`（目前的 latest） | OpenNext
+1.20.12 的 peer 要求 `>=16.4.1` |
+| `eslint-config-next` | ^15.5.24 | `^16.4.2` | 与 next 同步 |
+| `@opennextjs/cloudflare` | ^1.19.11 | `^1.20.12` | 对齐 Next 16.4 |
+| `wrangler` | ^4.98.0 | `^4.148.0` | OpenNext 1.20.12 的 peer 要求 |
+| `@sentry/nextjs` | ^10.57.0 | 确认支持 Next 16 的最低版本，必要时升级 |
+`withSentryConfig` 和 Turbopack 的 sourcemap 上传 |
+
+`enterprise-admin` 的 `@opennextjs/cloudflare`（也是 ^1.19.11）建议一并升到
+1.20.x，避免 workspace 里出现两套 OpenNext。
+
+### 必改项（已在代码里逐项确认）
+1. **`middleware.ts` 保留，不改成 `proxy.ts`（关键决策）**
+- Next 16 新增的 `proxy.ts` 只支持 Node.js runtime。而 `@opennextjs/cloudflare`
+源码（`bundle-node-middleware.js`）明确写着：在 workerd 上运行 Node.js middleware 是
+*"experimental and is not supported by the OpenNext maintainers"*。
+- `middleware.ts`（edge runtime）在 Next 16 只是 deprecated，仍然可用。所以
+`src/middleware.ts`（约 18KB，包含 locale、鉴权和 body-size matcher 逻辑）先保持原样。等
+OpenNext 正式支持 Node proxy 之后，再单独迁移。
+2. **`next.config.ts` 里的自定义 `webpack()` 配置与 Turbopack**
+   - Next 16 的 `next build` 默认使用 Turbopack。检测到自定义 `webpack` 配置时，构建会直接报错。
+- 现在这段配置的作用是：在 production 环境通过 Terser 去掉 `console.*` /
+`debugger`（staging 保留）。
+- 方案 A（推荐先走）：构建统一加 `--webpack`，覆盖
+`build`、`build:dev`、`app:staging`、`app:prod`，以及 OpenNext 调用的
+build。行为与现在完全一致，风险最小。
+- 方案 B（后续再做）：改用 `compiler.removeConsole: { exclude: [...] }`（按 `APP_ENV`
+区分），删掉 webpack hook，切到 Turbopack 构建。需要单独验证 Sentry sourcemap 和 OpenNext 的
+Turbopack 产物。
+3. **`next.config.ts` 里的 `eslint: { ignoreDuringBuilds }`**：Next 16 移除了
+`next lint` 和这个配置项，直接删掉即可。仓库的 lint 本来就走 `eslint` CLI（`package.json` 的
+`lint` 脚本），不受影响。
+4. **`eslint.config.mjs`**：现在通过 `FlatCompat` 引入
+`compat.extends('next/core-web-vitals',
+'next/typescript')`。`eslint-config-next@16` 原生提供 flat config，要改成直接
+import `eslint-config-next/core-web-vitals` 和
+`eslint-config-next/typescript`，并确认 `@next/next/*` 和 react-hooks
+规则的覆盖仍然生效。
+
+### 已确认无需改动
+- **异步 Request API**：`src/app` 下已有 28 个文件使用 `params: Promise<…>`；同步访问
+`params` 对象的写法、未 await 的 `cookies()` / `headers()` / `draftMode()` 都为
+0。Next 16 移除的同步兼容层对我们没有影响。
+- `revalidateTag()`（16 要求传第二个参数）：没有使用。
+- 并行路由（`@slot` 需要 `default.js`）：没有。
+- `next/legacy/image`、AMP、`serverRuntimeConfig` /
+`publicRuntimeConfig`、`unstable_*`：都没有使用。
+- **`images` 默认值变化**：16 里 `minimumCacheTTL` 和 `imageSizes`
+的默认值变了，但我们都已显式配置。没有非 75 的 `quality` 用法，也没有带 query string
+的本地图片（`localPatterns.search`）。
+
+### 需要专项验证
+- **三种构建形态**都要能出产物：OpenNext Cloudflare（Web 主站）、`APP_BUILD=1` 静态导出（iOS
+离线包，`output: 'export'` + `assetPrefix: './'`）、`DESKTOP_BUILD=1`
+standalone（`outputFileTracingRoot`）。
+- **Sentry**：确认 staging 部署后，错误堆栈仍能还原到源码（ECA-874 的回归点）。
+- **dev 体验**：`next dev` 在 16 默认就是 Turbopack，`dev:turbo` 和
+`dev:staging:turbo` 脚本可以合并或清理。还要确认在有 webpack 配置时 dev 只是警告、不会报错。
+- `transpilePackages`（`@zooclaw/chat-ui`、`@zooclaw/design-system`）在 16
+下能正常编译。
+- `redirects` / `rewrites` 的 `beforeFiles`，与 middleware 的执行顺序不变（`/` →
+`/en` 的 rewrite、`/en` 的 301）。
+
+### 落地步骤
+1. 写设计文档
+`docs/superpowers/specs/2026-10-2x-web-app-next16.md`，记录上面三个决策：middleware
+保留、先用 `--webpack`、ESLint flat config。
+2. 开新 worktree 升级依赖（`pnpm install`，注意 `minimumReleaseAge`），完成"必改项" 1–4。
+3. 本地跑 `bash scripts/verify-web.sh`（tsc、vitest、eslint），三种构建形态各跑一次，再用
+`opennextjs-cloudflare preview` 本地冒烟。
+4. 合并后观察 staging 部署，跑 e2e 和 staging smoke，确认 Sentry 堆栈正常，再发 production。
+5. **删除本 PR 加的 `--dangerouslyUseUnsupportedNextVersion`**（`deploy.yml`
+两处、`package.json` 三处），并把根目录 `AGENTS.md` 里的 "`app/` (main Next.js 15
+app)" 更新为 16。
+
+### 风险与回滚
+- 主要风险是 OpenNext Cloudflare 对 Next 16 产物的兼容性，以及 middleware 的 deprecation
+路径。
+- 回滚方式：revert 升级 PR 即可，回到本 PR 的状态（Next 15 + flag），部署仍然可用。
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-authored-by: Claude Opus 5.5 <noreply@anthropic.com>
+```
+
+### PR Body
+
+> [!WARNING]
+> **这是临时方案（stopgap）**：本 PR 只是让 Next.js 15 构建继续通过，**不解决** Next 15 已停止官方支持（不再有安全补丁）的问题。彻底方案是把 `web/app` 升级到 Next.js 16（见下文"彻底方案"），完成后需要删除本 PR 加的 flag。
+
+## Summary
+- 给 `web/app` 的 `opennextjs-cloudflare build` 加上 `--dangerouslyUseUnsupportedNextVersion`：`deploy.yml` 的 staging / production 两处，以及 `package.json` 的 `deploy` / `deploy:staging` / `preview` 脚本。
+- 这个 flag 只是把 OpenNext 的版本检查从报错降级为警告，**构建产物不变**。
+- `enterprise-admin` 已经在 Next 16.3.3 上，本 PR 不改动它。
+
+## Root cause
+失败的 run：https://github.com/SerendipityOneInc/ecap-workspace/actions/runs/39536707354/job/119014951961
+
+```
+ERROR Next.js version 15.5.25 is not supported by the Next.js team.
+If you want to proceed anyway, use the --dangerouslyUseUnsupportedNextVersion flag.
+```
+
+`@opennextjs/aws`（`dist/build/helper.js` 的 `isNextVersionSupported`）里硬编码了 Next 各大版本的发布日期表，一旦 `now > 发布日 + 2 年` 就让构建失败。Next 15 发布于 2024-10-21，所以从 2026-10-21 起，无论 15.x 的补丁版本和 lockfile 怎么写，`web/app` 的每次构建都会失败。这是**按日期触发的故障**，与代码变更无关。
+
+以下做法都没用：
+- 在 15.x 范围内升级 `next`：仍是 15，照样不过。
+- 升级 `@opennextjs/cloudflare` 到 1.20.x：检查逻辑相同。
+
+## Test plan
+- [ ] 合并后 `Deploy ECAP (Staging)` 的 OpenNext 构建步骤通过，日志里出现 "Continuing build due to --dangerouslyUseUnsupportedNextVersion flag"。注意 PR CI 只跑 `next build`，跑不到这一步，所以只能在合并后验证。
+- [ ] 部署后做一次 staging smoke
+
+---
+
+## 彻底方案：`web/app` 升级 Next.js 16（follow-up PR）
+
+### 目标版本
+| 包 | 当前 | 目标 | 原因 |
+|---|---|---|---|
+| `next` | ^15.5.24（锁定 15.5.25） | `^16.4.2`（目前的 latest） | OpenNext 1.20.12 的 peer 要求 `>=16.4.1` |
+| `eslint-config-next` | ^15.5.24 | `^16.4.2` | 与 next 同步 |
+| `@opennextjs/cloudflare` | ^1.19.11 | `^1.20.12` | 对齐 Next 16.4 |
+| `wrangler` | ^4.98.0 | `^4.148.0` | OpenNext 1.20.12 的 peer 要求 |
+| `@sentry/nextjs` | ^10.57.0 | 确认支持 Next 16 的最低版本，必要时升级 | `withSentryConfig` 和 Turbopack 的 sourcemap 上传 |
+
+`enterprise-admin` 的 `@opennextjs/cloudflare`（也是 ^1.19.11）建议一并升到 1.20.x，避免 workspace 里出现两套 OpenNext。
+
+### 必改项（已在代码里逐项确认）
+1. **`middleware.ts` 保留，不改成 `proxy.ts`（关键决策）**
+   - Next 16 新增的 `proxy.ts` 只支持 Node.js runtime。而 `@opennextjs/cloudflare` 源码（`bundle-node-middleware.js`）明确写着：在 workerd 上运行 Node.js middleware 是 *"experimental and is not supported by the OpenNext maintainers"*。
+   - `middleware.ts`（edge runtime）在 Next 16 只是 deprecated，仍然可用。所以 `src/middleware.ts`（约 18KB，包含 locale、鉴权和 body-size matcher 逻辑）先保持原样。等 OpenNext 正式支持 Node proxy 之后，再单独迁移。
+2. **`next.config.ts` 里的自定义 `webpack()` 配置与 Turbopack**
+   - Next 16 的 `next build` 默认使用 Turbopack。检测到自定义 `webpack` 配置时，构建会直接报错。
+   - 现在这段配置的作用是：在 production 环境通过 Terser 去掉 `console.*` / `debugger`（staging 保留）。
+   - 方案 A（推荐先走）：构建统一加 `--webpack`，覆盖 `build`、`build:dev`、`app:staging`、`app:prod`，以及 OpenNext 调用的 build。行为与现在完全一致，风险最小。
+   - 方案 B（后续再做）：改用 `compiler.removeConsole: { exclude: [...] }`（按 `APP_ENV` 区分），删掉 webpack hook，切到 Turbopack 构建。需要单独验证 Sentry sourcemap 和 OpenNext 的 Turbopack 产物。
+3. **`next.config.ts` 里的 `eslint: { ignoreDuringBuilds }`**：Next 16 移除了 `next lint` 和这个配置项，直接删掉即可。仓库的 lint 本来就走 `eslint` CLI（`package.json` 的 `lint` 脚本），不受影响。
+4. **`eslint.config.mjs`**：现在通过 `FlatCompat` 引入 `compat.extends('next/core-web-vitals', 'next/typescript')`。`eslint-config-next@16` 原生提供 flat config，要改成直接 import `eslint-config-next/core-web-vitals` 和 `eslint-config-next/typescript`，并确认 `@next/next/*` 和 react-hooks 规则的覆盖仍然生效。
+
+### 已确认无需改动
+- **异步 Request API**：`src/app` 下已有 28 个文件使用 `params: Promise<…>`；同步访问 `params` 对象的写法、未 await 的 `cookies()` / `headers()` / `draftMode()` 都为 0。Next 16 移除的同步兼容层对我们没有影响。
+- `revalidateTag()`（16 要求传第二个参数）：没有使用。
+- 并行路由（`@slot` 需要 `default.js`）：没有。
+- `next/legacy/image`、AMP、`serverRuntimeConfig` / `publicRuntimeConfig`、`unstable_*`：都没有使用。
+- **`images` 默认值变化**：16 里 `minimumCacheTTL` 和 `imageSizes` 的默认值变了，但我们都已显式配置。没有非 75 的 `quality` 用法，也没有带 query string 的本地图片（`localPatterns.search`）。
+
+### 需要专项验证
+- **三种构建形态**都要能出产物：OpenNext Cloudflare（Web 主站）、`APP_BUILD=1` 静态导出（iOS 离线包，`output: 'export'` + `assetPrefix: './'`）、`DESKTOP_BUILD=1` standalone（`outputFileTracingRoot`）。
+- **Sentry**：确认 staging 部署后，错误堆栈仍能还原到源码（ECA-874 的回归点）。
+- **dev 体验**：`next dev` 在 16 默认就是 Turbopack，`dev:turbo` 和 `dev:staging:turbo` 脚本可以合并或清理。还要确认在有 webpack 配置时 dev 只是警告、不会报错。
+- `transpilePackages`（`@zooclaw/chat-ui`、`@zooclaw/design-system`）在 16 下能正常编译。
+- `redirects` / `rewrites` 的 `beforeFiles`，与 middleware 的执行顺序不变（`/` → `/en` 的 rewrite、`/en` 的 301）。
+
+### 落地步骤
+1. 写设计文档 `docs/superpowers/specs/2026-10-2x-web-app-next16.md`，记录上面三个决策：middleware 保留、先用 `--webpack`、ESLint flat config。
+2. 开新 worktree 升级依赖（`pnpm install`，注意 `minimumReleaseAge`），完成"必改项" 1–4。
+3. 本地跑 `bash scripts/verify-web.sh`（tsc、vitest、eslint），三种构建形态各跑一次，再用 `opennextjs-cloudflare preview` 本地冒烟。
+4. 合并后观察 staging 部署，跑 e2e 和 staging smoke，确认 Sentry 堆栈正常，再发 production。
+5. **删除本 PR 加的 `--dangerouslyUseUnsupportedNextVersion`**（`deploy.yml` 两处、`package.json` 三处），并把根目录 `AGENTS.md` 里的 "`app/` (main Next.js 15 app)" 更新为 16。
+
+### 风险与回滚
+- 主要风险是 OpenNext Cloudflare 对 Next 16 产物的兼容性，以及 middleware 的 deprecation 路径。
+- 回滚方式：revert 升级 PR 即可，回到本 PR 的状态（Next 15 + flag），部署仍然可用。
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+
+---
+
+## feat(web): add October event recaps (#4088)
+
+- **SHA**: `61819da69b0545201be75e651f29cb634de02b4d`
+- **作者**: anna-srp
+- **日期**: 2026-10-21T02:59:46Z
+- **PR**: #4088
+
+### Commit Message
+
+```
+feat(web): add October event recaps (#4088)
+
+The Events page was missing ZooWork’s October 14 BytePlus showcase and
+October 17 Fudan forum, and past-event cards assumed every event had an
+external source link.
+
+This change adds both events with approved photography and role-aware
+copy, keeps the BytePlus card static because no public source link is
+available, and standardizes every past event on one unobstructed cover
+image with labels below the image. It also preserves recap-first actions
+for events that have both a recap and an original event page.
+
+The explicit Inter/Noto Sans body stack aligns the page with ZooWork’s
+marketing typography and provides a predictable CJK fallback. Follow-up
+review fixes preserve bottom spacing on source-less cards and document
+the optional `url`/`cta` pair for future event updates.
+
+Validation:
+- ESLint on the Events page files and unit test
+- 15 Events unit tests
+- TypeScript typecheck
+- Visual review at mobile and desktop widths
+
+---------
+
+Co-authored-by: Yueru Wang <yueruwang@Yuerus-MacBook-Air.local>
+```
+
+### PR Body
+
+The Events page was missing ZooWork’s October 14 BytePlus showcase and October 17 Fudan forum, and past-event cards assumed every event had an external source link.
+
+This change adds both events with approved photography and role-aware copy, keeps the BytePlus card static because no public source link is available, and standardizes every past event on one unobstructed cover image with labels below the image. It also preserves recap-first actions for events that have both a recap and an original event page.
+
+The explicit Inter/Noto Sans body stack aligns the page with ZooWork’s marketing typography and provides a predictable CJK fallback. Follow-up review fixes preserve bottom spacing on source-less cards and document the optional `url`/`cta` pair for future event updates.
+
+Validation:
+- ESLint on the Events page files and unit test
+- 15 Events unit tests
+- TypeScript typecheck
+- Visual review at mobile and desktop widths
+
+
+---
+
+## fix(platform): align runtime defaults and require identity for new agents (#4103)
+
+- **SHA**: `aeac09d07f3985b762f32c6692dea01e80db2571`
+- **作者**: kaka-srp
+- **日期**: 2026-10-21T00:21:59Z
+- **PR**: #4103
+
+### Commit Message
+
+```
+fix(platform): align runtime defaults and require identity for new agents (#4103)
+
+## Problem and change
+
+Platform Agents received the default Work knowledge-base Skill even
+though their identity cannot authorize it. Align only that implicit
+global default before credential activation or Sandbox preparation,
+using the existing Engine toggle. Preserve explicit bindings/pins,
+custom Skills and other defaults. Once a runtime binding exists,
+creation replays preserve later user edits and still resume credential
+handoff; they cannot disable a later KB selection, clear its pin or fail
+on a source-owned binding.
+
+Remove the first-phase new-Agent rollout switch. All creation entry
+points request runtime identity; idempotent retries keep the persisted
+original mode, and existing Agents remain subject to explicit migration.
+Startup requires the existing environment, introspection key and MCP
+URL. No new settings, endpoint, schema or bulk migration.
+
+## Validation
+
+- 302 targeted tests passed across creation, persisted identity/binding,
+caller overrides, Platform defaults/tenancy/payer, credential recovery
+and startup configuration. Six new cases cover pending/active/revoked
+replay and interruptions before defaults, before binding and after
+binding. Four regressions fail on the unfixed source; all 11
+default-capability tests pass on the fix.
+- `verify-py.sh`, commit hooks and all eight import contracts passed.
+- Local Astra reviewed all 34 changed files across the three PRs. Its
+single P2 (replay overwriting later explicit Skills) is fixed in
+`83e2ac48e`; targeted re-review closed it with no new findings and 20
+tests passed. Initial independent CI 196 / Proxy 325 tests also passed.
+Proxy and Skills had no findings requiring changes.
+- All applicable GitHub checks passed after syncing main at `07b99c343`
+(22 passed, 25 skipped), including full backend CI: 12,655 passed, 14
+skipped, 89.60% coverage
+([run](https://github.com/SerendipityOneInc/ecap-workspace/actions/runs/39450138439)).
+Codex found no issues; Claude found no code defect and requested
+release-precondition confirmation. Mandatory startup settings were
+verified in staging/production; dev/preview was not inspected and
+requires its own configuration preflight before deployment. Interrupted
+default initialization and credential handoff are covered by the new
+regressions.
+
+## Delivery
+
+The preceding `d48073feb` was directly published as
+`service-v0.18.41-beta.runtimecapabilities.2` ([staging
+run](https://github.com/SerendipityOneInc/ecap-workspace/actions/runs/39414740356)),
+with the obsolete switch removed from staging
+Vault/Secret/Deployment/process. Real model calls, published audio
+scripts, private voice/speaker isolation, Work KB success and Platform
+KB denial passed; all test resources were cleaned up.
+
+The replay fix is now accepted against real staging Engine on
+`07b99c343` (backend tree identical to Astra-reviewed `83e2ac48e`),
+deployed as `service-v0.18.41-beta.runtimecapabilities.3`
+([run](https://github.com/SerendipityOneInc/ecap-workspace/actions/runs/39450155667)).
+Actual API replays preserve a later enabled KB and its persisted v2 pin;
+source-owned Skills retain their 409 toggle guard while replay succeeds.
+Platform/Work model replies, Sandbox opaque aliases and Proxy
+authorization passed, with all test Agents/keys cleaned up.
+Interrupted-create failure cases remain unit-tested rather than live
+fault-injected. PR remains unmerged and no stock migration was applied.
+Publish [Proxy
+#218](https://github.com/SerendipityOneInc/ecap-proxy-service/pull/218)
+before CI; [Skills
+#298](https://github.com/SerendipityOneInc/ecap-skills/pull/298)
+supplies documentation only and is deferred at the user's request; it is
+not a runtime dependency. Existing-Agent/Session migration and
+third-party consumers remain separate.
+```
+
+### PR Body
+
+## Problem and change
+
+Platform Agents received the default Work knowledge-base Skill even though their identity cannot authorize it. Align only that implicit global default before credential activation or Sandbox preparation, using the existing Engine toggle. Preserve explicit bindings/pins, custom Skills and other defaults. Once a runtime binding exists, creation replays preserve later user edits and still resume credential handoff; they cannot disable a later KB selection, clear its pin or fail on a source-owned binding.
+
+Remove the first-phase new-Agent rollout switch. All creation entry points request runtime identity; idempotent retries keep the persisted original mode, and existing Agents remain subject to explicit migration. Startup requires the existing environment, introspection key and MCP URL. No new settings, endpoint, schema or bulk migration.
+
+## Validation
+
+- 302 targeted tests passed across creation, persisted identity/binding, caller overrides, Platform defaults/tenancy/payer, credential recovery and startup configuration. Six new cases cover pending/active/revoked replay and interruptions before defaults, before binding and after binding. Four regressions fail on the unfixed source; all 11 default-capability tests pass on the fix.
+- `verify-py.sh`, commit hooks and all eight import contracts passed.
+- Local Astra reviewed all 34 changed files across the three PRs. Its single P2 (replay overwriting later explicit Skills) is fixed in `83e2ac48e`; targeted re-review closed it with no new findings and 20 tests passed. Initial independent CI 196 / Proxy 325 tests also passed. Proxy and Skills had no findings requiring changes.
+- All applicable GitHub checks passed after syncing main at `07b99c343` (22 passed, 25 skipped), including full backend CI: 12,655 passed, 14 skipped, 89.60% coverage ([run](https://github.com/SerendipityOneInc/ecap-workspace/actions/runs/39450138439)). Codex found no issues; Claude found no code defect and requested release-precondition confirmation. Mandatory startup settings were verified in staging/production; dev/preview was not inspected and requires its own configuration preflight before deployment. Interrupted default initialization and credential handoff are covered by the new regressions.
+
+## Delivery
+
+The preceding `d48073feb` was directly published as `service-v0.18.41-beta.runtimecapabilities.2` ([staging run](https://github.com/SerendipityOneInc/ecap-workspace/actions/runs/39414740356)), with the obsolete switch removed from staging Vault/Secret/Deployment/process. Real model calls, published audio scripts, private voice/speaker isolation, Work KB success and Platform KB denial passed; all test resources were cleaned up.
+
+The replay fix is now accepted against real staging Engine on `07b99c343` (backend tree identical to Astra-reviewed `83e2ac48e`), deployed as `service-v0.18.41-beta.runtimecapabilities.3` ([run](https://github.com/SerendipityOneInc/ecap-workspace/actions/runs/39450155667)). Actual API replays preserve a later enabled KB and its persisted v2 pin; source-owned Skills retain their 409 toggle guard while replay succeeds. Platform/Work model replies, Sandbox opaque aliases and Proxy authorization passed, with all test Agents/keys cleaned up. Interrupted-create failure cases remain unit-tested rather than live fault-injected. Merged as `aeac09d07` and released to production as `service-v0.18.41-release` ([deploy 39520990248](https://github.com/SerendipityOneInc/ecap-workspace/actions/runs/39520990248)), after Proxy `v0.6.70-release`. Real production Platform/Work SDK creation, model replies, Sandbox opaque aliases, KB authorization and create replays (including source-owned Skills) passed; all test Agents/keys were cleaned up. [Release notification 39521379976](https://github.com/SerendipityOneInc/ecap-workspace/actions/runs/39521379976) succeeded with Lark provider acceptance. Local GCP auth was expired; deployment confirmation comes from the remote GKE rollout receipt and live API acceptance, without claiming a fresh direct Pod-digest readback. No stock migration was applied; [Skills #298](https://github.com/SerendipityOneInc/ecap-skills/pull/298) supplies documentation only and is deferred at the user's request; it is not a runtime dependency. Existing-Agent/Session migration and third-party consumers remain separate.
+
+
+---
