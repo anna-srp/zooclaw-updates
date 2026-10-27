@@ -1,5 +1,22 @@
 # Updates Index
 
+## 2026-10-26
+
+- [频道新增互动规则设置与暂停/恢复开关，不用删连接也能停用 (#4136)](updates/2026-10-26/channel-interaction-settings-pause-4136.md) — 新功能上线 / 外部 A
+- [Work 设置不再签发新的 zct_ API Key，新建密钥统一走开发者平台 (#4071)](updates/2026-10-26/work-service-token-issuance-disabled-4071.md) — 产品基础功能更新 / 外部 A
+- [修复：有 Agent 运行时脱离后，全局产物库整页打不开 (#4029)](updates/2026-10-26/artifact-library-detached-runtime-4029.md) — Bug Fix / 外部 B
+- [修复：官网活动页切中文被甩回首页，现已上线完整中文版 (#4141)](updates/2026-10-26/events-page-chinese-localization-4141.md) — Bug Fix / 外部 B
+- [修复：绑定 Agent 运行时身份时自定义环境被改回默认，沙盒里命令消失 (#4140)](updates/2026-10-26/agent-environment-pin-preserved-4140.md) — Bug Fix / 外部 C
+- [修复：用量明细里工具服务记录统一标注为「工具使用」 (#3848)](updates/2026-10-26/usage-tool-service-label-3848.md) — Bug Fix / 外部 C
+
+## 2026-10-25
+
+- 当日无用户可感知更新
+
+## 2026-10-24
+
+- [修复：生成 PDF 时逐页做视觉验收、发布前校验文件哈希，内容不再编造来源里没有的署名和状态 (#301)](updates/2026-10-24/pdf-per-page-visual-acceptance-301.md) — Bug Fix / 外部 B
+
 ## 2026-10-23
 
 - [Word 技能新增逐页视觉验收，杜绝交付未经检查的文件 (#302)](updates/2026-10-23/docx-per-page-visual-acceptance-302.md) — Skill 上架/更新 / 外部 A

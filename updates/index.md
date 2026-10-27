@@ -1,5 +1,14 @@
 # Updates Index
 
+## 2026-10-26
+
+- [频道新增互动规则设置与暂停/恢复开关，不用删连接也能停用](2026-10-26/channel-interaction-settings-pause-4136.md)
+- [Work 设置不再签发新的 zct_ API Key，新建密钥统一走开发者平台](2026-10-26/work-service-token-issuance-disabled-4071.md)
+- [修复：有 Agent 运行时脱离后，全局产物库整页打不开](2026-10-26/artifact-library-detached-runtime-4029.md)
+- [修复：官网活动页切中文被甩回首页，现已上线完整中文版](2026-10-26/events-page-chinese-localization-4141.md)
+- [修复：绑定 Agent 运行时身份时自定义环境被改回默认，沙盒里命令消失](2026-10-26/agent-environment-pin-preserved-4140.md)
+- [修复：用量明细里工具服务记录统一标注为「工具使用」](2026-10-26/usage-tool-service-label-3848.md)
+
 ## 2026-10-25
 
 - 当日无用户可感知更新
